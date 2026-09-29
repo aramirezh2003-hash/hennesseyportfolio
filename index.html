@@ -4235,17 +4235,77 @@ function exportMotionReel(reel){
       if(!frame || !frame.naturalWidth) return;
       var iw = frame.naturalWidth || frame.width || 1;
       var ih = frame.naturalHeight || frame.height || 1;
-      var fit = Math.min((canvas.width * .86) / iw, (canvas.height * .82) / ih);
+      var framePath = (frame.getAttribute('src') || frame.src || '').toLowerCase();
+      var isPhoneFrame = framePath.indexOf('matchup-') > -1 || framePath.indexOf('kitlab-mobile-4k') > -1 || framePath.indexOf('kitlab-cart-mobile-4k') > -1;
+      var targetAspect = isPhoneFrame ? 9 / 16 : 16 / 10;
+      var baseWidth = isPhoneFrame ? Math.min(230, canvas.width * .28) : canvas.width * .76;
+      var baseHeight = baseWidth / targetAspect;
+      var maxHeight = canvas.height * (isPhoneFrame ? .78 : .72);
+      if(baseHeight > maxHeight){ baseHeight = maxHeight; baseWidth = baseHeight * targetAspect; }
       var pulse = 1 + .045 * Math.sin(progress * Math.PI * 2);
-      var w = iw * fit * pulse;
-      var h = ih * fit * pulse;
-      var x = (canvas.width - w) / 2 + Math.sin(progress * Math.PI * 2) * 16 + nudge;
-      var y = (canvas.height - h) / 2 + Math.cos(progress * Math.PI * 2) * 8;
+      var w = baseWidth * pulse;
+      var h = baseHeight * pulse;
+      var shellPad = isPhoneFrame ? 10 : 8;
+      var chromeHeight = isPhoneFrame ? 0 : 32;
+      var shellWidth = w + shellPad * 2;
+      var shellHeight = h + shellPad * 2 + chromeHeight;
+      var x = (canvas.width - shellWidth) / 2 + Math.sin(progress * Math.PI * 2) * 16 + nudge;
+      var y = (canvas.height - shellHeight) / 2 + Math.cos(progress * Math.PI * 2) * 8;
+      var imageX = x + shellPad;
+      var imageY = y + chromeHeight + shellPad;
+      var focusY = framePath.indexOf('preview-4k') > -1 || framePath.indexOf('cart-mobile-4k') > -1 ? .5 : 0;
+      var sourceAspect = iw / ih;
+      var cropWidth = iw;
+      var cropHeight = ih;
+      var cropX = 0;
+      var cropY = 0;
+      if(sourceAspect > targetAspect){
+        cropWidth = ih * targetAspect;
+        cropX = (iw - cropWidth) / 2;
+      } else {
+        cropHeight = iw / targetAspect;
+        cropY = Math.max(0, Math.min(ih - cropHeight, (ih - cropHeight) * focusY));
+      }
+      function roundedPath(px, py, pw, ph, radius){
+        ctx.beginPath();
+        if(ctx.roundRect){ ctx.roundRect(px, py, pw, ph, radius); return; }
+        ctx.moveTo(px + radius, py);
+        ctx.lineTo(px + pw - radius, py);
+        ctx.quadraticCurveTo(px + pw, py, px + pw, py + radius);
+        ctx.lineTo(px + pw, py + ph - radius);
+        ctx.quadraticCurveTo(px + pw, py + ph, px + pw - radius, py + ph);
+        ctx.lineTo(px + radius, py + ph);
+        ctx.quadraticCurveTo(px, py + ph, px, py + ph - radius);
+        ctx.lineTo(px, py + radius);
+        ctx.quadraticCurveTo(px, py, px + radius, py);
+        ctx.closePath();
+      }
       ctx.save();
       ctx.globalAlpha = alpha;
       ctx.shadowColor = 'rgba(0,0,0,.44)';
       ctx.shadowBlur = 30;
-      ctx.drawImage(frame,x,y,w,h);
+      roundedPath(x, y, shellWidth, shellHeight, isPhoneFrame ? 28 : 18);
+      ctx.fillStyle = isPhoneFrame ? '#0b111c' : '#eef2f6';
+      ctx.fill();
+      ctx.shadowColor = 'transparent';
+      if(isPhoneFrame){
+        roundedPath(x + (shellWidth - 66) / 2, y + 8, 66, 5, 5);
+        ctx.fillStyle = '#030711';
+        ctx.fill();
+      } else {
+        ctx.fillStyle = 'rgba(18,20,24,.5)';
+        ctx.beginPath(); ctx.arc(x + 17, y + 16, 3, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(x + 27, y + 16, 3, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(x + 37, y + 16, 3, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'rgba(18,20,24,.12)';
+        ctx.fillRect(x, y + chromeHeight - 1, shellWidth, 1);
+      }
+      ctx.restore();
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      roundedPath(imageX, imageY, w, h, isPhoneFrame ? 22 : 10);
+      ctx.clip();
+      ctx.drawImage(frame, cropX, cropY, cropWidth, cropHeight, imageX, imageY, w, h);
       ctx.restore();
     }
     drawFrame(primary, 1 - crossfade, 0);
