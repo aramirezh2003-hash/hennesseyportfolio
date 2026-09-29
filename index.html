@@ -2507,6 +2507,218 @@ body.studio-rebuild::before{
   }
 }
 
+.studio-rebuild .figma-journey{
+  margin:76px 0 20px;
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:rgba(255,255,255,.74);
+  box-shadow:0 22px 60px rgba(18,20,24,.08);
+  overflow:hidden;
+}
+.studio-rebuild .figma-journey__head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:28px;
+  padding-bottom:26px;
+  border-bottom:1px solid var(--line);
+}
+.studio-rebuild .figma-journey__head h3{
+  margin:10px 0 0;
+  max-width:540px;
+  color:var(--ink);
+  font-size:clamp(32px,4vw,60px);
+  line-height:.96;
+  letter-spacing:-.045em;
+}
+.studio-rebuild .figma-journey__head h3 em{color:var(--yellow);font-style:normal;}
+.studio-rebuild .figma-journey__head p{
+  max-width:330px;
+  margin:0;
+  color:var(--body)!important;
+  font-size:13px!important;
+  line-height:1.7!important;
+}
+.studio-rebuild .figma-journey__stage{
+  position:relative;
+  min-height:clamp(430px,50vw,650px);
+  margin:26px 0 18px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 50% 28%,rgba(255,255,255,.18),transparent 30%),
+    linear-gradient(145deg,#12152a,#202d54 55%,#0b0d18);
+  isolation:isolate;
+}
+.studio-rebuild .figma-journey__stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  opacity:.32;
+  background-image:linear-gradient(rgba(255,255,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.11) 1px,transparent 1px);
+  background-size:38px 38px;
+  mask-image:radial-gradient(circle at center,black,transparent 78%);
+}
+.studio-rebuild .figma-journey__stage::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(108deg,transparent 40%,rgba(255,255,255,.17) 49%,transparent 58%);
+  transform:translateX(-56%) rotate(8deg);
+  animation:figmaSheen 9s var(--ease-premium) infinite;
+}
+@keyframes figmaSheen{to{transform:translateX(56%) rotate(8deg);}}
+.studio-rebuild .figma-journey__glow{
+  position:absolute;
+  z-index:0;
+  width:42%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:var(--yellow);
+  filter:blur(90px);
+  opacity:.2;
+  animation:figmaGlow 7s ease-in-out infinite alternate;
+}
+@keyframes figmaGlow{to{transform:translate3d(20px,-14px,0) scale(1.18);opacity:.32;}}
+.studio-rebuild .figma-journey__frame{
+  position:relative;
+  z-index:2;
+  width:min(84%,900px);
+  max-height:clamp(340px,52vw,630px);
+  display:grid;
+  place-items:center;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.38);
+  border-radius:18px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 30px 80px rgba(0,0,0,.34);
+  transform:perspective(1200px) rotateX(2deg) rotateY(-3deg);
+  transition:transform .7s var(--ease-premium),width .5s ease,height .5s ease;
+}
+.studio-rebuild .figma-journey__frame.is-phone{
+  width:min(280px,54%);
+  max-height:clamp(420px,62vw,660px);
+  padding:8px;
+  border-radius:26px;
+  transform:perspective(1200px) rotateX(1deg) rotateY(-5deg) rotateZ(-1deg);
+}
+.studio-rebuild .figma-journey__frame.is-tall-crop{
+  width:min(270px,46%);
+  height:clamp(380px,52vw,610px);
+  overflow:hidden;
+  border-radius:24px;
+  align-self:center;
+}
+.studio-rebuild .figma-journey__frame.is-tall-crop .figma-journey__image{height:auto;max-height:none;align-self:start;}
+.studio-rebuild .figma-journey__image{
+  display:block;
+  width:100%;
+  max-height:clamp(320px,50vw,610px);
+  object-fit:contain;
+  border-radius:10px;
+  box-shadow:0 12px 26px rgba(10,12,20,.16);
+  transition:opacity .28s ease,transform .45s var(--ease-premium),filter .35s ease;
+}
+.studio-rebuild .figma-journey__image.is-switching{opacity:0;transform:translateY(18px) scale(.97);filter:blur(4px);}
+.studio-rebuild .figma-journey__stage-label{
+  position:absolute;
+  z-index:4;
+  top:18px;
+  left:20px;
+  right:20px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  color:rgba(255,255,255,.72);
+  font:600 10px 'Poppins',sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.studio-rebuild .figma-journey__stage-label span:last-child{color:var(--yellow);}
+.studio-rebuild .figma-journey__stamp{
+  position:absolute;
+  z-index:4;
+  right:20px;
+  bottom:18px;
+  color:rgba(255,255,255,.34);
+  font:600 10px 'Poppins',sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.studio-rebuild .figma-journey__rail{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.studio-rebuild .figma-thumb{
+  position:relative;
+  min-width:0;
+  min-height:126px;
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr) 72px;
+  align-items:start;
+  gap:10px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.7);
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+  overflow:hidden;
+  transition:transform .35s var(--ease-premium),border-color .3s ease,background .3s ease,box-shadow .3s ease;
+}
+.studio-rebuild .figma-thumb:hover{transform:translateY(-4px);border-color:rgba(53,85,255,.4);background:#fff;box-shadow:0 14px 28px rgba(18,20,24,.08);}
+.studio-rebuild .figma-thumb.is-active{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,202,57,.18);background:#fff;}
+.studio-rebuild .figma-thumb__index{color:var(--yellow);font:700 12px 'Poppins',sans-serif;letter-spacing:.08em;}
+.studio-rebuild .figma-thumb__copy{display:grid;gap:5px;align-content:start;}
+.studio-rebuild .figma-thumb__copy strong{font-size:12px;line-height:1.2;}
+.studio-rebuild .figma-thumb__copy small{color:var(--body);font-size:10px;line-height:1.35;}
+.studio-rebuild .figma-thumb img{width:72px;height:94px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line);background:#eef0f3;}
+.studio-rebuild .figma-journey__caption{display:flex;justify-content:space-between;gap:18px;margin-top:18px;color:var(--body);font-size:11px;line-height:1.5;}
+.studio-rebuild .figma-journey__caption strong{max-width:560px;color:var(--ink);font-size:13px;}
+.studio-rebuild .figma-journey__caption span{color:var(--body);text-align:right;}
+.studio-rebuild .detail-matchup .figma-journey{border-color:rgba(255,255,255,.13);background:#07152f;color:#fff;box-shadow:0 24px 64px rgba(0,0,0,.18);}
+.studio-rebuild .detail-matchup .figma-journey__head{border-color:rgba(255,255,255,.13);}
+.studio-rebuild .detail-matchup .figma-journey__head h3,.studio-rebuild .detail-matchup .figma-journey__caption strong{color:#fff;}
+.studio-rebuild .detail-matchup .figma-journey__head h3 em{color:var(--matchup);}
+.studio-rebuild .detail-matchup .figma-journey__head p,.studio-rebuild .detail-matchup .figma-journey__caption span{color:rgba(255,255,255,.65)!important;}
+.studio-rebuild .detail-matchup .figma-journey__stage{background:radial-gradient(circle at 50% 28%,rgba(198,241,53,.2),transparent 30%),linear-gradient(145deg,#07152f,#132244 55%,#061020);}
+.studio-rebuild .detail-matchup .figma-journey__stage-label span:last-child{color:var(--matchup);}
+.studio-rebuild .detail-matchup .figma-journey__glow{background:var(--matchup);}
+.studio-rebuild .detail-matchup .figma-thumb{border-color:rgba(255,255,255,.13);background:rgba(255,255,255,.06);color:#fff;}
+.studio-rebuild .detail-matchup .figma-thumb:hover,.studio-rebuild .detail-matchup .figma-thumb.is-active{border-color:var(--matchup);background:rgba(198,241,53,.1);}
+.studio-rebuild .detail-matchup .figma-thumb__index{color:var(--matchup);}
+.studio-rebuild .detail-matchup .figma-thumb__copy small{color:rgba(255,255,255,.6);}
+.studio-rebuild .detail-matchup .figma-thumb img{border-color:rgba(255,255,255,.16);}
+.studio-rebuild .motion-reel__stage img.reel-frame{opacity:0;transform:translate3d(0,16px,0) scale(.96);animation:none;transition:opacity .7s ease,transform .9s var(--ease-premium);}
+.studio-rebuild .motion-reel__stage img.reel-frame.is-active{opacity:1;transform:translate3d(0,0,0) scale(1);animation:reelDrift 11s ease-in-out infinite alternate;}
+@media (max-width:860px){
+  .studio-rebuild .figma-journey{padding:20px;border-radius:22px;}
+  .studio-rebuild .figma-journey__head{display:block;}
+  .studio-rebuild .figma-journey__head p{margin-top:16px;max-width:540px;}
+  .studio-rebuild .figma-journey__stage{min-height:clamp(390px,110vw,570px);margin-top:20px;}
+  .studio-rebuild .figma-journey__frame{width:92%;max-height:clamp(290px,78vw,500px);}
+  .studio-rebuild .figma-journey__frame.is-phone{width:min(250px,74%);max-height:clamp(390px,128vw,560px);}
+  .studio-rebuild .figma-journey__frame.is-tall-crop{width:min(220px,64%);height:clamp(330px,105vw,500px);}
+  .studio-rebuild .figma-journey__image{max-height:clamp(280px,76vw,480px);}
+  .studio-rebuild .figma-journey__rail{grid-template-columns:1fr;}
+  .studio-rebuild .figma-thumb{min-height:102px;grid-template-columns:28px minmax(0,1fr) 64px;}
+  .studio-rebuild .figma-thumb img{width:64px;height:82px;}
+  .studio-rebuild .figma-journey__caption{display:block;}
+  .studio-rebuild .figma-journey__caption span{display:block;margin-top:8px;text-align:left;}
+}
+@media (prefers-reduced-motion:reduce){
+  .studio-rebuild .figma-journey__stage::after,.studio-rebuild .figma-journey__glow{animation:none;}
+  .studio-rebuild .figma-journey__image,.studio-rebuild .figma-thumb{transition:none;}
+  .studio-rebuild .motion-reel__stage img.reel-frame{animation:none;transition:none;}
+}
 </style>
 </head>
 <body class="studio-rebuild">
@@ -2988,6 +3200,33 @@ body.studio-rebuild::before{
         <div><h4>Scalable by design</h4><p>Reusable, flexible product cards and consistent interface patterns let KitLab FS expand its catalogue while keeping the experience cohesive.</p></div>
       </div>
 
+      <section class="figma-journey" data-figma-journey data-journey-id="kitlab" aria-labelledby="kitlab-artifacts-title">
+        <div class="figma-journey__head">
+          <div><span class="kicker-sm">Figma artifacts / 01</span><h3 id="kitlab-artifacts-title">The flow works as a <em>sequence</em></h3></div>
+          <p>A closer look at the screens that shaped the redesign: product confidence first, then the mobile discovery rhythm, then the cart moment where intent becomes commitment.</p>
+        </div>
+        <div class="figma-journey__stage" data-gallery-stage>
+          <div class="figma-journey__stage-label"><span data-gallery-counter>01 / 03</span><span data-gallery-label>Product detail</span></div>
+          <div class="figma-journey__glow"></div>
+          <div class="figma-journey__frame is-wide" data-gallery-frame>
+            <img data-gallery-image src="assets/figma/kitlab-product.png" alt="KitLab product detail screen from Figma" />
+          </div>
+          <span class="figma-journey__stamp">KITLAB FS / SELECTED SCREENS</span>
+        </div>
+        <div class="figma-journey__rail" role="list">
+          <button type="button" class="figma-thumb is-active" data-gallery-item data-src="assets/figma/kitlab-product.png" data-shape="wide" data-label="Product detail" data-caption="Make the jersey feel configurable without making the customer feel lost." aria-label="Show KitLab product detail screen">
+            <span class="figma-thumb__index">01</span><span class="figma-thumb__copy"><strong>Product detail</strong><small>Choose with confidence</small></span><img src="assets/figma/kitlab-product.png" alt="" aria-hidden="true" />
+          </button>
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/kitlab-mobile.png" data-shape="tall-crop" data-label="Mobile homepage" data-caption="On mobile, the catalogue becomes a paced editorial scroll instead of a wall of products." aria-label="Show KitLab mobile homepage screen">
+            <span class="figma-thumb__index">02</span><span class="figma-thumb__copy"><strong>Mobile homepage</strong><small>Browse in a rhythm</small></span><img src="assets/figma/kitlab-mobile.png" alt="" aria-hidden="true" />
+          </button>
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/kitlab-cart.png" data-shape="wide" data-label="Cart drawer" data-caption="The cart keeps progress, rewards, and the next action legible at the point of purchase." aria-label="Show KitLab cart drawer screen">
+            <span class="figma-thumb__index">03</span><span class="figma-thumb__copy"><strong>Cart drawer</strong><small>Keep momentum visible</small></span><img src="assets/figma/kitlab-cart.png" alt="" aria-hidden="true" />
+          </button>
+        </div>
+        <div class="figma-journey__caption"><strong data-gallery-caption>Make the jersey feel configurable without making the customer feel lost.</strong><span>Auto-advances · use the cards to inspect each screen</span></div>
+      </section>
+
       <section class="case-lab scroll-reveal" data-motion-reveal aria-labelledby="kitlab-decision-title">
         <div class="case-lab-head">
           <div>
@@ -3003,7 +3242,7 @@ body.studio-rebuild::before{
           <button type="button" class="thinking-step"><span class="step-no">04 / DECIDE</span><strong>Show the impact</strong><p>Keep price and selections visible as they change.</p></button>
           <button type="button" class="thinking-step"><span class="step-no">05 / REFINE</span><strong>Keep it scalable</strong><p>Turn the winning patterns into reusable components.</p></button>
         </div>
-        <div class="motion-reel" data-reel-target="kitlab-hero-img">
+        <div class="motion-reel" data-reel-target="kitlab-hero-img" data-reel-sequence="assets/figma/kitlab-product.png|assets/figma/kitlab-mobile.png|assets/figma/kitlab-cart.png">
           <div class="motion-reel__head"><span class="motion-reel__eyebrow">Motion study / 01</span><span class="motion-reel__title">Catalogue &rarr; confidence</span></div>
           <div class="motion-reel__stage" data-reel-stage aria-label="Animated KitLab visual study"><span class="motion-reel__scanline"></span><span class="motion-reel__orbit"></span><span class="motion-reel__orbit orbit-two"></span><span class="motion-reel__label">KITLAB / 01</span></div>
           <div class="motion-reel__footer"><span class="motion-reel__caption">A slow visual pass through the system language.</span><div class="motion-reel__progress"><span></span></div><button type="button" class="motion-reel__export" data-reel-export>Export .webm</button><button type="button" class="motion-reel__toggle" data-reel-toggle aria-pressed="false">Pause motion</button></div>
@@ -3073,6 +3312,33 @@ body.studio-rebuild::before{
         <div><h4>Transparent cost sharing</h4><p>Costs are calculated and split automatically across paid positions, replacing manual chasing with a clear, shared total.</p></div>
       </div>
 
+      <section class="figma-journey" data-figma-journey data-journey-id="matchup" aria-labelledby="matchup-artifacts-title">
+        <div class="figma-journey__head">
+          <div><span class="kicker-sm">Figma artifacts / 02</span><h3 id="matchup-artifacts-title">Designing toward <em>kickoff</em></h3></div>
+          <p>The MatchUp story is a chain of trust: discover a real game, inspect the context on a map, then return after the match with a shared record of what happened.</p>
+        </div>
+        <div class="figma-journey__stage" data-gallery-stage>
+          <div class="figma-journey__stage-label"><span data-gallery-counter>01 / 03</span><span data-gallery-label>Discover games</span></div>
+          <div class="figma-journey__glow"></div>
+          <div class="figma-journey__frame is-phone" data-gallery-frame>
+            <img data-gallery-image src="assets/figma/matchup-home.png" alt="MatchUp discover games screen from Figma" />
+          </div>
+          <span class="figma-journey__stamp">MATCHUP / FLOW STUDY</span>
+        </div>
+        <div class="figma-journey__rail" role="list">
+          <button type="button" class="figma-thumb is-active" data-gallery-item data-src="assets/figma/matchup-home.png" data-shape="phone" data-label="Discover games" data-caption="The home state makes time, cost, skill, and availability visible before a player commits." aria-label="Show MatchUp discover games screen">
+            <span class="figma-thumb__index">01</span><span class="figma-thumb__copy"><strong>Discover games</strong><small>See the full context</small></span><img src="assets/figma/matchup-home.png" alt="" aria-hidden="true" />
+          </button>
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/matchup-preview.png" data-shape="phone" data-label="Map preview" data-caption="A map preview answers the practical question behind the social one: can I actually get there and join?" aria-label="Show MatchUp map preview screen">
+            <span class="figma-thumb__index">02</span><span class="figma-thumb__copy"><strong>Map preview</strong><small>Reduce uncertainty</small></span><img src="assets/figma/matchup-preview.png" alt="" aria-hidden="true" />
+          </button>
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/matchup-results.png" data-shape="phone" data-label="Match summary" data-caption="The post-match state turns a one-off game into a reusable social loop through performance, recognition, and a clear next action." aria-label="Show MatchUp match summary screen">
+            <span class="figma-thumb__index">03</span><span class="figma-thumb__copy"><strong>Match summary</strong><small>Make the loop continue</small></span><img src="assets/figma/matchup-results.png" alt="" aria-hidden="true" />
+          </button>
+        </div>
+        <div class="figma-journey__caption"><strong data-gallery-caption>The home state makes time, cost, skill, and availability visible before a player commits.</strong><span>Auto-advances · use the cards to inspect each screen</span></div>
+      </section>
+
       <section class="case-lab scroll-reveal" data-motion-reveal aria-labelledby="matchup-decision-title">
         <div class="case-lab-head">
           <div>
@@ -3088,7 +3354,7 @@ body.studio-rebuild::before{
           <button type="button" class="thinking-step"><span class="step-no">04 / DECIDE</span><strong>Remove awkward asks</strong><p>Let position and payment decisions happen in context.</p></button>
           <button type="button" class="thinking-step"><span class="step-no">05 / REFINE</span><strong>Design for kickoff</strong><p>Carry certainty all the way from invite to field.</p></button>
         </div>
-        <div class="motion-reel" data-reel-target="matchup-hero-img">
+        <div class="motion-reel" data-reel-target="matchup-hero-img" data-reel-sequence="assets/figma/matchup-home.png|assets/figma/matchup-preview.png|assets/figma/matchup-results.png">
           <div class="motion-reel__head"><span class="motion-reel__eyebrow">Motion study / 02</span><span class="motion-reel__title">Invite &rarr; shared certainty</span></div>
           <div class="motion-reel__stage" data-reel-stage aria-label="Animated MatchUp visual study"><span class="motion-reel__scanline"></span><span class="motion-reel__orbit"></span><span class="motion-reel__orbit orbit-two"></span><span class="motion-reel__label">MATCHUP / 02</span></div>
           <div class="motion-reel__footer"><span class="motion-reel__caption">A visual rhythm for connected player and organizer journeys.</span><div class="motion-reel__progress"><span></span></div><button type="button" class="motion-reel__export" data-reel-export>Export .webm</button><button type="button" class="motion-reel__toggle" data-reel-toggle aria-pressed="false">Pause motion</button></div>
@@ -3374,7 +3640,9 @@ function showRoute(route, opts){
   var active = document.getElementById('route-' + route);
   if(active){
     initRevealAndCounters(active);
+    initFigmaHeroAssets(active);
     initMotionReels(active);
+    initFigmaJourneys(active);
     initThinkingRails(active);
     initMotionReveals(active);
   }
@@ -3476,9 +3744,87 @@ function showToast(msg){
   });
 })();
 
+/* ---------------- Figma artifacts + motion studies ---------------- */
+var FIGMA_CASE_ASSETS = {
+  'case-kitlab': {hero:'assets/figma/kitlab-product.png', alt:'KitLab product detail screen from Figma'},
+  'case-matchup': {hero:'assets/figma/matchup-home.png', alt:'MatchUp discover games screen from Figma'}
+};
+
+function initFigmaHeroAssets(scope){
+  var route = scope && scope.getAttribute ? scope.getAttribute('data-route') : '';
+  var config = (typeof FIGMA_CASE_ASSETS !== 'undefined' && FIGMA_CASE_ASSETS) ? FIGMA_CASE_ASSETS[route] : null;
+  if(!config) return;
+  var hero = scope.querySelector('[data-figma-hero]') || scope.querySelector('.case-media-lg img');
+  if(!hero || hero.getAttribute('data-figma-bound') === config.hero) return;
+  hero.src = config.hero;
+  hero.setAttribute('data-final', config.hero);
+  hero.setAttribute('data-figma-bound', config.hero);
+  hero.setAttribute('alt', config.alt);
+}
+
+(function(){
+  var active = document.querySelector('.route-section.active');
+  if(active) initFigmaHeroAssets(active);
+})();
+
+function initFigmaJourneys(scope){
+  scope = scope || document;
+  forEachEl(scope.querySelectorAll('[data-figma-journey]:not([data-figma-ready])'), function(journey){
+    var items = Array.prototype.slice.call(journey.querySelectorAll('[data-gallery-item]'));
+    var image = journey.querySelector('[data-gallery-image]');
+    var frame = journey.querySelector('[data-gallery-frame]');
+    var counter = journey.querySelector('[data-gallery-counter]');
+    var label = journey.querySelector('[data-gallery-label]');
+    var caption = journey.querySelector('[data-gallery-caption]');
+    var previous = journey.querySelector('[data-gallery-prev]');
+    var next = journey.querySelector('[data-gallery-next]');
+    if(!items.length || !image || !frame) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var index = 0;
+    var timer = null;
+    function render(nextIndex, instant){
+      index = (nextIndex + items.length) % items.length;
+      var item = items[index];
+      var src = item.getAttribute('data-src');
+      var shape = item.getAttribute('data-shape') || 'wide';
+      var itemLabel = item.getAttribute('data-label') || '';
+      var itemCaption = item.getAttribute('data-caption') || '';
+      forEachEl(items, function(button, buttonIndex){ button.classList.toggle('is-active', buttonIndex === index); });
+      frame.classList.remove('is-wide','is-phone','is-tall-crop');
+      frame.classList.add('is-' + shape);
+      if(counter) counter.textContent = String(index + 1).padStart(2,'0') + ' / ' + String(items.length).padStart(2,'0');
+      if(label) label.textContent = itemLabel;
+      if(caption) caption.textContent = itemCaption;
+      if(instant){ image.src = src; image.alt = itemLabel + ' screen from Figma'; return; }
+      image.classList.add('is-switching');
+      window.setTimeout(function(){
+        image.src = src;
+        image.alt = itemLabel + ' screen from Figma';
+        window.requestAnimationFrame(function(){ image.classList.remove('is-switching'); });
+      }, 220);
+    }
+    function start(){
+      if(reduced || items.length < 2) return;
+      if(timer) window.clearInterval(timer);
+      timer = window.setInterval(function(){ render(index + 1, false); }, 5600);
+    }
+    function stop(){ if(timer){ window.clearInterval(timer); timer = null; } }
+    forEachEl(items, function(item, itemIndex){ item.addEventListener('click', function(){ render(itemIndex, false); start(); }); });
+    if(previous) previous.addEventListener('click', function(){ render(index - 1, false); start(); });
+    if(next) next.addEventListener('click', function(){ render(index + 1, false); start(); });
+    journey.addEventListener('mouseenter', stop);
+    journey.addEventListener('mouseleave', start);
+    render(0, true);
+    start();
+    journey.setAttribute('data-figma-ready','1');
+  });
+}
+
 /* ---------------- Decision trails + motion studies ---------------- */
 function exportMotionReel(reel){
-  var source = reel.querySelector('[data-reel-stage] img');
+  var sources = Array.prototype.slice.call(reel.querySelectorAll('[data-reel-stage] img.reel-frame'));
+  if(!sources.length){ sources = Array.prototype.slice.call(reel.querySelectorAll('[data-reel-stage] img')); }
+  var source = sources[0];
   var button = reel.querySelector('[data-reel-export]');
   if(!source || !window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream){
     showToast('Your browser can play this reel, but native .webm export is unavailable here.');
@@ -3539,18 +3885,32 @@ function exportMotionReel(reel){
     ctx.lineWidth = 1;
     for(var gx=0; gx<canvas.width; gx+=38){ ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,canvas.height); ctx.stroke(); }
     for(var gy=0; gy<canvas.height; gy+=38){ ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(canvas.width,gy); ctx.stroke(); }
-    var iw = source.naturalWidth || source.width || 1;
-    var ih = source.naturalHeight || source.height || 1;
-    var fit = Math.min((canvas.width * .86) / iw, (canvas.height * .82) / ih);
-    var w = iw * fit * (1 + .045 * Math.sin(progress * Math.PI * 2));
-    var h = ih * fit * (1 + .045 * Math.sin(progress * Math.PI * 2));
-    var x = (canvas.width - w) / 2 + Math.sin(progress * Math.PI * 2) * 16;
-    var y = (canvas.height - h) / 2 + Math.cos(progress * Math.PI * 2) * 8;
-    ctx.save();
-    ctx.shadowColor = 'rgba(0,0,0,.44)';
-    ctx.shadowBlur = 30;
-    ctx.drawImage(source,x,y,w,h);
-    ctx.restore();
+    var frameCount = Math.max(sources.length,1);
+    var sequenceProgress = progress * frameCount;
+    var frameIndex = Math.min(frameCount - 1, Math.floor(sequenceProgress));
+    var frameLocal = sequenceProgress - frameIndex;
+    var primary = sources[frameIndex] || source;
+    var secondary = sources[(frameIndex + 1) % frameCount] || primary;
+    var crossfade = frameCount > 1 ? Math.max(0, Math.min(1, (frameLocal - .72) / .28)) : 0;
+    function drawFrame(frame, alpha, nudge){
+      if(!frame || !frame.naturalWidth) return;
+      var iw = frame.naturalWidth || frame.width || 1;
+      var ih = frame.naturalHeight || frame.height || 1;
+      var fit = Math.min((canvas.width * .86) / iw, (canvas.height * .82) / ih);
+      var pulse = 1 + .045 * Math.sin(progress * Math.PI * 2);
+      var w = iw * fit * pulse;
+      var h = ih * fit * pulse;
+      var x = (canvas.width - w) / 2 + Math.sin(progress * Math.PI * 2) * 16 + nudge;
+      var y = (canvas.height - h) / 2 + Math.cos(progress * Math.PI * 2) * 8;
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.shadowColor = 'rgba(0,0,0,.44)';
+      ctx.shadowBlur = 30;
+      ctx.drawImage(frame,x,y,w,h);
+      ctx.restore();
+    }
+    drawFrame(primary, 1 - crossfade, 0);
+    if(crossfade > 0) drawFrame(secondary, crossfade, 18);
     var sweep = progress * (canvas.width + 200) - 100;
     var sheen = ctx.createLinearGradient(sweep-100,0,sweep+100,0);
     sheen.addColorStop(0,'rgba(255,255,255,0)');
@@ -3578,7 +3938,24 @@ function initMotionReels(scope){
     var targetId = reel.getAttribute('data-reel-target');
     var source = targetId ? document.getElementById(targetId) : null;
     var stage = reel.querySelector('[data-reel-stage]');
-    if(source && stage && !stage.querySelector('img')){
+    var sequence = (reel.getAttribute('data-reel-sequence') || '').split('|').filter(Boolean);
+    if(stage && sequence.length && !stage.querySelector('.reel-frame')){
+      forEachEl(sequence, function(src, index){
+        var frame = document.createElement('img');
+        frame.className = 'reel-frame' + (index === 0 ? ' is-active' : '');
+        frame.src = src;
+        frame.alt = '';
+        frame.setAttribute('aria-hidden','true');
+        stage.insertBefore(frame, stage.firstChild);
+      });
+      if(sequence.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        var sequenceIndex = 0;
+        reel._reelTimer = window.setInterval(function(){
+          sequenceIndex = (sequenceIndex + 1) % sequence.length;
+          forEachEl(stage.querySelectorAll('.reel-frame'), function(frame, frameIndex){ frame.classList.toggle('is-active', frameIndex === sequenceIndex); });
+        }, 3600);
+      }
+    } else if(source && stage && !stage.querySelector('img')){
       var clone = source.cloneNode(true);
       clone.removeAttribute('id');
       clone.removeAttribute('data-final');
