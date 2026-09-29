@@ -2719,6 +2719,223 @@ body.studio-rebuild::before{
   .studio-rebuild .figma-journey__image,.studio-rebuild .figma-thumb{transition:none;}
   .studio-rebuild .motion-reel__stage img.reel-frame{animation:none;transition:none;}
 }
+
+/* ---------------- High-fidelity mockup system ---------------- */
+.studio-rebuild .case-media-lg{
+  position:relative;
+  isolation:isolate;
+  padding:14px 14px 16px!important;
+  overflow:hidden;
+  border:1px solid rgba(18,20,24,.14)!important;
+  border-radius:30px!important;
+  background:
+    radial-gradient(circle at 18% 0%,rgba(255,255,255,.94),transparent 38%),
+    linear-gradient(145deg,#dfe5eb,#f7f9fb 48%,#c9d2dc);
+  box-shadow:0 28px 80px rgba(18,20,24,.14), inset 0 1px 0 rgba(255,255,255,.7)!important;
+}
+.studio-rebuild .case-media-lg::before{
+  content:"";
+  position:absolute;
+  z-index:3;
+  top:0;
+  left:0;
+  right:0;
+  height:44px;
+  display:flex;
+  align-items:center;
+  padding:0 18px;
+  box-sizing:border-box;
+  border-bottom:1px solid rgba(18,20,24,.1);
+  background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(239,243,247,.76));
+  color:rgba(18,20,24,.48);
+  font:600 9px 'Poppins',sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  white-space:pre;
+}
+.studio-rebuild .case-media-lg::after{
+  content:"";
+  position:absolute;
+  z-index:4;
+  inset:-30% -60%;
+  pointer-events:none;
+  background:linear-gradient(112deg,transparent 42%,rgba(255,255,255,.34) 50%,transparent 58%);
+  transform:translateX(-34%) rotate(7deg);
+  animation:mockupGlint 10s var(--ease-premium) infinite;
+}
+@keyframes mockupGlint{to{transform:translateX(34%) rotate(7deg);}}
+.studio-rebuild .case-media-lg img{
+  position:relative;
+  z-index:2;
+  width:100%!important;
+  margin-top:30px;
+  display:block;
+  border:1px solid rgba(18,20,24,.14);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 20px 42px rgba(18,20,24,.18),0 1px 0 rgba(255,255,255,.9) inset;
+  object-fit:contain;
+}
+.studio-rebuild .detail-kitlab .case-media-lg::before{content:"●  ●  ●     kitlabfs.com  /  product detail";}
+.studio-rebuild .detail-commerce .case-media-lg::before{content:"●  ●  ●     commerceflow  /  overview";}
+.studio-rebuild .detail-commerce .case-media-lg{
+  background:
+    radial-gradient(circle at 72% 4%,rgba(139,107,255,.18),transparent 38%),
+    linear-gradient(145deg,#d9d5f7,#f0efff 48%,#c8c4ec);
+}
+.studio-rebuild .detail-matchup .case-media-lg{
+  width:min(390px,100%);
+  margin:26px auto;
+  padding:14px 10px 10px!important;
+  border:1px solid rgba(255,255,255,.26)!important;
+  border-radius:38px!important;
+  background:linear-gradient(145deg,#28334b,#080d19 66%,#1a273d);
+  box-shadow:0 32px 80px rgba(3,9,25,.28),inset 0 1px 0 rgba(255,255,255,.28)!important;
+}
+.studio-rebuild .detail-matchup .case-media-lg::before{
+  top:17px;
+  left:50%;
+  right:auto;
+  width:76px;
+  height:5px;
+  padding:0;
+  border:0;
+  border-radius:99px;
+  background:#030711;
+  transform:translateX(-50%);
+}
+.studio-rebuild .detail-matchup .case-media-lg::after{background:linear-gradient(112deg,transparent 40%,rgba(198,241,53,.18) 50%,transparent 60%);}
+.studio-rebuild .detail-matchup .case-media-lg img{
+  width:auto!important;
+  max-width:100%;
+  height:auto;
+  max-height:760px;
+  margin:26px auto 0;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:27px;
+  background:#0d1423;
+  box-shadow:0 18px 38px rgba(0,0,0,.34);
+}
+
+/* Browser and phone shells for the Figma gallery */
+.studio-rebuild .figma-journey__frame{
+  box-sizing:border-box;
+  padding:38px 10px 10px!important;
+  border:1px solid rgba(255,255,255,.45)!important;
+  border-radius:22px!important;
+  background:linear-gradient(180deg,#eef2f6,#fff 18%,#f8fafc)!important;
+  box-shadow:0 30px 84px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.95);
+}
+.studio-rebuild .figma-journey__frame::before{
+  content:"●  ●  ●     selected screen / prototype";
+  position:absolute;
+  z-index:4;
+  top:0;
+  left:0;
+  right:0;
+  height:31px;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  box-sizing:border-box;
+  border-bottom:1px solid rgba(18,20,24,.1);
+  background:linear-gradient(180deg,#fbfcfd,#e9eef3);
+  color:rgba(18,20,24,.46);
+  font:600 8px 'Poppins',sans-serif;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:pre;
+}
+.studio-rebuild .figma-journey__frame.is-wide{width:min(900px,88%);}
+.studio-rebuild .figma-journey__frame.is-wide .figma-journey__image{max-height:570px;}
+.studio-rebuild .figma-journey__frame.is-phone,
+.studio-rebuild .figma-journey__frame.is-tall-crop{
+  padding:18px 8px 8px!important;
+  border-color:rgba(255,255,255,.58)!important;
+  border-radius:34px!important;
+  background:linear-gradient(145deg,#313846,#0d111a 56%,#1c2637)!important;
+  box-shadow:0 30px 84px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.3);
+}
+.studio-rebuild .figma-journey__frame.is-phone::before,
+.studio-rebuild .figma-journey__frame.is-tall-crop::before{
+  top:9px;
+  left:50%;
+  right:auto;
+  width:72px;
+  height:5px;
+  padding:0;
+  border:0;
+  border-radius:99px;
+  background:#060910;
+  transform:translateX(-50%);
+}
+.studio-rebuild .figma-journey__frame.is-phone .figma-journey__image,
+.studio-rebuild .figma-journey__frame.is-tall-crop .figma-journey__image{
+  max-height:590px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:26px;
+  background:#0b1220;
+  box-shadow:0 18px 38px rgba(0,0,0,.34);
+}
+.studio-rebuild .figma-journey__frame.is-tall-crop .figma-journey__image{max-height:none;}
+.studio-rebuild .figma-thumb[data-shape="phone"] img,
+.studio-rebuild .figma-thumb[data-shape="tall-crop"] img{
+  padding:3px;
+  border:2px solid #111923;
+  border-radius:11px;
+  background:#111923;
+  box-shadow:0 4px 10px rgba(0,0,0,.16);
+}
+.studio-rebuild .figma-thumb[data-shape="wide"] img{
+  padding:3px;
+  border:1px solid rgba(18,20,24,.2);
+  border-radius:7px;
+  background:#f5f7f9;
+  box-shadow:0 4px 10px rgba(18,20,24,.1);
+}
+
+/* The motion reel uses the same device language as the static screens. */
+.studio-rebuild .motion-reel__stage img.reel-frame{
+  box-sizing:border-box;
+  width:86%;
+  max-height:84%;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:18px;
+  background:linear-gradient(180deg,#f7fafc,#e7edf2);
+  box-shadow:0 28px 50px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.95);
+}
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-"],
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-mobile"]{
+  width:min(250px,42%);
+  max-height:88%;
+  padding:8px;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:28px;
+  background:#0b111c;
+  box-shadow:0 28px 52px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,255,255,.25);
+}
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-"],
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-mobile"]{object-fit:contain;}
+
+@media (max-width:860px){
+  .studio-rebuild .case-media-lg{padding:10px 10px 12px!important;border-radius:24px!important;}
+  .studio-rebuild .case-media-lg::before{height:36px;padding:0 12px;font-size:7px;}
+  .studio-rebuild .case-media-lg img{margin-top:24px;border-radius:12px;}
+  .studio-rebuild .detail-matchup .case-media-lg{width:min(350px,100%);padding:12px 8px 8px!important;border-radius:32px!important;}
+  .studio-rebuild .detail-matchup .case-media-lg::before{top:14px;height:4px;}
+  .studio-rebuild .detail-matchup .case-media-lg img{margin-top:23px;max-height:620px;border-radius:23px;}
+  .studio-rebuild .figma-journey__frame.is-wide{width:100%;max-height:clamp(290px,78vw,500px);}
+  .studio-rebuild .figma-journey__frame.is-wide .figma-journey__image{max-height:430px;}
+  .studio-rebuild .figma-journey__frame.is-phone{width:min(250px,74%);max-height:clamp(390px,128vw,560px);}
+  .studio-rebuild .figma-journey__frame.is-tall-crop{width:min(220px,64%);height:clamp(330px,105vw,500px);}
+  .studio-rebuild .motion-reel__stage img.reel-frame{width:94%;max-height:82%;}
+  .studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-"],
+  .studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-mobile"]{width:min(220px,64%);}
+}
+@media (prefers-reduced-motion:reduce){
+  .studio-rebuild .case-media-lg::after{animation:none;}
+}
 </style>
 </head>
 <body class="studio-rebuild">
