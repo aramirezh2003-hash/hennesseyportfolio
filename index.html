@@ -2936,6 +2936,126 @@ body.studio-rebuild::before{
 @media (prefers-reduced-motion:reduce){
   .studio-rebuild .case-media-lg::after{animation:none;}
 }
+/* ---------------- Proportional screen crops ---------------- */
+/* Case-study heroes behave like viewports, so a long Figma canvas never reads as a pasted full page. */
+.studio-rebuild .detail-kitlab .case-media-lg,
+.studio-rebuild .detail-commerce .case-media-lg{
+  aspect-ratio:16/10;
+  height:auto;
+  max-height:none;
+}
+.studio-rebuild .detail-kitlab .case-media-lg img,
+.studio-rebuild .detail-commerce .case-media-lg img{
+  height:calc(100% - 60px);
+  max-height:none;
+  object-fit:cover;
+  object-position:50% 0%;
+}
+.studio-rebuild .detail-commerce .case-media-lg img{object-position:50% 52%;}
+.studio-rebuild .detail-matchup .case-media-lg{
+  aspect-ratio:9/16;
+  height:auto;
+  max-height:760px;
+}
+.studio-rebuild .detail-matchup .case-media-lg img{
+  height:calc(100% - 50px);
+  max-height:none;
+  object-fit:cover;
+  object-position:50% 0%;
+}
+
+/* The gallery is a browser or phone viewport, not a scrollable artboard. */
+.studio-rebuild .figma-journey__frame.is-wide{
+  aspect-ratio:16/10;
+  height:auto;
+  max-height:none;
+  min-height:0;
+  display:block;
+  overflow:hidden;
+}
+.studio-rebuild .figma-journey__frame.is-wide [data-gallery-image]{
+  width:100%;
+  display:block;
+  box-sizing:border-box;
+  height:calc(100% - 48px);
+  max-height:none;
+  object-fit:cover;
+  object-position:var(--mockup-crop,50% 50%);
+}
+.studio-rebuild .figma-journey__frame.is-phone,
+.studio-rebuild .figma-journey__frame.is-tall-crop{
+  aspect-ratio:9/16;
+  height:auto;
+  max-height:none;
+  display:block;
+  overflow:hidden;
+}
+.studio-rebuild .figma-journey__frame.is-phone [data-gallery-image],
+.studio-rebuild .figma-journey__frame.is-tall-crop [data-gallery-image]{
+  width:100%;
+  display:block;
+  box-sizing:border-box;
+  height:calc(100% - 26px);
+  max-height:none;
+  object-fit:cover;
+  object-position:var(--mockup-crop,50% 50%);
+}
+
+/* Motion studies reuse the same crops, keeping the transitions legible at a glance. */
+.studio-rebuild .motion-reel__stage img.reel-frame{
+  height:72%;
+  max-height:none;
+  object-fit:cover;
+  object-position:50% 0%;
+}
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-product-4k"]{
+  aspect-ratio:16/10;
+  object-position:50% 0%;
+}
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-"],
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-mobile-4k"],
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-cart-mobile-4k"]{
+  width:min(250px,42%);
+  height:84%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+}
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-home-4k"],
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-mobile-4k"]{
+  object-position:50% 0%;
+}
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-preview-4k"],
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-cart-mobile-4k"]{
+  object-position:50% 50%;
+}
+.studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-results-4k"]{
+  object-position:50% 0%;
+}
+
+@media (max-width:860px){
+  .studio-rebuild .detail-kitlab .case-media-lg,
+  .studio-rebuild .detail-commerce .case-media-lg{aspect-ratio:4/3;}
+  .studio-rebuild .detail-kitlab .case-media-lg img,
+  .studio-rebuild .detail-commerce .case-media-lg img{height:calc(100% - 46px);}
+  .studio-rebuild .detail-matchup .case-media-lg{
+    aspect-ratio:9/16;
+    max-height:620px;
+  }
+  .studio-rebuild .detail-matchup .case-media-lg img{height:calc(100% - 43px);}
+  .studio-rebuild .figma-journey__frame.is-wide{
+    aspect-ratio:4/3;
+    padding:34px 8px 8px!important;
+  }
+  .studio-rebuild .figma-journey__frame.is-wide [data-gallery-image]{height:calc(100% - 42px);}
+  .studio-rebuild .figma-journey__frame.is-phone,
+  .studio-rebuild .figma-journey__frame.is-tall-crop{aspect-ratio:9/16;height:auto;}
+  .studio-rebuild .figma-journey__frame.is-phone [data-gallery-image],
+  .studio-rebuild .figma-journey__frame.is-tall-crop [data-gallery-image]{height:calc(100% - 26px);}
+  .studio-rebuild .motion-reel__stage img.reel-frame{height:72%;}
+  .studio-rebuild .motion-reel__stage img.reel-frame[src*="matchup-"],
+  .studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-mobile-4k"],
+  .studio-rebuild .motion-reel__stage img.reel-frame[src*="kitlab-cart-mobile-4k"]{width:min(220px,64%);height:84%;}
+}
 </style>
 </head>
 <body class="studio-rebuild">
@@ -3426,19 +3546,19 @@ body.studio-rebuild::before{
           <div class="figma-journey__stage-label"><span data-gallery-counter>01 / 03</span><span data-gallery-label>Product detail</span></div>
           <div class="figma-journey__glow"></div>
           <div class="figma-journey__frame is-wide" data-gallery-frame>
-            <img data-gallery-image src="assets/figma/kitlab-product.png" alt="KitLab product detail screen from Figma" />
+            <img data-gallery-image src="assets/figma/hires/kitlab-product-4k.png" alt="KitLab product detail screen from Figma" />
           </div>
           <span class="figma-journey__stamp">KITLAB FS / SELECTED SCREENS</span>
         </div>
         <div class="figma-journey__rail" role="list">
-          <button type="button" class="figma-thumb is-active" data-gallery-item data-src="assets/figma/kitlab-product.png" data-shape="wide" data-label="Product detail" data-caption="Make the jersey feel configurable without making the customer feel lost." aria-label="Show KitLab product detail screen">
+          <button type="button" class="figma-thumb is-active" data-gallery-item data-src="assets/figma/hires/kitlab-product-4k.png" data-crop="50% 0%" data-shape="wide" data-label="Product detail" data-caption="Make the jersey feel configurable without making the customer feel lost." aria-label="Show KitLab product detail screen">
             <span class="figma-thumb__index">01</span><span class="figma-thumb__copy"><strong>Product detail</strong><small>Choose with confidence</small></span><img src="assets/figma/kitlab-product.png" alt="" aria-hidden="true" />
           </button>
-          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/kitlab-mobile.png" data-shape="tall-crop" data-label="Mobile homepage" data-caption="On mobile, the catalogue becomes a paced editorial scroll instead of a wall of products." aria-label="Show KitLab mobile homepage screen">
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/hires/kitlab-mobile-4k.png" data-crop="50% 4%" data-shape="tall-crop" data-label="Mobile homepage" data-caption="On mobile, the catalogue becomes a paced editorial scroll instead of a wall of products." aria-label="Show KitLab mobile homepage screen">
             <span class="figma-thumb__index">02</span><span class="figma-thumb__copy"><strong>Mobile homepage</strong><small>Browse in a rhythm</small></span><img src="assets/figma/kitlab-mobile.png" alt="" aria-hidden="true" />
           </button>
-          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/kitlab-cart.png" data-shape="wide" data-label="Cart drawer" data-caption="The cart keeps progress, rewards, and the next action legible at the point of purchase." aria-label="Show KitLab cart drawer screen">
-            <span class="figma-thumb__index">03</span><span class="figma-thumb__copy"><strong>Cart drawer</strong><small>Keep momentum visible</small></span><img src="assets/figma/kitlab-cart.png" alt="" aria-hidden="true" />
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/hires/kitlab-cart-mobile-4k.png" data-crop="50% 50%" data-shape="phone" data-label="Cart moment" data-caption="The cart keeps progress, rewards, and the next action legible at the point of purchase." aria-label="Show KitLab mobile cart screen">
+            <span class="figma-thumb__index">03</span><span class="figma-thumb__copy"><strong>Cart moment</strong><small>Keep momentum visible</small></span><img src="assets/figma/kitlab-cart.png" alt="" aria-hidden="true" />
           </button>
         </div>
         <div class="figma-journey__caption"><strong data-gallery-caption>Make the jersey feel configurable without making the customer feel lost.</strong><span>Auto-advances · use the cards to inspect each screen</span></div>
@@ -3459,7 +3579,7 @@ body.studio-rebuild::before{
           <button type="button" class="thinking-step"><span class="step-no">04 / DECIDE</span><strong>Show the impact</strong><p>Keep price and selections visible as they change.</p></button>
           <button type="button" class="thinking-step"><span class="step-no">05 / REFINE</span><strong>Keep it scalable</strong><p>Turn the winning patterns into reusable components.</p></button>
         </div>
-        <div class="motion-reel" data-reel-target="kitlab-hero-img" data-reel-sequence="assets/figma/kitlab-product.png|assets/figma/kitlab-mobile.png|assets/figma/kitlab-cart.png">
+        <div class="motion-reel" data-reel-target="kitlab-hero-img" data-reel-sequence="assets/figma/hires/kitlab-product-4k.png|assets/figma/hires/kitlab-mobile-4k.png|assets/figma/hires/kitlab-cart-mobile-4k.png">
           <div class="motion-reel__head"><span class="motion-reel__eyebrow">Motion study / 01</span><span class="motion-reel__title">Catalogue &rarr; confidence</span></div>
           <div class="motion-reel__stage" data-reel-stage aria-label="Animated KitLab visual study"><span class="motion-reel__scanline"></span><span class="motion-reel__orbit"></span><span class="motion-reel__orbit orbit-two"></span><span class="motion-reel__label">KITLAB / 01</span></div>
           <div class="motion-reel__footer"><span class="motion-reel__caption">A slow visual pass through the system language.</span><div class="motion-reel__progress"><span></span></div><button type="button" class="motion-reel__export" data-reel-export>Export .webm</button><button type="button" class="motion-reel__toggle" data-reel-toggle aria-pressed="false">Pause motion</button></div>
@@ -3538,18 +3658,18 @@ body.studio-rebuild::before{
           <div class="figma-journey__stage-label"><span data-gallery-counter>01 / 03</span><span data-gallery-label>Discover games</span></div>
           <div class="figma-journey__glow"></div>
           <div class="figma-journey__frame is-phone" data-gallery-frame>
-            <img data-gallery-image src="assets/figma/matchup-home.png" alt="MatchUp discover games screen from Figma" />
+            <img data-gallery-image src="assets/figma/hires/matchup-home-4k.png" alt="MatchUp discover games screen from Figma" />
           </div>
           <span class="figma-journey__stamp">MATCHUP / FLOW STUDY</span>
         </div>
         <div class="figma-journey__rail" role="list">
-          <button type="button" class="figma-thumb is-active" data-gallery-item data-src="assets/figma/matchup-home.png" data-shape="phone" data-label="Discover games" data-caption="The home state makes time, cost, skill, and availability visible before a player commits." aria-label="Show MatchUp discover games screen">
+          <button type="button" class="figma-thumb is-active" data-gallery-item data-src="assets/figma/hires/matchup-home-4k.png" data-crop="50% 0%" data-shape="phone" data-label="Discover games" data-caption="The home state makes time, cost, skill, and availability visible before a player commits." aria-label="Show MatchUp discover games screen">
             <span class="figma-thumb__index">01</span><span class="figma-thumb__copy"><strong>Discover games</strong><small>See the full context</small></span><img src="assets/figma/matchup-home.png" alt="" aria-hidden="true" />
           </button>
-          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/matchup-preview.png" data-shape="phone" data-label="Map preview" data-caption="A map preview answers the practical question behind the social one: can I actually get there and join?" aria-label="Show MatchUp map preview screen">
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/hires/matchup-preview-4k.png" data-crop="50% 50%" data-shape="phone" data-label="Map preview" data-caption="A map preview answers the practical question behind the social one: can I actually get there and join?" aria-label="Show MatchUp map preview screen">
             <span class="figma-thumb__index">02</span><span class="figma-thumb__copy"><strong>Map preview</strong><small>Reduce uncertainty</small></span><img src="assets/figma/matchup-preview.png" alt="" aria-hidden="true" />
           </button>
-          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/matchup-results.png" data-shape="phone" data-label="Match summary" data-caption="The post-match state turns a one-off game into a reusable social loop through performance, recognition, and a clear next action." aria-label="Show MatchUp match summary screen">
+          <button type="button" class="figma-thumb" data-gallery-item data-src="assets/figma/hires/matchup-results-4k.png" data-crop="50% 0%" data-shape="phone" data-label="Match summary" data-caption="The post-match state turns a one-off game into a reusable social loop through performance, recognition, and a clear next action." aria-label="Show MatchUp match summary screen">
             <span class="figma-thumb__index">03</span><span class="figma-thumb__copy"><strong>Match summary</strong><small>Make the loop continue</small></span><img src="assets/figma/matchup-results.png" alt="" aria-hidden="true" />
           </button>
         </div>
@@ -3571,7 +3691,7 @@ body.studio-rebuild::before{
           <button type="button" class="thinking-step"><span class="step-no">04 / DECIDE</span><strong>Remove awkward asks</strong><p>Let position and payment decisions happen in context.</p></button>
           <button type="button" class="thinking-step"><span class="step-no">05 / REFINE</span><strong>Design for kickoff</strong><p>Carry certainty all the way from invite to field.</p></button>
         </div>
-        <div class="motion-reel" data-reel-target="matchup-hero-img" data-reel-sequence="assets/figma/matchup-home.png|assets/figma/matchup-preview.png|assets/figma/matchup-results.png">
+        <div class="motion-reel" data-reel-target="matchup-hero-img" data-reel-sequence="assets/figma/hires/matchup-home-4k.png|assets/figma/hires/matchup-preview-4k.png|assets/figma/hires/matchup-results-4k.png">
           <div class="motion-reel__head"><span class="motion-reel__eyebrow">Motion study / 02</span><span class="motion-reel__title">Invite &rarr; shared certainty</span></div>
           <div class="motion-reel__stage" data-reel-stage aria-label="Animated MatchUp visual study"><span class="motion-reel__scanline"></span><span class="motion-reel__orbit"></span><span class="motion-reel__orbit orbit-two"></span><span class="motion-reel__label">MATCHUP / 02</span></div>
           <div class="motion-reel__footer"><span class="motion-reel__caption">A visual rhythm for connected player and organizer journeys.</span><div class="motion-reel__progress"><span></span></div><button type="button" class="motion-reel__export" data-reel-export>Export .webm</button><button type="button" class="motion-reel__toggle" data-reel-toggle aria-pressed="false">Pause motion</button></div>
@@ -3963,8 +4083,8 @@ function showToast(msg){
 
 /* ---------------- Figma artifacts + motion studies ---------------- */
 var FIGMA_CASE_ASSETS = {
-  'case-kitlab': {hero:'assets/figma/kitlab-product.png', alt:'KitLab product detail screen from Figma'},
-  'case-matchup': {hero:'assets/figma/matchup-home.png', alt:'MatchUp discover games screen from Figma'}
+  'case-kitlab': {hero:'assets/figma/hires/kitlab-product-4k.png', alt:'KitLab product detail screen from Figma'},
+  'case-matchup': {hero:'assets/figma/hires/matchup-home-4k.png', alt:'MatchUp discover games screen from Figma'}
 };
 
 function initFigmaHeroAssets(scope){
@@ -4004,11 +4124,13 @@ function initFigmaJourneys(scope){
       var item = items[index];
       var src = item.getAttribute('data-src');
       var shape = item.getAttribute('data-shape') || 'wide';
+      var crop = item.getAttribute('data-crop') || '50% 50%';
       var itemLabel = item.getAttribute('data-label') || '';
       var itemCaption = item.getAttribute('data-caption') || '';
       forEachEl(items, function(button, buttonIndex){ button.classList.toggle('is-active', buttonIndex === index); });
       frame.classList.remove('is-wide','is-phone','is-tall-crop');
       frame.classList.add('is-' + shape);
+      frame.style.setProperty('--mockup-crop', crop);
       if(counter) counter.textContent = String(index + 1).padStart(2,'0') + ' / ' + String(items.length).padStart(2,'0');
       if(label) label.textContent = itemLabel;
       if(caption) caption.textContent = itemCaption;
@@ -4174,6 +4296,7 @@ function initMotionReels(scope){
       }
     } else if(source && stage && !stage.querySelector('img')){
       var clone = source.cloneNode(true);
+      clone.classList.add('reel-frame');
       clone.removeAttribute('id');
       clone.removeAttribute('data-final');
       clone.removeAttribute('data-wire');
