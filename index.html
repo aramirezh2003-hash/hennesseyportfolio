@@ -1441,6 +1441,182 @@ body::before{
 @media (prefers-reduced-motion:reduce){.hero-blob{animation:none}.case-media::after{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll-progress{display:none}.project-card,.work-card,.case-card,.project-card img,.work-card img,.case-card img,.btn,.btn-outline-light{transition:none!important}.reveal{transition-duration:1ms!important}.cursor-glow{display:none!important}}
 
+/* ---------- Modern portfolio system v2 ---------- */
+.section-system{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(94px,11vw,156px) 0;
+  background:var(--navy);
+  color:#f8f7f0;
+}
+.section-system::before{
+  content:"";
+  position:absolute;
+  width:42vw;
+  height:42vw;
+  min-width:420px;
+  min-height:420px;
+  right:-15vw;
+  top:-18vw;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(245,198,61,.18),transparent 68%);
+  filter:blur(10px);
+  pointer-events:none;
+}
+.section-system::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.16;
+  pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 88%);
+}
+.system-topline,.system-intro,.design-map,.system-footer{position:relative;z-index:1;}
+.system-topline{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:26px;}
+.system-topline .kicker{color:var(--yellow);}
+.system-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.56);}
+.system-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);gap:8vw;align-items:end;}
+.system-intro h2{font-size:clamp(54px,8.5vw,118px);letter-spacing:-.025em;max-width:780px;}
+.system-intro h2 em{font-style:normal;color:var(--yellow);}
+.system-intro p{max-width:430px;margin:0 0 7px;font-size:15px;line-height:1.8;color:rgba(255,255,255,.7);}
+.design-map{display:grid;grid-template-columns:repeat(4,1fr);margin-top:68px;border-top:1px solid rgba(255,255,255,.2);}
+.design-map-card{position:relative;min-height:255px;padding:28px 26px 32px 0;border-right:1px solid rgba(255,255,255,.16);overflow:hidden;transition:transform .5s var(--ease-premium),background .5s ease;}
+.design-map-card:not(:first-child){padding-left:26px;}
+.design-map-card:last-child{border-right:0;}
+.design-map-card::after{content:"";position:absolute;left:0;right:26px;bottom:0;height:2px;background:linear-gradient(90deg,var(--yellow),transparent);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease-premium);}
+.design-map-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.04);}
+.design-map-card:hover::after{transform:scaleX(1);}
+.map-index{display:block;margin-bottom:48px;font-size:11px;letter-spacing:.14em;color:var(--yellow);}
+.design-map-card h3{font-size:clamp(28px,3vw,48px);margin-bottom:16px;}
+.design-map-card p{max-width:220px;margin-bottom:22px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.65);}
+.map-verb{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.42);}
+.system-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);font-size:12px;color:rgba(255,255,255,.58);}
+.system-footer a{color:var(--yellow);font-weight:700;}
+.system-footer a:hover{color:#fff;}
+
+.case-lab{
+  position:relative;
+  overflow:hidden;
+  margin:72px 0 58px;
+  padding:clamp(28px,5vw,58px);
+  border:1px solid rgba(10,8,33,.14);
+  border-radius:24px;
+  background:linear-gradient(135deg,rgba(10,8,33,.035),rgba(255,255,255,.68));
+}
+.case-lab::before{content:"";position:absolute;right:-100px;top:-120px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(245,198,61,.22),transparent 68%);pointer-events:none;}
+.detail-matchup .case-lab{border-color:rgba(198,241,53,.22);background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(198,241,53,.035));}
+.detail-commerce .case-lab{border-color:rgba(34,211,201,.22);background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(139,107,255,.06));}
+.case-lab-head{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.72fr);gap:34px;align-items:end;}
+.case-lab-head .kicker-sm{margin-bottom:12px;}
+.case-lab-title{font-family:'Anton',sans-serif;font-size:clamp(34px,5vw,70px);line-height:.95;text-transform:uppercase;letter-spacing:.01em;}
+.case-lab-title em{font-style:normal;color:var(--kitlab);}
+.detail-matchup .case-lab-title em{color:var(--matchup);}
+.detail-commerce .case-lab-title em{color:var(--commerce-cyan);}
+.case-lab-lede{margin:0!important;max-width:420px!important;font-size:14px!important;line-height:1.75!important;opacity:.68!important;}
+.thinking-rail{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:46px 0 42px;}
+.thinking-rail::before{content:"";position:absolute;left:10px;right:10px;top:13px;height:1px;background:currentColor;opacity:.18;}
+.thinking-step{position:relative;display:block;min-width:0;padding:0 18px 0 0;text-align:left;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;}
+.thinking-step:not(:first-child){padding-left:18px;}
+.thinking-step::before{content:"";position:relative;z-index:1;display:block;width:27px;height:27px;margin-bottom:18px;border:1px solid currentColor;border-radius:50%;background:var(--paper);box-shadow:0 0 0 7px var(--paper);opacity:.36;transition:background .4s ease,opacity .4s ease,transform .4s var(--ease-premium);}
+.detail-matchup .thinking-step::before,.detail-commerce .thinking-step::before{background:#100c2b;box-shadow:0 0 0 7px #100c2b;}
+.thinking-step::after{content:"";position:absolute;left:9px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--yellow);transform:scale(0);transition:transform .4s var(--ease-premium);}
+.detail-matchup .thinking-step::after{background:var(--matchup);}
+.detail-commerce .thinking-step::after{background:var(--commerce-cyan);}
+.thinking-step.is-active::before{opacity:1;transform:scale(1.08);}
+.thinking-step.is-active::after{transform:scale(1);}
+.thinking-step .step-no{display:block;margin-bottom:7px;font-size:10px;letter-spacing:.13em;opacity:.48;}
+.thinking-step strong{display:block;margin-bottom:7px;font-size:13px;}
+.thinking-step p{margin:0!important;font-size:11.5px!important;line-height:1.55!important;opacity:.6!important;}
+.thinking-step:focus-visible{outline:2px solid var(--yellow);outline-offset:8px;}
+
+.motion-reel{position:relative;z-index:1;margin-top:42px;border:1px solid rgba(10,8,33,.14);border-radius:18px;overflow:hidden;background:#0b0927;color:#f8f7f0;box-shadow:0 26px 70px rgba(10,8,33,.18);}
+.detail-matchup .motion-reel,.detail-commerce .motion-reel{border-color:rgba(255,255,255,.13);}
+.motion-reel__head,.motion-reel__footer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 18px;background:rgba(4,3,17,.76);}
+.motion-reel__head{border-bottom:1px solid rgba(255,255,255,.12);}
+.motion-reel__eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);}
+.detail-matchup .motion-reel__eyebrow{color:var(--matchup);}
+.detail-commerce .motion-reel__eyebrow{color:var(--commerce-cyan);}
+.motion-reel__title{font-size:11px;letter-spacing:.05em;color:rgba(255,255,255,.72);}
+.motion-reel__stage{position:relative;min-height:clamp(230px,34vw,520px);display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 40%,rgba(139,107,255,.25),transparent 42%),#0d0b31;isolation:isolate;}
+.motion-reel__stage::before{content:"";position:absolute;inset:0;z-index:2;opacity:.34;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:38px 38px;mask-image:radial-gradient(circle at center,black,transparent 76%);}
+.motion-reel__stage::after{content:"";position:absolute;inset:-30%;z-index:3;pointer-events:none;background:linear-gradient(105deg,transparent 36%,rgba(255,255,255,.23) 48%,transparent 60%);transform:translateX(-54%) rotate(5deg);animation:reelSweep 8s var(--ease-premium) infinite;}
+.motion-reel__stage img{position:absolute;z-index:1;width:86%;max-height:88%;object-fit:contain;filter:saturate(1.08) contrast(1.05) drop-shadow(0 25px 26px rgba(0,0,0,.32));animation:reelDrift 11s ease-in-out infinite alternate;transform-origin:center;}
+.motion-reel__scanline{position:absolute;z-index:4;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--yellow),transparent);box-shadow:0 0 22px var(--yellow);opacity:.9;animation:reelScan 5.8s linear infinite;pointer-events:none;}
+.detail-matchup .motion-reel__scanline{background:linear-gradient(90deg,transparent,var(--matchup),transparent);box-shadow:0 0 22px var(--matchup);}
+.detail-commerce .motion-reel__scanline{background:linear-gradient(90deg,transparent,var(--commerce-cyan),transparent);box-shadow:0 0 22px var(--commerce-cyan);}
+.motion-reel__orbit{position:absolute;z-index:4;width:34%;aspect-ratio:1;border:1px solid rgba(255,255,255,.34);border-radius:50%;transform:rotate(-22deg) scaleY(.32);animation:reelOrbit 9s linear infinite;pointer-events:none;}
+.motion-reel__orbit::after{content:"";position:absolute;left:50%;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 22px var(--yellow);}
+.detail-matchup .motion-reel__orbit::after{background:var(--matchup);box-shadow:0 0 22px var(--matchup);}
+.detail-commerce .motion-reel__orbit::after{background:var(--commerce-cyan);box-shadow:0 0 22px var(--commerce-cyan);}
+.motion-reel__orbit.orbit-two{width:54%;transform:rotate(52deg) scaleY(.22);animation-duration:14s;animation-direction:reverse;opacity:.42;}
+.motion-reel__label{position:absolute;z-index:5;right:20px;bottom:18px;font-family:'Anton',sans-serif;font-size:clamp(22px,4vw,56px);letter-spacing:.03em;color:rgba(255,255,255,.18);}
+.motion-reel__footer{border-top:1px solid rgba(255,255,255,.12);}
+.motion-reel__caption{font-size:11px;color:rgba(255,255,255,.56);}
+.motion-reel__progress{flex:1;height:2px;overflow:hidden;background:rgba(255,255,255,.16);}
+.motion-reel__progress span{display:block;width:100%;height:100%;transform-origin:left;background:var(--yellow);animation:reelProgress 12s linear infinite;}
+.detail-matchup .motion-reel__progress span{background:var(--matchup);}
+.detail-commerce .motion-reel__progress span{background:var(--commerce-cyan);}
+.motion-reel__toggle{flex:none;padding:8px 12px;border:1px solid rgba(255,255,255,.24);border-radius:100px;background:transparent;color:#fff;font:600 10px 'Poppins',sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .3s ease,border-color .3s ease;}
+.motion-reel__toggle:hover{border-color:var(--yellow);background:rgba(255,255,255,.08);}
+.motion-reel__export{flex:none;padding:8px 12px;border:1px solid rgba(255,255,255,.24);border-radius:100px;background:rgba(255,255,255,.08);color:#fff;font:600 10px 'Poppins',sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .3s ease,border-color .3s ease;}
+.motion-reel__export:hover{border-color:var(--yellow);background:rgba(245,198,61,.18);}
+.motion-reel.is-paused .motion-reel__stage *, .motion-reel.is-paused .motion-reel__progress span{animation-play-state:paused!important;}
+.reasoning-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
+.reasoning-card{min-height:150px;padding:20px 20px 22px;border:1px solid rgba(10,8,33,.12);border-radius:14px;background:rgba(255,255,255,.54);transition:transform .45s var(--ease-premium),background .45s ease,border-color .45s ease;}
+.detail-matchup .reasoning-card,.detail-commerce .reasoning-card{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.045);}
+.reasoning-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.82);border-color:rgba(245,198,61,.58);}
+.detail-matchup .reasoning-card:hover,.detail-commerce .reasoning-card:hover{background:rgba(255,255,255,.1);}
+.reasoning-card .reasoning-label{display:block;margin-bottom:18px;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;opacity:.5;}
+.reasoning-card h4{margin-bottom:8px;font-size:15px;}
+.reasoning-card p{margin:0!important;font-size:12.5px!important;line-height:1.65!important;opacity:.67!important;}
+.scroll-reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-premium),transform .8s var(--ease-premium);}
+.scroll-reveal.is-visible{opacity:1;transform:none;}
+@keyframes reelDrift{0%{transform:translate3d(-2%,1%,0) scale(1.01) rotate(-1deg)}100%{transform:translate3d(2%,-2%,0) scale(1.08) rotate(1deg)}}
+@keyframes reelSweep{0%,18%{transform:translateX(-54%) rotate(5deg)}55%,100%{transform:translateX(54%) rotate(5deg)}}
+@keyframes reelScan{0%{transform:translateY(-12px)}100%{transform:translateY(560px)}}
+@keyframes reelOrbit{to{transform:rotate(338deg) scaleY(.32)}}
+@keyframes reelProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+@media (max-width:900px){
+  .system-intro{grid-template-columns:1fr;gap:24px;}
+  .system-intro p{max-width:620px;}
+  .design-map{grid-template-columns:repeat(2,1fr);}
+  .design-map-card:nth-child(2){border-right:0;}
+  .design-map-card:nth-child(3),.design-map-card:nth-child(4){border-top:1px solid rgba(255,255,255,.16);}
+  .design-map-card:nth-child(3){padding-left:0;}
+  .case-lab-head{grid-template-columns:1fr;gap:20px;}
+  .thinking-rail{grid-template-columns:1fr;gap:18px;margin-bottom:30px;}
+  .thinking-rail::before{left:13px;right:auto;top:13px;bottom:13px;width:1px;height:auto;}
+  .thinking-step,.thinking-step:not(:first-child){display:grid;grid-template-columns:28px 1fr;column-gap:16px;padding:0;}
+  .thinking-step::before{grid-column:1;grid-row:1 / span 2;margin:0;}
+  .thinking-step::after{left:9px;top:9px;}
+  .thinking-step .step-no,.thinking-step strong,.thinking-step p{grid-column:2;}
+  .thinking-step .step-no{grid-row:1;}
+  .thinking-step strong{grid-row:2;margin-bottom:4px;}
+  .thinking-step p{grid-row:3;}
+  .reasoning-grid{grid-template-columns:1fr;}
+}
+@media (max-width:560px){
+  .system-topline{align-items:flex-start;flex-direction:column;gap:8px;}
+  .design-map-card{min-height:220px;padding:22px 18px 26px 0;}
+  .design-map-card:not(:first-child){padding-left:18px;}
+  .map-index{margin-bottom:30px;}
+  .system-footer{align-items:flex-start;flex-direction:column;}
+  .case-lab{margin-top:54px;padding:24px 18px;}
+  .motion-reel__head,.motion-reel__footer{align-items:flex-start;flex-wrap:wrap;}
+  .motion-reel__progress{order:3;flex-basis:100%;}
+  .motion-reel__stage{min-height:270px;}
+  .motion-reel__stage img{width:96%;}
+  .motion-reel__label{right:12px;bottom:12px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .scroll-reveal{opacity:1;transform:none;transition:none;}
+  .motion-reel__stage *, .motion-reel__progress span{animation:none!important;}
+  .motion-reel__progress span{transform:scaleX(1);}
+}
+
 </style>
 </head>
 <body>
@@ -1578,6 +1754,50 @@ body::before{
 
     <div style="text-align:center; margin-top:44px;">
       <a href="#work" class="btn btn-outline reveal" style="border-color:rgba(10,8,33,0.18); color:var(--navy);">See all projects <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN SYSTEM / DECISION TRAIL -->
+<section class="section-system">
+  <div class="wrap">
+    <div class="system-topline">
+      <span class="kicker">The method behind the screens</span>
+      <span class="system-tag">Research &rarr; Frame &rarr; Prototype &rarr; Refine</span>
+    </div>
+    <div class="system-intro">
+      <h2>Make the <em>why</em> visible.</h2>
+      <p>Strong interfaces are the result of clear decisions. I make the path from messy problem to confident system visible, so every screen has a reason to exist and every interaction moves the user forward.</p>
+    </div>
+    <div class="design-map scroll-reveal" data-motion-reveal>
+      <article class="design-map-card">
+        <span class="map-index">01 / SIGNAL</span>
+        <h3>Observe</h3>
+        <p>Find the friction, the repeated workaround, and the moment where confidence drops.</p>
+        <span class="map-verb">Find the signal</span>
+      </article>
+      <article class="design-map-card">
+        <span class="map-index">02 / FRAME</span>
+        <h3>Focus</h3>
+        <p>Turn scattered needs into one clear question that can guide the product decisions.</p>
+        <span class="map-verb">Name the job</span>
+      </article>
+      <article class="design-map-card">
+        <span class="map-index">03 / SYSTEM</span>
+        <h3>Build</h3>
+        <p>Explore flows, hierarchy, and visual language until the experience feels inevitable.</p>
+        <span class="map-verb">Make it usable</span>
+      </article>
+      <article class="design-map-card">
+        <span class="map-index">04 / PROOF</span>
+        <h3>Refine</h3>
+        <p>Pressure-test the interaction, remove the noise, and leave room for the next version.</p>
+        <span class="map-verb">Earn confidence</span>
+      </article>
+    </div>
+    <div class="system-footer">
+      <span>Every case study now includes a concise decision trail and an animated visual study.</span>
+      <a href="#work">Explore the thinking &rarr;</a>
     </div>
   </div>
 </section>
@@ -1878,6 +2098,33 @@ body::before{
         <div><h4>Scalable by design</h4><p>Reusable, flexible product cards and consistent interface patterns let KitLab FS expand its catalogue while keeping the experience cohesive.</p></div>
       </div>
 
+      <section class="case-lab scroll-reveal" data-motion-reveal aria-labelledby="kitlab-decision-title">
+        <div class="case-lab-head">
+          <div>
+            <span class="kicker-sm">Decision trail / 01</span>
+            <h3 class="case-lab-title" id="kitlab-decision-title">From <em>catalogue noise</em> to a confident kit</h3>
+          </div>
+          <p class="case-lab-lede">The design move was not to hide the catalogue. It was to give customers a calmer sequence for making choices, then let the visual system carry the energy.</p>
+        </div>
+        <div class="thinking-rail" data-thinking-rail>
+          <button type="button" class="thinking-step is-active"><span class="step-no">01 / OBSERVE</span><strong>Find the friction</strong><p>Too many jersey paths competed for attention.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">02 / FRAME</span><strong>Reduce the search</strong><p>Organize around the way fans actually browse.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">03 / EXPLORE</span><strong>Sequence the build</strong><p>Make customization feel guided, not hidden.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">04 / DECIDE</span><strong>Show the impact</strong><p>Keep price and selections visible as they change.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">05 / REFINE</span><strong>Keep it scalable</strong><p>Turn the winning patterns into reusable components.</p></button>
+        </div>
+        <div class="motion-reel" data-reel-target="kitlab-hero-img">
+          <div class="motion-reel__head"><span class="motion-reel__eyebrow">Motion study / 01</span><span class="motion-reel__title">Catalogue &rarr; confidence</span></div>
+          <div class="motion-reel__stage" data-reel-stage aria-label="Animated KitLab visual study"><span class="motion-reel__scanline"></span><span class="motion-reel__orbit"></span><span class="motion-reel__orbit orbit-two"></span><span class="motion-reel__label">KITLAB / 01</span></div>
+          <div class="motion-reel__footer"><span class="motion-reel__caption">A slow visual pass through the system language.</span><div class="motion-reel__progress"><span></span></div><button type="button" class="motion-reel__export" data-reel-export>Export .webm</button><button type="button" class="motion-reel__toggle" data-reel-toggle aria-pressed="false">Pause motion</button></div>
+        </div>
+        <div class="reasoning-grid">
+          <div class="reasoning-card"><span class="reasoning-label">Signal</span><h4>Discovery was the bottleneck</h4><p>A large catalogue only helps when the hierarchy makes the first decision obvious.</p></div>
+          <div class="reasoning-card"><span class="reasoning-label">Design bet</span><h4>Progressive detail</h4><p>Reveal complexity at the moment it becomes useful instead of front-loading every option.</p></div>
+          <div class="reasoning-card"><span class="reasoning-label">Proof</span><h4>Confidence compounds</h4><p>Live selections, price feedback, and repeatable cards turn browsing into a clearer purchase path.</p></div>
+        </div>
+      </section>
+
       <div class="next-case">
         <div><div class="lbl">Next project</div><a href="#case-matchup">MatchUp <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
       </div>
@@ -1936,6 +2183,33 @@ body::before{
         <div><h4>Transparent cost sharing</h4><p>Costs are calculated and split automatically across paid positions, replacing manual chasing with a clear, shared total.</p></div>
       </div>
 
+      <section class="case-lab scroll-reveal" data-motion-reveal aria-labelledby="matchup-decision-title">
+        <div class="case-lab-head">
+          <div>
+            <span class="kicker-sm">Decision trail / 02</span>
+            <h3 class="case-lab-title" id="matchup-decision-title">From <em>coordination</em> to kickoff</h3>
+          </div>
+          <p class="case-lab-lede">MatchUp needed to feel social without becoming chaotic. I treated organizer and player actions as connected states in one flow, so trust could build before the match started.</p>
+        </div>
+        <div class="thinking-rail" data-thinking-rail>
+          <button type="button" class="thinking-step is-active"><span class="step-no">01 / OBSERVE</span><strong>See the gap</strong><p>Group chats left cost, skill, and openings unclear.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">02 / FRAME</span><strong>Map both sides</strong><p>Separate needs, then connect the moments that must sync.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">03 / EXPLORE</span><strong>Make availability visible</strong><p>Give the match a shared, readable state.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">04 / DECIDE</span><strong>Remove awkward asks</strong><p>Let position and payment decisions happen in context.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">05 / REFINE</span><strong>Design for kickoff</strong><p>Carry certainty all the way from invite to field.</p></button>
+        </div>
+        <div class="motion-reel" data-reel-target="matchup-hero-img">
+          <div class="motion-reel__head"><span class="motion-reel__eyebrow">Motion study / 02</span><span class="motion-reel__title">Invite &rarr; shared certainty</span></div>
+          <div class="motion-reel__stage" data-reel-stage aria-label="Animated MatchUp visual study"><span class="motion-reel__scanline"></span><span class="motion-reel__orbit"></span><span class="motion-reel__orbit orbit-two"></span><span class="motion-reel__label">MATCHUP / 02</span></div>
+          <div class="motion-reel__footer"><span class="motion-reel__caption">A visual rhythm for connected player and organizer journeys.</span><div class="motion-reel__progress"><span></span></div><button type="button" class="motion-reel__export" data-reel-export>Export .webm</button><button type="button" class="motion-reel__toggle" data-reel-toggle aria-pressed="false">Pause motion</button></div>
+        </div>
+        <div class="reasoning-grid">
+          <div class="reasoning-card"><span class="reasoning-label">Signal</span><h4>Trust was fragmented</h4><p>Players and organizers had different information, which made every commitment feel provisional.</p></div>
+          <div class="reasoning-card"><span class="reasoning-label">Design bet</span><h4>One shared match state</h4><p>Expose the same availability, position, and cost logic to both sides at the right time.</p></div>
+          <div class="reasoning-card"><span class="reasoning-label">Proof</span><h4>Fewer coordination loops</h4><p>A connected flow replaces repeated messages with visible progress toward a confirmed game.</p></div>
+        </div>
+      </section>
+
       <div class="next-case">
         <div><div class="lbl">Next project</div><a href="#case-commerceflow">CommerceFlow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
       </div>
@@ -1992,6 +2266,33 @@ body::before{
         <div><h4>Alerts that lead somewhere</h4><p>Each flagged issue connects straight to the screen where it can be investigated and resolved — no hunting required.</p></div>
         <div><h4>Built to scale</h4><p>A component system that supports growing catalogues, additional stores, and different team roles without fragmenting the experience.</p></div>
       </div>
+
+      <section class="case-lab scroll-reveal" data-motion-reveal aria-labelledby="commerce-decision-title">
+        <div class="case-lab-head">
+          <div>
+            <span class="kicker-sm">Decision trail / 03</span>
+            <h3 class="case-lab-title" id="commerce-decision-title">From <em>data sprawl</em> to a decision surface</h3>
+          </div>
+          <p class="case-lab-lede">CommerceFlow becomes useful when an operator can scan what changed, understand why, and move directly into the right action. The hierarchy is designed around that rhythm.</p>
+        </div>
+        <div class="thinking-rail" data-thinking-rail>
+          <button type="button" class="thinking-step is-active"><span class="step-no">01 / OBSERVE</span><strong>See the switching cost</strong><p>Daily decisions were scattered across tools and tabs.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">02 / FRAME</span><strong>Start with the change</strong><p>Lead with what needs attention, not where data came from.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">03 / EXPLORE</span><strong>Connect the context</strong><p>Pair the signal with the module that can explain it.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">04 / DECIDE</span><strong>Make the next click obvious</strong><p>Turn alerts into a route toward resolution.</p></button>
+          <button type="button" class="thinking-step"><span class="step-no">05 / REFINE</span><strong>Protect the system</strong><p>Use components that can grow with teams and stores.</p></button>
+        </div>
+        <div class="motion-reel" data-reel-target="commerce-hero-img">
+          <div class="motion-reel__head"><span class="motion-reel__eyebrow">Motion study / 03</span><span class="motion-reel__title">Signal &rarr; action</span></div>
+          <div class="motion-reel__stage" data-reel-stage aria-label="Animated CommerceFlow visual study"><span class="motion-reel__scanline"></span><span class="motion-reel__orbit"></span><span class="motion-reel__orbit orbit-two"></span><span class="motion-reel__label">COMMERCE / 03</span></div>
+          <div class="motion-reel__footer"><span class="motion-reel__caption">A moving overview of the decisions-first workspace.</span><div class="motion-reel__progress"><span></span></div><button type="button" class="motion-reel__export" data-reel-export>Export .webm</button><button type="button" class="motion-reel__toggle" data-reel-toggle aria-pressed="false">Pause motion</button></div>
+        </div>
+        <div class="reasoning-grid">
+          <div class="reasoning-card"><span class="reasoning-label">Signal</span><h4>Context was expensive</h4><p>Operators had to assemble a story from multiple systems before they could act.</p></div>
+          <div class="reasoning-card"><span class="reasoning-label">Design bet</span><h4>Overview first, detail second</h4><p>Make change legible at a glance, then use modules to explain and resolve it.</p></div>
+          <div class="reasoning-card"><span class="reasoning-label">Proof</span><h4>A calmer operating loop</h4><p>When alerts lead somewhere useful, a dense dashboard becomes a decision tool instead of another inbox.</p></div>
+        </div>
+      </section>
 
       <div class="next-case">
         <div><div class="lbl">Next project</div><a href="#case-kitlab">KitLab FS <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
@@ -2181,7 +2482,12 @@ function showRoute(route, opts){
   });
   if(!opts.skipScroll){ window.scrollTo(0,0); }
   var active = document.getElementById('route-' + route);
-  if(active) initRevealAndCounters(active);
+  if(active){
+    initRevealAndCounters(active);
+    initMotionReels(active);
+    initThinkingRails(active);
+    initMotionReveals(active);
+  }
 
   var titles = {
     'home':'Alejandro Hennessey | UI/UX & Graphic Designer',
@@ -2279,6 +2585,180 @@ function showToast(msg){
     card.addEventListener('pointerleave', function(){card.style.transform = '';});
   });
 })();
+
+/* ---------------- Decision trails + motion studies ---------------- */
+function exportMotionReel(reel){
+  var source = reel.querySelector('[data-reel-stage] img');
+  var button = reel.querySelector('[data-reel-export]');
+  if(!source || !window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream){
+    showToast('Your browser can play this reel, but native .webm export is unavailable here.');
+    return;
+  }
+  var canvas = document.createElement('canvas');
+  canvas.width = 960;
+  canvas.height = 540;
+  var ctx = canvas.getContext('2d');
+  var stream = canvas.captureStream(30);
+  var mime = '';
+  if(typeof MediaRecorder.isTypeSupported === 'function'){
+    var types = ['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'];
+    for(var i=0; i<types.length; i++){
+      if(MediaRecorder.isTypeSupported(types[i])){ mime = types[i]; break; }
+    }
+  }
+  var recorder;
+  try{
+    recorder = new MediaRecorder(stream, mime ? {mimeType:mime} : undefined);
+  } catch(err){
+    stream.getTracks().forEach(function(track){ track.stop(); });
+    showToast('This browser could not start the video export.');
+    return;
+  }
+  var chunks = [];
+  var duration = 6200;
+  var started = null;
+  if(button){ button.disabled = true; button.textContent = 'Rendering…'; }
+  recorder.addEventListener('dataavailable', function(e){ if(e.data && e.data.size) chunks.push(e.data); });
+  recorder.addEventListener('stop', function(){
+    stream.getTracks().forEach(function(track){ track.stop(); });
+    var blob = new Blob(chunks, {type:mime || 'video/webm'});
+    var url = URL.createObjectURL(blob);
+    var link = document.createElement('a');
+    link.href = url;
+    link.download = (reel.getAttribute('data-reel-target') || 'portfolio-motion-study').replace(/-hero-img$/,'') + '-motion-study.webm';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1200);
+    if(button){ button.disabled = false; button.textContent = 'Export .webm'; }
+    showToast('Motion study exported as a .webm video.');
+  });
+  recorder.start();
+  showToast('Rendering a 6-second motion study…');
+  function draw(now){
+    if(!started) started = now;
+    var progress = Math.min((now - started) / duration, 1);
+    var ease = 1 - Math.pow(1 - progress, 3);
+    var bg = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+    bg.addColorStop(0,'#0b0927');
+    bg.addColorStop(.55,'#17114a');
+    bg.addColorStop(1,'#0b0927');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.strokeStyle = 'rgba(255,255,255,.10)';
+    ctx.lineWidth = 1;
+    for(var gx=0; gx<canvas.width; gx+=38){ ctx.beginPath(); ctx.moveTo(gx,0); ctx.lineTo(gx,canvas.height); ctx.stroke(); }
+    for(var gy=0; gy<canvas.height; gy+=38){ ctx.beginPath(); ctx.moveTo(0,gy); ctx.lineTo(canvas.width,gy); ctx.stroke(); }
+    var iw = source.naturalWidth || source.width || 1;
+    var ih = source.naturalHeight || source.height || 1;
+    var fit = Math.min((canvas.width * .86) / iw, (canvas.height * .82) / ih);
+    var w = iw * fit * (1 + .045 * Math.sin(progress * Math.PI * 2));
+    var h = ih * fit * (1 + .045 * Math.sin(progress * Math.PI * 2));
+    var x = (canvas.width - w) / 2 + Math.sin(progress * Math.PI * 2) * 16;
+    var y = (canvas.height - h) / 2 + Math.cos(progress * Math.PI * 2) * 8;
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.44)';
+    ctx.shadowBlur = 30;
+    ctx.drawImage(source,x,y,w,h);
+    ctx.restore();
+    var sweep = progress * (canvas.width + 200) - 100;
+    var sheen = ctx.createLinearGradient(sweep-100,0,sweep+100,0);
+    sheen.addColorStop(0,'rgba(255,255,255,0)');
+    sheen.addColorStop(.5,'rgba(245,198,61,.34)');
+    sheen.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle = sheen;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = 'rgba(255,255,255,.65)';
+    ctx.fillRect(0, progress * canvas.height, canvas.width, 2);
+    ctx.fillStyle = 'rgba(255,255,255,.58)';
+    ctx.font = '600 14px Poppins, Arial, sans-serif';
+    ctx.fillText('ALEJANDRO HENNESSEY / MOTION STUDY', 30, canvas.height - 30);
+    if(progress < 1){
+      requestAnimationFrame(draw);
+    } else {
+      setTimeout(function(){ recorder.stop(); }, 140);
+    }
+  }
+  requestAnimationFrame(draw);
+}
+
+function initMotionReels(scope){
+  scope = scope || document;
+  forEachEl(scope.querySelectorAll('.motion-reel:not([data-reel-ready])'), function(reel){
+    var targetId = reel.getAttribute('data-reel-target');
+    var source = targetId ? document.getElementById(targetId) : null;
+    var stage = reel.querySelector('[data-reel-stage]');
+    if(source && stage && !stage.querySelector('img')){
+      var clone = source.cloneNode(true);
+      clone.removeAttribute('id');
+      clone.removeAttribute('data-final');
+      clone.removeAttribute('data-wire');
+      clone.removeAttribute('data-showing');
+      clone.setAttribute('alt','');
+      clone.setAttribute('aria-hidden','true');
+      stage.insertBefore(clone, stage.firstChild);
+    }
+    var toggle = reel.querySelector('[data-reel-toggle]');
+    if(toggle){
+      toggle.addEventListener('click', function(){
+        var paused = reel.classList.toggle('is-paused');
+        toggle.textContent = paused ? 'Play motion' : 'Pause motion';
+        toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      });
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        reel.classList.add('is-paused');
+        toggle.textContent = 'Play motion';
+        toggle.setAttribute('aria-pressed','true');
+      }
+    }
+    var exportButton = reel.querySelector('[data-reel-export]');
+    if(exportButton){ exportButton.addEventListener('click', function(){ exportMotionReel(reel); }); }
+    reel.setAttribute('data-reel-ready','1');
+  });
+}
+
+function initThinkingRails(scope){
+  scope = scope || document;
+  forEachEl(scope.querySelectorAll('[data-thinking-rail]:not([data-thinking-ready])'), function(rail){
+    var steps = rail.querySelectorAll('.thinking-step');
+    function activate(step){
+      forEachEl(steps, function(item){ item.classList.toggle('is-active', item === step); });
+    }
+    forEachEl(steps, function(step){
+      step.addEventListener('click', function(){ activate(step); });
+    });
+    if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var observer = new IntersectionObserver(function(entries){
+        forEachEl(entries, function(entry){
+          if(entry.isIntersecting && entry.intersectionRatio > .58){ activate(entry.target); }
+        });
+      }, {threshold:[.58]});
+      forEachEl(steps, function(step){ observer.observe(step); });
+    }
+    rail.setAttribute('data-thinking-ready','1');
+  });
+}
+
+function initMotionReveals(scope){
+  scope = scope || document;
+  var items = scope.querySelectorAll('[data-motion-reveal]:not([data-motion-ready])');
+  if(!items.length) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver' in window) || reduced){
+    forEachEl(items, function(item){ item.classList.add('is-visible'); item.setAttribute('data-motion-ready','1'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries){
+    forEachEl(entries, function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        entry.target.setAttribute('data-motion-ready','1');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.16, rootMargin:'0px 0px -8% 0px'});
+  forEachEl(items, function(item){ observer.observe(item); });
+}
 
 /* ---------------- Contact form (mailto handoff) ---------------- */
 document.addEventListener('submit', function(e){
