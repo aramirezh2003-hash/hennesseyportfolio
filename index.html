@@ -4154,7 +4154,7 @@ function initKitlabTransition(){
   var ctx = canvas.getContext('2d', {willReadFrequently:true});
   var raf = 0;
   var closeTimer = 0;
-  var startedAt = 0;
+  var targetSeconds = 3.7;
   var renderW = 960;
   var renderH = 540;
 
@@ -4167,7 +4167,6 @@ function initKitlabTransition(){
   }
   function draw(){
     if(!overlay.classList.contains('is-active')) return;
-    if(startedAt && performance.now() - startedAt > 5200){ close(); return; }
     if(video.readyState >= 2 && video.videoWidth){
       ctx.drawImage(video,0,0,renderW,renderH);
       var frame = ctx.getImageData(0,0,renderW,renderH);
@@ -4190,18 +4189,23 @@ function initKitlabTransition(){
     if(raf) cancelAnimationFrame(raf);
     if(closeTimer) clearTimeout(closeTimer);
   }
+  function syncPlaybackSpeed(){
+    if(video.duration && isFinite(video.duration)){
+      video.playbackRate = Math.max(1, Math.min(16, video.duration / targetSeconds));
+    }
+  }
   window.playKitlabTransition = function(){
     sizeCanvas();
     overlay.classList.add('is-active');
     overlay.setAttribute('aria-hidden','false');
     video.currentTime = 0;
-    startedAt = performance.now();
+    syncPlaybackSpeed();
     video.play().catch(function(){});
-    closeTimer = setTimeout(close, 5200);
+    closeTimer = setTimeout(close, 4000);
     draw();
   };
   window.closeKitlabTransition = close;
-  video.addEventListener('loadedmetadata', sizeCanvas);
+  video.addEventListener('loadedmetadata', function(){ sizeCanvas(); syncPlaybackSpeed(); });
   video.addEventListener('ended', close);
   window.addEventListener('resize', sizeCanvas);
 }
