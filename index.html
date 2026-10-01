@@ -4525,9 +4525,11 @@ function currentRoute(){
 
 function cleanRouteUrl(route, replace){
   var path = ROUTE_PATHS[route] || '/';
-  if(location.pathname !== path || location.hash){
-    if(replace) history.replaceState({route:route}, '', path);
-    else history.pushState({route:route}, '', path);
+  var sectionHash = route === 'about' && location.hash === '#experience' ? '#experience' : '';
+  var target = path + sectionHash;
+  if(location.pathname !== path || location.hash !== sectionHash){
+    if(replace) history.replaceState({route:route}, '', target);
+    else history.pushState({route:route}, '', target);
   }
 }
 
@@ -4599,6 +4601,10 @@ function showRoute(route, opts){
   var initialRoute = currentRoute();
   cleanRouteUrl(initialRoute, true);
   showRoute(initialRoute, {skipScroll:true});
+  if(initialRoute === 'about' && location.hash === '#experience') setTimeout(function(){
+    var experience = document.getElementById('experience');
+    if(experience) experience.scrollIntoView({block:'start'});
+  }, 60);
   if(initialRoute === 'case-kitlab' && window.playKitlabTransition) setTimeout(window.playKitlabTransition, 40);
   if(initialRoute === 'case-matchup' && window.playMatchupTransition) setTimeout(window.playMatchupTransition, 40);
 })();
