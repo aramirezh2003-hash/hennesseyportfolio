@@ -4526,6 +4526,7 @@ function showRoute(route, opts){
     var nav = a.getAttribute('data-nav');
     var isActive = nav === route || (route.indexOf('case-') === 0 && nav === 'work');
     a.classList.toggle('active', isActive);
+    if(isActive) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
   });
   if(!opts.skipScroll){ window.scrollTo(0,0); }
   var active = document.getElementById('route-' + route);
@@ -4539,7 +4540,7 @@ function showRoute(route, opts){
   }
 
   var titles = {
-    'home':'Alejandro Hennessey | UI/UX & Graphic Designer',
+    'home':'Alejandro Hennessey — Product Designer',
     'about':'About | Alejandro Hennessey',
     'work':'Work | Alejandro Hennessey',
     'case-kitlab':'KitLab FS Case Study | Alejandro Hennessey',
