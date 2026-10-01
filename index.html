@@ -3493,6 +3493,20 @@ body.studio-rebuild::before{
 .home-redesign .contact{background:var(--home-navy)!important;padding:110px 0!important}.home-redesign .contact-top{display:grid;grid-template-columns:1fr .65fr;gap:80px;align-items:start;padding-bottom:35px;border-bottom:1px solid rgba(255,255,255,.18)}.home-redesign .contact-top .kicker{color:var(--home-yellow)!important}.home-redesign .contact-top p{margin:0;color:rgba(255,255,255,.64);font-size:14px;line-height:1.7}.home-redesign .contact-title{margin:48px 0 55px;color:#fff;font-size:clamp(72px,15vw,220px);line-height:.75;letter-spacing:-.09em}.home-redesign .contact-bottom{display:flex;justify-content:space-between;align-items:end;gap:30px}.home-redesign .contact-info{color:rgba(255,255,255,.62);font-size:13px;line-height:1.8}.home-redesign .contact-info a{color:#fff}.home-redesign .contact-cta .btn-primary{background:var(--home-yellow)!important;border-color:var(--home-yellow)!important;color:var(--home-navy)!important}
 @media(max-width:900px){.home-redesign .wrap{width:min(100% - 48px,680px)}.home-redesign>section{padding:96px 0!important}.home-redesign .about-grid,.home-redesign .work-intro,.home-redesign .system-intro,.home-redesign .contact-top{grid-template-columns:1fr;gap:35px}.home-redesign .work-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.home-redesign .mini-case:last-child{grid-column:1 / -1}.home-redesign .design-map{grid-template-columns:repeat(2,1fr)}.home-redesign .bring-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.home-redesign .wrap{width:calc(100% - 36px)}.home-redesign>section{padding:78px 0!important}.home-redesign .section-title{font-size:clamp(38px,12vw,58px)!important}.home-redesign .work-grid{grid-template-columns:1fr!important}.home-redesign .mini-case:last-child{grid-column:auto}.home-redesign .mini-case{min-height:0!important}.home-redesign .design-map,.home-redesign .bring-grid{grid-template-columns:1fr}.home-redesign .design-map-card{min-height:220px}.home-redesign .system-topline,.home-redesign .system-footer,.home-redesign .contact-bottom{align-items:flex-start;flex-direction:column}.home-redesign .contact-title{font-size:26vw;margin:42px 0}.home-redesign .about-side{padding-left:18px}.home-redesign .section-light>.wrap:before,.home-redesign .section-white>.wrap:before{display:none}}
+/* ---------- Final accessibility and rhythm pass ---------- */
+.about-proof-line{max-width:540px;margin:24px 0 0;padding-top:20px;border-top:1px solid var(--line);color:var(--navy);font-size:14px;line-height:1.7;font-weight:600;}
+.exp-section .section-accent-bar{background:var(--yellow);}
+.exp-section .exp-desc,.exp-section .exp-side p{color:rgba(255,255,255,.82);}
+.exp-section .exp-date{color:rgba(255,255,255,.64);}
+.exp-section .exp-side-tag{color:var(--yellow);}
+.page-hero p,.about-page-grid > div > p,.skills-intro p{color:#34445b;}
+.kicker{color:#765700;}
+.btn:focus-visible,.nav a:focus-visible,.crumb:focus-visible,.mini-case:focus-visible,.gallery-card:focus-visible{outline:3px solid var(--yellow);outline-offset:5px;}
+@media(max-width:760px){
+  .about-proof-line{font-size:13px;}
+  .exp-item{grid-template-columns:1fr;gap:14px;padding:25px 0;}
+  .exp-role{font-size:23px;}
+}
 </style>
 </head>
 <body class="studio-rebuild">
@@ -3780,7 +3794,7 @@ body.studio-rebuild::before{
     <a href="/" class="crumb on-dark">&larr; Back to Home</a>
     <span class="hero-eyebrow reveal">Introduction</span>
     <h1 class="reveal">About me</h1>
-    <p class="reveal">A UI/UX designer passionate about crafting digital experiences that feel simple, intuitive, and human. I focus on solving real problems through research-driven design, clean interfaces, and thoughtful interactions — turning complexity into clarity.</p>
+    <p class="reveal">Product Designer based in Toronto. I turn messy product questions into clear flows, confident interfaces, and systems that teams can actually ship.</p>
   </div>
 </header>
 
@@ -3788,7 +3802,8 @@ body.studio-rebuild::before{
   <div class="wrap">
     <div class="about-page-grid">
       <div class="reveal">
-        <p style="font-size:16px; line-height:1.8; color:var(--body);">I believe great design starts with understanding people: their needs, frustrations, and goals — which is why every project starts with research before moving into wireframes, prototypes, and polished interfaces. My practice sits at the intersection of three disciplines that reinforce each other: UI/UX design, graphic design, and e-commerce strategy.</p>
+        <p style="font-size:16px; line-height:1.8; color:var(--body);">My work sits between product thinking, visual craft, and business reality. I have designed and operated real storefronts, shaped product concepts, collaborated with developers, and built the visual systems that make an experience feel coherent from first touch to delivery.</p>
+        <p class="about-proof-line">I work best where the problem is still becoming clear — bringing structure to research, momentum to collaboration, and care to the last interaction.</p>
       </div>
       <div class="about-side reveal">
         <h3>What I work across</h3>
@@ -3824,12 +3839,12 @@ body.studio-rebuild::before{
 <section class="section-white">
   <div class="wrap">
     <span class="kicker">Skills</span>
-    <h2 class="section-title reveal">What I bring to the table</h2>
+    <h2 class="section-title reveal">How I make product decisions</h2>
     <div class="section-accent-bar"></div>
 
     <div class="skills-layout">
       <div class="skills-intro reveal">
-        <p>A multidisciplinary designer combining UI/UX, visual design, and e-commerce strategy. I transform user needs and business objectives into intuitive digital experiences, cohesive brand systems, and conversion-focused storefronts.</p>
+        <p>I connect user needs, business constraints, and visual clarity. The goal is not more screens — it is a product people can understand quickly and a system a team can keep improving.</p>
       </div>
       <div class="skills-table reveal">
         <div class="skill-row"><span class="skill-num">01</span><span class="skill-name">UI/UX Design</span><span class="skill-desc">User-centred, responsive digital experiences</span><span class="skill-level lvl-advanced">Advanced</span></div>
@@ -3847,7 +3862,7 @@ body.studio-rebuild::before{
 <section class="exp-section" id="experience">
   <div class="wrap">
     <span class="kicker" style="color:var(--yellow);">Experience</span>
-    <h2 class="section-title reveal">Where I've worked</h2>
+    <h2 class="section-title reveal">Product thinking, in practice</h2>
     <div class="section-accent-bar"></div>
 
     <div class="exp-layout">
@@ -4583,6 +4598,8 @@ function showRoute(route, opts){
   var initialRoute = currentRoute();
   cleanRouteUrl(initialRoute, true);
   showRoute(initialRoute, {skipScroll:true});
+  if(initialRoute === 'case-kitlab' && window.playKitlabTransition) setTimeout(window.playKitlabTransition, 40);
+  if(initialRoute === 'case-matchup' && window.playMatchupTransition) setTimeout(window.playMatchupTransition, 40);
 })();
 
 /* ---------------- Cursor glow ---------------- */
