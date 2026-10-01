@@ -2102,6 +2102,95 @@ body.studio-rebuild::before{
   color:#fff!important;
 }
 
+/* Project previews: make the work visible before the case study opens. */
+.studio-rebuild .mini-inner > :not(.mini-preview){
+  position:relative;
+  z-index:2;
+  width:52%;
+}
+.studio-rebuild .mini-inner .mini-top{width:52%;}
+.studio-rebuild .mini-title{max-width:52%;}
+.studio-rebuild .mini-stat{max-width:52%;}
+.studio-rebuild .mini-desc{max-width:360px;}
+.studio-rebuild .mini-preview{
+  position:absolute;
+  z-index:1;
+  top:58px;
+  right:30px;
+  bottom:28px;
+  width:43%;
+  margin:0;
+  overflow:hidden;
+  border:1px solid rgba(18,20,24,.12);
+  border-radius:22px;
+  background:#f4f6fa;
+  box-shadow:0 20px 48px rgba(18,20,24,.14);
+  transform:perspective(900px) rotateY(-5deg) rotateX(1deg);
+  transition:transform .6s var(--ease-premium),box-shadow .6s var(--ease-premium);
+}
+.studio-rebuild .mini-preview::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(110deg,rgba(255,255,255,.25),transparent 28%,transparent 75%,rgba(255,255,255,.08));
+}
+.studio-rebuild .mini-preview img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.studio-rebuild .mini-kitlab .mini-preview{background:#101323;}
+.studio-rebuild .mini-matchup .mini-preview{background:#071631;}
+.studio-rebuild .mini-commerce .mini-preview{background:#0b0825;}
+.studio-rebuild .mini-preview figcaption{
+  position:absolute;
+  right:14px;
+  bottom:12px;
+  left:14px;
+  z-index:2;
+  color:#fff;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-shadow:0 1px 12px rgba(0,0,0,.6);
+}
+.studio-rebuild .mini-case:hover .mini-preview{
+  box-shadow:0 30px 68px rgba(18,20,24,.22);
+  transform:perspective(900px) rotateY(-2deg) rotateX(0) translateY(-6px) scale(1.015);
+}
+@media (max-width:860px){
+  .studio-rebuild .mini-inner{
+    min-height:0!important;
+    padding:52px 24px 24px!important;
+  }
+  .studio-rebuild .mini-inner > :not(.mini-preview),
+  .studio-rebuild .mini-inner .mini-top,
+  .studio-rebuild .mini-title,
+  .studio-rebuild .mini-stat{
+    width:100%;
+    max-width:none;
+  }
+  .studio-rebuild .mini-title{margin-top:30px!important;}
+  .studio-rebuild .mini-preview{
+    position:relative;
+    top:auto;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    height:260px;
+    margin:20px 0 0;
+    border-radius:18px;
+    transform:none;
+    order:5;
+  }
+  .studio-rebuild .mini-link{order:6;}
+  .studio-rebuild .mini-case:hover .mini-preview{transform:translateY(-3px);}
+}
+
 .studio-rebuild .section-system{
   position:relative;
   margin:18px;
@@ -2453,6 +2542,25 @@ body.studio-rebuild::before{
   .studio-rebuild .about-side{padding:22px!important;border-radius:18px;}
   .studio-rebuild .mini-inner{min-height:420px!important;padding:52px 24px 24px!important;}
   .studio-rebuild .mini-title{font-size:clamp(48px,15vw,74px)!important;}
+  .studio-rebuild .mini-inner > :not(.mini-preview),
+  .studio-rebuild .mini-inner .mini-top,
+  .studio-rebuild .mini-title,
+  .studio-rebuild .mini-stat{width:100%;max-width:none;}
+  .studio-rebuild .mini-preview{
+    position:relative;
+    top:auto;
+    right:auto;
+    bottom:auto;
+    width:calc(100% + 48px);
+    height:220px;
+    margin:18px -24px 0;
+    border-radius:18px;
+    transform:none;
+    order:5;
+  }
+  .studio-rebuild .mini-preview img{object-position:center;}
+  .studio-rebuild .mini-case:hover .mini-preview{transform:translateY(-3px);}
+  .studio-rebuild .mini-link{order:6;}
   .studio-rebuild .system-intro h2{font-size:clamp(47px,14vw,76px)!important;}
   .studio-rebuild .contact-title{font-size:clamp(65px,21vw,120px)!important;}
 }
@@ -3157,6 +3265,7 @@ body.studio-rebuild::before{
     <h3 class="mini-title">Kit<span style="color:var(--kitlab);">Lab</span></h3>
     <div class="mini-stat"><span class="num">42</span><span style="font-size:13px; max-width:260px; opacity:0.8;">High-fidelity responsive screens across the shopping experience.</span></div>
     <p class="mini-desc">A complete Shopify redesign transforming a growing football-jersey store into a clearer, faster, conversion-focused experience.</p>
+    <figure class="mini-preview" aria-hidden="true"><img src="assets/figma/kitlab-hero.jpg" alt="" loading="lazy" decoding="async"><figcaption>01 / From discovery to delivery</figcaption></figure>
     <span class="mini-link">View case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
   </div>
 </a>
@@ -3171,6 +3280,7 @@ body.studio-rebuild::before{
     <h3 class="mini-title">Match<span style="color:var(--matchup);">Up</span></h3>
     <div class="mini-stat"><span class="num">2</span><span style="font-size:13px; max-width:260px; opacity:0.8;">Connected player and organizer journeys designed as one system.</span></div>
     <p class="mini-desc">A mobile platform for creating local soccer matches, selecting positions, and splitting the field-booking cost between players.</p>
+    <figure class="mini-preview" aria-hidden="true"><img src="assets/figma/matchup-hero.jpg" alt="" loading="lazy" decoding="async"><figcaption>02 / The full player journey</figcaption></figure>
     <span class="mini-link">View case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
   </div>
 </a>
@@ -3185,6 +3295,7 @@ body.studio-rebuild::before{
     <h3 class="mini-title">Commerce<span style="color:var(--commerce-cyan);">Flow</span></h3>
     <div class="mini-stat"><span class="num">6</span><span style="font-size:13px; max-width:260px; opacity:0.8;">Core operational areas unified into one connected workspace.</span></div>
     <p class="mini-desc">A centralized SaaS platform for monitoring performance, managing operations, and comparing multiple e-commerce stores.</p>
+    <figure class="mini-preview" aria-hidden="true"><img src="assets/figma/commerce-dashboard.jpg" alt="" loading="lazy" decoding="async"><figcaption>03 / One view of every store</figcaption></figure>
     <span class="mini-link">View case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
   </div>
 </a>
@@ -3446,6 +3557,7 @@ body.studio-rebuild::before{
     <h3 class="mini-title">Kit<span style="color:var(--kitlab);">Lab</span> FS</h3>
     <div class="mini-stat"><span class="num">42</span><span style="font-size:13px; max-width:260px; opacity:0.8;">High-fidelity responsive screens designed across the complete desktop and mobile shopping experience.</span></div>
     <p class="mini-desc">KitLab FS offers thousands of club, national-team, and retro football jerseys. I redesigned the storefront to simplify product discovery, clarify customization options, and create a smoother shopping experience.</p>
+    <figure class="mini-preview" aria-hidden="true"><img src="assets/figma/kitlab-hero.jpg" alt="" loading="lazy" decoding="async"><figcaption>01 / From discovery to delivery</figcaption></figure>
     <span class="mini-link">View case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
   </div>
 </a>
@@ -3460,6 +3572,7 @@ body.studio-rebuild::before{
     <h3 class="mini-title">Match<span style="color:var(--matchup);">Up</span></h3>
     <div class="mini-stat"><span class="num">2</span><span style="font-size:13px; max-width:260px; opacity:0.8;">Connected player and organizer journeys designed as one transparent system.</span></div>
     <p class="mini-desc">A mobile platform for creating local soccer matches, selecting available positions, and sharing the field-booking cost between players — connecting organizers with players looking for local games.</p>
+    <figure class="mini-preview" aria-hidden="true"><img src="assets/figma/matchup-hero.jpg" alt="" loading="lazy" decoding="async"><figcaption>02 / The full player journey</figcaption></figure>
     <span class="mini-link">View case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
   </div>
 </a>
@@ -3474,6 +3587,7 @@ body.studio-rebuild::before{
     <h3 class="mini-title">Commerce<span style="color:var(--commerce-cyan);">Flow</span></h3>
     <div class="mini-stat"><span class="num">6</span><span style="font-size:13px; max-width:260px; opacity:0.8;">Core operational areas unified into one connected workspace.</span></div>
     <p class="mini-desc">A centralized SaaS platform for monitoring performance, managing operations, and comparing multiple e-commerce stores — bringing sales, orders, inventory, and advertising into one connected view.</p>
+    <figure class="mini-preview" aria-hidden="true"><img src="assets/figma/commerce-dashboard.jpg" alt="" loading="lazy" decoding="async"><figcaption>03 / One view of every store</figcaption></figure>
     <span class="mini-link">View case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
   </div>
 </a>
