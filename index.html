@@ -3508,6 +3508,43 @@ body.studio-rebuild::before{
   .exp-item{grid-template-columns:1fr;gap:14px;padding:25px 0;}
   .exp-role{font-size:23px;}
 }
+
+/* ---------- Homepage v3: practice index ---------- */
+.home-redesign>*:not(.home-v3){display:none!important;}
+.home-v3{--v3-navy:#071a36;--v3-yellow:#f6c945;--v3-ink:#101827;--v3-muted:#617089;--v3-line:#dfe5ec;background:#fff;color:var(--v3-ink);overflow:hidden;}
+.home-v3 *{box-sizing:border-box;}
+.home-v3 .v3-wrap{width:min(1240px,calc(100% - 80px));margin:0 auto;}
+.home-v3 .v3-hero{position:relative;padding:150px 0 32px;background:#fff;}
+.home-v3 .v3-hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(360px,.96fr);min-height:620px;align-items:center;gap:clamp(50px,9vw,150px);}
+.home-v3 .v3-hero-copy{position:relative;z-index:2;max-width:640px;}
+.home-v3 .v3-eyebrow{display:flex;align-items:center;gap:11px;margin:0 0 30px;color:#896900;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;}
+.home-v3 .v3-dot{width:9px;height:9px;border-radius:50%;background:var(--v3-yellow);box-shadow:0 0 0 6px #fff7d4;}
+.home-v3 h1,.home-v3 h2,.home-v3 h3,.home-v3 p{margin-top:0;}
+.home-v3 h1{max-width:730px;margin-bottom:32px;color:var(--v3-navy);font-size:clamp(68px,9.3vw,144px);font-weight:800;letter-spacing:-.095em;line-height:.83;}
+.home-v3 h1 em,.home-v3 h2 em{color:var(--v3-yellow);font-style:normal;text-shadow:1px 1px 0 var(--v3-navy);}
+.home-v3 .v3-lede{max-width:480px;margin-bottom:34px;color:var(--v3-muted);font-size:17px;line-height:1.7;}
+.home-v3 .v3-actions{display:flex;align-items:center;gap:28px;}
+.home-v3 .v3-button{display:inline-flex;align-items:center;gap:22px;padding:16px 21px;border:1px solid var(--v3-navy);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:transform .25s,box-shadow .25s;background:var(--v3-yellow);color:var(--v3-navy);box-shadow:5px 5px 0 var(--v3-navy);}
+.home-v3 .v3-button:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--v3-navy);}
+.home-v3 .v3-button span{font-size:18px;line-height:0;}
+.home-v3 .v3-link{color:var(--v3-navy);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;}.home-v3 .v3-link span{margin-left:10px;color:#9c7900;font-size:18px;}
+.home-v3 .v3-hero-art{position:relative;min-height:540px;background:var(--v3-navy);isolation:isolate;overflow:hidden;transform:rotate(2deg);box-shadow:16px 22px 0 #eef1f4;}
+.home-v3 .v3-hero-art:before{content:"";position:absolute;inset:15px;border:1px solid rgba(255,255,255,.3);}
+.home-v3 .v3-art-index{position:absolute;top:34px;left:36px;color:var(--v3-yellow);font-size:11px;font-weight:800;letter-spacing:.14em;line-height:1.7;}.home-v3 .v3-art-index span{color:#fff;opacity:.65;font-weight:500;letter-spacing:.08em;}
+.home-v3 .v3-art-word{position:absolute;top:39%;left:31px;color:#fff;font-size:clamp(70px,9vw,128px);font-weight:800;letter-spacing:-.1em;line-height:.75;}.home-v3 .v3-art-word span{color:var(--v3-yellow);}
+.home-v3 .v3-art-note{position:absolute;bottom:42px;left:36px;color:#fff;font-size:12px;letter-spacing:.12em;transform:rotate(-90deg);transform-origin:left top;opacity:.7;}.home-v3 .v3-art-chip{position:absolute;right:34px;bottom:34px;padding:12px 14px;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:9px;font-weight:800;letter-spacing:.14em;line-height:1.7;}
+.home-v3 .v3-orbit{position:absolute;border:1px solid var(--v3-yellow);border-radius:50%;opacity:.8;}.home-v3 .orbit-one{width:430px;height:430px;right:-140px;top:-110px;}.home-v3 .orbit-two{width:280px;height:280px;right:-35px;top:-35px;border-color:#fff;opacity:.25;}
+.home-v3 .v3-scrollline{display:flex;align-items:center;gap:15px;padding-top:35px;border-top:1px solid var(--v3-line);color:var(--v3-muted);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;}.home-v3 .v3-scrollline i{width:100%;height:1px;background:var(--v3-line);}.home-v3 .v3-scrollline span:last-child{color:var(--v3-navy);}
+.home-v3 .v3-index{padding:150px 0 160px;border-top:1px solid var(--v3-line);}
+.home-v3 .v3-section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.55fr);gap:70px;align-items:end;}.home-v3 .v3-section-head h2,.home-v3 .v3-method h2,.home-v3 .v3-end h2{margin-bottom:0;color:var(--v3-navy);font-size:clamp(54px,7vw,100px);font-weight:800;letter-spacing:-.1em;line-height:.84;}.home-v3 .v3-section-note{max-width:330px;margin:0 0 4px;color:var(--v3-muted);font-size:14px;line-height:1.75;}
+.home-v3 .v3-filters{display:flex;gap:0;margin:72px 0 32px;border-bottom:1px solid var(--v3-navy);}.home-v3 .v3-filter{padding:16px 20px;border:0;border-top:1px solid transparent;background:transparent;color:var(--v3-muted);font:inherit;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}.home-v3 .v3-filter span{margin-left:7px;opacity:.6;}.home-v3 .v3-filter.is-active{border-color:var(--v3-navy);background:var(--v3-navy);color:#fff;}.home-v3 .v3-filter:focus-visible{outline:3px solid var(--v3-yellow);outline-offset:3px;}
+.home-v3 .v3-work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:34px 20px;align-items:start;}.home-v3 .v3-work-card{grid-column:span 4;display:block;color:inherit;text-decoration:none;}.home-v3 .v3-work-card:nth-child(4),.home-v3 .v3-work-card:nth-child(5),.home-v3 .v3-work-card:nth-child(6){grid-column:span 4;}.home-v3 .v3-work-card.is-hidden{display:none;}.home-v3 .v3-card-media,.home-v3 .v3-brand-media,.home-v3 .v3-print-media,.home-v3 .v3-visual-media{position:relative;height:330px;margin-bottom:20px;overflow:hidden;}.home-v3 .v3-card-media{background:#edf0f5;border:1px solid var(--v3-line);}.home-v3 .v3-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}.home-v3 .v3-work-card:hover .v3-card-media img{transform:scale(1.045);}.home-v3 .v3-card-arrow{position:absolute;right:15px;top:15px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--v3-yellow);color:var(--v3-navy);font-size:20px;opacity:0;transform:translate(-7px,7px);transition:.3s;}.home-v3 .v3-work-card:hover .v3-card-arrow{opacity:1;transform:none;}.home-v3 .v3-card-meta{display:flex;justify-content:space-between;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--v3-line);color:#8b6b08;font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;}.home-v3 .v3-card-meta span:last-child{color:var(--v3-muted);text-align:right;}.home-v3 .v3-work-card h3{margin:19px 0 8px;color:var(--v3-navy);font-size:28px;letter-spacing:-.06em;}.home-v3 .v3-work-card p{margin:0;color:var(--v3-muted);font-size:13px;line-height:1.65;}
+.home-v3 .v3-brand-media{background:var(--v3-yellow);border:1px solid var(--v3-navy);}.home-v3 .v3-brand-ah{position:absolute;left:20px;bottom:2px;color:var(--v3-navy);font-size:150px;font-weight:800;letter-spacing:-.15em;line-height:.75;}.home-v3 .v3-brand-block{position:absolute;right:20px;top:20px;padding:12px 14px;border:1px solid var(--v3-navy);color:var(--v3-navy);font-size:11px;font-weight:800;}.home-v3 .v3-brand-caption{position:absolute;right:20px;bottom:20px;color:var(--v3-navy);font-size:12px;font-weight:800;letter-spacing:.08em;text-align:right;text-transform:uppercase;}
+.home-v3 .v3-print-media{background:#f4f1e8;border:1px solid var(--v3-navy);padding:24px;color:var(--v3-navy);}.home-v3 .v3-print-kicker{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;}.home-v3 .v3-print-media strong{position:absolute;left:24px;bottom:25px;font-size:49px;letter-spacing:-.09em;line-height:.78;}.home-v3 .v3-print-media strong em{color:#c7980c;font-style:normal;}.home-v3 .v3-print-rule{position:absolute;right:24px;top:25px;width:45%;height:8px;background:var(--v3-navy);box-shadow:0 18px 0 var(--v3-yellow),0 36px 0 var(--v3-navy);}.home-v3 .v3-print-side{position:absolute;right:25px;bottom:23px;font-size:8px;font-weight:800;letter-spacing:.1em;writing-mode:vertical-rl;}.home-v3 .v3-visual-media{background:var(--v3-navy);border:1px solid var(--v3-navy);}.home-v3 .v3-visual-ring{position:absolute;width:260px;height:260px;border:1px solid var(--v3-yellow);border-radius:50%;left:27%;top:12%;box-shadow:0 0 0 35px rgba(246,201,69,.12),0 0 0 70px rgba(246,201,69,.07);}.home-v3 .v3-visual-cross{position:absolute;right:25px;top:15px;color:var(--v3-yellow);font-size:44px;font-weight:200;}.home-v3 .v3-visual-type{position:absolute;left:24px;bottom:22px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.18em;line-height:1.5;}
+.home-v3 .v3-method{padding:140px 0;background:var(--v3-navy);color:#fff;}.home-v3 .v3-method .v3-eyebrow{color:var(--v3-yellow);}.home-v3 .v3-method-head{display:grid;grid-template-columns:1.1fr .7fr;gap:90px;align-items:end;}.home-v3 .v3-method h2{color:#fff;}.home-v3 .v3-method-head>p:last-child{max-width:350px;margin:0;color:rgba(255,255,255,.7);font-size:15px;line-height:1.75;}.home-v3 .v3-method-list{display:grid;grid-template-columns:repeat(3,1fr);margin-top:90px;border-top:1px solid rgba(255,255,255,.25);}.home-v3 .v3-method-list>div{min-height:220px;padding:22px 24px;border-right:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);}.home-v3 .v3-method-list b{color:var(--v3-yellow);font-size:10px;letter-spacing:.15em;}.home-v3 .v3-method-list strong{display:block;margin-top:62px;font-size:21px;}.home-v3 .v3-method-list span{display:block;margin-top:12px;color:rgba(255,255,255,.55);font-size:12px;line-height:1.6;}.home-v3 .v3-end{padding:140px 0 170px;background:#fff;}.home-v3 .v3-end-row{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-top:58px;padding-top:24px;border-top:1px solid var(--v3-line);}.home-v3 .v3-end-row p{max-width:280px;margin:0;color:var(--v3-muted);font-size:14px;line-height:1.65;}
+.is-home-v3 .nav{background:rgba(255,255,255,.88);color:var(--v3-navy);border-bottom:1px solid var(--v3-line);backdrop-filter:blur(16px);}.is-home-v3 .nav-links a{color:var(--v3-navy);}.is-home-v3 .nav-logo{color:var(--v3-navy);}.is-home-v3 .nav-mark{fill:var(--v3-yellow);stroke:var(--v3-navy);}.is-home-v3 .nav-actions .btn-outline{border-color:var(--v3-navy)!important;color:var(--v3-navy)!important;}
+@media(max-width:900px){.home-v3 .v3-wrap{width:min(100% - 48px,680px);}.home-v3 .v3-hero{padding-top:120px;}.home-v3 .v3-hero-grid{grid-template-columns:1fr;min-height:0;gap:70px;}.home-v3 .v3-hero-art{min-height:430px;max-width:620px;width:100%;margin-left:auto;}.home-v3 .v3-section-head,.home-v3 .v3-method-head{grid-template-columns:1fr;gap:30px;}.home-v3 .v3-work-card{grid-column:span 6!important;}.home-v3 .v3-method-list{grid-template-columns:1fr;}.home-v3 .v3-method-list>div{min-height:160px;}.home-v3 .v3-method-list strong{margin-top:32px;}}
+@media(max-width:620px){.home-v3 .v3-wrap{width:calc(100% - 36px);}.home-v3 .v3-hero{padding:105px 0 24px;}.home-v3 h1{font-size:clamp(60px,19vw,100px);}.home-v3 .v3-lede{font-size:15px;}.home-v3 .v3-actions{align-items:flex-start;flex-direction:column;gap:20px;}.home-v3 .v3-hero-art{min-height:350px;}.home-v3 .v3-art-word{font-size:72px;}.home-v3 .v3-art-chip{right:20px;bottom:20px;}.home-v3 .v3-index,.home-v3 .v3-method,.home-v3 .v3-end{padding:90px 0;}.home-v3 .v3-section-head h2,.home-v3 .v3-method h2,.home-v3 .v3-end h2{font-size:clamp(53px,16vw,86px);}.home-v3 .v3-filters{overflow:auto;margin-top:50px;}.home-v3 .v3-filter{white-space:nowrap;padding:14px 13px;font-size:9px;}.home-v3 .v3-work-grid{grid-template-columns:1fr;}.home-v3 .v3-work-card{grid-column:auto!important;}.home-v3 .v3-card-media,.home-v3 .v3-brand-media,.home-v3 .v3-print-media,.home-v3 .v3-visual-media{height:280px;}.home-v3 .v3-end-row{align-items:flex-start;flex-direction:column;}.home-v3 .v3-print-media strong{font-size:42px;}}
 </style>
 </head>
 <body class="studio-rebuild">
@@ -3578,6 +3615,53 @@ body.studio-rebuild::before{
 
 
 <div class="route-section home-redesign" data-route="home" id="route-home">
+
+<div class="home-v3" id="home-v3">
+  <section class="v3-hero">
+    <div class="v3-wrap v3-hero-grid">
+      <div class="v3-hero-copy">
+        <p class="v3-eyebrow"><span class="v3-dot"></span> Alejandro Hennessey · Toronto</p>
+        <h1>I make ideas<br><em>visible.</em></h1>
+        <p class="v3-lede">Product experiences, identities, and printed things with enough clarity to be useful — and enough character to be remembered.</p>
+        <div class="v3-actions"><a class="v3-button v3-button-dark" href="/work">See the work <span>↗</span></a><a class="v3-link" href="/about">How I think <span>↓</span></a></div>
+      </div>
+      <div class="v3-hero-art" aria-label="A visual index of Alejandro's design practice">
+        <div class="v3-art-index">AH / 01—04<br><span>Design practice</span></div>
+        <div class="v3-orbit orbit-one"></div><div class="v3-orbit orbit-two"></div>
+        <div class="v3-art-word">MAKE<br><span>USEFUL</span></div>
+        <div class="v3-art-note">research → form → feeling</div>
+        <div class="v3-art-chip">PRODUCT<br>GRAPHIC<br>MOTION</div>
+      </div>
+    </div>
+    <div class="v3-wrap v3-scrollline"><span>Scroll / explore the practice</span><i></i><span>01</span></div>
+  </section>
+
+  <section class="v3-index" id="v3-work">
+    <div class="v3-wrap">
+      <div class="v3-section-head"><div><p class="v3-eyebrow">Selected practice</p><h2>More than one<br><em>way to design.</em></h2></div><p class="v3-section-note">A focused mix of digital product work and visual communication. Filter by what you need to make next.</p></div>
+      <div class="v3-filters" role="tablist" aria-label="Filter selected work">
+        <button class="v3-filter is-active" type="button" data-v3-filter="all" role="tab" aria-selected="true">All work <span>06</span></button>
+        <button class="v3-filter" type="button" data-v3-filter="product" role="tab" aria-selected="false">Product <span>03</span></button>
+        <button class="v3-filter" type="button" data-v3-filter="branding" role="tab" aria-selected="false">Branding <span>01</span></button>
+        <button class="v3-filter" type="button" data-v3-filter="print" role="tab" aria-selected="false">Print & visual <span>02</span></button>
+      </div>
+      <div class="v3-work-grid">
+        <a class="v3-work-card v3-product-card" data-v3-category="product" href="/work/kitlab-fs"><div class="v3-card-media"><img src="assets/figma/kitlab-hero.jpg" alt="KitLab storefront experience" loading="eager"><span class="v3-card-arrow">↗</span></div><div class="v3-card-meta"><span>01 / Product</span><span>Commerce system</span></div><h3>KitLab FS</h3><p>A storefront system that makes teamwear easier to browse, compare, and buy.</p></a>
+        <a class="v3-work-card v3-product-card" data-v3-category="product" href="/work/matchup"><div class="v3-card-media"><img src="assets/figma/matchup-hero.jpg" alt="MatchUp social product experience" loading="lazy"><span class="v3-card-arrow">↗</span></div><div class="v3-card-meta"><span>02 / Product</span><span>Social product</span></div><h3>MatchUp</h3><p>A clearer way to discover games, people, and momentum in one social sports product.</p></a>
+        <a class="v3-work-card v3-product-card" data-v3-category="product" href="/work/commerceflow"><div class="v3-card-media"><img src="assets/figma/commerce-dashboard.jpg" alt="CommerceFlow dashboard" loading="lazy"><span class="v3-card-arrow">↗</span></div><div class="v3-card-meta"><span>03 / Product</span><span>Operations</span></div><h3>CommerceFlow</h3><p>Turning operational complexity into a dashboard that teams can read at a glance.</p></a>
+        <article class="v3-work-card v3-brand-card" data-v3-category="branding"><div class="v3-brand-media"><span class="v3-brand-ah">AH</span><span class="v3-brand-block">01</span><span class="v3-brand-caption">identity<br>is a system</span></div><div class="v3-card-meta"><span>04 / Branding</span><span>Visual systems</span></div><h3>Make it recognisable.</h3><p>Identity thinking that gives a product, team, or idea a point of view people can feel.</p></article>
+        <article class="v3-work-card v3-print-card" data-v3-category="print"><div class="v3-print-media"><span class="v3-print-kicker">Field notes / 2026</span><strong>FORM<br><em>FOLLOWS</em><br>FEELING</strong><span class="v3-print-rule"></span><span class="v3-print-side">POSTER / EDITORIAL / PACKAGING</span></div><div class="v3-card-meta"><span>05 / Print</span><span>Editorial direction</span></div><h3>Make it tangible.</h3><p>Layouts, labels, and print pieces that carry a visual idea into the physical world.</p></article>
+        <article class="v3-work-card v3-visual-card" data-v3-category="print"><div class="v3-visual-media"><span class="v3-visual-ring"></span><span class="v3-visual-cross">+</span><span class="v3-visual-type">TYPE<br>IMAGE<br>SPACE</span></div><div class="v3-card-meta"><span>06 / Visual</span><span>Art direction</span></div><h3>Make it felt.</h3><p>Graphic composition and motion details that make a message land before it is explained.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="v3-method">
+    <div class="v3-wrap"><div class="v3-method-head"><p class="v3-eyebrow">The through line</p><h2>Clarity is a<br><em>creative decision.</em></h2><p>I move between structure and expression: asking the right question, finding the right shape, and making every detail earn its place.</p></div><div class="v3-method-list"><div><b>01</b><strong>Find the signal</strong><span>Research, constraints, and the one thing that matters most.</span></div><div><b>02</b><strong>Build the language</strong><span>Flows, type, colour, layout, and a visual system that holds together.</span></div><div><b>03</b><strong>Make it move</strong><span>Transitions and behaviours that give the work confidence and life.</span></div></div></div>
+  </section>
+
+  <section class="v3-end"><div class="v3-wrap"><p class="v3-eyebrow">Have a good problem?</p><h2>Let’s make<br><em>something clear.</em></h2><div class="v3-end-row"><p>Available for product, identity, and visual design collaborations.</p><a class="v3-button v3-button-dark" href="/contact">Start a conversation <span>↗</span></a></div></div></section>
+</div>
 
 <header class="hero" id="top">
   <div class="hero-blob"></div>
@@ -4535,6 +4619,7 @@ function cleanRouteUrl(route, replace){
 
 function showRoute(route, opts){
   opts = opts || {};
+  document.body.classList.toggle('is-home-v3', route === 'home');
   if(route !== 'case-kitlab' && window.closeKitlabTransition) window.closeKitlabTransition();
   if(route !== 'case-matchup' && window.closeMatchupTransition) window.closeMatchupTransition();
   forEachEl(document.querySelectorAll('.route-section'), function(s){
@@ -4568,6 +4653,26 @@ function showRoute(route, opts){
   };
   document.title = titles[route] || titles['home'];
 }
+
+(function(){
+  var home = document.getElementById('home-v3');
+  if(!home) return;
+  var filters = home.querySelectorAll('[data-v3-filter]');
+  var cards = home.querySelectorAll('[data-v3-category]');
+  forEachEl(filters, function(filter){
+    filter.addEventListener('click', function(){
+      var selected = filter.getAttribute('data-v3-filter');
+      forEachEl(filters, function(item){
+        var active = item === filter;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      forEachEl(cards, function(card){
+        card.classList.toggle('is-hidden', selected !== 'all' && card.getAttribute('data-v3-category') !== selected);
+      });
+    });
+  });
+})();
 
 (function(){
   function handleRouteChange(opts){
