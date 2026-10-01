@@ -2197,6 +2197,65 @@ body.studio-rebuild::before{
 .matchup-transition__progress-fill{background:linear-gradient(90deg,#4e72ff,#b8ff27);box-shadow:0 0 16px rgba(123,172,255,.6);}
 @media(max-width:560px){.matchup-transition__video{object-fit:contain;}.matchup-transition__glass{inset:12px;border-radius:28px;}}
 @media(prefers-reduced-motion:reduce){.matchup-transition{transition:none;}}
+/* ---------- Home redesign / personal studio direction ---------- */
+.home-redesign{--home-paper:#f3f0e9;--home-ink:#181927;--home-muted:#656674;--home-cobalt:#3146e8;--home-coral:#ff634f;--home-lime:#d7f45a;--home-lavender:#e7e6ff;background:var(--home-paper);color:var(--home-ink);}
+.home-redesign .hero{min-height:calc(100vh - 12px);padding:148px 0 58px;background:var(--home-paper)!important;color:var(--home-ink)!important;}
+.home-redesign .hero::before{opacity:.46!important;background-image:linear-gradient(rgba(24,25,39,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(24,25,39,.07) 1px,transparent 1px)!important;background-size:38px 38px!important;mask-image:linear-gradient(90deg,black 0 48%,transparent 84%)!important;}
+.home-redesign .hero::after{background:linear-gradient(90deg,transparent,var(--home-coral),var(--home-cobalt),transparent)!important;opacity:.7!important;}
+.home-redesign .hero-blob{display:none!important;}
+.home-redesign .hero-inner{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(370px,.98fr);grid-template-rows:auto auto auto auto;align-items:end;column-gap:clamp(36px,6vw,96px);max-width:1320px!important;}
+.home-redesign .hero-eyebrow{grid-column:1;grid-row:1;justify-self:start;border:1px solid rgba(49,70,232,.24);background:rgba(255,255,255,.56);color:var(--home-cobalt)!important;box-shadow:0 12px 30px rgba(49,70,232,.08);}
+.home-redesign .hero h1{grid-column:1;grid-row:2;max-width:720px;margin-top:28px;color:var(--home-ink)!important;font-size:clamp(62px,8.3vw,128px)!important;letter-spacing:-.06em!important;line-height:.84!important;}
+.home-redesign .hero-display-accent{color:var(--home-cobalt)!important;}
+.home-redesign .hero-display-accent::after{background:var(--home-coral);height:9px;bottom:-9px;}
+.home-redesign .hero-role{grid-column:1;grid-row:3;max-width:520px;margin:38px 0 0!important;padding:0 0 0 19px;border-left:3px solid var(--home-coral)!important;color:var(--home-muted)!important;font-size:16px!important;line-height:1.75!important;}
+.home-redesign .hero-actions{grid-column:1;grid-row:4;margin-top:30px!important;}
+.home-redesign .hero-actions .btn-primary{background:var(--home-ink)!important;border-color:var(--home-ink)!important;}
+.home-redesign .hero-actions .btn-primary:hover{background:var(--home-cobalt)!important;border-color:var(--home-cobalt)!important;}
+.home-redesign .hero-actions .btn-outline{border-color:rgba(24,25,39,.25)!important;color:var(--home-ink)!important;background:rgba(255,255,255,.32)!important;}
+.home-redesign .hero-actions .btn-outline:hover{border-color:var(--home-coral)!important;background:#fff!important;color:var(--home-coral)!important;}
+.home-redesign .hero-meta{grid-column:1 / -1;grid-row:5;max-width:720px;margin-top:64px!important;padding-top:20px;border-top:1px solid rgba(24,25,39,.15)!important;}
+.home-redesign .hero-meta div{border-right-color:rgba(24,25,39,.15);}
+.home-redesign .hero-meta div p:first-child{color:var(--home-ink)!important;}
+.home-redesign .hero-meta div p:last-child{color:var(--home-muted)!important;}
+.home-hero-visual{position:relative;grid-column:2;grid-row:1 / 6;align-self:center;min-height:560px;margin-top:12px;border:1px solid rgba(255,255,255,.78);border-radius:34px;background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(231,230,255,.72) 54%,rgba(255,99,79,.18));box-shadow:inset 0 1px 0 rgba(255,255,255,.94),0 30px 80px rgba(49,70,232,.13);overflow:hidden;isolation:isolate;}
+.home-hero-visual::before{content:"";position:absolute;z-index:-1;width:360px;height:360px;right:-100px;top:-100px;border-radius:50%;background:radial-gradient(circle,#7281ff,var(--home-cobalt) 55%,transparent 72%);filter:blur(4px);opacity:.75;}
+.home-hero-visual::after{content:"";position:absolute;z-index:-1;width:300px;height:300px;left:-130px;bottom:-100px;border-radius:50%;background:radial-gradient(circle,var(--home-coral),transparent 70%);opacity:.46;filter:blur(8px);}
+.home-visual-top{display:flex;justify-content:space-between;gap:20px;padding:22px 24px;color:var(--home-muted);font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;}
+.home-art-main{position:absolute;top:86px;left:9%;right:8%;overflow:hidden;border:7px solid rgba(255,255,255,.8);border-radius:18px;background:#fff;box-shadow:0 28px 48px rgba(24,25,39,.2);transform:rotate(-3deg);}
+.home-art-main img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;}
+.home-art-float{position:absolute;z-index:2;right:6%;bottom:102px;width:43%;overflow:hidden;border:6px solid rgba(255,255,255,.88);border-radius:18px;background:#0e1425;box-shadow:0 25px 42px rgba(24,25,39,.28);transform:rotate(7deg);}
+.home-art-float img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;}
+.home-art-note{position:absolute;left:8%;bottom:28px;display:flex;align-items:baseline;gap:12px;color:var(--home-ink);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;}
+.home-art-note span{color:var(--home-coral);}
+.home-art-note strong{font-size:11px;letter-spacing:.08em;}
+.home-redesign .section-light{background:var(--home-lavender)!important;border-top:0;padding-top:126px!important;padding-bottom:126px!important;}
+.home-redesign .section-white{background:var(--home-paper)!important;}
+.home-redesign .section-light .kicker,.home-redesign .section-white .kicker{color:var(--home-cobalt)!important;}
+.home-redesign .section-title{color:var(--home-ink)!important;}
+.home-redesign .section-accent-bar{background:var(--home-coral)!important;width:112px!important;height:7px!important;}
+.home-redesign .about-side{border-left-color:rgba(49,70,232,.25)!important;background:rgba(255,255,255,.32);border-radius:22px;padding:28px;}
+.home-redesign .mini-case{border-radius:28px;border-color:rgba(24,25,39,.12);}
+.home-redesign .mini-case:hover{border-color:var(--home-cobalt);}
+.home-redesign .mini-link{font-weight:800;}
+.home-redesign .section-system{background:var(--home-ink);}
+.home-redesign .contact{background:var(--home-cobalt);}
+@media(max-width:900px){
+  .home-redesign .hero{padding-top:120px;}
+  .home-redesign .hero-inner{display:block;}
+  .home-redesign .hero-role{margin-top:28px!important;}
+  .home-hero-visual{min-height:420px;margin-top:52px;}
+  .home-redesign .hero-meta{margin-top:48px!important;}
+}
+@media(max-width:560px){
+  .home-redesign .hero{min-height:auto;padding-bottom:48px;}
+  .home-redesign .hero h1{font-size:clamp(52px,15vw,78px)!important;}
+  .home-redesign .hero-role{font-size:14px!important;}
+  .home-hero-visual{min-height:360px;margin-top:40px;border-radius:24px;}
+  .home-art-main{top:68px;left:7%;right:6%;border-width:5px;}
+  .home-art-float{bottom:68px;width:39%;border-width:4px;}
+  .home-art-note{bottom:20px;left:7%;font-size:8px;}
+}
 @media (max-width:860px){
   .studio-rebuild .mini-inner{
     min-height:0!important;
@@ -3317,24 +3376,30 @@ body.studio-rebuild::before{
 </div>
 
 
-<div class="route-section" data-route="home" id="route-home">
+<div class="route-section home-redesign" data-route="home" id="route-home">
 
 <header class="hero" id="top">
   <div class="hero-blob"></div>
   <div class="hero-blob two"></div>
   <div class="wrap hero-inner">
-    <span class="hero-eyebrow reveal">Alejandro Hennessey &middot; UI/UX &amp; Graphic Designer &middot; Toronto, ON</span>
-    <h1 class="reveal">I MAKE<br><span class="hero-display-accent">COMPLEX</span><br>FEEL SIMPLE.</h1>
-    <p class="hero-role reveal">I design digital products and visual systems that turn tangled problems into clear, human experiences — grounded in research, structured through systems, and finished with just enough motion.</p>
+    <span class="hero-eyebrow reveal">Alejandro Hennessey &middot; Product designer / visual thinker &middot; Toronto</span>
+    <h1 class="reveal">DESIGNING<br><span class="hero-display-accent">CLARITY</span><br>FOR REAL LIFE.</h1>
+    <p class="hero-role reveal">I turn complex products into clear, expressive experiences — from the first messy question to the final interface, motion detail, and system that makes it scale.</p>
+    <div class="home-hero-visual reveal" aria-label="Selected product design work">
+      <div class="home-visual-top"><span>Selected systems</span><span>01 / 03 &middot; 2026</span></div>
+      <figure class="home-art-main"><img src="assets/figma/kitlab-hero.jpg" alt="KitLab storefront system preview" loading="eager" decoding="async"></figure>
+      <figure class="home-art-float"><img src="assets/figma/matchup-hero.jpg" alt="MatchUp mobile product preview" loading="eager" decoding="async"></figure>
+      <div class="home-art-note"><span>Designing for</span><strong>clarity / motion / scale</strong></div>
+    </div>
     <div class="hero-actions reveal">
       <a href="#work" class="btn btn-primary">View case studies</a>
       <a href="#contact" class="btn btn-outline">Say hello</a>
     </div>
     <div class="hero-meta reveal">
       <div><p data-counter="2019">0</p><p>Designing since</p></div>
-      <div><p data-counter="3">0</p><p>Featured case studies</p></div>
-      <div><p data-counter="42+">0</p><p>Screens on KitLab FS alone</p></div>
-      <div><p data-counter="7">0</p><p>Core skills, advanced+</p></div>
+      <div><p data-counter="3">0</p><p>Product stories</p></div>
+      <div><p data-counter="42+">0</p><p>High-fidelity screens</p></div>
+      <div><p data-counter="7">0</p><p>Design disciplines</p></div>
     </div>
   </div>
 </header>
