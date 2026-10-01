@@ -3423,6 +3423,30 @@ body.studio-rebuild::before{
 .home-redesign .home-visual-top{position:relative;padding:22px 24px;color:rgba(255,255,255,.58)}.home-redesign .home-art-main{top:82px;left:8%;right:9%;border:3px solid rgba(255,255,255,.72);border-radius:14px;background:rgba(255,255,255,.1);box-shadow:0 28px 52px rgba(0,0,0,.3);transform:rotate(-2deg)}.home-redesign .home-art-float{right:5%;bottom:78px;width:39%;border:3px solid rgba(255,255,255,.82);border-radius:14px;background:rgba(7,26,54,.7);box-shadow:0 22px 40px rgba(0,0,0,.4);transform:rotate(5deg)}.home-redesign .home-art-note{left:8%;bottom:22px;color:#fff}.home-redesign .home-art-note span{color:var(--home-gold)}
 .home-redesign .section-light{background:#edf2f8!important}.home-redesign .section-white{background:#fff!important}.home-redesign .section-light .kicker,.home-redesign .section-white .kicker{color:#8a6500!important}.home-redesign .section-accent-bar{background:var(--home-gold)!important;width:92px!important;height:5px!important}.home-redesign .about-side{border-left-color:rgba(248,201,71,.85)!important;background:rgba(255,255,255,.58)}.home-redesign .mini-case:hover{border-color:var(--home-gold)}.home-redesign .section-system,.home-redesign .contact{background:var(--home-midnight)}
 @media(max-width:900px){.home-redesign .hero{padding-top:124px}.home-redesign .hero-inner{display:block}.home-redesign .home-hero-visual{min-height:430px;margin-top:58px}}@media(max-width:560px){.home-redesign .hero{padding-bottom:54px}.home-redesign .hero h1{font-size:clamp(46px,13vw,68px)!important;line-height:.92!important}.home-redesign .hero-role{font-size:14px!important}.home-redesign .home-hero-visual{min-height:340px;margin-top:44px;border-radius:22px}.home-redesign .home-art-main{top:60px;left:5%;right:8%}.home-redesign .home-art-float{bottom:56px;width:38%}}
+/* ---------- Studio index homepage: a new structure ---------- */
+.home-redesign .hero{min-height:100vh;padding:138px 0 48px;background:#061a35!important;color:#f8f8f4!important;overflow:hidden;}
+.home-redesign .hero::before{content:"";inset:0;opacity:1!important;z-index:-1;background:radial-gradient(circle at 78% 18%,rgba(54,104,186,.32),transparent 27%),radial-gradient(circle at 28% 92%,rgba(248,201,71,.1),transparent 24%),linear-gradient(110deg,transparent 0 67%,rgba(255,255,255,.045) 67.1%,transparent 67.4%)!important;mask-image:none!important;}
+.home-redesign .hero::after{content:"";left:0;right:0;bottom:0;height:1px;background:rgba(248,201,71,.38)!important;opacity:1!important;}
+.home-redesign .hero-blob{display:none!important;}
+.home-redesign .hero-inner.hero-command{display:grid!important;grid-template-columns:72px minmax(0,1fr) minmax(300px,370px)!important;grid-template-rows:auto!important;gap:clamp(34px,5vw,84px);align-items:stretch;max-width:1380px!important;min-height:calc(100vh - 186px);}
+.hero-command-rail{display:flex;flex-direction:column;justify-content:space-between;align-items:center;border-right:1px solid rgba(255,255,255,.18);padding:0 22px 12px 0;color:rgba(255,255,255,.58);}
+.hero-command-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#f8c947;color:#061a35;font-weight:800;font-size:12px;letter-spacing:-.08em;}
+.hero-command-rail-text{writing-mode:vertical-rl;transform:rotate(180deg);font-size:8px;line-height:1.75;letter-spacing:.2em;text-align:left;}
+.hero-command-scroll{font-size:8px;letter-spacing:.14em;writing-mode:vertical-rl;transform:rotate(180deg);}.hero-command-scroll b{display:inline-block;margin-top:12px;color:#f8c947;font-size:16px;}
+.hero-command-main{display:flex;flex-direction:column;justify-content:center;padding:18px 0 0;}
+.hero-command-kicker{align-self:flex-start;margin-bottom:68px;color:#f8c947;font-size:10px;letter-spacing:.18em;text-transform:uppercase;}
+.hero-command-overline{max-width:360px;margin:0 0 18px;color:rgba(255,255,255,.54);font-size:13px;letter-spacing:.04em;}
+.hero-command-title{max-width:760px;margin:0!important;color:#f8f8f4!important;font-family:'Poppins',sans-serif!important;font-size:clamp(58px,7vw,108px)!important;font-weight:500!important;letter-spacing:-.075em!important;line-height:.86!important;text-transform:none!important;}
+.hero-command-title span,.hero-command-title em{display:block;}.hero-command-title span:nth-child(2){padding-left:clamp(36px,6vw,110px);color:#f8c947;}.hero-command-title em{padding-left:clamp(74px,11vw,190px);font-style:normal;font-weight:800;}
+.hero-command-copy{max-width:420px;margin:36px 0 0;color:rgba(255,255,255,.7);font-size:15px;line-height:1.75;}
+.hero-command-actions{display:flex;gap:28px;align-items:center;margin-top:38px;}.command-link{display:inline-flex;gap:14px;align-items:center;color:rgba(255,255,255,.66);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:color .3s,transform .3s;}.command-link span{color:#f8c947;font-size:18px;}.command-link:hover{color:#fff;transform:translateX(5px);}.command-link-primary{color:#f8f8f4;}
+.hero-command-rule{display:flex;justify-content:space-between;max-width:560px;margin-top:70px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.44);font-size:9px;letter-spacing:.14em;text-transform:uppercase;}.hero-command-rule span:first-child{color:#f8c947;}
+.hero-command-index{align-self:center;padding:20px 0 18px;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);}.command-index-head,.command-index-foot{display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.5);font-size:9px;letter-spacing:.16em;text-transform:uppercase;}.command-index-head{padding:0 0 16px;}.command-index-head span:last-child{color:#f8c947;}
+.command-project{display:block;padding:15px 0;border-top:1px solid rgba(255,255,255,.12);}.command-project-image{position:relative;overflow:hidden;height:154px;border-radius:10px;background:#0b274d;}.command-project-image::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.18) 47%,transparent 60%);transform:translateX(-120%);transition:transform .7s ease;}.command-project:hover .command-project-image::after{transform:translateX(120%);}.command-project-image img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .6s ease;}.command-project:hover .command-project-image img{transform:scale(1.05);}.command-project-image span{position:absolute;top:12px;left:12px;z-index:1;color:#061a35;background:#f8c947;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-size:9px;font-weight:800;}
+.command-project-info{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:3px 12px;padding-top:11px;}.command-project-info strong{color:#fff;font-size:14px;font-weight:700;letter-spacing:.02em;}.command-project-info span{color:rgba(255,255,255,.48);font-size:10px;grid-column:1;}.command-project-info i{grid-column:2;grid-row:1 / 3;align-self:center;color:#f8c947;font-size:19px;font-style:normal;transition:transform .3s;}.command-project:hover .command-project-info i{transform:translate(4px,-4px);}.command-index-foot{padding-top:17px;}.command-pulse{width:7px;height:7px;border-radius:50%;background:#f8c947;box-shadow:0 0 0 0 rgba(248,201,71,.7);animation:commandPulse 2s infinite;}@keyframes commandPulse{70%{box-shadow:0 0 0 7px rgba(248,201,71,0)}}
+.home-redesign .section-light{background:#f3f5f8!important}.home-redesign .section-white{background:#fff!important}.home-redesign .section-system,.home-redesign .contact{background:#061a35!important}.home-redesign .section-accent-bar{background:#f8c947!important}
+@media(max-width:900px){.home-redesign .hero{padding-top:118px}.hero-command{grid-template-columns:48px minmax(0,1fr);gap:25px;min-height:auto}.hero-command-index{grid-column:2;margin-top:70px}.hero-command-kicker{margin-bottom:42px}.hero-command-title{font-size:clamp(52px,10vw,88px)!important}.hero-command-rule{margin-top:50px}}
+@media(max-width:560px){.home-redesign .hero{padding-top:108px}.hero-command{display:block!important}.hero-command-rail{display:none}.hero-command-kicker{margin-bottom:38px;font-size:8px}.hero-command-title{font-size:clamp(45px,14vw,70px)!important;letter-spacing:-.065em!important}.hero-command-title span:nth-child(2){padding-left:24px}.hero-command-title em{padding-left:48px}.hero-command-copy{font-size:14px;margin-top:28px}.hero-command-actions{gap:18px;flex-wrap:wrap;margin-top:30px}.hero-command-rule{margin-top:44px;font-size:8px}.hero-command-rule span:nth-child(2){display:none}.hero-command-index{margin-top:64px}.command-project-image{height:180px}}
 </style>
 </head>
 <body class="studio-rebuild">
@@ -3495,26 +3519,37 @@ body.studio-rebuild::before{
 <header class="hero" id="top">
   <div class="hero-blob"></div>
   <div class="hero-blob two"></div>
-  <div class="wrap hero-inner">
-    <span class="hero-eyebrow reveal">Alejandro Hennessey &middot; Product designer / visual thinker &middot; Toronto</span>
-    <h1 class="reveal">DESIGNING<br><span class="hero-display-accent">CLARITY</span><br>FOR REAL LIFE.</h1>
-    <p class="hero-role reveal">I turn complex products into clear, expressive experiences — from the first messy question to the final interface, motion detail, and system that makes it scale.</p>
-    <div class="home-hero-visual reveal" aria-label="Selected product design work">
-      <div class="home-visual-top"><span>Selected systems</span><span>01 / 03 &middot; 2026</span></div>
-      <figure class="home-art-main"><img src="assets/figma/kitlab-hero.jpg" alt="KitLab storefront system preview" loading="eager" decoding="async"></figure>
-      <figure class="home-art-float"><img src="assets/figma/matchup-hero.jpg" alt="MatchUp mobile product preview" loading="eager" decoding="async"></figure>
-      <div class="home-art-note"><span>Designing for</span><strong>clarity / motion / scale</strong></div>
+  <div class="wrap hero-inner hero-command">
+    <div class="hero-command-rail reveal" aria-hidden="true">
+      <span class="hero-command-mark">AH</span>
+      <span class="hero-command-rail-text">PRODUCT DESIGN<br>VISUAL SYSTEMS<br>TORONTO / CA</span>
+      <span class="hero-command-scroll">SCROLL TO EXPLORE <b>↓</b></span>
     </div>
-    <div class="hero-actions reveal">
-      <a href="#work" class="btn btn-primary">View case studies</a>
-      <a href="#contact" class="btn btn-outline">Say hello</a>
-    </div>
-    <div class="hero-meta reveal">
-      <div><p data-counter="2019">0</p><p>Designing since</p></div>
-      <div><p data-counter="3">0</p><p>Product stories</p></div>
-      <div><p data-counter="42+">0</p><p>High-fidelity screens</p></div>
-      <div><p data-counter="7">0</p><p>Design disciplines</p></div>
-    </div>
+
+    <main class="hero-command-main">
+      <span class="hero-command-kicker reveal">Independent designer / 2026 field notes</span>
+      <p class="hero-command-overline reveal">I work where product thinking meets visual culture.</p>
+      <h1 class="hero-command-title reveal"><span>Make it</span><span>feel</span><em>inevitable.</em></h1>
+      <p class="hero-command-copy reveal">I shape the question, the flow, and the feeling around a product — creating digital experiences that are useful first, memorable second.</p>
+      <div class="hero-command-actions reveal">
+        <a href="#work" class="command-link command-link-primary">Enter the work <span>↗</span></a>
+        <a href="#about" class="command-link">How I think <span>↓</span></a>
+      </div>
+      <div class="hero-command-rule reveal"><span>01</span><span>Question → System → Signal</span><span>Scroll</span></div>
+    </main>
+
+    <aside class="hero-command-index reveal" aria-label="Selected projects">
+      <div class="command-index-head"><span>Selected work</span><span>02 / 03</span></div>
+      <a class="command-project command-project-kitlab" href="#case-kitlab">
+        <div class="command-project-image"><img src="assets/figma/kitlab-hero.jpg" alt="KitLab storefront system preview" loading="eager" decoding="async"><span>01</span></div>
+        <div class="command-project-info"><strong>KitLab FS</strong><span>Commerce / UX system</span><i>↗</i></div>
+      </a>
+      <a class="command-project command-project-matchup" href="#case-matchup">
+        <div class="command-project-image"><img src="assets/figma/matchup-hero.jpg" alt="MatchUp mobile product preview" loading="eager" decoding="async"><span>02</span></div>
+        <div class="command-project-info"><strong>MatchUp</strong><span>Social sport / product design</span><i>↗</i></div>
+      </a>
+      <div class="command-index-foot"><span>Open a case study</span><span class="command-pulse"></span></div>
+    </aside>
   </div>
 </header>
 
