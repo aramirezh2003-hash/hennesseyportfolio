@@ -3573,13 +3573,6 @@ body.studio-rebuild::before{
 </head>
 <body class="studio-rebuild">
 
-<div id="loader">
-  <div class="loader-ring"></div>
-  <div class="loader-mark">ALEJANDRO<span>.</span></div>
-  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-  <div class="loader-pct">0%</div>
-</div>
-
 <div class="kitlab-transition" id="kitlab-transition" aria-hidden="true">
   <div class="kitlab-transition__wash"></div>
   <div class="kitlab-transition__logo"><img src="assets/brand/kitlabfs-logo.svg" alt=""></div>
@@ -4482,28 +4475,6 @@ function forEachEl(list, fn){
 }
 
 function initApp(){
-
-/* ---------------- Loader ---------------- */
-(function(){
-  var loader = document.getElementById('loader');
-  if(!loader) return;
-  var fill = loader.querySelector('.loader-bar-fill');
-  var pct = loader.querySelector('.loader-pct');
-  var p = 0;
-  function tick(){
-    if(p < 92){ p += Math.random()*14; if(p>92) p = 92; }
-    if(document.readyState === 'complete' && p < 100){ p += 4; }
-    if(p >= 100){ p = 100; }
-    if(fill) fill.style.width = p + '%';
-    if(pct) pct.textContent = Math.round(p) + '%';
-    if(p < 100){
-      requestAnimationFrame(function(){ setTimeout(tick, 55); });
-    } else {
-      setTimeout(function(){ loader.classList.add('hide'); }, 200);
-    }
-  }
-  tick();
-})();
 
 /* ---------------- Nav scroll state ---------------- */
 (function(){
