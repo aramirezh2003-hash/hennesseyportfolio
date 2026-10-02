@@ -1692,21 +1692,23 @@ body.studio-rebuild::before{
 
 .studio-rebuild .nav{
   position:fixed!important;
-  top:16px!important;
+  top:12px!important;
   left:50%!important;
   right:auto!important;
-  width:min(calc(100% - 36px),1180px)!important;
-  height:66px;
+  width:min(calc(100% - 32px),1080px)!important;
+  height:52px;
   transform:translateX(-50%)!important;
-  padding:10px 12px 10px 16px!important;
-  border:1px solid rgba(18,20,24,.12)!important;
-  border-radius:18px!important;
-  background:rgba(243,242,236,.86)!important;
+  padding:6px 8px 6px 12px!important;
+  border:1px solid rgba(255,255,255,.7)!important;
+  border-radius:999px!important;
+  background:linear-gradient(120deg,rgba(255,255,255,.78),rgba(247,248,255,.58) 48%,rgba(231,236,255,.68))!important;
   color:var(--ink)!important;
-  box-shadow:0 16px 45px rgba(18,20,24,.09)!important;
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 14px 34px rgba(18,20,24,.12),inset 0 1px 0 rgba(255,255,255,.9)!important;
+  backdrop-filter:blur(24px) saturate(1.35);
+  -webkit-backdrop-filter:blur(24px) saturate(1.35);
 }
+.studio-rebuild .liquid-nav{isolation:isolate;}
+.studio-rebuild .liquid-nav::before{content:"";position:absolute;inset:2px;border-radius:inherit;background:linear-gradient(100deg,rgba(255,255,255,.5),transparent 42%,rgba(255,255,255,.28));pointer-events:none;z-index:-1;}
 .studio-rebuild .nav-logo{
   display:inline-flex;
   align-items:center;
@@ -3553,7 +3555,7 @@ body.studio-rebuild::before{
 </div>
 
 
-<nav class="nav" id="nav">
+<nav class="nav liquid-nav" id="nav">
   <a href="/" class="nav-logo" aria-label="Alejandro Hennessey, home"><svg class="nav-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8"></rect><path d="M9 8v16m0-8h14M23 8v16"></path></svg><span>Alejandro Hennessey</span></a>
   <ul class="nav-links">
     <a href="/about" data-nav="about">About</a>
