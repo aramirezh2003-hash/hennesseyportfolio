@@ -880,48 +880,6 @@
    EXTENSIONS — multi-page SPA additions on top of base.css
    ========================================================= */
 
-/* ---------- Loader ---------- */
-#loader{
-  position:fixed; inset:0;
-  background:var(--navy);
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:24px;
-  transition:opacity .6s ease, visibility .6s ease;
-}
-#loader.hide{opacity:0; visibility:hidden; pointer-events:none;}
-.loader-mark{
-  font-family:'Anton',sans-serif;
-  font-size:15px;
-  letter-spacing:0.03em;
-  color:var(--white);
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.loader-mark span{color:var(--yellow);}
-.loader-ring{
-  width:52px; height:52px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,0.14);
-  position:relative;
-}
-.loader-ring::before{
-  content:"";
-  position:absolute; inset:-2px;
-  border-radius:50%;
-  border:2px solid transparent;
-  border-top-color:var(--yellow);
-  animation:spin .9s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg);}}
-.loader-bar{width:200px; height:2px; background:rgba(255,255,255,0.12); border-radius:2px; overflow:hidden;}
-.loader-bar-fill{height:100%; width:0%; background:var(--yellow); transition:width .2s ease;}
-.loader-pct{font-size:11px; letter-spacing:0.16em; color:#8a88a0; font-variant-numeric:tabular-nums;}
-
 /* ---------- Nav additions ---------- */
 .nav-actions{display:flex; align-items:center; gap:14px;}
 .nav-resume{
@@ -1731,17 +1689,6 @@ body.studio-rebuild::before{
   line-height:.94!important;
   text-transform:none!important;
 }
-
-.studio-rebuild #loader{
-  background:var(--paper)!important;
-  color:var(--ink)!important;
-}
-.studio-rebuild .loader-ring{border-color:var(--line)!important;border-top-color:var(--yellow)!important;}
-.studio-rebuild .loader-mark{font-family:'Poppins',sans-serif!important;font-weight:800;letter-spacing:-.06em;}
-.studio-rebuild .loader-mark span{color:var(--yellow)!important;}
-.studio-rebuild .loader-bar{background:var(--line)!important;}
-.studio-rebuild .loader-bar-fill{background:var(--yellow)!important;}
-.studio-rebuild .loader-pct{color:var(--body)!important;}
 
 .studio-rebuild .nav{
   position:fixed!important;
@@ -3573,13 +3520,6 @@ body.studio-rebuild::before{
 </head>
 <body class="studio-rebuild">
 
-<div id="loader">
-  <div class="loader-ring"></div>
-  <div class="loader-mark">ALEJANDRO<span>.</span></div>
-  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-  <div class="loader-pct">0%</div>
-</div>
-
 <div class="kitlab-transition" id="kitlab-transition" aria-hidden="true">
   <div class="kitlab-transition__wash"></div>
   <div class="kitlab-transition__logo"><img src="assets/brand/kitlabfs-logo.svg" alt=""></div>
@@ -4482,28 +4422,6 @@ function forEachEl(list, fn){
 }
 
 function initApp(){
-
-/* ---------------- Loader ---------------- */
-(function(){
-  var loader = document.getElementById('loader');
-  if(!loader) return;
-  var fill = loader.querySelector('.loader-bar-fill');
-  var pct = loader.querySelector('.loader-pct');
-  var p = 0;
-  function tick(){
-    if(p < 92){ p += Math.random()*14; if(p>92) p = 92; }
-    if(document.readyState === 'complete' && p < 100){ p += 4; }
-    if(p >= 100){ p = 100; }
-    if(fill) fill.style.width = p + '%';
-    if(pct) pct.textContent = Math.round(p) + '%';
-    if(p < 100){
-      requestAnimationFrame(function(){ setTimeout(tick, 55); });
-    } else {
-      setTimeout(function(){ loader.classList.add('hide'); }, 200);
-    }
-  }
-  tick();
-})();
 
 /* ---------------- Nav scroll state ---------------- */
 (function(){
