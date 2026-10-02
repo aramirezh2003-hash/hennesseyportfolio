@@ -1701,17 +1701,15 @@ body.studio-rebuild::before{
   padding:5px 7px 5px 10px!important;
   border:1px solid rgba(255,255,255,.82)!important;
   border-radius:999px!important;
-  background:radial-gradient(circle at 12% -80%,rgba(255,255,255,.98),transparent 42%),radial-gradient(circle at 88% 170%,rgba(111,164,255,.5),transparent 45%),linear-gradient(120deg,rgba(255,255,255,.72),rgba(196,222,255,.42) 48%,rgba(220,205,255,.58))!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,255,255,.34) 48%,rgba(255,255,255,.52))!important;
   color:var(--ink)!important;
-  box-shadow:0 20px 52px rgba(48,73,125,.24),0 0 24px rgba(125,176,255,.2),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(151,181,239,.34)!important;
+  box-shadow:0 14px 36px rgba(18,20,24,.13),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.26)!important;
   backdrop-filter:blur(30px) saturate(1.65) contrast(1.04);
   -webkit-backdrop-filter:blur(30px) saturate(1.65) contrast(1.04);
 }
 .studio-rebuild .liquid-nav{isolation:isolate;}
-.studio-rebuild .liquid-nav::before{content:"";position:absolute;inset:2px;border-radius:inherit;background:radial-gradient(ellipse at 18% -40%,rgba(255,255,255,.98),transparent 34%),linear-gradient(105deg,rgba(255,255,255,.54),transparent 38%,rgba(255,255,255,.3));pointer-events:none;z-index:-1;animation:liquidSheen 7s ease-in-out infinite;}
-.studio-rebuild .liquid-nav::after{content:"";position:absolute;inset:-8px;border-radius:inherit;background:radial-gradient(ellipse at 82% 120%,rgba(87,151,255,.5),transparent 42%),radial-gradient(ellipse at 8% 120%,rgba(203,146,255,.28),transparent 38%);filter:blur(14px);opacity:.95;pointer-events:none;z-index:-2;animation:liquidGlow 9s ease-in-out infinite alternate;}
-@keyframes liquidSheen{0%,100%{transform:translateX(-3%) scale(1);opacity:.82}50%{transform:translateX(5%) scale(1.04);opacity:1}}
-@keyframes liquidGlow{0%{transform:translateX(-2%)}100%{transform:translateX(3%)}}
+.studio-rebuild .liquid-nav::before{content:"";position:absolute;inset:1px;border-radius:inherit;background:linear-gradient(112deg,rgba(255,255,255,.72),transparent 34% 66%,rgba(255,255,255,.24));pointer-events:none;z-index:-1;}
+.studio-rebuild .liquid-nav::after{content:"";position:absolute;inset:-1px;border-radius:inherit;border:1px solid rgba(255,255,255,.52);box-shadow:0 0 18px rgba(255,255,255,.2);pointer-events:none;z-index:-2;}
 .studio-rebuild .nav-logo{
   display:inline-flex;
   align-items:center;
