@@ -3555,6 +3555,7 @@ body.studio-rebuild::before{
 .home-v3 .v3-work-grid{gap:18px;}
 .home-v3 .v3-work-card{border:1px solid #dce2e9;border-radius:22px;background:#f8fafc;box-shadow:0 12px 30px rgba(25,40,60,.05);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;}
 .home-v3 .v3-work-card:hover{transform:translateY(-6px);border-color:#9aacc2;box-shadow:0 22px 44px rgba(25,40,60,.12);}
+.home-v3 .v3-work-card:nth-child(n+4){display:none;}
 .home-v3 .v3-card-media,.home-v3 .v3-brand-media,.home-v3 .v3-print-media,.home-v3 .v3-visual-media{border-radius:17px;}
 .home-v3 .v3-card-meta{color:#7a8796;}
 .home-v3 .v3-work-card h3{color:#101522;letter-spacing:-.04em;}
@@ -3593,6 +3594,14 @@ body.studio-rebuild::before{
 .home-v3 .v3-lede{font-size:17px;max-width:470px;}
 .home-v3 .v3-hero-art{min-height:370px;border-radius:24px;background:rgba(255,255,255,.58);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 24px 60px rgba(38,57,82,.1);}
 .home-v3 .v3-index{padding:92px 0 110px;}
+.home-v3 .v3-about-highlight{padding:104px 0;background:#edf1f5;border-top:1px solid #dce2e9;border-bottom:1px solid #dce2e9;}
+.home-v3 .v3-about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(42px,9vw,130px);align-items:start;}
+.home-v3 .v3-about-grid h2{max-width:560px;margin:18px 0 0;color:#0b1322;font-size:clamp(42px,5vw,72px);line-height:.92;letter-spacing:-.075em;}
+.home-v3 .v3-about-copy{max-width:470px;padding-top:28px;}
+.home-v3 .v3-about-copy>p{margin:0;color:#526071;font-size:17px;line-height:1.75;}
+.home-v3 .v3-about-points{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 34px;}
+.home-v3 .v3-about-points span{padding:9px 12px;border:1px solid #cbd5e1;border-radius:999px;color:#526071;font-size:11px;letter-spacing:.04em;}
+.home-v3 .v3-about-copy .v3-link{color:#0b1322;}
 .home-v3 .v3-section-head{grid-template-columns:minmax(0,1fr) 280px;gap:42px;}
 .home-v3 .v3-section-head h2,.home-v3 .v3-method-head h2,.home-v3 .v3-end h2{font-weight:600;}
 .home-v3 .v3-work-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
@@ -3601,7 +3610,7 @@ body.studio-rebuild::before{
 .home-v3 .v3-method{padding:96px 0;}
 .home-v3 .v3-method-list>div{padding:22px 0;}
 .home-v3 .v3-end{padding:92px 0;}
-@media(max-width:760px){.home-v3 .v3-section-head{display:block}.home-v3 .v3-section-note{margin-top:22px}.home-v3 .v3-work-grid{grid-template-columns:1fr}.home-v3 .v3-hero{padding-top:112px}.home-v3 .v3-hero-art{min-height:300px;margin-top:18px}}
+@media(max-width:760px){.home-v3 .v3-section-head{display:block}.home-v3 .v3-section-note{margin-top:22px}.home-v3 .v3-work-grid{grid-template-columns:1fr}.home-v3 .v3-hero{padding-top:112px}.home-v3 .v3-hero-art{min-height:300px;margin-top:18px}.home-v3 .v3-about-grid{grid-template-columns:1fr;gap:18px}.home-v3 .v3-about-copy{padding-top:0}}
 
 </style>
 </head>
@@ -3702,6 +3711,13 @@ body.studio-rebuild::before{
         <article class="v3-work-card v3-print-card" data-v3-category="print"><div class="v3-print-media"><span class="v3-print-kicker">Field notes / 2026</span><strong>FORM<br><em>FOLLOWS</em><br>FEELING</strong><span class="v3-print-rule"></span><span class="v3-print-side">POSTER / EDITORIAL / PACKAGING</span></div><div class="v3-card-meta"><span>05 / Print</span><span>Editorial direction</span></div><h3>Make it tangible.</h3><p>Layouts, labels, and print pieces that carry a visual idea into the physical world.</p></article>
         <article class="v3-work-card v3-visual-card" data-v3-category="print"><div class="v3-visual-media"><span class="v3-visual-ring"></span><span class="v3-visual-cross">+</span><span class="v3-visual-type">TYPE<br>IMAGE<br>SPACE</span></div><div class="v3-card-meta"><span>06 / Visual</span><span>Art direction</span></div><h3>Make it felt.</h3><p>Graphic composition and motion details that make a message land before it is explained.</p></article>
       </div>
+    </div>
+  </section>
+
+  <section class="v3-about-highlight">
+    <div class="v3-wrap v3-about-grid">
+      <div><p class="v3-eyebrow">A little context</p><h2>Design that makes the next decision easier.</h2></div>
+      <div class="v3-about-copy"><p>I’m Alejandro, a Toronto-based product designer working across UX, visual systems, and e-commerce. I help teams turn complicated ideas into clear experiences people can use with confidence.</p><div class="v3-about-points"><span>Product thinking</span><span>Visual systems</span><span>Thoughtful motion</span></div><a class="v3-link" href="/about">Get to know my approach <span>↗</span></a></div>
     </div>
   </section>
 
