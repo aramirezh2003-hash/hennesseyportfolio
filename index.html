@@ -3637,6 +3637,49 @@ body.studio-rebuild::before{
 .home-v3 .v3-end-row{border-top:0;border-radius:24px;padding:24px 28px;align-items:center;}
 @media(max-width:760px){.home-v3 .v3-about-grid>div:first-child,.home-v3 .v3-about-copy{padding:24px}.home-v3 .v3-end-row{padding:22px;}}
 
+/* ---------- New homepage: clear editorial liquid glass ---------- */
+#route-home>.home-v3{display:none!important;}
+.home-rebuild{position:relative;isolation:isolate;overflow:hidden;background:#f3f5f8;color:#0d1727;font-family:'Poppins',Arial,sans-serif;}
+.home-rebuild::before{content:"";position:absolute;z-index:-2;inset:0;background:radial-gradient(circle at 8% 6%,rgba(255,255,255,.98),transparent 28%),radial-gradient(circle at 92% 16%,rgba(184,216,250,.58),transparent 30%),linear-gradient(180deg,#eef3f8 0%,#f7f8fa 58%,#edf1f6 100%);}
+.home-rebuild::after{content:"";position:absolute;z-index:-1;inset:0;opacity:.2;background-image:linear-gradient(rgba(72,94,122,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(72,94,122,.12) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(#000,transparent 70%);pointer-events:none;}
+.rebuild-shell{width:min(1160px,calc(100% - 48px));margin:0 auto;}
+.rebuild-hero{position:relative;min-height:760px;padding:170px 0 38px;overflow:hidden;}
+.rebuild-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);align-items:center;gap:clamp(50px,9vw,130px);}
+.rebuild-orb{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none;z-index:-1;}
+.rebuild-orb-one{width:520px;height:520px;right:-170px;top:90px;background:radial-gradient(circle,rgba(255,255,255,.95),rgba(166,205,246,.36) 45%,transparent 70%);}
+.rebuild-orb-two{width:360px;height:360px;left:-190px;bottom:-120px;background:radial-gradient(circle,rgba(213,224,255,.62),transparent 68%);}
+.rebuild-eyebrow{display:flex;align-items:center;gap:10px;margin:0;color:#647286;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+.rebuild-eyebrow span{display:inline-block;width:24px;height:1px;background:#6d8eae;}
+.rebuild-hero h1{margin:28px 0 26px;color:#0b1423;font-size:clamp(58px,7.8vw,112px);font-weight:600;letter-spacing:-.085em;line-height:.86;}
+.rebuild-hero h1 em,.rebuild-section-head h2 em,.rebuild-about h2 em,.rebuild-contact h2 em{color:#557795;font-style:normal;}
+.rebuild-lede{max-width:490px;margin:0;color:#526174;font-size:18px;line-height:1.7;}
+.rebuild-actions{display:flex;align-items:center;gap:24px;margin-top:36px;}
+.rebuild-button{display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:15px 19px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transition:transform .25s ease,background .25s ease,box-shadow .25s ease;}
+.rebuild-button span,.rebuild-text-link span,.rebuild-all-link span{font-size:17px;line-height:0;}
+.rebuild-button:hover{transform:translateY(-3px);}
+.rebuild-button-dark{background:#0d1727;color:#fff;box-shadow:0 15px 32px rgba(13,23,39,.18);}
+.rebuild-button-dark:hover{background:#557795;box-shadow:0 18px 36px rgba(55,86,116,.24);}
+.rebuild-button-light{background:#fff;color:#0d1727;box-shadow:0 14px 28px rgba(0,0,0,.12);}
+.rebuild-text-link,.rebuild-all-link{display:inline-flex;align-items:center;gap:10px;color:#23364c;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+.rebuild-text-link:hover,.rebuild-all-link:hover{color:#557795;}
+.rebuild-hero-card{position:relative;min-height:420px;padding:22px;border:1px solid rgba(255,255,255,.82);border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,255,255,.22));box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 28px 72px rgba(45,65,90,.14);backdrop-filter:blur(28px) saturate(1.25);-webkit-backdrop-filter:blur(28px) saturate(1.25);overflow:hidden;}
+.rebuild-hero-card::before{content:"";position:absolute;inset:1px;border-radius:inherit;background:linear-gradient(112deg,rgba(255,255,255,.64),transparent 38% 70%,rgba(255,255,255,.2));pointer-events:none;}
+.rebuild-card-top,.rebuild-card-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;color:#708096;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;}
+.rebuild-card-bottom{position:absolute;right:22px;bottom:22px;left:22px;gap:12px;justify-content:flex-start;}
+.rebuild-glass-mark{position:absolute;inset:0;display:grid;place-items:center;color:#17304c;}
+.rebuild-glass-mark i{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 32% 26%,rgba(255,255,255,.95),rgba(152,195,235,.42) 42%,rgba(91,130,167,.16) 63%,transparent 70%);box-shadow:inset 18px 12px 30px rgba(255,255,255,.55),inset -18px -24px 34px rgba(54,93,132,.18),0 25px 60px rgba(54,93,132,.15);}
+.rebuild-glass-mark b{position:relative;font-size:32px;line-height:.82;letter-spacing:-.09em;}
+.rebuild-glass-mark em{color:#557795;font-style:normal;}
+.rebuild-scroll-note{display:flex;align-items:center;gap:14px;margin-top:70px;color:#7a8797;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;}.rebuild-scroll-note i{width:70px;height:1px;background:#aebac8;}
+.rebuild-proof{border-top:1px solid rgba(124,145,168,.24);border-bottom:1px solid rgba(124,145,168,.24);background:rgba(255,255,255,.3);backdrop-filter:blur(20px);}
+.rebuild-proof-grid{display:grid;grid-template-columns:repeat(4,1fr);}.rebuild-proof-grid>div{display:flex;flex-direction:column;gap:6px;padding:25px 20px;border-right:1px solid rgba(124,145,168,.22);}.rebuild-proof-grid>div:first-child{padding-left:0;}.rebuild-proof-grid strong{font-size:16px;letter-spacing:-.04em;}.rebuild-proof-grid span{color:#778598;font-size:10px;letter-spacing:.1em;text-transform:uppercase;}
+.rebuild-work{padding:130px 0 150px;}.rebuild-section-head{display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:end;margin-bottom:48px;}.rebuild-section-head h2,.rebuild-about h2,.rebuild-contact h2{max-width:720px;margin:22px 0 0;color:#0b1423;font-size:clamp(48px,6vw,82px);font-weight:600;letter-spacing:-.08em;line-height:.88;}.rebuild-section-head>p{margin:0;color:#637286;font-size:15px;line-height:1.75;}
+.rebuild-work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}.rebuild-project{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.82);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,255,255,.28));box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 18px 46px rgba(45,65,90,.09);backdrop-filter:blur(22px);transition:transform .3s ease,box-shadow .3s ease;}.rebuild-project:hover{transform:translateY(-7px);box-shadow:inset 0 1px 0 #fff,0 28px 60px rgba(45,65,90,.17);}.rebuild-project-wide{grid-column:1/-1;display:grid;grid-template-columns:1.1fr .9fr;}.rebuild-project-image{min-height:280px;overflow:hidden;background:#dce7f2;}.rebuild-project-wide .rebuild-project-image{min-height:370px;}.rebuild-project-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}.rebuild-project:hover .rebuild-project-image img{transform:scale(1.035);}.rebuild-project-info{position:relative;padding:24px;}.rebuild-project-info>span{color:#778598;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}.rebuild-project-info h3{margin:26px 0 10px;color:#0b1423;font-size:32px;letter-spacing:-.07em;}.rebuild-project-info p{max-width:340px;margin:0 0 34px;color:#647286;font-size:14px;line-height:1.65;}.rebuild-project-info b{color:#385673;font-size:10px;letter-spacing:.1em;text-transform:uppercase;}.rebuild-all-link{margin-top:38px;}
+.rebuild-about{padding:130px 0;background:rgba(226,233,241,.58);border-top:1px solid rgba(255,255,255,.8);border-bottom:1px solid rgba(155,174,196,.2);}.rebuild-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,10vw,140px);}.rebuild-about h2{font-size:clamp(45px,5vw,70px);}.rebuild-about-lede{max-width:500px;margin:0 0 38px;color:#526174;font-size:19px;line-height:1.65;}.rebuild-about-list{margin-bottom:34px;border-top:1px solid rgba(110,130,155,.28);}.rebuild-about-list>div{display:grid;grid-template-columns:34px 1fr;padding:17px 0;border-bottom:1px solid rgba(110,130,155,.28);}.rebuild-about-list span{color:#718197;font-size:10px;font-weight:700;}.rebuild-about-list b{color:#1a2b3f;font-size:14px;}.rebuild-about-list p{grid-column:2;margin:6px 0 0;color:#708096;font-size:13px;line-height:1.5;}
+.rebuild-contact{padding:130px 0 150px;background:#0d1727;color:#fff;border-radius:44px 44px 0 0;}.rebuild-contact .rebuild-eyebrow{color:#aebed0;}.rebuild-contact h2{color:#fff;}.rebuild-contact-row{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:54px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);}.rebuild-contact-row p{max-width:320px;margin:0;color:#aebed0;font-size:14px;line-height:1.65;}
+@media(max-width:820px){.rebuild-hero{min-height:auto;padding-top:130px}.rebuild-hero-grid,.rebuild-about-grid{grid-template-columns:1fr}.rebuild-hero-card{min-height:330px}.rebuild-proof-grid{grid-template-columns:repeat(2,1fr)}.rebuild-proof-grid>div:nth-child(2){border-right:0}.rebuild-work-grid{grid-template-columns:1fr}.rebuild-project-wide{grid-column:auto;display:block}.rebuild-project-wide .rebuild-project-image{min-height:280px}.rebuild-section-head{display:block}.rebuild-section-head>p{max-width:420px;margin-top:24px}.rebuild-contact-row{align-items:flex-start;flex-direction:column;}}
+@media(max-width:520px){.rebuild-shell{width:calc(100% - 36px)}.rebuild-hero{padding-top:110px}.rebuild-hero h1{font-size:clamp(54px,16vw,78px)}.rebuild-actions{align-items:flex-start;flex-direction:column;gap:18px}.rebuild-proof-grid>div{padding:20px 12px}.rebuild-proof-grid>div:first-child{padding-left:0}.rebuild-work,.rebuild-about,.rebuild-contact{padding:88px 0}.rebuild-contact{border-radius:28px 28px 0 0}}
+
 </style>
 </head>
 <body class="studio-rebuild">
@@ -3698,6 +3741,42 @@ body.studio-rebuild::before{
 
 
 <div class="route-section home-redesign" data-route="home" id="route-home">
+
+<main class="home-rebuild">
+  <section class="rebuild-hero">
+    <div class="rebuild-orb rebuild-orb-one"></div><div class="rebuild-orb rebuild-orb-two"></div>
+    <div class="rebuild-shell rebuild-hero-grid">
+      <div class="rebuild-hero-copy">
+        <p class="rebuild-eyebrow"><span></span> Alejandro Hennessey · Product Designer · Toronto</p>
+        <h1>Clear thinking.<br><em>Distinctive work.</em></h1>
+        <p class="rebuild-lede">I design digital products and visual systems that turn complexity into confident, useful experiences.</p>
+        <div class="rebuild-actions"><a class="rebuild-button rebuild-button-dark" href="/work">View selected work <span>↗</span></a><a class="rebuild-text-link" href="/about">About the practice <span>→</span></a></div>
+      </div>
+      <div class="rebuild-hero-card">
+        <div class="rebuild-card-top"><span>01 / 03</span><span>Selected practice</span></div>
+        <div class="rebuild-glass-mark"><i></i><b>MAKE<br><em>USEFUL</em></b></div>
+        <div class="rebuild-card-bottom"><span>Product</span><span>Commerce</span><span>Visual systems</span></div>
+      </div>
+    </div>
+    <div class="rebuild-shell rebuild-scroll-note"><span>Scroll to explore</span><i></i><span>01</span></div>
+  </section>
+
+  <section class="rebuild-proof"><div class="rebuild-shell rebuild-proof-grid"><div><strong>03</strong><span>Core case studies</span></div><div><strong>UX / UI</strong><span>Product thinking</span></div><div><strong>2026</strong><span>Based in Toronto</span></div><div><strong>Available</strong><span>For thoughtful work</span></div></div></section>
+
+  <section class="rebuild-work"><div class="rebuild-shell">
+    <div class="rebuild-section-head"><div><p class="rebuild-eyebrow"><span></span> Selected work</p><h2>Small set.<br><em>Strong point of view.</em></h2></div><p>Three projects that show how I move from a messy problem to a clear, scalable experience.</p></div>
+    <div class="rebuild-work-grid">
+      <a class="rebuild-project rebuild-project-wide" href="/work/kitlab-fs"><div class="rebuild-project-image"><img src="assets/figma/kitlab-hero.jpg" alt="KitLab storefront experience"></div><div class="rebuild-project-info"><span>01 / E-commerce · Product system</span><h3>KitLab FS</h3><p>A clearer storefront for discovering, comparing, and buying teamwear.</p><b>Open case study ↗</b></div></a>
+      <a class="rebuild-project" href="/work/matchup"><div class="rebuild-project-image"><img src="assets/figma/matchup-hero.jpg" alt="MatchUp social sports experience"></div><div class="rebuild-project-info"><span>02 / Social product</span><h3>MatchUp</h3><p>One connected flow for finding games, people, and momentum.</p><b>Open case study ↗</b></div></a>
+      <a class="rebuild-project" href="/work/commerceflow"><div class="rebuild-project-image"><img src="assets/figma/commerce-dashboard.jpg" alt="CommerceFlow operations dashboard"></div><div class="rebuild-project-info"><span>03 / B2B SaaS</span><h3>CommerceFlow</h3><p>Turning operational complexity into a dashboard teams can read.</p><b>Open case study ↗</b></div></a>
+    </div>
+    <a class="rebuild-all-link" href="/work">See the full project archive <span>↗</span></a>
+  </div></section>
+
+  <section class="rebuild-about"><div class="rebuild-shell rebuild-about-grid"><div><p class="rebuild-eyebrow"><span></span> The practice</p><h2>Good design makes the next move feel obvious.</h2></div><div><p class="rebuild-about-lede">I work across product design, e-commerce, and visual systems—bringing structure to ambitious ideas and enough character to make them memorable.</p><div class="rebuild-about-list"><div><span>01</span><b>Find the signal</b><p>Understand the people, friction, and decision that matter most.</p></div><div><span>02</span><b>Build the system</b><p>Turn insight into flows, hierarchy, and a language that holds together.</p></div><div><span>03</span><b>Make it useful</b><p>Refine every interaction until the experience earns confidence.</p></div></div><a class="rebuild-text-link" href="/about">Read how I work <span>→</span></a></div></div></section>
+
+  <section class="rebuild-contact"><div class="rebuild-shell"><p class="rebuild-eyebrow"><span></span> Have a good problem?</p><h2>Let’s make<br><em>something clear.</em></h2><div class="rebuild-contact-row"><p>Available for selected product, identity, and visual design collaborations.</p><a class="rebuild-button rebuild-button-light" href="/contact">Start a conversation <span>↗</span></a></div></div></section>
+</main>
 
 <div class="home-v3" id="home-v3">
   <section class="v3-hero">
