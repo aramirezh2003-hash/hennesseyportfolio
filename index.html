@@ -3462,6 +3462,16 @@ body.studio-rebuild::before{
 @media(max-width:620px){.home-redesign .wrap{width:calc(100% - 36px)}.home-redesign>section{padding:78px 0!important}.home-redesign .section-title{font-size:clamp(38px,12vw,58px)!important}.home-redesign .work-grid{grid-template-columns:1fr!important}.home-redesign .mini-case:last-child{grid-column:auto}.home-redesign .mini-case{min-height:0!important}.home-redesign .design-map,.home-redesign .bring-grid{grid-template-columns:1fr}.home-redesign .design-map-card{min-height:220px}.home-redesign .system-topline,.home-redesign .system-footer,.home-redesign .contact-bottom{align-items:flex-start;flex-direction:column}.home-redesign .contact-title{font-size:26vw;margin:42px 0}.home-redesign .about-side{padding-left:18px}.home-redesign .section-light>.wrap:before,.home-redesign .section-white>.wrap:before{display:none}}
 /* ---------- Final accessibility and rhythm pass ---------- */
 .about-proof-line{max-width:540px;margin:24px 0 0;padding-top:20px;border-top:1px solid var(--line);color:var(--navy);font-size:14px;line-height:1.7;font-weight:600;}
+.about-story{padding:112px 0;background:linear-gradient(145deg,#f7f9fb,#e8eef5);border-top:1px solid rgba(111,133,157,.18);border-bottom:1px solid rgba(111,133,157,.18);}
+.about-story-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,9vw,130px);align-items:start;}
+.about-story h2{max-width:420px;margin:18px 0 0;color:var(--navy);font-size:clamp(42px,5vw,72px);line-height:.92;letter-spacing:-.075em;}
+.about-story-copy{max-width:650px;color:#34445b;font-size:17px;line-height:1.8;}
+.about-story-copy p{margin:0 0 22px;}
+.about-story-callout{margin-top:34px;padding:24px 26px;border-left:3px solid #557795;border-radius:0 20px 20px 0;background:rgba(255,255,255,.58);box-shadow:0 16px 32px rgba(42,63,86,.07);font-size:20px;font-weight:600;line-height:1.45;color:var(--navy);}
+.about-process{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;}
+.about-process-card{padding:24px;border:1px solid rgba(255,255,255,.82);border-radius:20px;background:rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 14px 30px rgba(42,63,86,.06);}
+.about-process-card span{color:#557795;font-size:11px;font-weight:800;letter-spacing:.14em;}.about-process-card h3{margin:34px 0 8px;color:var(--navy);font-size:18px;}.about-process-card p{margin:0;color:#66758a;font-size:13px;line-height:1.6;}
+@media(max-width:760px){.about-story{padding:82px 0}.about-story-grid{grid-template-columns:1fr;gap:30px}.about-process{grid-template-columns:1fr}.about-story-callout{font-size:18px;}}
 .exp-section .section-accent-bar{background:var(--yellow);}
 .exp-section .exp-desc,.exp-section .exp-side p{color:rgba(255,255,255,.82);}
 .exp-section .exp-date{color:rgba(255,255,255,.64);}
@@ -4069,7 +4079,7 @@ body.studio-rebuild::before{
     <a href="/" class="crumb on-dark">&larr; Back to Home</a>
     <span class="hero-eyebrow reveal">Introduction</span>
     <h1 class="reveal">About me</h1>
-    <p class="reveal">Product Designer based in Toronto. I turn messy product questions into clear flows, confident interfaces, and systems that teams can actually ship.</p>
+    <p class="reveal">I’m Alejandro Hennessey, a Toronto-based product designer working across UX, e-commerce, visual systems, and motion. I turn messy product questions into clear flows, confident interfaces, and systems teams can actually ship.</p>
   </div>
 </header>
 
@@ -4077,8 +4087,8 @@ body.studio-rebuild::before{
   <div class="wrap">
     <div class="about-page-grid">
       <div class="reveal">
-        <p style="font-size:16px; line-height:1.8; color:var(--body);">My work sits between product thinking, visual craft, and business reality. I have designed and operated real storefronts, shaped product concepts, collaborated with developers, and built the visual systems that make an experience feel coherent from first touch to delivery.</p>
-        <p class="about-proof-line">I work best where the problem is still becoming clear — bringing structure to research, momentum to collaboration, and care to the last interaction.</p>
+        <p style="font-size:16px; line-height:1.8; color:var(--body);">I’m drawn to the space between a complicated idea and the moment it finally makes sense. My work sits between product thinking, visual craft, and business reality: I have designed and operated real storefronts, shaped product concepts, collaborated with developers, and built visual systems that make an experience feel coherent from first touch to delivery.</p>
+        <p class="about-proof-line">I care about making design useful, not just polished — clear enough for people to trust and considered enough for teams to build on.</p>
       </div>
       <div class="about-side reveal">
         <h3>What I work across</h3>
@@ -4108,6 +4118,22 @@ body.studio-rebuild::before{
         <p>Developing and managing storefronts, catalogues, website content, and conversion-focused campaigns.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="about-story">
+  <div class="wrap about-story-grid">
+    <div class="reveal"><span class="kicker">The person behind the work</span><h2>Curious by nature.<br><em>Practical by design.</em></h2></div>
+    <div class="about-story-copy reveal">
+      <p>I’m a designer who likes asking better questions before making more screens. I want to understand what people are trying to do, what is getting in their way, and what the business needs the experience to achieve. That balance keeps my work grounded: expressive enough to be memorable, structured enough to be useful.</p>
+      <p>My background in graphic design gives me a strong eye for hierarchy, typography, colour, and composition. My product work has taught me to think in systems, flows, constraints, and real decisions. Together, they help me move comfortably from the first sketch to a polished interface and the details that make it feel finished.</p>
+      <div class="about-story-callout">“The best interface is not the one that shows the most work. It is the one that makes the next decision feel obvious.”</div>
+    </div>
+  </div>
+  <div class="wrap about-process">
+    <article class="about-process-card reveal"><span>01 / LISTEN</span><h3>Find the real problem</h3><p>I learn the context, constraints, audience, and business goal before deciding what to make.</p></article>
+    <article class="about-process-card reveal"><span>02 / SHAPE</span><h3>Make the system clear</h3><p>I map the journey, reduce noise, and turn loose ideas into flows, hierarchy, and a visual language.</p></article>
+    <article class="about-process-card reveal"><span>03 / REFINE</span><h3>Make it feel inevitable</h3><p>I prototype, test, collaborate, and polish the moments that help people move forward with confidence.</p></article>
   </div>
 </section>
 
