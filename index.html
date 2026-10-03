@@ -1668,6 +1668,8 @@ body.studio-rebuild{
   color:var(--ink);
 }
 
+.skip-link{position:fixed;left:16px;top:12px;z-index:9999;padding:10px 14px;border-radius:999px;background:#0b1322;color:#fff;font-size:12px;font-weight:700;transform:translateY(-150%);transition:transform .2s ease;}
+.skip-link:focus{transform:none;outline:3px solid #8bb5ff;outline-offset:3px;}
 body.studio-rebuild::before{
   opacity:.028;
   mix-blend-mode:multiply;
@@ -3683,6 +3685,7 @@ body.studio-rebuild::before{
 </style>
 </head>
 <body class="studio-rebuild">
+<a class="skip-link" href="#route-home">Skip to content</a>
 
 <div class="kitlab-transition" id="kitlab-transition" aria-hidden="true">
   <div class="kitlab-transition__wash"></div>
@@ -3837,12 +3840,12 @@ body.studio-rebuild::before{
   <div class="hero-blob two"></div>
   <div class="wrap hero-inner hero-gallery">
     <div class="gallery-topline reveal"><span>AH / Product designer</span><span>Toronto, Canada</span><span>Available for thoughtful work <b></b></span></div>
-    <main class="gallery-copy">
+    <section class="gallery-copy" aria-labelledby="gallery-title">
       <p class="gallery-kicker reveal">Digital products / visual systems / motion</p>
-      <h1 class="gallery-title reveal"><span>Designing</span><span>better</span><em>possibilities.</em></h1>
+      <h1 class="gallery-title reveal" id="gallery-title"><span>Designing</span><span>better</span><em>possibilities.</em></h1>
       <p class="gallery-intro reveal">I bring structure to ambitious ideas and turn them into digital experiences people can understand, use, and remember.</p>
       <div class="gallery-actions reveal"><a href="/work" class="gallery-button">Explore the work <span>↗</span></a><a href="/about" class="gallery-text-link">About my practice <span>↓</span></a></div>
-    </main>
+    </section>
     <div class="gallery-stage reveal" role="region" aria-label="Selected project previews">
       <div class="gallery-sun"></div>
       <div class="gallery-stage-label"><span>Selected work</span><span>01—02 / 2026</span></div>
