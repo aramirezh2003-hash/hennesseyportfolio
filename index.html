@@ -170,6 +170,7 @@
     color:var(--white);
   }
   .nav-logo span{color:var(--yellow);}
+  .nav-logo img.brand-logo{width:34px;height:34px;display:block;flex:0 0 auto;object-fit:cover;border-radius:9px;box-shadow:0 0 0 1px rgba(255,202,57,.35),0 8px 22px rgba(0,0,0,.22);}
   .nav-mark{width:32px;height:32px;display:block;flex:0 0 auto;}
   .nav-mark rect{fill:var(--navy);stroke:var(--yellow);stroke-width:1.5;}
   .nav-mark path{fill:none;stroke:var(--yellow);stroke-width:2.8;stroke-linecap:square;}
@@ -855,6 +856,8 @@
     gap:10px;
   }
   .wrap.footer-wrap{display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;}
+  .footer-brand{display:inline-flex;align-items:center;gap:10px;}
+  .footer-brand .brand-logo{width:24px;height:24px;display:block;object-fit:cover;border-radius:6px;}
 
   /* reveal animation */
   .reveal{
@@ -3701,6 +3704,29 @@ body.studio-rebuild::before{
 @media(max-width:520px){.rebuild-shell{width:calc(100% - 36px)}.rebuild-hero{padding-top:110px}.rebuild-hero h1{font-size:clamp(54px,16vw,78px)}.rebuild-actions{align-items:flex-start;flex-direction:column;gap:18px}.rebuild-proof-grid>div{padding:20px 12px}.rebuild-proof-grid>div:first-child{padding-left:0}.rebuild-work,.rebuild-about,.rebuild-contact{padding:88px 0}.rebuild-contact{border-radius:28px 28px 0 0}}
 
 </style>
+<style id="recruiter-first-redesign">
+:root{--rf-ink:#071a36;--rf-paper:#f5f3ed;--rf-yellow:#f8c947;--rf-muted:#647089;--rf-line:rgba(7,26,54,.14);--rf-radius:18px}
+html{background:var(--rf-paper)}body.studio-rebuild{background:var(--rf-paper);color:var(--rf-ink);font-family:'Poppins',system-ui,sans-serif;line-height:1.6}
+body.studio-rebuild::before{display:none}
+.studio-rebuild .nav{padding:18px clamp(22px,4vw,64px);background:rgba(245,243,237,.86)!important;border-bottom:1px solid var(--rf-line)!important;box-shadow:none!important;backdrop-filter:blur(16px)!important;color:var(--rf-ink);}
+.studio-rebuild .nav-logo{color:var(--rf-ink);font-size:15px;letter-spacing:.01em}.studio-rebuild .nav-logo img.brand-logo{width:36px;height:36px;border-radius:10px;box-shadow:none}.studio-rebuild .nav-logo span{color:var(--rf-ink)}
+.studio-rebuild .nav-links{gap:26px}.studio-rebuild .nav-links a{color:var(--rf-ink);opacity:.68;font-size:11px;letter-spacing:.12em}.studio-rebuild .nav-links a:hover{color:var(--rf-ink);opacity:1}.studio-rebuild .nav-links a::after{background:var(--rf-yellow)}
+.studio-rebuild .nav-actions .btn-outline,.studio-rebuild .nav-resume{border-color:var(--rf-ink);color:var(--rf-ink);font-size:11px;letter-spacing:.1em}.studio-rebuild .nav-toggle{border-color:var(--rf-ink);color:var(--rf-ink)}
+.studio-rebuild .wrap{width:min(1180px,calc(100% - 44px))}.studio-rebuild .hero{min-height:92vh;padding-top:150px;background:var(--rf-paper);color:var(--rf-ink)}
+.studio-rebuild .hero::before{opacity:.22;background:radial-gradient(circle at 85% 18%,rgba(248,201,71,.55),transparent 28rem)}.studio-rebuild .hero h1{font-size:clamp(58px,10vw,142px);line-height:.88;letter-spacing:-.08em;max-width:850px;color:var(--rf-ink)}
+.studio-rebuild .hero h1 em,.studio-rebuild .section-title em,.studio-rebuild .case-detail-title em{color:#c39108}.studio-rebuild .hero-eyebrow,.studio-rebuild .kicker-sm{color:#b17d00;letter-spacing:.18em;font-size:10px}.studio-rebuild .hero-role{color:var(--rf-muted);border-color:var(--rf-line)}
+.studio-rebuild .btn{border-radius:999px;background:var(--rf-ink);color:#fff;border:0;padding:14px 22px}.studio-rebuild .btn-outline-light{border:1px solid var(--rf-ink);border-radius:999px;color:var(--rf-ink);padding:13px 22px}
+.studio-rebuild .section-system,.studio-rebuild .exp-section,.studio-rebuild .contact{background:var(--rf-ink);color:#fff}.studio-rebuild .section-system{padding:clamp(90px,10vw,150px) 0}.studio-rebuild .section-system::before{opacity:.55}.studio-rebuild .section-system::after{opacity:.08}
+.studio-rebuild .section-title{font-size:clamp(42px,6vw,80px);line-height:.95;letter-spacing:-.06em}.studio-rebuild .design-map-card,.studio-rebuild .system-footer{border-color:rgba(255,255,255,.16)}
+.studio-rebuild .design-map-card{min-height:230px;padding:24px;transition:transform .3s,background .3s}.studio-rebuild .design-map-card:hover{background:rgba(255,255,255,.06);transform:translateY(-4px)}
+.studio-rebuild .work-teaser,.studio-rebuild .about,.studio-rebuild .page-shell,.studio-rebuild .case-detail{background:var(--rf-paper);color:var(--rf-ink)}
+.studio-rebuild .work-teaser{padding:clamp(90px,10vw,150px) 0}.studio-rebuild .work-card,.studio-rebuild .project-card,.studio-rebuild .mini-case{border:1px solid var(--rf-line);border-radius:var(--rf-radius);box-shadow:none;background:#fff}.studio-rebuild .work-card:hover,.studio-rebuild .project-card:hover,.studio-rebuild .mini-case:hover{box-shadow:0 24px 60px rgba(7,26,54,.10);border-color:rgba(7,26,54,.28)}
+.studio-rebuild .about-side{border-left:3px solid var(--rf-yellow);background:#fff;border-radius:0 var(--rf-radius) var(--rf-radius) 0;box-shadow:none}.studio-rebuild .about-side h3{color:var(--rf-ink)}
+.studio-rebuild footer{background:var(--rf-paper);color:var(--rf-muted);border-top:1px solid var(--rf-line);padding:28px 0}.studio-rebuild footer a{color:var(--rf-ink)}
+.studio-rebuild .case-detail-head{background:var(--rf-ink);color:#fff;padding-top:170px}.studio-rebuild .case-detail-title{font-size:clamp(64px,11vw,150px);line-height:.82;letter-spacing:-.08em}.studio-rebuild .case-story-lead{padding:86px 0;background:#fff;border-bottom:1px solid var(--rf-line)}.studio-rebuild .case-story-lead h2{font-size:clamp(36px,5vw,70px);line-height:.98;letter-spacing:-.06em;color:var(--rf-ink)}.studio-rebuild .case-story-map{gap:12px}.studio-rebuild .case-story-map article,.studio-rebuild .case-detail-columns>div{border:1px solid var(--rf-line);border-radius:14px;background:var(--rf-paper);padding:22px}.studio-rebuild .case-body{max-width:1180px}.studio-rebuild .case-body .block{padding:72px 0;border-bottom:1px solid var(--rf-line)}.studio-rebuild .case-body .block>p{max-width:700px;font-size:18px;line-height:1.75;color:#35415a}.studio-rebuild .case-media-lg{border-radius:var(--rf-radius);overflow:hidden;border:1px solid var(--rf-line);box-shadow:0 22px 60px rgba(7,26,54,.10)}
+.studio-rebuild .thinking-rail{border-left:1px solid var(--rf-line);padding-left:20px}.studio-rebuild .thinking-step{display:block;width:100%;text-align:left;background:transparent;border:0;border-left:3px solid transparent;padding:18px 20px;margin:0 0 8px;color:var(--rf-muted)}.studio-rebuild .thinking-step.is-active{border-left-color:var(--rf-yellow);background:#fff;color:var(--rf-ink);border-radius:0 12px 12px 0}.studio-rebuild .thinking-step strong{display:block;font-size:18px;color:inherit}.studio-rebuild .thinking-step p{margin:4px 0 0;font-size:13px;color:inherit}
+@media(max-width:760px){.studio-rebuild .nav-links{display:none}.studio-rebuild .hero{min-height:auto;padding:130px 0 90px}.studio-rebuild .hero h1{font-size:clamp(54px,17vw,100px)}.studio-rebuild .case-detail-head{padding-top:130px}.studio-rebuild .case-story-lead{padding:58px 0}.studio-rebuild .case-story-map{grid-template-columns:1fr}.studio-rebuild .case-body .block{padding:48px 0}}
+</style>
 </head>
 <body class="studio-rebuild">
 <<<<<<< HEAD
@@ -3751,7 +3777,7 @@ body.studio-rebuild::before{
 
 
 <nav class="nav liquid-nav" id="nav">
-  <a href="/" class="nav-logo" aria-label="Alejandro Hennessey, home"><svg class="nav-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8"></rect><path d="M9 8v16m0-8h14M23 8v16"></path></svg><span>Alejandro Hennessey</span></a>
+  <a href="/" class="nav-logo" aria-label="Alejandro Hennessey, home"><img class="brand-logo" src="/assets/brand/ah-logo.png" alt="AH logo"><span>Alejandro Hennessey</span></a>
   <ul class="nav-links">
     <li><a href="/about" data-nav="about">About</a></li>
     <li><a href="/work" data-nav="work">Work</a></li>
@@ -4697,7 +4723,7 @@ body.studio-rebuild::before{
 
 <footer>
   <div class="wrap footer-wrap">
-    <span>&copy; 2026 Alejandro Hennessey. All rights reserved.</span>
+    <span class="footer-brand"><img class="brand-logo" src="/assets/brand/ah-logo.png" alt="AH logo">&copy; 2026 Alejandro Hennessey. All rights reserved.</span>
     <div class="footer-links">
       <a href="/about">About</a>
       <a href="/work">Work</a>
