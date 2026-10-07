@@ -2194,41 +2194,6 @@ body.studio-rebuild::before{
   box-shadow:0 30px 68px rgba(18,20,24,.22);
   transform:perspective(900px) rotateY(-2deg) rotateX(0) translateY(-6px) scale(1.015);
 }
-/* KitLab transition video: pre-rendered clean 4K/mobile playback. */
-.kitlab-transition{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;overflow:hidden;background:#f7f6f1;opacity:0;pointer-events:none;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;}
-.kitlab-transition.is-active{opacity:1;pointer-events:auto;visibility:visible;}
-.kitlab-transition__wash{position:absolute;z-index:0;inset:-18%;pointer-events:none;background:radial-gradient(ellipse at 10% 8%,rgba(255,255,255,.95),transparent 31%),radial-gradient(ellipse at 92% 16%,rgba(236,32,54,.8),transparent 32%),radial-gradient(ellipse at 76% 94%,rgba(239,46,66,.56),transparent 34%),linear-gradient(135deg,#fff 0%,#f8f4f4 45%,#f2dfe2 100%);filter:blur(30px) saturate(1.32);}
-.kitlab-transition__glass{position:absolute;z-index:1;inset:clamp(18px,3vw,56px);overflow:hidden;border:1px solid rgba(255,255,255,.72);border-radius:clamp(24px,4vw,48px);background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,255,255,.22) 47%,rgba(222,36,57,.18));box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(184,25,43,.15),0 28px 80px rgba(139,20,34,.16);backdrop-filter:blur(24px) saturate(1.45);-webkit-backdrop-filter:blur(24px) saturate(1.45);}
-.kitlab-transition__glass::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.62),transparent 24% 68%,rgba(221,27,49,.2));opacity:.75;}
-.kitlab-transition::after{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.2),transparent 23% 68%,rgba(235,38,57,.18));opacity:.7;}
-.kitlab-transition__logo{position:absolute;z-index:2;width:min(520px,74vw);opacity:.2;filter:blur(15px) saturate(1.15);transform:scale(1.04);}
-.kitlab-transition__logo img{display:block;width:100%;height:auto;}
-.kitlab-transition__stage{position:absolute;z-index:3;inset:0;width:100vw;height:100vh;display:grid;place-items:center;}
-.kitlab-transition__video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#f7f6f1;}
-.case-transition__progress{position:absolute;z-index:5;left:50%;bottom:clamp(28px,5vh,64px);width:min(440px,76vw);padding:16px 18px 17px;transform:translateX(-50%);border:1px solid rgba(255,255,255,.72);border-radius:22px;background:rgba(255,255,255,.42);box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 18px 46px rgba(21,24,37,.18);backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);}
-.case-transition__progress-label{display:block;margin-bottom:11px;color:rgba(15,23,42,.78);font-size:10px;font-weight:900;letter-spacing:.18em;line-height:1;text-align:center;text-transform:uppercase;}
-.case-transition__progress-track{height:5px;overflow:hidden;border-radius:999px;background:rgba(15,23,42,.15);box-shadow:inset 0 1px 2px rgba(15,23,42,.12),0 0 0 1px rgba(255,255,255,.28);}
-.case-transition__progress-fill{display:block;width:0;height:100%;border-radius:inherit;transform-origin:left center;transition:width .08s linear;}
-.kitlab-transition__progress-fill{background:linear-gradient(90deg,#ff5b5b,#ef1f35);box-shadow:0 0 16px rgba(239,31,53,.48);}
-@media(max-width:560px){
-  .kitlab-transition__video{object-fit:contain;object-position:center;width:100%;height:100%;}
-  .kitlab-transition__logo{width:120vw;opacity:.15;}
-}
-@media(prefers-reduced-motion:reduce){.kitlab-transition{transition:none;}.kitlab-transition__video{filter:none;}}
-/* MatchUp transition: dark glass presentation for the mobile product system. */
-.matchup-transition{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;overflow:hidden;background:#080b14;opacity:0;pointer-events:none;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;}
-.matchup-transition.is-active{opacity:1;pointer-events:auto;visibility:visible;}
-.matchup-transition__wash{position:absolute;z-index:0;inset:-18%;background:radial-gradient(ellipse at 14% 10%,rgba(80,98,255,.28),transparent 33%),radial-gradient(ellipse at 88% 20%,rgba(193,255,40,.18),transparent 30%),linear-gradient(135deg,#050811,#12192a 58%,#070a12);filter:blur(34px) saturate(1.2);}
-.matchup-transition__glass{position:absolute;z-index:1;inset:clamp(18px,3vw,56px);overflow:hidden;border:1px solid rgba(255,255,255,.18);border-radius:clamp(24px,4vw,48px);background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(12,18,34,.2) 48%,rgba(184,255,36,.08));box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(159,255,27,.12),0 28px 80px rgba(0,0,0,.34);backdrop-filter:blur(24px) saturate(1.35);-webkit-backdrop-filter:blur(24px) saturate(1.35);}
-.matchup-transition__glass::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.2),transparent 25% 65%,rgba(190,255,39,.12));}
-.matchup-transition__stage{position:absolute;z-index:3;inset:0;width:100vw;height:100vh;display:grid;place-items:center;}
-.matchup-transition__video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
-.matchup-transition__progress .case-transition__progress-label{color:rgba(255,255,255,.7);}
-.matchup-transition__progress{border-color:rgba(255,255,255,.24);background:rgba(10,16,30,.44);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 18px 46px rgba(0,0,0,.35);}
-.matchup-transition__progress-track{background:rgba(255,255,255,.2);}
-.matchup-transition__progress-fill{background:linear-gradient(90deg,#4e72ff,#b8ff27);box-shadow:0 0 16px rgba(123,172,255,.6);}
-@media(max-width:560px){.matchup-transition__video{object-fit:contain;}.matchup-transition__glass{inset:12px;border-radius:28px;}}
-@media(prefers-reduced-motion:reduce){.matchup-transition{transition:none;}}
 /* ---------- Home redesign / personal studio direction ---------- */
 .home-redesign{--home-paper:#f3f0e9;--home-ink:#181927;--home-muted:#656674;--home-cobalt:#3146e8;--home-coral:#ff634f;--home-lime:#d7f45a;--home-lavender:#e7e6ff;background:var(--home-paper);color:var(--home-ink);}
 .home-redesign .hero{min-height:calc(100vh - 12px);padding:148px 0 58px;background:var(--home-paper)!important;color:var(--home-ink)!important;}
@@ -3744,46 +3709,9 @@ body.studio-rebuild::before{
     <a href="#about-foundation" data-section-route="about">Introduction</a>
     <a href="#about-story" data-section-route="about">How I work</a>
     <a href="#experience" data-section-route="about">Experience</a>
-    <a href="#about-contact" data-section-route="about">Contact</a>
     <a href="#work-featured" data-section-route="work">Featured work</a>
-    <a href="#work-supporting" data-section-route="work">More projects</a>
-    <a href="#kitlab-vision" data-section-route="case-kitlab">Vision</a>
-    <a href="#kitlab-process" data-section-route="case-kitlab">Process</a>
-    <a href="#kitlab-evidence" data-section-route="case-kitlab">Evidence</a>
   </nav>
 </aside>
-
-<div class="kitlab-transition" id="kitlab-transition" aria-hidden="true">
-  <div class="kitlab-transition__wash"></div>
-  <div class="kitlab-transition__logo"><img src="assets/brand/kitlabfs-logo.svg" alt=""></div>
-  <div class="kitlab-transition__stage">
-    <video class="kitlab-transition__video" id="kitlab-transition-video" muted playsinline preload="metadata" disablepictureinpicture>
-      <source src="assets/video/kitlab-transition-mobile.webm" media="(max-width: 560px)" type="video/webm">
-      <source src="assets/video/kitlab-transition-4k.webm" type="video/webm">
-      <source src="assets/video/kitlab-transition-mobile.mp4" media="(max-width: 560px)" type="video/mp4">
-      <source src="assets/video/kitlab-transition-4k.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="case-transition__progress kitlab-transition__progress" aria-hidden="true">
-    <span class="case-transition__progress-label">Loading case study</span>
-    <div class="case-transition__progress-track" role="progressbar" aria-label="Loading KitLab FS case study" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="case-transition__progress-fill kitlab-transition__progress-fill"></span></div>
-  </div>
-</div>
-
-<div class="matchup-transition" id="matchup-transition" aria-hidden="true">
-  <div class="matchup-transition__wash"></div>
-  <div class="matchup-transition__glass"></div>
-  <div class="matchup-transition__stage">
-    <video class="matchup-transition__video" id="matchup-transition-video" muted playsinline preload="metadata" disablepictureinpicture>
-      <source src="assets/video/matchup-transition-mobile.mp4" media="(max-width: 560px)" type="video/mp4">
-      <source src="assets/video/matchup-transition-4k.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="case-transition__progress matchup-transition__progress" aria-hidden="true">
-    <span class="case-transition__progress-label">Loading case study</span>
-    <div class="case-transition__progress-track" role="progressbar" aria-label="Loading MatchUp case study" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="case-transition__progress-fill matchup-transition__progress-fill"></span></div>
-  </div>
-</div>
 
 
 <nav class="nav liquid-nav" id="nav">
@@ -4790,55 +4718,6 @@ function initRevealAndCounters(scope){
   });
 }
 
-/* ---------------- Case study video transitions ---------------- */
-function initCaseVideoTransition(name){
-  var overlay = document.getElementById(name + '-transition');
-  var video = document.getElementById(name + '-transition-video');
-  if(!overlay || !video) return;
-  var progress = overlay.querySelector('.case-transition__progress');
-  var progressFill = overlay.querySelector('.case-transition__progress-fill');
-  var progressTrack = overlay.querySelector('[role="progressbar"]');
-  var closeTimer = 0;
-  var progressFrame = 0;
-  var targetSeconds = 3.7;
-  function updateProgress(){
-    var percent = video.duration && isFinite(video.duration) ? Math.max(0, Math.min(100, video.currentTime / video.duration * 100)) : 0;
-    if(progressFill) progressFill.style.width = percent + '%';
-    if(progressTrack) progressTrack.setAttribute('aria-valuenow', String(Math.round(percent)));
-    if(overlay.classList.contains('is-active')) progressFrame = requestAnimationFrame(updateProgress);
-  }
-  function close(){
-    overlay.classList.remove('is-active');
-    overlay.setAttribute('aria-hidden','true');
-    if(progress) progress.setAttribute('aria-hidden','true');
-    video.pause();
-    if(progressFrame) cancelAnimationFrame(progressFrame);
-    if(progressFill) progressFill.style.width = '0%';
-    if(progressTrack) progressTrack.setAttribute('aria-valuenow','0');
-    if(closeTimer) clearTimeout(closeTimer);
-  }
-  function syncPlaybackSpeed(){
-    if(video.duration && isFinite(video.duration)){
-      video.playbackRate = Math.max(1, Math.min(16, video.duration / targetSeconds));
-    }
-  }
-  window['play' + name.charAt(0).toUpperCase() + name.slice(1) + 'Transition'] = function(){
-    overlay.classList.add('is-active');
-    overlay.setAttribute('aria-hidden','false');
-    video.currentTime = 0;
-    syncPlaybackSpeed();
-    if(progress) progress.setAttribute('aria-hidden','false');
-    video.play().catch(function(){});
-    closeTimer = setTimeout(close, 4000);
-    updateProgress();
-  };
-  window['close' + name.charAt(0).toUpperCase() + name.slice(1) + 'Transition'] = close;
-  video.addEventListener('loadedmetadata', syncPlaybackSpeed);
-  video.addEventListener('ended', close);
-}
-initCaseVideoTransition('kitlab');
-initCaseVideoTransition('matchup');
-
 /* ---------------- Expandable process map + section dock ---------------- */
 (function(){
   forEachEl(document.querySelectorAll('.flow-node-button'), function(button){
@@ -4921,8 +4800,6 @@ function cleanRouteUrl(route, replace){
 function showRoute(route, opts){
   opts = opts || {};
   document.body.classList.toggle('is-home-v3', route === 'home');
-  if(route !== 'case-kitlab' && window.closeKitlabTransition) window.closeKitlabTransition();
-  if(route !== 'case-matchup' && window.closeMatchupTransition) window.closeMatchupTransition();
   forEachEl(document.querySelectorAll('.route-section'), function(s){
     s.classList.toggle('active', s.getAttribute('data-route') === route);
   });
@@ -4978,8 +4855,6 @@ function showRoute(route, opts){
 (function(){
   function handleRouteChange(opts){
     var nextRoute = currentRoute();
-    if(nextRoute === 'case-kitlab' && window.playKitlabTransition) window.playKitlabTransition();
-    if(nextRoute === 'case-matchup' && window.playMatchupTransition) window.playMatchupTransition();
     document.body.classList.add('route-exit');
     setTimeout(function(){
       showRoute(currentRoute(), opts || {});
@@ -5011,8 +4886,6 @@ function showRoute(route, opts){
     var experience = document.getElementById('experience');
     if(experience) experience.scrollIntoView({block:'start'});
   }, 60);
-  if(initialRoute === 'case-kitlab' && window.playKitlabTransition) setTimeout(window.playKitlabTransition, 40);
-  if(initialRoute === 'case-matchup' && window.playMatchupTransition) setTimeout(window.playMatchupTransition, 40);
 })();
 
 /* ---------------- Cursor glow ---------------- */
