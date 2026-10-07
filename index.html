@@ -3472,6 +3472,12 @@ body.studio-rebuild::before{
 .about-process-card{padding:24px;border:1px solid rgba(255,255,255,.82);border-radius:20px;background:rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 14px 30px rgba(42,63,86,.06);}
 .about-process-card span{color:#557795;font-size:11px;font-weight:800;letter-spacing:.14em;}.about-process-card h3{margin:34px 0 8px;color:var(--navy);font-size:18px;}.about-process-card p{margin:0;color:#66758a;font-size:13px;line-height:1.6;}
 @media(max-width:760px){.about-story{padding:82px 0}.about-story-grid{grid-template-columns:1fr;gap:30px}.about-process{grid-template-columns:1fr}.about-story-callout{font-size:18px;}}
+.about-flow{margin-top:42px;padding:22px;border:1px solid rgba(210,222,234,.9);border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(241,246,250,.7));box-shadow:inset 0 1px 0 #fff,0 20px 45px rgba(42,63,86,.08)}
+.about-flow-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:20px;color:#6a7b8e;font-size:12px;letter-spacing:.04em}.about-flow-intro strong{color:#31516e;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.flow-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0;padding:0;list-style:none}.flow-node{position:relative}.flow-node:not(:last-child)::after{content:"";position:absolute;top:28px;right:-10px;width:10px;height:1px;background:#b8c9d8}.flow-node-button{position:relative;z-index:1;width:100%;min-height:58px;padding:13px 14px;border:1px solid #cbd9e4;border-radius:16px;background:rgba(255,255,255,.72);color:#172f48;text-align:left;cursor:pointer;transition:.25s ease}.flow-node-button:hover,.flow-node.is-open .flow-node-button{border-color:#557795;background:#eef6fb;box-shadow:0 8px 18px rgba(42,63,86,.1);transform:translateY(-2px)}.flow-node-button span{display:block;color:#8a6500;font-size:10px;font-weight:800;letter-spacing:.14em}.flow-node-button strong{display:block;margin-top:4px;font-size:15px}.flow-node-button i{position:absolute;right:12px;top:12px;color:#557795;font-size:18px;font-style:normal;line-height:1}.flow-node.is-open .flow-node-button i{transform:rotate(45deg)}
+.flow-detail{margin-top:9px;padding:15px;border-radius:14px;background:#fff;border:1px solid #e2eaf0;box-shadow:0 8px 20px rgba(42,63,86,.06)}.flow-detail[hidden]{display:none}.flow-detail p{margin:0;color:#5f7082;font-size:12px;line-height:1.55}.flow-detail small{display:block;margin-top:11px;color:#8a6500;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.section-dock{position:fixed;z-index:1000;top:116px;right:20px}.section-dock-toggle{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid rgba(255,255,255,.74);border-radius:999px;background:rgba(255,255,255,.72);color:#263d54;box-shadow:0 14px 30px rgba(42,63,86,.12),inset 0 1px 0 #fff;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}.section-dock-toggle span{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#071a36;color:#f8c947;font-size:15px;line-height:1;transition:transform .25s}.section-dock.is-open .section-dock-toggle span{transform:rotate(45deg)}.section-dock-panel{width:190px;margin-top:8px;padding:8px;border:1px solid rgba(255,255,255,.82);border-radius:18px;background:rgba(255,255,255,.84);box-shadow:0 20px 44px rgba(42,63,86,.15);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.section-dock-panel[hidden]{display:none}.section-dock-panel a{display:block;padding:10px 11px;border-radius:10px;color:#536b82;font-size:11px;font-weight:700}.section-dock-panel a:hover{background:#edf5fa;color:#173955}.section-dock-panel a[hidden]{display:none}@media(max-width:760px){.section-dock{top:auto;right:14px;bottom:16px}.section-dock-panel{margin-top:0;margin-bottom:8px}.flow-track{grid-template-columns:1fr}.flow-node:not(:last-child)::after{top:auto;right:auto;bottom:-10px;left:28px;width:1px;height:10px}.about-flow-intro{display:block}.about-flow-intro strong{display:block;margin-bottom:6px}}
+@media(prefers-reduced-motion:reduce){.flow-node-button{transition:none}.flow-node-button:hover,.flow-node.is-open .flow-node-button{transform:none}}
 .about-skills-legacy,.about-bring-legacy{display:none!important;}
 #about-education{display:none!important;}
 .work-redesign{position:relative;overflow:hidden;background:#f3f6f9;color:#0d1727;font-family:'Poppins',Arial,sans-serif;}
@@ -3732,6 +3738,20 @@ body.studio-rebuild::before{
 </head>
 <body class="studio-rebuild">
 <a class="skip-link" href="#route-home">Skip to content</a>
+<aside class="section-dock" data-section-dock aria-label="Page section navigation">
+  <button class="section-dock-toggle" type="button" aria-expanded="false" aria-controls="section-dock-panel">Sections <span>+</span></button>
+  <nav class="section-dock-panel" id="section-dock-panel" hidden>
+    <a href="#about-foundation" data-section-route="about">Introduction</a>
+    <a href="#about-story" data-section-route="about">How I work</a>
+    <a href="#experience" data-section-route="about">Experience</a>
+    <a href="#about-contact" data-section-route="about">Contact</a>
+    <a href="#work-featured" data-section-route="work">Featured work</a>
+    <a href="#work-supporting" data-section-route="work">More projects</a>
+    <a href="#kitlab-vision" data-section-route="case-kitlab">Vision</a>
+    <a href="#kitlab-process" data-section-route="case-kitlab">Process</a>
+    <a href="#kitlab-evidence" data-section-route="case-kitlab">Evidence</a>
+  </nav>
+</aside>
 
 <div class="kitlab-transition" id="kitlab-transition" aria-hidden="true">
   <div class="kitlab-transition__wash"></div>
@@ -4139,7 +4159,7 @@ body.studio-rebuild::before{
   </div>
 </section>
 
-<section class="about-story">
+<section class="about-story" id="about-story">
   <div class="wrap about-story-grid">
     <div class="reveal"><span class="kicker">The person behind the work</span><h2>Curious by nature.<br><em>Practical by design.</em></h2></div>
     <div class="about-story-copy reveal">
@@ -4148,10 +4168,15 @@ body.studio-rebuild::before{
       <div class="about-story-callout">“The best interface is not the one that shows the most work. It is the one that makes the next decision feel obvious.”</div>
     </div>
   </div>
-  <div class="wrap about-process">
-    <article class="about-process-card reveal"><span>01 / LISTEN</span><h3>Find the real problem</h3><p>I learn the context, constraints, audience, and business goal before deciding what to make.</p></article>
-    <article class="about-process-card reveal"><span>02 / SHAPE</span><h3>Make the system clear</h3><p>I map the journey, reduce noise, and turn loose ideas into flows, hierarchy, and a visual language.</p></article>
-    <article class="about-process-card reveal"><span>03 / REFINE</span><h3>Make it feel inevitable</h3><p>I prototype, test, collaborate, and polish the moments that help people move forward with confidence.</p></article>
+  <div class="wrap about-flow reveal" aria-label="Expandable design process">
+    <div class="about-flow-intro"><strong>How I work</strong><span>Click a node to expand or collapse its branch.</span></div>
+    <ol class="flow-track">
+      <li class="flow-node is-open"><button class="flow-node-button" type="button" aria-expanded="true" aria-controls="flow-detail-1"><span>01 / OBSERVE</span><strong>Find the signal</strong><i>+</i></button><div class="flow-detail" id="flow-detail-1"><p>I learn the context, constraints, audience, and business goal before deciding what to make.</p><small>Research · context · friction</small></div></li>
+      <li class="flow-node"><button class="flow-node-button" type="button" aria-expanded="false" aria-controls="flow-detail-2"><span>02 / FRAME</span><strong>Name the problem</strong><i>+</i></button><div class="flow-detail" id="flow-detail-2" hidden><p>I turn scattered inputs into a clear decision: what needs to change, for whom, and why now.</p><small>Priorities · information architecture · goals</small></div></li>
+      <li class="flow-node"><button class="flow-node-button" type="button" aria-expanded="false" aria-controls="flow-detail-3"><span>03 / EXPLORE</span><strong>Shape the system</strong><i>+</i></button><div class="flow-detail" id="flow-detail-3" hidden><p>I map the journey, reduce noise, and explore flows, hierarchy, interaction, and visual language.</p><small>Flows · prototypes · visual direction</small></div></li>
+      <li class="flow-node"><button class="flow-node-button" type="button" aria-expanded="false" aria-controls="flow-detail-4"><span>04 / DECIDE</span><strong>Test the direction</strong><i>+</i></button><div class="flow-detail" id="flow-detail-4" hidden><p>I prototype the riskiest moments, invite feedback, and make trade-offs visible so the team can move forward.</p><small>Usability · critique · prioritization</small></div></li>
+      <li class="flow-node"><button class="flow-node-button" type="button" aria-expanded="false" aria-controls="flow-detail-5"><span>05 / REFINE</span><strong>Make it buildable</strong><i>+</i></button><div class="flow-detail" id="flow-detail-5" hidden><p>I polish the details, connect the pieces into a system, and hand off work with enough clarity to keep improving.</p><small>Systems · motion · handoff</small></div></li>
+    </ol>
   </div>
 </section>
 
@@ -4234,7 +4259,7 @@ body.studio-rebuild::before{
 
 <main class="work-redesign">
   <section class="work-index-hero"><div class="work-redesign-shell work-index-hero-grid"><div><p class="work-index-kicker"><i></i> Selected work / 2026</p><h1>Work with a<br><em>reason to exist.</em></h1><p>Three focused case studies about turning complexity into useful products, clearer systems, and experiences people can move through with confidence.</p></div><aside class="work-index-aside"><strong>03</strong><span>Case studies across product design, e-commerce, social experiences, and B2B operations.</span></aside></div></section>
-  <section class="work-index-list"><div class="work-redesign-shell">
+  <section class="work-index-list" id="work-featured"><div class="work-redesign-shell">
     <a class="work-index-card" href="/work/kitlab-fs"><span class="work-index-no">01</span><div><h2>Kit<em>Lab</em> FS</h2><p class="work-index-meta">E-commerce / Product system</p></div><div class="work-index-desc"><p>A storefront redesign that makes thousands of teamwear products easier to discover, compare, customize, and buy.</p><b>View case study ↗</b></div><div class="work-index-visual"><img src="assets/figma/kitlab-hero.jpg" alt="KitLab storefront experience" loading="lazy" decoding="async"></div></a>
     <a class="work-index-card" href="/work/matchup"><span class="work-index-no">02</span><div><h2>Match<em>Up</em></h2><p class="work-index-meta">Social product / UX strategy</p></div><div class="work-index-desc"><p>A connected player and organizer experience for finding games, joining teams, and making the practical details visible.</p><b>View case study ↗</b></div><div class="work-index-visual"><img src="assets/figma/matchup-hero.jpg" alt="MatchUp social sports experience" loading="lazy" decoding="async"></div></a>
     <a class="work-index-card" href="/work/commerceflow"><span class="work-index-no">03</span><div><h2>Commerce<em>Flow</em></h2><p class="work-index-meta">B2B SaaS / Data visualization</p></div><div class="work-index-desc"><p>A decisions-first workspace that brings sales, orders, inventory, and advertising into one readable operational view.</p><b>View case study ↗</b></div><div class="work-index-visual"><img src="assets/figma/commerce-dashboard.jpg" alt="CommerceFlow operations dashboard" loading="lazy" decoding="async"></div></a>
@@ -4813,6 +4838,50 @@ function initCaseVideoTransition(name){
 }
 initCaseVideoTransition('kitlab');
 initCaseVideoTransition('matchup');
+
+/* ---------------- Expandable process map + section dock ---------------- */
+(function(){
+  forEachEl(document.querySelectorAll('.flow-node-button'), function(button){
+    button.addEventListener('click', function(){
+      var detail = document.getElementById(button.getAttribute('aria-controls'));
+      var node = button.closest('.flow-node');
+      var open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', open ? 'false' : 'true');
+      node.classList.toggle('is-open', !open);
+      if(detail) detail.hidden = open;
+    });
+  });
+  var dock = document.querySelector('[data-section-dock]');
+  if(!dock) return;
+  var toggle = dock.querySelector('.section-dock-toggle');
+  var panel = dock.querySelector('.section-dock-panel');
+  var links = dock.querySelectorAll('[data-section-route]');
+  function refreshDock(){
+    var active = document.querySelector('.route-section.active');
+    var route = active ? active.getAttribute('data-route') : 'home';
+    var visible = 0;
+    forEachEl(links, function(link){
+      var target = document.querySelector(link.getAttribute('href'));
+      var show = link.getAttribute('data-section-route') === route && !!target;
+      link.hidden = !show;
+      if(show) visible++;
+    });
+    dock.hidden = visible === 0;
+    if(!dock.hidden){ panel.hidden = true; toggle.setAttribute('aria-expanded','false'); dock.classList.remove('is-open'); }
+  }
+  toggle.addEventListener('click', function(){
+    var open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+    panel.hidden = open;
+    dock.classList.toggle('is-open', !open);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') toggle.click();
+  });
+  forEachEl(links, function(link){ link.addEventListener('click', function(){ if(toggle.getAttribute('aria-expanded') === 'true') toggle.click(); }); });
+  refreshDock();
+  new MutationObserver(refreshDock).observe(document.body, {subtree:true, attributes:true, attributeFilter:['class']});
+})();
 
 /* ---------------- Clean URL router ---------------- */
 var ROUTES = ['home','about','work','case-kitlab','case-matchup','case-commerceflow','contact'];
