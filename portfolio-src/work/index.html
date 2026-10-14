@@ -395,6 +395,21 @@
     .brief b.big{font-size:clamp(54px,5.4vw,76px);line-height:.9}
     .case-layout > *{min-width:0}
     .case-layout .block,.fig,.phones{min-width:0;max-width:100%}
+    .compare{position:relative;margin-top:20px;border-radius:28px;overflow:hidden;aspect-ratio:1312/1060;padding:0;user-select:none;touch-action:pan-y}
+    .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+    .cmp-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+    .cmp-bar{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(13,16,32,.25);pointer-events:none}
+    .cmp-bar i{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;box-shadow:0 6px 20px rgba(13,16,32,.35)}
+    .cmp-bar i::before,.cmp-bar i::after{content:"";position:absolute;top:50%;border:6px solid transparent;margin-top:-6px}
+    .cmp-bar i::before{left:7px;border-right-color:#0d1020}.cmp-bar i::after{right:7px;border-left-color:#0d1020}
+    .cmp-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+    .compare:focus-within .cmp-bar i{outline:2px solid var(--accent);outline-offset:2px}
+    .cmp-tag{position:absolute;top:14px;padding:6px 12px;border-radius:999px;background:rgba(13,16,32,.8);color:#fff;font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+    .cmp-tag.b{left:14px}.cmp-tag.a{right:14px}
+    .cmp-points{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 32px;margin-top:26px}
+    .cmp-points b{display:block;margin-bottom:4px;color:var(--ink)}
+    .cmp-points p{margin:0;color:var(--ink-2);font-size:16px;line-height:1.55}
+    @media (max-width:700px){.cmp-points{grid-template-columns:1fr}}
     .shots-label{margin:48px 0 0}
     .fig{margin:20px 0 0}
     .shot{position:relative;padding:8px;border-radius:28px;overflow:hidden}
@@ -799,6 +814,15 @@
             <h2>The design bet</h2>
             <div class="bet">Sequence the journey instead of exposing every choice at once.</div>
             <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/kitlab-transition-4k.mp4" aria-label="KitLab FS motion study"></video></div>
+            <div class="compare-wrap reveal"><p class="label shots-label">Product page: before and after</p><p class="flow-note">Drag the handle to compare the first product page with the redesign.</p>
+        <div class="glass compare" style="--pos:50%">
+          <img class="cmp-after" src="/assets/figma/kitlab-pdp-after.webp" loading="lazy" decoding="async" alt="KitLabFS product page after the redesign, with version, size, personalization, price breakdown and delivery date in one panel">
+          <img class="cmp-before" src="/assets/figma/kitlab-pdp-before.webp" loading="lazy" decoding="async" alt="KitLabFS product page before the redesign, with four toggles for name and number, player version, patches and long sleeve">
+          <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
+          <span class="cmp-bar" aria-hidden="true"><i></i></span>
+          <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
+        </div>
+        <div class="cmp-points"><div><b>What we saw</b><p>Shoppers treated the page as a toy. Every switch revealed a price and a box to type in, so people tried their own name, watched the price change and left. Those sessions inflated product views and checkout visits with no intent to buy.</p></div><div><b>What changed</b><p>We compacted the choices into one sequence: version, size, personalization and a visible price breakdown, with no switches to flip. The total is shown before the button.</p></div><div><b>Shipping up front</b><p>Delivery and free shipping now sit in the buy panel. Before, some customers reached checkout, found the shipping cost and left. Now they decide before they get there.</p></div><div><b>Why it matters</b><p>Less playing around means cleaner funnel data. Shoppers who reach checkout have already made the decision, so they finish faster and with fewer second thoughts.</p></div></div></div>
             <p class="label shots-label">Desktop</p><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Shop all screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS desktop shop-all page with a filter sidebar and jersey grid"></div></div><figcaption><b>Shop all</b>The full catalogue with a filter sidebar, and the active filters shown above the results.</figcaption></figure><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Navigation screenshot, scrollable"><img src="/assets/figma/kitlab-nav-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS desktop navigation with the Clubs menu open on South American clubs"></div></div><figcaption><b>Navigation</b>The Clubs menu groups leagues by confederation, so a shopper can jump to a country or league in two clicks.</figcaption></figure><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Cart screenshot, scrollable"><img src="/assets/figma/kitlab-cart-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS cart drawer open over the shop-all page"></div></div><figcaption><b>Cart</b>The cart opens over the catalogue, with free-shipping status, a "3rd jersey free" progress bar and one clear checkout action.</figcaption></figure><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Order tracking screenshot, scrollable"><img src="/assets/figma/kitlab-tracker-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS order tracking page with the order journey and delivery status"></div></div><figcaption><b>Order tracking</b>After purchase, an order number shows the status and a five-step journey from confirmed to delivered.</figcaption></figure><p class="label shots-label">Detail and mobile</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones"><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Shop all, mobile screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-mobile.webp" loading="lazy" decoding="async" alt="KitLabFS mobile shop-all page with category tabs, sort and applied filters"></div></div><figcaption><b>Shop all, mobile</b>Category tabs, sorting and removable filters on a small screen.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Purchase panel screenshot, scrollable"><img src="/assets/figma/kitlab-purchase-panel.webp" loading="lazy" decoding="async" alt="KitLabFS purchase panel with version, size, personalization and price breakdown"></div></div><figcaption><b>Purchase panel</b>Version, size and personalization in one sequence, with the price breakdown and total visible.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Mobile menu screenshot, scrollable"><img src="/assets/figma/kitlab-menu-mobile-7.webp" loading="lazy" decoding="async" alt="KitLabFS mobile menu listing confederations under Clubs"></div></div><figcaption><b>Mobile menu</b>Clubs open to a list of confederations, with account, wishlist and cart close by.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Mobile menu, leagues screenshot, scrollable"><img src="/assets/figma/kitlab-menu-mobile-8.webp" loading="lazy" decoding="async" alt="KitLabFS mobile menu with South America expanded to show leagues"></div></div><figcaption><b>Mobile menu, leagues</b>Each confederation expands in place to its leagues, with a breadcrumb back.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Order tracking, mobile screenshot, scrollable"><img src="/assets/figma/kitlab-tracker-mobile.webp" loading="lazy" decoding="async" alt="KitLabFS mobile order tracking with status, progress and tracking history"></div></div><figcaption><b>Order tracking, mobile</b>Order lookup, live status, a four-step progress bar and the tracking history on one screen.</figcaption></figure></div>
           </section>
           <section class="block reveal" id="kitlab-fs-why">
@@ -954,6 +978,7 @@
             <h2>The design bet</h2>
             <div class="bet">Give organizers and players one shared match state.</div>
             <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/matchup-transition-4k.mp4" aria-label="MatchUp motion study"></video></div>
+            
             <p class="label shots-label">Mobile screens</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones"><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Discover screenshot, scrollable"><img src="/assets/figma/matchup-home.png" loading="lazy" decoding="async" alt="MatchUp discover screen with upcoming matches"></div></div><figcaption><b>Discover</b>Upcoming matches, with price per spot, level and open spots on each card.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Match preview screenshot, scrollable"><img src="/assets/figma/matchup-preview.png" loading="lazy" decoding="async" alt="MatchUp map view with a match card, open spots and total cost"></div></div><figcaption><b>Match preview</b>Map view with the match card: open spots, total cost and one join action.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Match summary screenshot, scrollable"><img src="/assets/figma/matchup-results.png" loading="lazy" decoding="async" alt="MatchUp match summary with score, stats and player of the match"></div></div><figcaption><b>Match summary</b>The post-match summary with the score, team stats and player of the match.</figcaption></figure></div>
           </section>
           <section class="block reveal" id="matchup-why">
@@ -1109,6 +1134,7 @@
             <h2>The design bet</h2>
             <div class="bet">Organize around daily decisions, not the tools where the data originated.</div>
             
+            
             <p class="label shots-label">Screens</p><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen flat"><img src="/assets/figma/commerce-dashboard.jpg" loading="lazy" decoding="async" alt="CommerceFlow operations dashboard with revenue, orders, conversion and sales by channel"></div></div><figcaption><b>Operations overview</b>Revenue, orders and conversion on top, then the revenue trend, sales by channel and store comparison.</figcaption></figure>
           </section>
           <section class="block reveal" id="commerceflow-why">
@@ -1181,6 +1207,19 @@
           ['Refine','Review builds with developers and fix confusing interactions before and after release.']
         ],
         bet:'Sequence the journey instead of exposing every choice at once.',
+        compare:{
+          title:'Product page: before and after',
+          lead:'Drag the handle to compare the first product page with the redesign.',
+          before:'/assets/figma/kitlab-pdp-before.webp', after:'/assets/figma/kitlab-pdp-after.webp',
+          beforeAlt:'KitLabFS product page before the redesign, with four toggles for name and number, player version, patches and long sleeve',
+          afterAlt:'KitLabFS product page after the redesign, with version, size, personalization, price breakdown and delivery date in one panel',
+          points:[
+            ['What we saw','Shoppers treated the page as a toy. Every switch revealed a price and a box to type in, so people tried their own name, watched the price change and left. Those sessions inflated product views and checkout visits with no intent to buy.'],
+            ['What changed','We compacted the choices into one sequence: version, size, personalization and a visible price breakdown, with no switches to flip. The total is shown before the button.'],
+            ['Shipping up front','Delivery and free shipping now sit in the buy panel. Before, some customers reached checkout, found the shipping cost and left. Now they decide before they get there.'],
+            ['Why it matters','Less playing around means cleaner funnel data. Shoppers who reach checkout have already made the decision, so they finish faster and with fewer second thoughts.']
+          ]
+        },
         results:[
           ['58%','Lift in average order value after the purchase redesign.'],
           ['550+','Orders placed as the store grew.'],
@@ -1462,6 +1501,16 @@
       const screenAttrs = (im, flat) => flat ? 'class="screen flat"' : `class="screen" tabindex="0" role="group" aria-label="${esc(im.title)} screenshot, scrollable"`;
       const figHTML = im => `<figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div ${screenAttrs(im, im.kind === 'mockup')}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
       const phoneHTML = im => `<figure class="phone reveal"><div class="glass shot"><div ${screenAttrs(im, false)}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
+      const c = p.compare;
+      const compareHTML = c ? `<div class="compare-wrap reveal"><p class="label shots-label">${esc(c.title)}</p><p class="flow-note">${esc(c.lead)}</p>
+        <div class="glass compare" style="--pos:50%">
+          <img class="cmp-after" src="${c.after}" loading="lazy" decoding="async" alt="${esc(c.afterAlt)}">
+          <img class="cmp-before" src="${c.before}" loading="lazy" decoding="async" alt="${esc(c.beforeAlt)}">
+          <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
+          <span class="cmp-bar" aria-hidden="true"><i></i></span>
+          <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
+        </div>
+        <div class="cmp-points">${c.points.map(pt => `<div><b>${esc(pt[0])}</b><p>${esc(pt[1])}</p></div>`).join('')}</div></div>` : '';
       const wideShots = p.images.filter(i => i.kind !== 'portrait'), tallShots = p.images.filter(i => i.kind === 'portrait');
       const screensHTML =
         (wideShots.length ? `<p class="label shots-label">${tallShots.length ? 'Desktop' : 'Screens'}</p>${wideShots.map(figHTML).join('')}` : '') +
@@ -1519,6 +1568,7 @@
             <h2>The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
             ${p.video ? `<div class="glass case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
+            ${compareHTML}
             ${screensHTML}
           </section>
           <section class="block reveal" id="${s}-why">
@@ -1551,6 +1601,11 @@
       if (img) { if (img.complete) markScrollable(); else img.addEventListener('load', markScrollable); }
     });
     addEventListener('resize', markScrollable);
+    document.querySelectorAll('.cmp-range').forEach(r => {
+      const box = r.closest('.compare');
+      const set = () => box.style.setProperty('--pos', r.value + '%');
+      r.addEventListener('input', set); set();
+    });
     function updateCaseNav(){
       const page = document.querySelector('.page.active[data-case]'); if (!page) return;
       let cur = null;

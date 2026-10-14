@@ -680,6 +680,26 @@
         "cheers"
       ],
       "answer": "You're welcome. If you want to talk about a role, email arhennesseyco@gmail.com."
+    },
+    {
+      "id": "kitlab-product-page",
+      "questions": [
+        "what did you change on the product page",
+        "kitlab product page redesign",
+        "why did you remove the switches",
+        "what was wrong with the kitlab product page"
+      ],
+      "keywords": [
+        "product page",
+        "customizer",
+        "switches",
+        "toggles",
+        "shipping",
+        "checkout",
+        "false data",
+        "personalization"
+      ],
+      "answer": "On KitLabFS the first product page had switches for name and number, player version, patches and long sleeve, each revealing a price and a box to type in. Shoppers played with the customizer and left, which added false views and checkout visits to the data. Alejandro compacted the choices into one sequence with a visible price breakdown and added shipping to the product page so people decide before checkout. The result is cleaner data and shoppers who reach checkout finish faster. There is no measured figure for this change yet."
     }
   ]
 }
