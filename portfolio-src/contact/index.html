@@ -24,14 +24,14 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&amp;display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#e9ecf4;--ink:#0d1020;--ink-2:#353a4f;--muted:#5d6480;--line:rgba(13,16,32,.12);
       --accent:#4d6bff;--accent2:#c25cff;--accent3:#ff8a5c;--yellow:#ffd23f;
       --glass:rgba(255,255,255,.42);--glass-strong:rgba(255,255,255,.7);--chip:rgba(13,16,32,.06);
       --blob-o:.6;
-      --serif:"Instrument Serif",Georgia,serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+      --serif:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--sans:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
       --max:1220px;--r:30px;--ease:cubic-bezier(.2,.7,.2,1);
     }
     @media (prefers-color-scheme:dark){
@@ -375,6 +375,19 @@
     html{overflow-x:clip}
     /* Long single-word case titles must fit phone widths */
     @media (max-width:560px){ .case-top .split-h1{font-size:13.5vw!important} }
+      /* Compact nav */
+    .nav{top:10px;padding:4px 6px 4px 12px}
+    .brand{font-size:14px;gap:8px}
+    .brand img{width:26px;height:26px;border-radius:8px}
+    .links{gap:2px}
+    .links a:not(.cta){font-size:13px;padding:6px 11px}
+    .links a.cta{font-size:13px;padding:7px 14px}
+    /* Legibility: heavier, tighter-spaced display type and a slightly larger base size */
+    body{font-size:17px;font-weight:400}
+    h1,h2,h3,.split-h1{letter-spacing:-.025em!important;font-weight:700!important}
+    .em{font-style:italic;font-weight:600!important}
+    .label,.ftag,.fcaret{font-weight:700}
+    p,li,.what,.role,.facts span{line-height:1.6}
   </style>
 </head>
 <body>
@@ -410,10 +423,10 @@
         </div>
 
         <div class="stats">
-          <div class="reveal" style="--d:0ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Breakdown: the lift came from the purchase redesign, where choices were sequenced instead of shown all at once."><b data-count="58" data-suffix="%">58%</b><span>lift in average order value after the KitLabFS purchase redesign</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
-          <div class="reveal" style="--d:90ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Insight: this is the traffic the purchase flows had to handle in the first three months, from launch."><b data-count="450" data-suffix="k+">450k+</b><span>visitors in the store’s first three months</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
-          <div class="reveal" style="--d:180ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Breakdown: I owned product pages, funnels, checkout and inventory flows across the whole catalogue."><b data-count="1200" data-suffix="+">1,200+</b><span>products and 7,822 variants I designed flows for</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
-          <div class="reveal" style="--d:270ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Breakdown: two developers, two designers and one marketer. I set priorities and reviewed builds before and after release."><b>5</b><span>people led: two developers, two designers, one marketer</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+          <div class="reveal" style="--d:0ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Average order value went from roughly US$43 to US$68 after the purchase redesign. That is the change behind the 58% lift."><b data-count="58" data-suffix="%">58%</b><span>lift in average order value after the KitLabFS purchase redesign</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+          <div class="reveal" style="--d:90ms"><article class="glass stat tilt" data-tilt=""><b data-count="450" data-suffix="k+">450k+</b><span>visitors in the store’s first three months</span></article></div>
+          <div class="reveal" style="--d:180ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="7,822 variants across 1,200+ products works out to about 6.5 variants per product, so every shirt has several versions to configure."><b data-count="1200" data-suffix="+">1,200+</b><span>products and 7,822 variants I designed flows for</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+          <div class="reveal" style="--d:270ms"><article class="glass stat tilt" data-tilt=""><b>5</b><span>people led: two developers, two designers, one marketer</span></article></div>
         </div>
       </div>
 
@@ -424,38 +437,38 @@
 
       <div class="wrap sec">
         <div class="sec-h reveal"><h2>Selected <em>work</em></h2><p>Each case study covers the problem, my role, the decisions I made and what changed. Hover a card for a breakdown.</p></div>
-        <div class="pgrid" data-cards=""><a class="glass pcard tilt has-insight reveal first" data-tilt="" href="/work/kitlab-fs" data-insight="Insight: the biggest win came from sequencing choices, not adding features. Average order value rose 58%." style="--d:0ms" tabindex="0">
+        <div class="pgrid" data-cards=""><a class="glass pcard tilt reveal first" data-tilt="" href="/work/kitlab-fs" style="--d:0ms">
         <div class="media"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">E-commerce · Product discovery and purchase</span><h3>KitLab FS</h3><p>Designed and launched a 1,200-product football jersey store, then lifted average order value 58% with a purchase redesign.</p></div>
-      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/matchup" data-insight="Concept insight: one shared match state for organizers and players replaces the group chat." style="--d:90ms" tabindex="0">
+      </a><a class="glass pcard tilt reveal " data-tilt="" href="/work/matchup" style="--d:90ms">
         <div class="media"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">Mobile product · Community sports · Concept project</span><h3>MatchUp</h3><p>Turning scattered group-chat coordination into a trusted path from finding a game to joining one.</p></div>
-      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/commerceflow" data-insight="Concept insight: the overview answers “what changed?” before it shows everything else." style="--d:180ms" tabindex="0">
+      </a><a class="glass pcard tilt reveal " data-tilt="" href="/work/commerceflow" style="--d:180ms">
         <div class="media"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">SaaS · Operations · Concept project</span><h3>CommerceFlow</h3><p>Turning scattered operational data into a calm decision surface for multi-store teams.</p></div>
-      <span class="ibadge" aria-hidden="true">✦</span></a></div>
+      </a></div>
       </div>
 
       <div class="wrap sec" style="padding-top:0">
         <div class="sec-h reveal"><h2>Experience</h2><p>Three product roles, from co-op to founder.</p></div>
-        <div class="xlist" data-exp=""><article class="glass xrow tilt has-insight reveal" data-tilt="" tabindex="0" data-insight="Breakdown: founder and product designer, leading a five-person team from launch onward.">
+        <div class="xlist" data-exp=""><article class="glass xrow tilt reveal" data-tilt="">
       <h3>KitLabFS</h3>
       <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div>
-      <span class="when">Mar 2026 – Present</span><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow tilt has-insight reveal" data-tilt="" tabindex="0" data-insight="Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.">
+      <span class="when">Mar 2026 – Present</span></article><article class="glass xrow tilt reveal" data-tilt="">
       <h3>Ballycorp</h3>
       <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div>
-      <span class="when">Dec 2024 – Sep 2026</span><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow tilt has-insight reveal" data-tilt="" tabindex="0" data-insight="Breakdown: two promotions in 14 months, from guided tasks to owning product work independently.">
+      <span class="when">Dec 2024 – Sep 2026</span></article><article class="glass xrow tilt reveal" data-tilt="">
       <h3>LCBO</h3>
       <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div>
-      <span class="when">Sep 2023 – Nov 2024</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+      <span class="when">Sep 2023 – Nov 2024</span></article></div>
       </div>
 
       <div class="wrap sec" style="padding-top:0">
         <div class="sec-h reveal"><h2>How I <em>work</em></h2></div>
         <div class="principles">
-          <article class="glass principle tilt reveal has-insight" data-tilt="" tabindex="0" data-insight="Frame: find the decision behind the symptom before drawing anything."><div><span class="n">01</span><h3>Frame the problem</h3></div><p>Separate the visible symptom from the decision people are struggling with.</p><span class="ibadge" aria-hidden="true">✦</span></article>
-          <article class="glass principle tilt reveal has-insight" data-tilt="" tabindex="0" data-insight="Map: flows and edge cases first, so the developer handoff is clear and nothing is left to guess."><div><span class="n">02</span><h3>Map the logic</h3></div><p>Each user role gets its own flow, with errors, empty states and permissions covered.</p><span class="ibadge" aria-hidden="true">✦</span></article>
-          <article class="glass principle tilt reveal has-insight" data-tilt="" tabindex="0" data-insight="Review: stay through build and launch, then fix what is confusing based on real use."><div><span class="n">03</span><h3>Stay with the build</h3></div><p>Review implementations, log fixes, and use funnel data to choose what changes next.</p><span class="ibadge" aria-hidden="true">✦</span></article>
+          <article class="glass principle tilt reveal" data-tilt=""><div><span class="n">01</span><h3>Frame the problem</h3></div><p>Separate the visible symptom from the decision people are struggling with.</p></article>
+          <article class="glass principle tilt reveal" data-tilt=""><div><span class="n">02</span><h3>Map the logic</h3></div><p>Each user role gets its own flow, with errors, empty states and permissions covered.</p></article>
+          <article class="glass principle tilt reveal" data-tilt=""><div><span class="n">03</span><h3>Stay with the build</h3></div><p>Review implementations, log fixes, and use funnel data to choose what changes next.</p></article>
         </div>
       </div>
 
@@ -481,16 +494,16 @@
         <p class="reveal">Projects across e-commerce, B2B software and mobile. Each one shows the problem, my role, the choices I made and what changed.</p>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
-        <div class="pgrid" data-cards=""><a class="glass pcard tilt has-insight reveal first" data-tilt="" href="/work/kitlab-fs" data-insight="Insight: the biggest win came from sequencing choices, not adding features. Average order value rose 58%." style="--d:0ms" tabindex="0">
+        <div class="pgrid" data-cards=""><a class="glass pcard tilt reveal first" data-tilt="" href="/work/kitlab-fs" style="--d:0ms">
         <div class="media"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">E-commerce · Product discovery and purchase</span><h3>KitLab FS</h3><p>Designed and launched a 1,200-product football jersey store, then lifted average order value 58% with a purchase redesign.</p></div>
-      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/matchup" data-insight="Concept insight: one shared match state for organizers and players replaces the group chat." style="--d:90ms" tabindex="0">
+      </a><a class="glass pcard tilt reveal " data-tilt="" href="/work/matchup" style="--d:90ms">
         <div class="media"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">Mobile product · Community sports · Concept project</span><h3>MatchUp</h3><p>Turning scattered group-chat coordination into a trusted path from finding a game to joining one.</p></div>
-      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/commerceflow" data-insight="Concept insight: the overview answers “what changed?” before it shows everything else." style="--d:180ms" tabindex="0">
+      </a><a class="glass pcard tilt reveal " data-tilt="" href="/work/commerceflow" style="--d:180ms">
         <div class="media"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">SaaS · Operations · Concept project</span><h3>CommerceFlow</h3><p>Turning scattered operational data into a calm decision surface for multi-store teams.</p></div>
-      <span class="ibadge" aria-hidden="true">✦</span></a></div>
+      </a></div>
       </div>
     </section>
 
@@ -516,13 +529,13 @@
             </div>
           </div>
           <div class="reveal" style="--d:150ms">
-            <div class="xlist" data-exp-full=""><article class="glass xrow has-insight reveal" tabindex="0" data-insight="Breakdown: founder and product designer, leading a five-person team from launch onward." style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+            <div class="xlist" data-exp-full=""><article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
       <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>KitLabFS</h3><span class="when">Mar 2026 – Present</span></div>
-      <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow has-insight reveal" tabindex="0" data-insight="Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling." style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+      <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div></article><article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
       <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>Ballycorp</h3><span class="when">Dec 2024 – Sep 2026</span></div>
-      <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow has-insight reveal" tabindex="0" data-insight="Breakdown: two promotions in 14 months, from guided tasks to owning product work independently." style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+      <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div></article><article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
       <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>LCBO</h3><span class="when">Sep 2023 – Nov 2024</span></div>
-      <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div><span class="ibadge" aria-hidden="true">✦</span></article></div>
+      <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div></article></div>
           </div>
         </div>
       </div>
@@ -717,7 +730,7 @@
           <section class="block reveal" id="kitlab-fs-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps"><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale."><span class="num">01</span><div><h3>Observe</h3><p>Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Discovery and the purchase path mattered more than visual polish."><span class="num">02</span><div><h3>Frame</h3><p>Discovery and the purchase path mattered more than visual polish.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Organize the catalogue around how fans browse: club, country, competition, season and type."><span class="num">03</span><div><h3>Explore</h3><p>Organize the catalogue around how fans browse: club, country, competition, season and type.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Reveal customization in a guided sequence, and keep selections and price visible."><span class="num">04</span><div><h3>Decide</h3><p>Reveal customization in a guided sequence, and keep selections and price visible.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Review builds with developers and fix confusing interactions before and after release."><span class="num">05</span><div><h3>Refine</h3><p>Review builds with developers and fix confusing interactions before and after release.</p></div><span class="ibadge" aria-hidden="true">✦</span></div></div>
+            <div class="steps"><div class="glass step tilt"><span class="num">01</span><div><h3>Observe</h3><p>Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.</p></div></div><div class="glass step tilt"><span class="num">02</span><div><h3>Frame</h3><p>Discovery and the purchase path mattered more than visual polish.</p></div></div><div class="glass step tilt"><span class="num">03</span><div><h3>Explore</h3><p>Organize the catalogue around how fans browse: club, country, competition, season and type.</p></div></div><div class="glass step tilt"><span class="num">04</span><div><h3>Decide</h3><p>Reveal customization in a guided sequence, and keep selections and price visible.</p></div></div><div class="glass step tilt"><span class="num">05</span><div><h3>Refine</h3><p>Review builds with developers and fix confusing interactions before and after release.</p></div></div></div>
           </section>
           <section class="block reveal" id="kitlab-fs-solution">
             <p class="label">05 / Solution</p>
@@ -729,7 +742,7 @@
           <section class="block reveal" id="kitlab-fs-why">
             <p class="label">06 / Results</p>
             <h2>What changed.</h2>
-            <div class="results"><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Lift in average order value after the purchase redesign."><b data-count="58" data-suffix="%">58%</b><span>Lift in average order value after the purchase redesign.</span><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Orders placed as the store grew."><b data-count="550" data-suffix="+">550+</b><span>Orders placed as the store grew.</span><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next."><b>23.7 → 10.4 → 3.8%</b><span>Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.</span><span class="ibadge" aria-hidden="true">✦</span></div></div>
+            <div class="results"><div class="glass tilt" data-tilt=""><b data-count="58" data-suffix="%">58%</b><span>Lift in average order value after the purchase redesign.</span></div><div class="glass tilt" data-tilt=""><b data-count="550" data-suffix="+">550+</b><span>Orders placed as the store grew.</span></div><div class="glass tilt has-insight" tabindex="0" data-insight="Checkout to completed sale is the steepest drop: 3.8 of every 10.4 shoppers who reached checkout finished, about 37%. Based on the funnel figures as reported." data-tilt=""><b>23.7 → 10.4 → 3.8%</b><span>Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.</span><span class="ibadge" aria-hidden="true">✦</span></div></div>
           </section>
         </article>
       </div>
@@ -866,7 +879,7 @@
           <section class="block reveal" id="matchup-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps"><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Trust was fragmented across messages, people and payment requests."><span class="num">01</span><div><h3>Observe</h3><p>Trust was fragmented across messages, people and payment requests.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Map organizer and player needs separately, then connect the moments that must stay in sync."><span class="num">02</span><div><h3>Frame</h3><p>Map organizer and player needs separately, then connect the moments that must stay in sync.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Make openings, skill level, location and cost visible before anyone commits."><span class="num">03</span><div><h3>Explore</h3><p>Make openings, skill level, location and cost visible before anyone commits.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Let players choose a position and pay in the context of the match."><span class="num">04</span><div><h3>Decide</h3><p>Let players choose a position and pay in the context of the match.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Carry certainty from discovery through kickoff and post-match review."><span class="num">05</span><div><h3>Refine</h3><p>Carry certainty from discovery through kickoff and post-match review.</p></div><span class="ibadge" aria-hidden="true">✦</span></div></div>
+            <div class="steps"><div class="glass step tilt"><span class="num">01</span><div><h3>Observe</h3><p>Trust was fragmented across messages, people and payment requests.</p></div></div><div class="glass step tilt"><span class="num">02</span><div><h3>Frame</h3><p>Map organizer and player needs separately, then connect the moments that must stay in sync.</p></div></div><div class="glass step tilt"><span class="num">03</span><div><h3>Explore</h3><p>Make openings, skill level, location and cost visible before anyone commits.</p></div></div><div class="glass step tilt"><span class="num">04</span><div><h3>Decide</h3><p>Let players choose a position and pay in the context of the match.</p></div></div><div class="glass step tilt"><span class="num">05</span><div><h3>Refine</h3><p>Carry certainty from discovery through kickoff and post-match review.</p></div></div></div>
           </section>
           <section class="block reveal" id="matchup-solution">
             <p class="label">05 / Solution</p>
@@ -878,7 +891,7 @@
           <section class="block reveal" id="matchup-why">
             <p class="label">06 / Results</p>
             <h2>Why it works.</h2>
-            <p>Turn finding a game into joining one.</p><div class="proof"><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Players see how many positions are left before they commit."><b>Availability</b><h3>Open spots at a glance</h3><p>Players see how many positions are left before they commit.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Position selection happens in the match, not in a group chat."><b>Position</b><h3>Choose in the match</h3><p>Position selection happens in the match, not in a group chat.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Field costs are split and shown with the match, so no one chases anyone."><b>Payment</b><h3>Cost in context</h3><p>Field costs are split and shown with the match, so no one chases anyone.</p><span class="ibadge" aria-hidden="true">✦</span></div></div>
+            <p>Turn finding a game into joining one.</p><div class="proof"><div class="glass tilt"><b>Availability</b><h3>Open spots at a glance</h3><p>Players see how many positions are left before they commit.</p></div><div class="glass tilt"><b>Position</b><h3>Choose in the match</h3><p>Position selection happens in the match, not in a group chat.</p></div><div class="glass tilt"><b>Payment</b><h3>Cost in context</h3><p>Field costs are split and shown with the match, so no one chases anyone.</p></div></div>
           </section>
         </article>
       </div>
@@ -1015,7 +1028,7 @@
           <section class="block reveal" id="commerceflow-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps"><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Context was expensive because the story lived across tools and tabs."><span class="num">01</span><div><h3>Observe</h3><p>Context was expensive because the story lived across tools and tabs.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="The overview should answer “what changed?” before showing everything available."><span class="num">02</span><div><h3>Frame</h3><p>The overview should answer “what changed?” before showing everything available.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Pair every important signal with the module that can explain it."><span class="num">03</span><div><h3>Explore</h3><p>Pair every important signal with the module that can explain it.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Make alerts lead toward resolution, not into yet another inbox."><span class="num">04</span><div><h3>Decide</h3><p>Make alerts lead toward resolution, not into yet another inbox.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Use a component system that can grow with teams, stores and roles."><span class="num">05</span><div><h3>Refine</h3><p>Use a component system that can grow with teams, stores and roles.</p></div><span class="ibadge" aria-hidden="true">✦</span></div></div>
+            <div class="steps"><div class="glass step tilt"><span class="num">01</span><div><h3>Observe</h3><p>Context was expensive because the story lived across tools and tabs.</p></div></div><div class="glass step tilt"><span class="num">02</span><div><h3>Frame</h3><p>The overview should answer “what changed?” before showing everything available.</p></div></div><div class="glass step tilt"><span class="num">03</span><div><h3>Explore</h3><p>Pair every important signal with the module that can explain it.</p></div></div><div class="glass step tilt"><span class="num">04</span><div><h3>Decide</h3><p>Make alerts lead toward resolution, not into yet another inbox.</p></div></div><div class="glass step tilt"><span class="num">05</span><div><h3>Refine</h3><p>Use a component system that can grow with teams, stores and roles.</p></div></div></div>
           </section>
           <section class="block reveal" id="commerceflow-solution">
             <p class="label">05 / Solution</p>
@@ -1027,7 +1040,7 @@
           <section class="block reveal" id="commerceflow-why">
             <p class="label">06 / Results</p>
             <h2>Why it works.</h2>
-            <p>Make operational data support a decision.</p><div class="proof"><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="The dashboard leads with what moved, then offers the detail behind it."><b>Overview</b><h3>Change-first</h3><p>The dashboard leads with what moved, then offers the detail behind it.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Each alert points to the module that can resolve it."><b>Alerts</b><h3>Actionable, not noisy</h3><p>Each alert points to the module that can resolve it.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Components work across stores, teams and roles."><b>Scale</b><h3>A system that grows</h3><p>Components work across stores, teams and roles.</p><span class="ibadge" aria-hidden="true">✦</span></div></div>
+            <p>Make operational data support a decision.</p><div class="proof"><div class="glass tilt"><b>Overview</b><h3>Change-first</h3><p>The dashboard leads with what moved, then offers the detail behind it.</p></div><div class="glass tilt"><b>Alerts</b><h3>Actionable, not noisy</h3><p>Each alert points to the module that can resolve it.</p></div><div class="glass tilt"><b>Scale</b><h3>A system that grows</h3><p>Components work across stores, teams and roles.</p></div></div>
           </section>
         </article>
       </div>
@@ -1312,16 +1325,17 @@
       {name:'Ballycorp', role:'Product Designer · Ontario', when:'Dec 2024 – Sep 2026', what:'Designed the company website and a B2B sales rep portal connecting clients and sales teams.', insight:'Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.'},
       {name:'LCBO', role:'Co-op → Junior Product Designer → Product Designer · Toronto', when:'Sep 2023 – Nov 2024', what:'Two promotions in 14 months, moving from guided tasks to owning product work independently.', insight:'Breakdown: two promotions in 14 months, from guided tasks to owning product work independently.'}
     ];
-    const expRow = e => `<article class="glass xrow tilt has-insight reveal" data-tilt tabindex="0" data-insight="${esc(e.insight)}">
+    const expRow = e => `<article class="glass xrow tilt reveal" data-tilt>
       <h3>${esc(e.name)}</h3>
       <div><p class="role">${esc(e.role)}</p><p class="what">${esc(e.what)}</p></div>
       <span class="when">${esc(e.when)}</span></article>`;
     $$('[data-exp]').forEach(el => el.innerHTML = experience.map(expRow).join(''));
-    $$('[data-exp-full]').forEach(el => el.innerHTML = experience.map(e => `<article class="glass xrow has-insight reveal" tabindex="0" data-insight="${esc(e.insight)}" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+    $$('[data-exp-full]').forEach(el => el.innerHTML = experience.map(e => `<article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
       <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>${esc(e.name)}</h3><span class="when">${esc(e.when)}</span></div>
       <div><p class="role">${esc(e.role)}</p><p class="what">${esc(e.what)}</p></div></article>`).join(''));
 
     // Project cards (home + work), with per-card insight
+    const FUNNEL_INSIGHT = 'Checkout to completed sale is the steepest drop: 3.8 of every 10.4 shoppers who reached checkout finished, about 37%. Based on the funnel figures as reported.';
     const cardInsight = {
       kitlab: 'Insight: the biggest win came from sequencing choices, not adding features. Average order value rose 58%.',
       matchup: 'Concept insight: one shared match state for organizers and players replaces the group chat.',
@@ -1329,7 +1343,7 @@
     };
     const cardHTML = (k, i) => {
       const p = projects[k];
-      return `<a class="glass pcard tilt has-insight reveal ${i===0?'first':''}" data-tilt href="/work/${p.slug}" data-insight="${esc(cardInsight[k])}" style="--d:${i*90}ms">
+      return `<a class="glass pcard tilt reveal ${i===0?'first':''}" data-tilt href="/work/${p.slug}" style="--d:${i*90}ms">
         <div class="media"><img src="${p.cover}" alt="${esc(p.name)} case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">${esc(p.label)}</span><h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p></div>
       </a>`;
@@ -1348,9 +1362,10 @@
       const resultsHTML = isKitlab
         ? `<div class="results">${p.results.map(r => {
             const c = countable(r[0]);
-            return `<div class="glass tilt has-insight" data-tilt tabindex="0" data-insight="${esc(r[1])}"><b ${c?`data-count="${c.n}" data-suffix="${esc(c.suffix)}"`:''}>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`;
+            const attrs = r[0].includes("→") ? ` has-insight" tabindex="0" data-insight="${esc(FUNNEL_INSIGHT)}"` : '"';
+            return `<div class="glass tilt${attrs} data-tilt><b ${c?`data-count="${c.n}" data-suffix="${esc(c.suffix)}"`:''}>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`;
           }).join('')}</div>`
-        : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r => `<div class="glass tilt has-insight" data-tilt tabindex="0" data-insight="${esc(r[2])}"><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`;
+        : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r => `<div class="glass tilt"><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`;
       return `
       <header class="case-top"><div class="wrap">
         <p class="label reveal">${esc(p.label)}</p>
@@ -1396,7 +1411,7 @@
           <section class="block reveal" id="${s}-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps">${p.steps.map((st,i)=>`<div class="glass step tilt has-insight" data-tilt tabindex="0" data-insight="${esc(st[1])}"><span class="num">0${i+1}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></div>`).join('')}</div>
+            <div class="steps">${p.steps.map((st,i)=>`<div class="glass step tilt"><span class="num">0${i+1}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></div>`).join('')}</div>
           </section>
           <section class="block reveal" id="${s}-solution">
             <p class="label">05 / Solution</p>
@@ -1638,60 +1653,78 @@
     });
 
     // Willow: portfolio assistant (answers from this site's content only)
-    const KB = [
-      {k:['kitlab','kit lab','store','58','order value','conversion','funnel','jersey','result','achiev','metric','impact','numbers','outcome','proof'], a:'KitLabFS: founder and product designer on an online jersey store with 1,200+ products and 7,822 variants. I redesigned the purchase path, which lifted average order value 58% and grew the store to 550+ orders. It drew 450,000+ visitors in its first three months.', link:'/work/kitlab-fs', label:'Open the KitLabFS case study'},
-      {k:['ballycorp','portal','b2b','sales rep','website'], a:'Ballycorp (Dec 2024 to Sep 2026): I designed the company website and a sales rep portal connecting clients and sales reps. I mapped workflows for each role, wrote notes on behaviour and edge cases for developers, and reviewed the builds.'},
-      {k:['lcbo','co-op','coop','promotion'], a:'LCBO (Sep 2023 to Nov 2024): co-op, then Junior Product Designer, then Product Designer. Two promotions in 14 months, moving from guided tasks to owning product work on my own.'},
-      {k:['matchup','match up','soccer'], a:'MatchUp is a concept: a mobile flow for organizing local soccer matches. Organizers set positions and cost, and players commit in the same place. The core idea is one shared match state.', link:'/work/matchup', label:'Open MatchUp'},
-      {k:['commerceflow','commerce','dashboard','operations'], a:'CommerceFlow is a concept: an operations overview that leads with what changed, then connects each alert to the module that can explain it.', link:'/work/commerceflow', label:'Open CommerceFlow'},
-      {k:['work','case study','case studies','project','portfolio'], a:'There are three case studies: KitLabFS (shipped, with metrics) and two concept projects, MatchUp and CommerceFlow. KitLabFS is the best place to start.', link:'/work', label:'See all work'},
-      {k:['process','how do you work','approach','method','framework'], a:'I frame the problem first, map each user role and flow, prototype in Figma, document edge cases so developers can build without a walkthrough, then review the build and fix what is confusing after launch.'},
-      {k:['tool','figma','shopify','photoshop','illustrator','skill','software'], a:'Figma for interaction and systems, Shopify for commerce builds, and the Adobe suite for brand and print. I also use AI tools for exploration and prototyping.'},
-      {k:['education','school','fanshawe','diploma','study'], a:'Graphic Design Advanced Diploma, Fanshawe College (2022 to 2025).'},
-      {k:['language','spanish','french'], a:'English and Spanish, both native. French at a basic level.'},
-      {k:['available','availability','hire','hiring','job','open to','remote','hybrid','location','toronto','salary','rate'], a:'I am open to product design roles. I am based in Toronto and open to hybrid or remote work.', link:'/contact', label:'Contact me'},
-      {k:['contact','email','phone','linkedin','reach'], a:'Email arhennesseyco@gmail.com, call 226-582-4622, or find me on LinkedIn at linkedin.com/in/arhennessey.', link:'/contact', label:'Contact page'},
-      {k:['resume','résumé','cv'], a:'The résumé is not posted on the site. Email arhennesseyco@gmail.com or message me on LinkedIn and I will send it.'},
-      {k:['secret','easter','surprise','hidden'], a:'Secret: the motion on this site follows one rule I use on products. Animation should explain a change in state, never just decorate. Hover any card with a ✦ for a breakdown.'},
-      {k:['hello','hi','hey','who are you','willow','help'], a:'I’m Willow, the assistant for this portfolio. I know the case studies, experience and how Alejandro works. Hover any ✦ card for a quick breakdown.'}
-    ];
-    const FALLBACK = {a:'I can answer about projects, experience, metrics, process, tools, availability and contact. Try one of the quick questions below.'};
-    function answer(q){
-      const t = ' ' + q.toLowerCase() + ' ';
-      let best = null, score = 0;
-      KB.forEach(entry => {
-        const s = entry.k.reduce((n, k) => {
-          const hit = k.length <= 3 ? new RegExp('\\b' + k + '\\b').test(t) : t.includes(k);
-          return n + (hit ? k.length : 0);
-        }, 0);
-        if (s > score) { score = s; best = entry; }
+    // ---------- Willow: trained from willow-knowledge.json ----------
+    const WILLOW_STOP = new Set('a an the is are am was were be been do does did i you your my me we our of to in on at for and or but if so it its this that what which who whom how when where why can could would should will just about tell please any there here with from as by up out'.split(' '));
+    const normWords = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9%$.+\s-]/g,' ').split(/\s+/).filter(Boolean);
+    const stemWord = w => (w.length>4&&w.endsWith('ing'))?w.slice(0,-3):(w.length>4&&w.endsWith('ed'))?w.slice(0,-2):(w.length>3&&w.endsWith('s'))?w.slice(0,-1):w;
+    const termsOf = s => normWords(s).filter(w => !WILLOW_STOP.has(w)).map(stemWord);
+    let WILLOW_INDEX = [];
+    function buildWillowIndex(kb){
+      WILLOW_INDEX = kb.entries.map(e => {
+        const w = new Map();
+        const add = (text, weight) => termsOf(text).forEach(t => w.set(t, Math.max(w.get(t) || 0, weight)));
+        e.questions.forEach(q => add(q, 2));
+        e.keywords.forEach(k => add(k, 3));
+        add(e.answer, 1);
+        const total = [...w.values()].reduce((a,b) => a + b, 0) || 1;
+        const phrases = [...e.questions, ...e.keywords].map(p => p.toLowerCase());
+        return {e, w, total, phrases};
       });
-      return best || FALLBACK;
     }
+    function localAnswer(q){
+      if (!WILLOW_INDEX.length) return {a:'I am still loading my notes. Try again in a moment, or email arhennesseyco@gmail.com.'};
+      const qText = ' ' + q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'') + ' ';
+      const qTerms = termsOf(q);
+      const ranked = WILLOW_INDEX.map(it => {
+        let s = 0;
+        qTerms.forEach(t => { if (it.w.has(t)) s += it.w.get(t); });
+        it.phrases.forEach(p => { if (p.length > 3 && qText.includes(p)) s += 4; });
+        return {it, s: s / Math.sqrt(it.total)};
+      }).sort((a,b) => b.s - a.s);
+      const top = ranked[0], second = ranked[1];
+      if (!top || top.s < 0.35) {
+        console.info('[Willow] not in notes yet:', q);
+        return {a:'I don’t have that in my notes yet. Ask about experience, the three case studies, results, skills, how he works, availability or contact. Or email arhennesseyco@gmail.com and Alejandro can answer directly.', link:'/contact', label:'Contact Alejandro'};
+      }
+      let a = top.it.e.answer;
+      if (second && second.it.e.id !== top.it.e.id && second.s >= 0.5 && second.s >= top.s * 0.6) a += ' ' + second.it.e.answer;
+      return {a, link: top.it.e.link, label: top.it.e.label};
+    }
+    async function getReply(q){
+      try {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 6000);
+        const r = await fetch('/api/willow', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({message:q}), signal: ctrl.signal});
+        clearTimeout(t);
+        if (r.ok) { const j = await r.json(); if (j.answer) return {a: j.answer}; }
+      } catch (e) {}
+      return localAnswer(q);
+    }
+    fetch('/willow-knowledge.json').then(r => r.json()).then(buildWillowIndex).catch(() => {});
+
     const log = $('#wp-log'), chips = $('#wp-chips'), form = $('#wp-form'), input = $('#wp-input'), panel = $('#willow-panel'), wbtn = $('#willow-btn');
     const QUICK = ['What did KitLabFS achieve?', 'Tell me about Ballycorp', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
     chips.innerHTML = QUICK.map(q => `<button class="chip" type="button">${esc(q)}</button>`).join('');
     function addMsg(role, html){
       const d = document.createElement('div'); d.className = 'msg ' + role; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
     }
-    function botSay(entry){
-      const typing = addMsg('bot', '<span class="typing"><i></i><i></i><i></i></span>');
-      setTimeout(() => {
-        typing.innerHTML = esc(entry.a) + (entry.link ? ` <br><a href="${entry.link}" class="route-link">${esc(entry.label)} →</a>` : '');
-        log.scrollTop = log.scrollHeight;
-      }, reduceMotion ? 0 : 650);
-    }
     function ask(q){
       q = q.trim(); if (!q) return;
       addMsg('me', esc(q));
-      botSay(answer(q));
+      const typing = addMsg('bot', '<span class="typing"><i></i><i></i><i></i></span>');
+      getReply(q).then(entry => {
+        setTimeout(() => {
+          typing.innerHTML = esc(entry.a) + (entry.link ? ` <br><a href="${entry.link}" class="route-link">${esc(entry.label)} →</a>` : '');
+          log.scrollTop = log.scrollHeight;
+        }, reduceMotion ? 0 : 500);
+      });
     }
     let greeted = false;
     function openWillow(open){
       panel.hidden = !open;
       wbtn.setAttribute('aria-expanded', String(open));
       if (open) {
-        if (!greeted) { greeted = true; addMsg('bot', 'Hi, I’m Willow. Ask about projects, experience, metrics, how I work or availability. Hover any ✦ card for a breakdown.'); }
+        if (!greeted) { greeted = true; addMsg('bot', 'Hi, I’m Willow. Ask me anything about Alejandro’s work, experience, results, process or availability.'); }
         setTimeout(() => input.focus(), 60);
       } else { wbtn.focus(); }
     }

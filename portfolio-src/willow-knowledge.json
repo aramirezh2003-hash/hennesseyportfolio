@@ -1,0 +1,685 @@
+{
+  "persona": "Willow is the portfolio assistant for Alejandro Hennessey, a product designer in Toronto. Willow answers only from the facts in this file, in plain, direct language. If something is not in the facts, Willow says so and points to the email arhennesseyco@gmail.com. Willow never invents numbers, employers, dates or outcomes.",
+  "entries": [
+    {
+      "id": "greeting",
+      "questions": [
+        "hi",
+        "hello",
+        "hey there",
+        "who are you",
+        "what are you",
+        "what is willow",
+        "what can you do",
+        "help",
+        "how do i use this"
+      ],
+      "keywords": [
+        "willow",
+        "assistant",
+        "chatbot",
+        "bot"
+      ],
+      "answer": "I'm Willow, the assistant for Alejandro's portfolio. I can answer about his experience, the three case studies, results, skills, how he works, availability and how to contact him."
+    },
+    {
+      "id": "about",
+      "questions": [
+        "who is alejandro",
+        "tell me about alejandro",
+        "tell me about yourself",
+        "who is this",
+        "what is his background",
+        "introduce him"
+      ],
+      "keywords": [
+        "alejandro",
+        "hennessey",
+        "background",
+        "profile",
+        "about"
+      ],
+      "answer": "Alejandro is a product designer in Toronto focused on complex web products: e-commerce, B2B software and workflows with several user roles. He is drawn to mission-driven education technology. He is native in English and Spanish, and speaks basic French."
+    },
+    {
+      "id": "role",
+      "questions": [
+        "what does he do",
+        "what is his job",
+        "what is his title",
+        "what kind of designer is he",
+        "is he a product designer",
+        "what is his role"
+      ],
+      "keywords": [
+        "product designer",
+        "designer",
+        "ui",
+        "ux",
+        "title",
+        "job"
+      ],
+      "answer": "He is a product designer working on UI and UX for complex web products. He takes work from understanding the problem through engineering review and launch."
+    },
+    {
+      "id": "experience",
+      "questions": [
+        "what is his experience",
+        "work history",
+        "where has he worked",
+        "what companies",
+        "past jobs",
+        "career",
+        "roles",
+        "employers"
+      ],
+      "keywords": [
+        "experience",
+        "history",
+        "worked",
+        "companies",
+        "employers",
+        "jobs",
+        "career"
+      ],
+      "answer": "Three product roles: Founder and Product Designer at KitLabFS (Mar 2026 to present, remote), Product Designer at Ballycorp (Dec 2024 to Sep 2026, Ontario), and Co-op to Product Designer at LCBO (Sep 2023 to Nov 2024, Toronto).",
+      "link": "/about",
+      "label": "Full experience"
+    },
+    {
+      "id": "kitlab_overview",
+      "questions": [
+        "what is kitlab",
+        "tell me about kitlabfs",
+        "what did he build at kitlab",
+        "what is the kitlab project",
+        "describe kitlab",
+        "how many products are in the store",
+        "how many variants"
+      ],
+      "keywords": [
+        "kitlab",
+        "kitlabfs",
+        "kit lab",
+        "store",
+        "shop",
+        "jersey",
+        "variant",
+        "variants",
+        "products",
+        "product",
+        "catalogue",
+        "catalog",
+        "how many"
+      ],
+      "answer": "KitLabFS is an online store for club, national-team and retro football jerseys. He is the founder and product designer. He designed and launched a store with more than 1,200 products and 7,822 variants, owning product pages, funnels, checkout and inventory flows.",
+      "link": "/work/kitlab-fs",
+      "label": "Open the KitLabFS case study"
+    },
+    {
+      "id": "kitlab_results",
+      "questions": [
+        "what did kitlab achieve",
+        "kitlab results",
+        "kitlab metrics",
+        "how did kitlab do",
+        "what was the impact",
+        "what numbers did he get",
+        "what is the proof",
+        "show me the results",
+        "58 percent"
+      ],
+      "keywords": [
+        "result",
+        "achieve",
+        "metric",
+        "number",
+        "impact",
+        "proof",
+        "outcome",
+        "58",
+        "aov",
+        "order value",
+        "orders",
+        "visitors",
+        "performance"
+      ],
+      "answer": "KitLabFS results: average order value rose 58% after the purchase redesign, with 550+ orders, and more than 450,000 visitors in the first three months. Average order value went from roughly US$43 to US$68.",
+      "link": "/work/kitlab-fs",
+      "label": "See the KitLabFS results"
+    },
+    {
+      "id": "kitlab_funnel",
+      "questions": [
+        "what is the funnel",
+        "kitlab conversion",
+        "where do shoppers drop off",
+        "cart to checkout",
+        "checkout conversion",
+        "how do you measure the store",
+        "what data do you track",
+        "analytics"
+      ],
+      "keywords": [
+        "funnel",
+        "conversion",
+        "drop",
+        "cart",
+        "checkout",
+        "analytics",
+        "tracking",
+        "data",
+        "measure",
+        "rate"
+      ],
+      "answer": "He tracked conversion at each funnel stage: 23.7% reached the cart, 10.4% reached checkout, and 3.8% completed a sale. He used those stages to pick what to design next."
+    },
+    {
+      "id": "kitlab_team",
+      "questions": [
+        "how big was the team",
+        "did he lead people",
+        "kitlab team",
+        "managed a team",
+        "leadership",
+        "who did he work with at kitlab"
+      ],
+      "keywords": [
+        "team",
+        "lead",
+        "led",
+        "manage",
+        "managed",
+        "leadership",
+        "people",
+        "developers",
+        "designers",
+        "marketer"
+      ],
+      "answer": "He led a five-person team at KitLabFS: two developers, two designers and one marketer. He set priorities, reviewed builds, and fixed broken or confusing interactions before and after release."
+    },
+    {
+      "id": "kitlab_ownership",
+      "questions": [
+        "what did he own at kitlab",
+        "his role at kitlab",
+        "was he the founder",
+        "what was his part",
+        "what did he personally do"
+      ],
+      "keywords": [
+        "own",
+        "owned",
+        "owner",
+        "founder",
+        "personally",
+        "part",
+        "ownership"
+      ],
+      "answer": "He was the founder and product designer. He owned product pages, funnels, checkout and inventory flows, and was responsible for the redesign of the purchase experience."
+    },
+    {
+      "id": "ballycorp",
+      "questions": [
+        "tell me about ballycorp",
+        "what did he do at ballycorp",
+        "ballycorp role",
+        "what is ballycorp"
+      ],
+      "keywords": [
+        "ballycorp",
+        "eco",
+        "foot",
+        "website"
+      ],
+      "answer": "At Ballycorp, from Dec 2024 to Sep 2026, he was a Product Designer. He designed the company website and a sales rep portal, connecting clients and sales reps in one place."
+    },
+    {
+      "id": "ballycorp_portal",
+      "questions": [
+        "what is the sales rep portal",
+        "b2b work",
+        "how did he design the portal",
+        "what workflows did he map",
+        "edge cases",
+        "permissions",
+        "empty states",
+        "error states"
+      ],
+      "keywords": [
+        "portal",
+        "rep",
+        "b2b",
+        "workflow",
+        "permissions",
+        "empty state",
+        "edge",
+        "error",
+        "confirmation",
+        "role"
+      ],
+      "answer": "For the Ballycorp portal, he mapped end-to-end workflows for each user role, covering permissions, empty states, errors and confirmations. He turned them into Figma flows and interactive prototypes. Over 21 months he gathered feedback from sales and operations stakeholders and used it to simplify screens and labels."
+    },
+    {
+      "id": "developers",
+      "questions": [
+        "how does he work with developers",
+        "developer handoff",
+        "engineering",
+        "implementation review",
+        "does he hand off designs",
+        "documentation"
+      ],
+      "keywords": [
+        "developer",
+        "developers",
+        "handoff",
+        "engineering",
+        "implementation",
+        "build",
+        "documentation",
+        "documented",
+        "dev"
+      ],
+      "answer": "He documents intended behaviour, edge cases and decision notes so developers can build without a live walkthrough. He then reviews the implementation and logs fixes."
+    },
+    {
+      "id": "lcbo",
+      "questions": [
+        "tell me about lcbo",
+        "what did he do at lcbo",
+        "lcbo role",
+        "was he a co-op",
+        "where did he start"
+      ],
+      "keywords": [
+        "lcbo",
+        "co-op",
+        "coop",
+        "retail",
+        "start",
+        "began",
+        "first"
+      ],
+      "answer": "At LCBO, from Sep 2023 to Nov 2024, he started as a co-op, became Junior Product Designer, and then Product Designer. He designed digital product experiences in Figma, from wireframes to high-fidelity prototypes, inside a larger cross-functional team."
+    },
+    {
+      "id": "promotions",
+      "questions": [
+        "did he get promoted",
+        "promotions",
+        "how fast did he grow",
+        "career growth",
+        "how long at lcbo"
+      ],
+      "keywords": [
+        "promotion",
+        "promoted",
+        "growth",
+        "grow",
+        "progress",
+        "advance"
+      ],
+      "answer": "He earned two promotions in 14 months at LCBO, moving from co-op to Junior Product Designer (Jan 2024) and then to Product Designer (Aug 2024). Each step meant taking on more scope, from guided tasks to owning defined product work independently."
+    },
+    {
+      "id": "matchup",
+      "questions": [
+        "what is matchup",
+        "tell me about matchup",
+        "matchup project",
+        "is matchup real"
+      ],
+      "keywords": [
+        "matchup",
+        "match",
+        "soccer",
+        "football",
+        "sports",
+        "field",
+        "positions"
+      ],
+      "answer": "MatchUp is a concept project: a mobile flow for organizing local soccer matches. Organizers choose open positions and share field costs, and players commit in the same place. The core idea is one shared match state for both.",
+      "link": "/work/matchup",
+      "label": "Open MatchUp"
+    },
+    {
+      "id": "commerceflow",
+      "questions": [
+        "what is commerceflow",
+        "tell me about commerceflow",
+        "dashboard project",
+        "operations project",
+        "is commerceflow real"
+      ],
+      "keywords": [
+        "commerceflow",
+        "commerce",
+        "dashboard",
+        "operations",
+        "ops",
+        "overview",
+        "alerts"
+      ],
+      "answer": "CommerceFlow is a concept project: an operations overview that leads with what changed, then connects each alert to the module that can explain it. It is aimed at multi-store operators.",
+      "link": "/work/commerceflow",
+      "label": "Open CommerceFlow"
+    },
+    {
+      "id": "case_studies",
+      "questions": [
+        "what projects are there",
+        "show me his work",
+        "case studies",
+        "portfolio",
+        "what can i look at",
+        "his best work"
+      ],
+      "keywords": [
+        "project",
+        "projects",
+        "case",
+        "studies",
+        "portfolio",
+        "work",
+        "examples",
+        "samples"
+      ],
+      "answer": "There are three case studies. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are concept projects.",
+      "link": "/work",
+      "label": "See all work"
+    },
+    {
+      "id": "process",
+      "questions": [
+        "how do you work",
+        "what is your process",
+        "how do you approach a problem",
+        "method",
+        "framework",
+        "design process"
+      ],
+      "keywords": [
+        "process",
+        "approach",
+        "method",
+        "framework",
+        "work",
+        "approaches",
+        "methodology"
+      ],
+      "answer": "His process moves from problem to flows to build. He frames the problem first, maps each user role and flow, prototypes in Figma, documents edge cases, then stays through engineering review and launch. He uses funnel data and stakeholder feedback to decide what to change next."
+    },
+    {
+      "id": "research",
+      "questions": [
+        "do you do research",
+        "user research",
+        "how do you get feedback",
+        "do you use data",
+        "usability"
+      ],
+      "keywords": [
+        "research",
+        "feedback",
+        "user",
+        "data",
+        "analytics",
+        "usability",
+        "test",
+        "testing",
+        "evidence"
+      ],
+      "answer": "He uses user feedback, funnel analysis and analytics to inform the next design decision. He gathers feedback from stakeholders through regular conversations and learns from real use."
+    },
+    {
+      "id": "design_systems",
+      "questions": [
+        "do you build design systems",
+        "components",
+        "design system",
+        "consistency"
+      ],
+      "keywords": [
+        "system",
+        "systems",
+        "components",
+        "component",
+        "consistent",
+        "consistency",
+        "library",
+        "patterns"
+      ],
+      "answer": "Yes. He has worked on design systems and components, keeping components and patterns consistent across a website and a portal so design and the built product stay aligned."
+    },
+    {
+      "id": "skills",
+      "questions": [
+        "what are his skills",
+        "what tools does he use",
+        "what software",
+        "figma",
+        "shopify",
+        "photoshop",
+        "illustrator",
+        "tech stack",
+        "ai tools"
+      ],
+      "keywords": [
+        "skill",
+        "skills",
+        "tool",
+        "tools",
+        "software",
+        "figma",
+        "shopify",
+        "adobe",
+        "photoshop",
+        "illustrator",
+        "indesign",
+        "after effects",
+        "premiere",
+        "ai",
+        "stack"
+      ],
+      "answer": "Core skills: interaction design, user flows, wireframes, prototyping, design systems and components, responsive layouts, edge cases and states, UX writing, and funnel analysis. Tools include Figma, Shopify, Adobe Photoshop, Illustrator, InDesign, After Effects and Premiere Pro. He also uses AI tools for exploration and prototyping."
+    },
+    {
+      "id": "education",
+      "questions": [
+        "where did he study",
+        "education",
+        "school",
+        "college",
+        "diploma",
+        "degree"
+      ],
+      "keywords": [
+        "education",
+        "school",
+        "college",
+        "fanshawe",
+        "diploma",
+        "study",
+        "studied",
+        "degree",
+        "graduate"
+      ],
+      "answer": "He completed a Graphic Design Advanced Diploma at Fanshawe College, from 2022 to 2025."
+    },
+    {
+      "id": "languages",
+      "questions": [
+        "what languages",
+        "does he speak spanish",
+        "is he bilingual",
+        "does he speak french"
+      ],
+      "keywords": [
+        "language",
+        "languages",
+        "spanish",
+        "french",
+        "bilingual",
+        "english"
+      ],
+      "answer": "English and Spanish, both native. French at a basic level."
+    },
+    {
+      "id": "availability",
+      "questions": [
+        "is he available",
+        "is he hiring",
+        "is he open to jobs",
+        "is he looking for work",
+        "open to new roles",
+        "can i hire him"
+      ],
+      "keywords": [
+        "available",
+        "availability",
+        "hire",
+        "hiring",
+        "open",
+        "looking",
+        "role",
+        "roles",
+        "job",
+        "jobs",
+        "position"
+      ],
+      "answer": "Yes. He is open to product design roles. The best way to start is to email arhennesseyco@gmail.com with the role, team and product.",
+      "link": "/contact",
+      "label": "Contact Alejandro"
+    },
+    {
+      "id": "location",
+      "questions": [
+        "where is he based",
+        "is he in toronto",
+        "is he remote",
+        "hybrid",
+        "can he work from home",
+        "location"
+      ],
+      "keywords": [
+        "toronto",
+        "ontario",
+        "canada",
+        "remote",
+        "hybrid",
+        "location",
+        "based",
+        "where",
+        "city",
+        "onsite",
+        "office"
+      ],
+      "answer": "He is based in Toronto, Ontario, and open to hybrid or remote work."
+    },
+    {
+      "id": "contact",
+      "questions": [
+        "how do i contact him",
+        "email",
+        "phone number",
+        "linkedin",
+        "how do i reach him",
+        "contact details"
+      ],
+      "keywords": [
+        "contact",
+        "email",
+        "phone",
+        "call",
+        "text",
+        "linkedin",
+        "reach",
+        "message",
+        "touch",
+        "number"
+      ],
+      "answer": "Email arhennesseyco@gmail.com, call or text 226-582-4622, or connect on LinkedIn at linkedin.com/in/arhennessey.",
+      "link": "/contact",
+      "label": "Contact page"
+    },
+    {
+      "id": "resume",
+      "questions": [
+        "can i see his resume",
+        "resume",
+        "cv",
+        "download his resume",
+        "send me his cv"
+      ],
+      "keywords": [
+        "resume",
+        "résumé",
+        "cv",
+        "curriculum",
+        "download",
+        "pdf"
+      ],
+      "answer": "His résumé isn't posted on the website. Email arhennesseyco@gmail.com or message him on LinkedIn and he'll send it."
+    },
+    {
+      "id": "salary",
+      "questions": [
+        "what is his salary",
+        "what does he charge",
+        "rate",
+        "salary expectations",
+        "how much does he want"
+      ],
+      "keywords": [
+        "salary",
+        "pay",
+        "rate",
+        "charge",
+        "compensation",
+        "fee",
+        "cost",
+        "expectations",
+        "money"
+      ],
+      "answer": "Salary and rate details aren't listed on the site. Email arhennesseyco@gmail.com with the role and range you have in mind, and he'll respond."
+    },
+    {
+      "id": "secret",
+      "questions": [
+        "tell me a secret",
+        "show me a secret",
+        "any easter eggs",
+        "hidden things",
+        "surprise me"
+      ],
+      "keywords": [
+        "secret",
+        "easter",
+        "egg",
+        "hidden",
+        "surprise",
+        "fun"
+      ],
+      "answer": "Here's the one thing I can share: the ✦ badges on the site open a short breakdown, and only a few of them are there on purpose. Look for the ones with new numbers."
+    },
+    {
+      "id": "thanks",
+      "questions": [
+        "thanks",
+        "thank you",
+        "bye",
+        "goodbye",
+        "that's all"
+      ],
+      "keywords": [
+        "thanks",
+        "thank",
+        "bye",
+        "goodbye",
+        "cheers"
+      ],
+      "answer": "You're welcome. If you want to talk about a role, email arhennesseyco@gmail.com."
+    }
+  ]
+}
