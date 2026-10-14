@@ -199,6 +199,39 @@
     .next strong{font-family:var(--serif);font-weight:400;font-size:clamp(48px,8vw,108px);letter-spacing:-.03em;line-height:1}
     .next:hover strong{color:var(--accent)}
 
+
+    /* Interactive user flows */
+    .flow-note{color:var(--muted);font-size:15px;margin:0 0 26px}
+    .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 26px;font:500 13px var(--sans);color:var(--ink-2)}
+    .legend span{display:inline-flex;align-items:center;gap:8px}
+    .legend i{width:14px;height:14px;border-radius:4px;display:inline-block;border:2px solid}
+    .lane{margin-top:26px}
+    .lane > .label{margin-bottom:12px}
+    .fnode{margin:8px 0}
+    .fbtn{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:14px 16px;border-radius:14px;border:2px solid;background:var(--surface);color:var(--ink);font:500 16px/1.35 var(--sans);cursor:pointer;transition:transform .2s,box-shadow .2s}
+    .fbtn:hover{transform:translateX(3px);box-shadow:0 10px 24px rgba(20,22,28,.08)}
+    .ftag{flex:none;font:600 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;min-width:74px;color:var(--muted)}
+    .flabel{flex:1}
+    .fcaret{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:600 16px/1 var(--sans);border:1px solid var(--line);transition:transform .2s}
+    .fnode.open > .fbtn .fcaret{transform:rotate(45deg)}
+    .fnode.t-start > .fbtn,.fnode.t-end > .fbtn{background:var(--ink);color:var(--bg);border-color:var(--ink);border-radius:999px}
+    .fnode.t-start > .fbtn .ftag,.fnode.t-end > .fbtn .ftag{color:var(--bg);opacity:.7}
+    .fnode.t-start > .fbtn .fcaret,.fnode.t-end > .fbtn .fcaret{border-color:var(--bg)}
+    .fnode.t-action > .fbtn{border-color:#b56cf5;background:color-mix(in srgb,#b56cf5 12%,var(--surface))}
+    .fnode.t-action > .fbtn .ftag{color:#8a3fd6}
+    .fnode.t-decision > .fbtn{border-color:#22aef0;background:color-mix(in srgb,#22aef0 12%,var(--surface))}
+    .fnode.t-decision > .fbtn .ftag{color:#0b7fb8}
+    .fnode.t-choice > .fbtn{border-color:var(--line);border-style:dashed}
+    .fnode.t-system > .fbtn{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+    .fnode.t-system > .fbtn .ftag{color:var(--accent)}
+    .fkids{margin:6px 0 0 20px;padding-left:22px;border-left:2px solid var(--line)}
+    .fdetail{margin:10px 0 4px 6px;padding:12px 14px;border-radius:12px;background:var(--chip);color:var(--ink-2);font-size:15px;line-height:1.5}
+    .fnode:not(.open) > .fkids,.fnode:not(.open) > .fdetail{display:none}
+    .flow-controls{display:flex;gap:10px;margin-top:22px}
+    .flow-controls button{padding:9px 14px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 13px var(--sans);cursor:pointer}
+    .flow-controls button:hover{background:var(--ink);color:var(--bg)}
+    @media (max-width:560px){.ftag{min-width:0;display:none}.fkids{margin-left:10px;padding-left:14px}}
+
     footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
     footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
@@ -471,38 +504,164 @@
       <div class="wrap case-layout">
         <aside class="case-nav" aria-label="Case study sections">
           <p class="label" style="margin-bottom:10px">Case study</p>
-          <a href="#overview">01 · Context</a>
-          <a href="#problem">02 · Problem</a>
-          <a href="#thinking">03 · Thinking</a>
-          <a href="#solution">04 · Solution</a>
-          <a href="#why">05 · Results</a>
+          <a href="#kitlab-fs-overview">01 · Context</a>
+          <a href="#kitlab-fs-problem">02 · Problem</a>
+          <a href="#kitlab-fs-flow">03 · User flow</a>
+          <a href="#kitlab-fs-thinking">04 · Thinking</a>
+          <a href="#kitlab-fs-solution">05 · Solution</a>
+          <a href="#kitlab-fs-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="overview">
+          <section class="block" id="kitlab-fs-overview">
             <p class="label">01 / Context</p>
             <h2 class="serif">What I was trying to change</h2>
             <p>KitLabFS is an online store for club, national-team and retro football jerseys, with 1,200+ products and 7,822 variants. I designed and launched it, owning product pages, funnels, checkout and inventory flows. The store drew 450,000+ visitors in its first three months and grew to 550+ orders.</p>
           </section>
-          <section class="block" id="problem">
+          <section class="block" id="kitlab-fs-problem">
             <p class="label">02 / Problem</p>
             <h2 class="serif">The interface was only the symptom.</h2>
             <p>Choices such as player versions, patches, sizing and name customization were hard to understand. Shoppers also dropped off between the cart and the completed purchase.</p>
             <div class="question"><span>The question</span>How might we help customers move from thousands of jerseys to a confident purchase, without making any step feel overloaded?</div>
           </section>
-          <section class="block" id="thinking">
-            <p class="label">03 / My thinking</p>
+          <section class="block" id="kitlab-fs-flow">
+            <p class="label">03 / User flow</p>
+            <h2 class="serif">Click through the flow</h2>
+            <p class="flow-note">Shopper flow for the live store. Click a step to see what happens next.</p><div class="legend" aria-label="Legend">
+        <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
+        <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
+        <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
+        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
+      </div><div class="lane"><p class="label">Shopper</p><div class="fnode t-start">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f1">
+          <span class="ftag">Start</span>
+          <span class="flabel">Shopper lands on the store</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f1"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f2">
+          <span class="ftag">User action</span>
+          <span class="flabel">Browses 1,200+ products</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Thousands of jerseys across clubs, nations, competitions and retro. Discovery is the bottleneck, so the catalogue is organized the way fans shop.</p><div class="fkids" id="f2"><div class="fnode t-decision">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f3">
+          <span class="ftag">Decision</span>
+          <span class="flabel">Knows the club or nation?</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f3"><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f4">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Yes: filters by club, season and type</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f4"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f5">
+          <span class="ftag">User action</span>
+          <span class="flabel">Opens a product page</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Each product page shows the choices that matter for that shirt, in order.</p>
+      </div></div>
+      </div><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f6">
+          <span class="ftag">Choice</span>
+          <span class="flabel">No: browses by competition or retro</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f6"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f7">
+          <span class="ftag">User action</span>
+          <span class="flabel">Picks a shirt from a clear category</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Categories follow how fans browse, not how the inventory is stored.</p>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f8">
+          <span class="ftag">User action</span>
+          <span class="flabel">Chooses a version: fan or player</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Player versions, patches and sizing are revealed in a guided sequence, so no step feels overloaded.</p><div class="fkids" id="f8"><div class="fnode t-decision">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f9">
+          <span class="ftag">Decision</span>
+          <span class="flabel">Wants a custom shirt?</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f9"><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f10">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Yes: adds a name, number or patch</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f10"><div class="fnode t-system">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f11">
+          <span class="ftag">System</span>
+          <span class="flabel">Preview and price update live</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Every customization updates the preview and the price immediately, so the shopper always knows what they are buying.</p>
+      </div></div>
+      </div><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f12">
+          <span class="ftag">Choice</span>
+          <span class="flabel">No: keeps the standard shirt</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>
+      </div></div>
+      </div></div>
+      </div><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f13">
+          <span class="ftag">User action</span>
+          <span class="flabel">Adds to cart</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f13"><div class="fnode t-system">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f14">
+          <span class="ftag">System</span>
+          <span class="flabel">Cart keeps selections and price visible</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Selections stay on screen so nothing is lost between the product page and checkout.</p><div class="fkids" id="f14"><div class="fnode t-decision">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f15">
+          <span class="ftag">Decision</span>
+          <span class="flabel">Ready to check out?</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f15"><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f16">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Yes: guided checkout</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f16"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f17">
+          <span class="ftag">End</span>
+          <span class="flabel">Completed sale</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Cart, checkout and completed-sale rates are tracked at each stage to decide what to design next. Result: 3.8% completed sale rate.</p>
+      </div></div>
+      </div><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f18">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Not yet: keeps browsing</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f18"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f19">
+          <span class="ftag">End</span>
+          <span class="flabel">Returns to the catalogue</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
+          </section>
+          <section class="block" id="kitlab-fs-thinking">
+            <p class="label">04 / My thinking</p>
             <h2 class="serif">The path from signal to decision</h2>
             <div class="steps"><div class="step"><span class="num">01</span><div><h3>Observe</h3><p>Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.</p></div></div><div class="step"><span class="num">02</span><div><h3>Frame</h3><p>Discovery and the purchase path mattered more than visual polish.</p></div></div><div class="step"><span class="num">03</span><div><h3>Explore</h3><p>Organize the catalogue around how fans browse: club, country, competition, season and type.</p></div></div><div class="step"><span class="num">04</span><div><h3>Decide</h3><p>Reveal customization in a guided sequence, and keep selections and price visible.</p></div></div><div class="step"><span class="num">05</span><div><h3>Refine</h3><p>Review builds with developers and fix confusing interactions before and after release.</p></div></div></div>
           </section>
-          <section class="block" id="solution">
-            <p class="label">04 / Solution</p>
+          <section class="block" id="kitlab-fs-solution">
+            <p class="label">05 / Solution</p>
             <h2 class="serif">The design bet</h2>
             <div class="bet">Sequence the journey instead of exposing every choice at once.</div>
             <div class="case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/kitlab-transition-4k.mp4" aria-label="KitLab FS motion study"></video></div>
             <div class="gallery"><img class="" src="/assets/kitlab/case-study/catalogue-hero.png" loading="lazy" alt="KitLabFS storefront with the shop-all jersey catalogue and filters"><img class="" src="/assets/figma/kitlab-product.png" loading="lazy" alt="KitLabFS product page with customization options"><img class="" src="/assets/figma/kitlab-mobile.png" loading="lazy" alt="KitLabFS mobile product page"><img class="" src="/assets/figma/kitlab-cart.png" loading="lazy" alt="KitLabFS cart and checkout"></div>
           </section>
-          <section class="block" id="why">
-            <p class="label">05 / Results</p>
+          <section class="block" id="kitlab-fs-why">
+            <p class="label">06 / Results</p>
             <h2 class="serif">What changed.</h2>
             <div class="results"><div><b>58%</b><span>Lift in average order value after the purchase redesign.</span></div><div><b>550+</b><span>Orders placed as the store grew.</span></div><div><b>23.7 → 10.4 → 3.8%</b><span>Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.</span></div></div>
           </section>
@@ -527,38 +686,128 @@
       <div class="wrap case-layout">
         <aside class="case-nav" aria-label="Case study sections">
           <p class="label" style="margin-bottom:10px">Case study</p>
-          <a href="#overview">01 · Context</a>
-          <a href="#problem">02 · Problem</a>
-          <a href="#thinking">03 · Thinking</a>
-          <a href="#solution">04 · Solution</a>
-          <a href="#why">05 · Results</a>
+          <a href="#matchup-overview">01 · Context</a>
+          <a href="#matchup-problem">02 · Problem</a>
+          <a href="#matchup-flow">03 · User flow</a>
+          <a href="#matchup-thinking">04 · Thinking</a>
+          <a href="#matchup-solution">05 · Solution</a>
+          <a href="#matchup-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="overview">
+          <section class="block" id="matchup-overview">
             <p class="label">01 / Context</p>
             <h2 class="serif">What I was trying to change</h2>
             <p>MatchUp is a mobile concept for creating local soccer matches, selecting available positions and sharing field-booking costs. It connects organizers who have booked a field with players looking for a local game.</p>
           </section>
-          <section class="block" id="problem">
+          <section class="block" id="matchup-problem">
             <p class="label">02 / Problem</p>
             <h2 class="serif">The interface was only the symptom.</h2>
             <p>Players rely on scattered group chats with incomplete information about cost, skill level and open positions. Organizers manually build teams and repeatedly chase payments.</p>
             <div class="question"><span>The question</span>How might we create one trusted experience for forming teams, selecting positions and sharing field costs, for two different users at once?</div>
           </section>
-          <section class="block" id="thinking">
-            <p class="label">03 / My thinking</p>
+          <section class="block" id="matchup-flow">
+            <p class="label">03 / User flow</p>
+            <h2 class="serif">Click through the flow</h2>
+            <p class="flow-note">Concept flow. Organizers and players move through the same match, from different starting points.</p><div class="legend" aria-label="Legend">
+        <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
+        <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
+        <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
+        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
+      </div><div class="lane"><p class="label">Organizer</p><div class="fnode t-start">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f20">
+          <span class="ftag">Start</span>
+          <span class="flabel">Organizer has booked a field</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f20"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f21">
+          <span class="ftag">User action</span>
+          <span class="flabel">Creates a match</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f21"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f22">
+          <span class="ftag">User action</span>
+          <span class="flabel">Sets openings, skill level, location and cost</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Organizers no longer rebuild teams or chase payments by hand.</p><div class="fkids" id="f22"><div class="fnode t-system">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f23">
+          <span class="ftag">System</span>
+          <span class="flabel">Match appears with open positions</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Players see availability and cost before they commit.</p><div class="fkids" id="f23"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f24">
+          <span class="ftag">End</span>
+          <span class="flabel">Team fills as players join</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div><div class="lane"><p class="label">Player</p><div class="fnode t-start">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f25">
+          <span class="ftag">Start</span>
+          <span class="flabel">Player looks for a game nearby</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f25"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f26">
+          <span class="ftag">User action</span>
+          <span class="flabel">Finds a local match</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f26"><div class="fnode t-decision">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f27">
+          <span class="ftag">Decision</span>
+          <span class="flabel">Does the match fit?</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Skill level, location and cost are visible before anyone commits.</p><div class="fkids" id="f27"><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f28">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Yes: picks an open position</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f28"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f29">
+          <span class="ftag">User action</span>
+          <span class="flabel">Pays their share in the match</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Payment is shown with the match, so no one chases anyone.</p><div class="fkids" id="f29"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f30">
+          <span class="ftag">End</span>
+          <span class="flabel">Kickoff is confirmed</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">One shared match state from discovery to kickoff.</p>
+      </div></div>
+      </div></div>
+      </div><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f31">
+          <span class="ftag">Choice</span>
+          <span class="flabel">No: keeps looking</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f31"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f32">
+          <span class="ftag">End</span>
+          <span class="flabel">Back to other matches</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
+          </section>
+          <section class="block" id="matchup-thinking">
+            <p class="label">04 / My thinking</p>
             <h2 class="serif">The path from signal to decision</h2>
             <div class="steps"><div class="step"><span class="num">01</span><div><h3>Observe</h3><p>Trust was fragmented across messages, people and payment requests.</p></div></div><div class="step"><span class="num">02</span><div><h3>Frame</h3><p>Map organizer and player needs separately, then connect the moments that must stay in sync.</p></div></div><div class="step"><span class="num">03</span><div><h3>Explore</h3><p>Make openings, skill level, location and cost visible before anyone commits.</p></div></div><div class="step"><span class="num">04</span><div><h3>Decide</h3><p>Let players choose a position and pay in the context of the match.</p></div></div><div class="step"><span class="num">05</span><div><h3>Refine</h3><p>Carry certainty from discovery through kickoff and post-match review.</p></div></div></div>
           </section>
-          <section class="block" id="solution">
-            <p class="label">04 / Solution</p>
+          <section class="block" id="matchup-solution">
+            <p class="label">05 / Solution</p>
             <h2 class="serif">The design bet</h2>
             <div class="bet">Give organizers and players one shared match state.</div>
             <div class="case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/matchup-transition-4k.mp4" aria-label="MatchUp motion study"></video></div>
             <div class="gallery"><img class="wide" src="/assets/figma/matchup-home.png" loading="lazy" alt="MatchUp home screen showing upcoming matches"><img class="" src="/assets/figma/matchup-preview.png" loading="lazy" alt="MatchUp match preview with open positions and cost"><img class="" src="/assets/figma/matchup-results.png" loading="lazy" alt="MatchUp results screen"></div>
           </section>
-          <section class="block" id="why">
-            <p class="label">05 / Results</p>
+          <section class="block" id="matchup-why">
+            <p class="label">06 / Results</p>
             <h2 class="serif">Why it works.</h2>
             <p>Turn finding a game into joining one.</p><div class="proof"><div><b>Availability</b><h3>Open spots at a glance</h3><p>Players see how many positions are left before they commit.</p></div><div><b>Position</b><h3>Choose in the match</h3><p>Position selection happens in the match, not in a group chat.</p></div><div><b>Payment</b><h3>Cost in context</h3><p>Field costs are split and shown with the match, so no one chases anyone.</p></div></div>
           </section>
@@ -583,38 +832,128 @@
       <div class="wrap case-layout">
         <aside class="case-nav" aria-label="Case study sections">
           <p class="label" style="margin-bottom:10px">Case study</p>
-          <a href="#overview">01 · Context</a>
-          <a href="#problem">02 · Problem</a>
-          <a href="#thinking">03 · Thinking</a>
-          <a href="#solution">04 · Solution</a>
-          <a href="#why">05 · Results</a>
+          <a href="#commerceflow-overview">01 · Context</a>
+          <a href="#commerceflow-problem">02 · Problem</a>
+          <a href="#commerceflow-flow">03 · User flow</a>
+          <a href="#commerceflow-thinking">04 · Thinking</a>
+          <a href="#commerceflow-solution">05 · Solution</a>
+          <a href="#commerceflow-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="overview">
+          <section class="block" id="commerceflow-overview">
             <p class="label">01 / Context</p>
             <h2 class="serif">What I was trying to change</h2>
             <p>CommerceFlow is a concept for an operations dashboard that brings sales, orders, inventory, customers and advertising data together, so multi-store operators can spot urgent issues and act without switching between tools.</p>
           </section>
-          <section class="block" id="problem">
+          <section class="block" id="commerceflow-problem">
             <p class="label">02 / Problem</p>
             <h2 class="serif">The interface was only the symptom.</h2>
             <p>Operators repeatedly switch between storefronts, advertising platforms, spreadsheets and supplier systems just to understand performance and manage daily operations.</p>
             <div class="question"><span>The question</span>How might we help operators see what changed, understand why, and move directly to the right action?</div>
           </section>
-          <section class="block" id="thinking">
-            <p class="label">03 / My thinking</p>
+          <section class="block" id="commerceflow-flow">
+            <p class="label">03 / User flow</p>
+            <h2 class="serif">Click through the flow</h2>
+            <p class="flow-note">Concept flow for an operator checking the overview each day.</p><div class="legend" aria-label="Legend">
+        <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
+        <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
+        <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
+        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
+      </div><div class="lane"><p class="label">Operator</p><div class="fnode t-start">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f33">
+          <span class="ftag">Start</span>
+          <span class="flabel">Operator opens the overview</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f33"><div class="fnode t-system">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f34">
+          <span class="ftag">System</span>
+          <span class="flabel">Overview leads with what moved</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">The overview answers 'what changed?' before showing everything available.</p><div class="fkids" id="f34"><div class="fnode t-decision">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f35">
+          <span class="ftag">Decision</span>
+          <span class="flabel">Does anything need attention?</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f35"><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f36">
+          <span class="ftag">Choice</span>
+          <span class="flabel">No: scans and moves on</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f36"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f37">
+          <span class="ftag">End</span>
+          <span class="flabel">Back to daily work</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>
+      </div></div>
+      </div><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f38">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Yes: an alert appears</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f38"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f39">
+          <span class="ftag">User action</span>
+          <span class="flabel">Opens the alert</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f39"><div class="fnode t-action">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f40">
+          <span class="ftag">User action</span>
+          <span class="flabel">Sees the module that can explain it</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><p class="fdetail">Each alert points to sales, inventory or advertising, the place where the answer lives.</p><div class="fkids" id="f40"><div class="fnode t-decision">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f41">
+          <span class="ftag">Decision</span>
+          <span class="flabel">Is action needed now?</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f41"><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f42">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Yes: resolves it from the module</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f42"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f43">
+          <span class="ftag">End</span>
+          <span class="flabel">Issue resolved</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>
+      </div></div>
+      </div><div class="fnode t-choice">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f44">
+          <span class="ftag">Choice</span>
+          <span class="flabel">Not yet: tracks it</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button><div class="fkids" id="f44"><div class="fnode t-end">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f45">
+          <span class="ftag">End</span>
+          <span class="flabel">Alert stays visible in the overview</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div>
+      </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
+          </section>
+          <section class="block" id="commerceflow-thinking">
+            <p class="label">04 / My thinking</p>
             <h2 class="serif">The path from signal to decision</h2>
             <div class="steps"><div class="step"><span class="num">01</span><div><h3>Observe</h3><p>Context was expensive because the story lived across tools and tabs.</p></div></div><div class="step"><span class="num">02</span><div><h3>Frame</h3><p>The overview should answer “what changed?” before showing everything available.</p></div></div><div class="step"><span class="num">03</span><div><h3>Explore</h3><p>Pair every important signal with the module that can explain it.</p></div></div><div class="step"><span class="num">04</span><div><h3>Decide</h3><p>Make alerts lead toward resolution, not into yet another inbox.</p></div></div><div class="step"><span class="num">05</span><div><h3>Refine</h3><p>Use a component system that can grow with teams, stores and roles.</p></div></div></div>
           </section>
-          <section class="block" id="solution">
-            <p class="label">04 / Solution</p>
+          <section class="block" id="commerceflow-solution">
+            <p class="label">05 / Solution</p>
             <h2 class="serif">The design bet</h2>
             <div class="bet">Organize around daily decisions, not the tools where the data originated.</div>
             
             <div class="gallery"><img class="wide" src="/assets/figma/commerce-dashboard.jpg" loading="lazy" alt="CommerceFlow operations dashboard with sales and inventory overview"></div>
           </section>
-          <section class="block" id="why">
-            <p class="label">05 / Results</p>
+          <section class="block" id="commerceflow-why">
+            <p class="label">06 / Results</p>
             <h2 class="serif">Why it works.</h2>
             <p>Make operational data support a decision.</p><div class="proof"><div><b>Overview</b><h3>Change-first</h3><p>The dashboard leads with what moved, then offers the detail behind it.</p></div><div><b>Alerts</b><h3>Actionable, not noisy</h3><p>Each alert points to the module that can resolve it.</p></div><div><b>Scale</b><h3>A system that grows</h3><p>Components work across stores, teams and roles.</p></div></div>
           </section>
@@ -728,6 +1067,139 @@
       }
     };
 
+
+    // Flow data: each step expands into what happens next. Based on each case study.
+    const N = (type,label,detail,next=[]) => ({type,label,detail,next});
+    const flows = {
+      'kitlab-fs': {
+        note:'Shopper flow for the live store. Click a step to see what happens next.',
+        lanes:[{title:'Shopper', roots:[
+          N('start','Shopper lands on the store',null,[
+            N('action','Browses 1,200+ products',"Thousands of jerseys across clubs, nations, competitions and retro. Discovery is the bottleneck, so the catalogue is organized the way fans shop.",[
+              N('decision','Knows the club or nation?',null,[
+                N('choice','Yes: filters by club, season and type',null,[
+                  N('action','Opens a product page',"Each product page shows the choices that matter for that shirt, in order.")
+                ]),
+                N('choice','No: browses by competition or retro',null,[
+                  N('action','Picks a shirt from a clear category',"Categories follow how fans browse, not how the inventory is stored.")
+                ])
+              ])
+            ]),
+            N('action','Chooses a version: fan or player',"Player versions, patches and sizing are revealed in a guided sequence, so no step feels overloaded.",[
+              N('decision','Wants a custom shirt?',null,[
+                N('choice','Yes: adds a name, number or patch',null,[
+                  N('system','Preview and price update live',"Every customization updates the preview and the price immediately, so the shopper always knows what they are buying.")
+                ]),
+                N('choice','No: keeps the standard shirt',null,[])
+              ])
+            ]),
+            N('action','Adds to cart',null,[
+              N('system','Cart keeps selections and price visible',"Selections stay on screen so nothing is lost between the product page and checkout.",[
+                N('decision','Ready to check out?',null,[
+                  N('choice','Yes: guided checkout',null,[
+                    N('end','Completed sale',"Cart, checkout and completed-sale rates are tracked at each stage to decide what to design next. Result: 3.8% completed sale rate.")
+                  ]),
+                  N('choice','Not yet: keeps browsing',null,[
+                    N('end','Returns to the catalogue',null)
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]}]
+      },
+      'matchup': {
+        note:'Concept flow. Organizers and players move through the same match, from different starting points.',
+        lanes:[
+          {title:'Organizer', roots:[
+            N('start','Organizer has booked a field',null,[
+              N('action','Creates a match',null,[
+                N('action','Sets openings, skill level, location and cost',"Organizers no longer rebuild teams or chase payments by hand.",[
+                  N('system','Match appears with open positions',"Players see availability and cost before they commit.",[
+                    N('end','Team fills as players join',null)
+                  ])
+                ])
+              ])
+            ])
+          ]},
+          {title:'Player', roots:[
+            N('start','Player looks for a game nearby',null,[
+              N('action','Finds a local match',null,[
+                N('decision','Does the match fit?',"Skill level, location and cost are visible before anyone commits.",[
+                  N('choice','Yes: picks an open position',null,[
+                    N('action','Pays their share in the match',"Payment is shown with the match, so no one chases anyone.",[
+                      N('end','Kickoff is confirmed',"One shared match state from discovery to kickoff.")
+                    ])
+                  ]),
+                  N('choice','No: keeps looking',null,[
+                    N('end','Back to other matches',null)
+                  ])
+                ])
+              ])
+            ])
+          ]}
+        ]
+      },
+      'commerceflow': {
+        note:'Concept flow for an operator checking the overview each day.',
+        lanes:[{title:'Operator', roots:[
+          N('start','Operator opens the overview',null,[
+            N('system','Overview leads with what moved',"The overview answers 'what changed?' before showing everything available.",[
+              N('decision','Does anything need attention?',null,[
+                N('choice','No: scans and moves on',null,[
+                  N('end','Back to daily work',null)
+                ]),
+                N('choice','Yes: an alert appears',null,[
+                  N('action','Opens the alert',null,[
+                    N('action','Sees the module that can explain it',"Each alert points to sales, inventory or advertising, the place where the answer lives.",[
+                      N('decision','Is action needed now?',null,[
+                        N('choice','Yes: resolves it from the module',null,[
+                          N('end','Issue resolved',null)
+                        ]),
+                        N('choice','Not yet: tracks it',null,[
+                          N('end','Alert stays visible in the overview',null)
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]}]
+      }
+    };
+
+    const TYPE_LABEL = {start:'Start', end:'End', action:'User action', decision:'Decision', choice:'Choice', system:'System'};
+    let flowUid = 0;
+    function flowNode(n){
+      const kids = n.next || [];
+      const hasKids = kids.length > 0;
+      const id = 'f' + (++flowUid);
+      const detail = n.detail ? `<p class="fdetail">${esc(n.detail)}</p>` : '';
+      const children = hasKids ? `<div class="fkids" id="${id}">${kids.map(flowNode).join('')}</div>` : '';
+      return `<div class="fnode t-${n.type}">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="${id}">
+          <span class="ftag">${TYPE_LABEL[n.type]}</span>
+          <span class="flabel">${esc(n.label)}</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>${detail}${children}
+      </div>`;
+    }
+    function renderFlows(f){
+      if (!f) return '';
+      const legend = `<div class="legend" aria-label="Legend">
+        <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
+        <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
+        <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
+        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
+      </div>`;
+      return `<p class="flow-note">${esc(f.note)}</p>${legend}` +
+        f.lanes.map(l => `<div class="lane"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
+        `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
+    }
+
     const order = ['kitlab','matchup','commerce'];
     const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -771,38 +1243,44 @@
       <div class="wrap case-layout">
         <aside class="case-nav" aria-label="Case study sections">
           <p class="label" style="margin-bottom:10px">Case study</p>
-          <a href="#overview">01 · Context</a>
-          <a href="#problem">02 · Problem</a>
-          <a href="#thinking">03 · Thinking</a>
-          <a href="#solution">04 · Solution</a>
-          <a href="#why">05 · Results</a>
+          <a href="#${p.slug}-overview">01 · Context</a>
+          <a href="#${p.slug}-problem">02 · Problem</a>
+          <a href="#${p.slug}-flow">03 · User flow</a>
+          <a href="#${p.slug}-thinking">04 · Thinking</a>
+          <a href="#${p.slug}-solution">05 · Solution</a>
+          <a href="#${p.slug}-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="overview">
+          <section class="block" id="${p.slug}-overview">
             <p class="label">01 / Context</p>
             <h2 class="serif">What I was trying to change</h2>
             <p>${esc(p.overview)}</p>
           </section>
-          <section class="block" id="problem">
+          <section class="block" id="${p.slug}-problem">
             <p class="label">02 / Problem</p>
             <h2 class="serif">The interface was only the symptom.</h2>
             <p>${esc(p.problem)}</p>
             <div class="question"><span>The question</span>${esc(p.question)}</div>
           </section>
-          <section class="block" id="thinking">
-            <p class="label">03 / My thinking</p>
+          <section class="block" id="${p.slug}-flow">
+            <p class="label">03 / User flow</p>
+            <h2 class="serif">Click through the flow</h2>
+            ${renderFlows(flows[p.slug])}
+          </section>
+          <section class="block" id="${p.slug}-thinking">
+            <p class="label">04 / My thinking</p>
             <h2 class="serif">The path from signal to decision</h2>
             <div class="steps">${p.steps.map((s,i)=>`<div class="step"><span class="num">0${i+1}</span><div><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div></div>`).join('')}</div>
           </section>
-          <section class="block" id="solution">
-            <p class="label">04 / Solution</p>
+          <section class="block" id="${p.slug}-solution">
+            <p class="label">05 / Solution</p>
             <h2 class="serif">The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
             ${p.video ? `<div class="case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
             <div class="gallery">${p.images.map((im,i)=>`<img class="${i===0 && p.images.length%2===1 ? 'wide' : ''}" src="${im.src}" loading="lazy" alt="${esc(im.alt)}">`).join('')}</div>
           </section>
-          <section class="block" id="why">
-            <p class="label">05 / Results</p>
+          <section class="block" id="${p.slug}-why">
+            <p class="label">06 / Results</p>
             <h2 class="serif">${isKitlab ? 'What changed.' : 'Why it works.'}</h2>
             ${isKitlab ? `<div class="results">${p.results.map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join('')}</div>` : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r=>`<div><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`}
           </section>
@@ -842,6 +1320,23 @@
       let c = document.head.querySelector('link[rel="canonical"]');
       if (c) c.setAttribute('href', url);
     }
+
+    // Expand or collapse flow steps; "Expand all" / "Collapse all" controls
+    document.addEventListener('click', e => {
+      const ctrl = e.target.closest('[data-flow]');
+      if (ctrl) {
+        const open = ctrl.dataset.flow === 'expand';
+        const section = ctrl.closest('.block');
+        section.querySelectorAll('.fnode').forEach(n => n.classList.toggle('open', open));
+        section.querySelectorAll('.fbtn').forEach(b => b.setAttribute('aria-expanded', String(open)));
+        return;
+      }
+      const btn = e.target.closest('.fbtn');
+      if (!btn) return;
+      const node = btn.closest('.fnode');
+      const open = node.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
 
     // Routing (works with the Vercel rewrite to index.html)
     function route(path = location.pathname){

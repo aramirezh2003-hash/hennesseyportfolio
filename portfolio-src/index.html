@@ -200,6 +200,39 @@
     .next strong{font-family:var(--serif);font-weight:400;font-size:clamp(48px,8vw,108px);letter-spacing:-.03em;line-height:1}
     .next:hover strong{color:var(--accent)}
 
+
+    /* Interactive user flows */
+    .flow-note{color:var(--muted);font-size:15px;margin:0 0 26px}
+    .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 26px;font:500 13px var(--sans);color:var(--ink-2)}
+    .legend span{display:inline-flex;align-items:center;gap:8px}
+    .legend i{width:14px;height:14px;border-radius:4px;display:inline-block;border:2px solid}
+    .lane{margin-top:26px}
+    .lane > .label{margin-bottom:12px}
+    .fnode{margin:8px 0}
+    .fbtn{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:14px 16px;border-radius:14px;border:2px solid;background:var(--surface);color:var(--ink);font:500 16px/1.35 var(--sans);cursor:pointer;transition:transform .2s,box-shadow .2s}
+    .fbtn:hover{transform:translateX(3px);box-shadow:0 10px 24px rgba(20,22,28,.08)}
+    .ftag{flex:none;font:600 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;min-width:74px;color:var(--muted)}
+    .flabel{flex:1}
+    .fcaret{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:600 16px/1 var(--sans);border:1px solid var(--line);transition:transform .2s}
+    .fnode.open > .fbtn .fcaret{transform:rotate(45deg)}
+    .fnode.t-start > .fbtn,.fnode.t-end > .fbtn{background:var(--ink);color:var(--bg);border-color:var(--ink);border-radius:999px}
+    .fnode.t-start > .fbtn .ftag,.fnode.t-end > .fbtn .ftag{color:var(--bg);opacity:.7}
+    .fnode.t-start > .fbtn .fcaret,.fnode.t-end > .fbtn .fcaret{border-color:var(--bg)}
+    .fnode.t-action > .fbtn{border-color:#b56cf5;background:color-mix(in srgb,#b56cf5 12%,var(--surface))}
+    .fnode.t-action > .fbtn .ftag{color:#8a3fd6}
+    .fnode.t-decision > .fbtn{border-color:#22aef0;background:color-mix(in srgb,#22aef0 12%,var(--surface))}
+    .fnode.t-decision > .fbtn .ftag{color:#0b7fb8}
+    .fnode.t-choice > .fbtn{border-color:var(--line);border-style:dashed}
+    .fnode.t-system > .fbtn{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+    .fnode.t-system > .fbtn .ftag{color:var(--accent)}
+    .fkids{margin:6px 0 0 20px;padding-left:22px;border-left:2px solid var(--line)}
+    .fdetail{margin:10px 0 4px 6px;padding:12px 14px;border-radius:12px;background:var(--chip);color:var(--ink-2);font-size:15px;line-height:1.5}
+    .fnode:not(.open) > .fkids,.fnode:not(.open) > .fdetail{display:none}
+    .flow-controls{display:flex;gap:10px;margin-top:22px}
+    .flow-controls button{padding:9px 14px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 13px var(--sans);cursor:pointer}
+    .flow-controls button:hover{background:var(--ink);color:var(--bg)}
+    @media (max-width:560px){.ftag{min-width:0;display:none}.fkids{margin-left:10px;padding-left:14px}}
+
     footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
     footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
@@ -540,6 +573,139 @@
       }
     };
 
+
+    // Flow data: each step expands into what happens next. Based on each case study.
+    const N = (type,label,detail,next=[]) => ({type,label,detail,next});
+    const flows = {
+      'kitlab-fs': {
+        note:'Shopper flow for the live store. Click a step to see what happens next.',
+        lanes:[{title:'Shopper', roots:[
+          N('start','Shopper lands on the store',null,[
+            N('action','Browses 1,200+ products',"Thousands of jerseys across clubs, nations, competitions and retro. Discovery is the bottleneck, so the catalogue is organized the way fans shop.",[
+              N('decision','Knows the club or nation?',null,[
+                N('choice','Yes: filters by club, season and type',null,[
+                  N('action','Opens a product page',"Each product page shows the choices that matter for that shirt, in order.")
+                ]),
+                N('choice','No: browses by competition or retro',null,[
+                  N('action','Picks a shirt from a clear category',"Categories follow how fans browse, not how the inventory is stored.")
+                ])
+              ])
+            ]),
+            N('action','Chooses a version: fan or player',"Player versions, patches and sizing are revealed in a guided sequence, so no step feels overloaded.",[
+              N('decision','Wants a custom shirt?',null,[
+                N('choice','Yes: adds a name, number or patch',null,[
+                  N('system','Preview and price update live',"Every customization updates the preview and the price immediately, so the shopper always knows what they are buying.")
+                ]),
+                N('choice','No: keeps the standard shirt',null,[])
+              ])
+            ]),
+            N('action','Adds to cart',null,[
+              N('system','Cart keeps selections and price visible',"Selections stay on screen so nothing is lost between the product page and checkout.",[
+                N('decision','Ready to check out?',null,[
+                  N('choice','Yes: guided checkout',null,[
+                    N('end','Completed sale',"Cart, checkout and completed-sale rates are tracked at each stage to decide what to design next. Result: 3.8% completed sale rate.")
+                  ]),
+                  N('choice','Not yet: keeps browsing',null,[
+                    N('end','Returns to the catalogue',null)
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]}]
+      },
+      'matchup': {
+        note:'Concept flow. Organizers and players move through the same match, from different starting points.',
+        lanes:[
+          {title:'Organizer', roots:[
+            N('start','Organizer has booked a field',null,[
+              N('action','Creates a match',null,[
+                N('action','Sets openings, skill level, location and cost',"Organizers no longer rebuild teams or chase payments by hand.",[
+                  N('system','Match appears with open positions',"Players see availability and cost before they commit.",[
+                    N('end','Team fills as players join',null)
+                  ])
+                ])
+              ])
+            ])
+          ]},
+          {title:'Player', roots:[
+            N('start','Player looks for a game nearby',null,[
+              N('action','Finds a local match',null,[
+                N('decision','Does the match fit?',"Skill level, location and cost are visible before anyone commits.",[
+                  N('choice','Yes: picks an open position',null,[
+                    N('action','Pays their share in the match',"Payment is shown with the match, so no one chases anyone.",[
+                      N('end','Kickoff is confirmed',"One shared match state from discovery to kickoff.")
+                    ])
+                  ]),
+                  N('choice','No: keeps looking',null,[
+                    N('end','Back to other matches',null)
+                  ])
+                ])
+              ])
+            ])
+          ]}
+        ]
+      },
+      'commerceflow': {
+        note:'Concept flow for an operator checking the overview each day.',
+        lanes:[{title:'Operator', roots:[
+          N('start','Operator opens the overview',null,[
+            N('system','Overview leads with what moved',"The overview answers 'what changed?' before showing everything available.",[
+              N('decision','Does anything need attention?',null,[
+                N('choice','No: scans and moves on',null,[
+                  N('end','Back to daily work',null)
+                ]),
+                N('choice','Yes: an alert appears',null,[
+                  N('action','Opens the alert',null,[
+                    N('action','Sees the module that can explain it',"Each alert points to sales, inventory or advertising, the place where the answer lives.",[
+                      N('decision','Is action needed now?',null,[
+                        N('choice','Yes: resolves it from the module',null,[
+                          N('end','Issue resolved',null)
+                        ]),
+                        N('choice','Not yet: tracks it',null,[
+                          N('end','Alert stays visible in the overview',null)
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]}]
+      }
+    };
+
+    const TYPE_LABEL = {start:'Start', end:'End', action:'User action', decision:'Decision', choice:'Choice', system:'System'};
+    let flowUid = 0;
+    function flowNode(n){
+      const kids = n.next || [];
+      const hasKids = kids.length > 0;
+      const id = 'f' + (++flowUid);
+      const detail = n.detail ? `<p class="fdetail">${esc(n.detail)}</p>` : '';
+      const children = hasKids ? `<div class="fkids" id="${id}">${kids.map(flowNode).join('')}</div>` : '';
+      return `<div class="fnode t-${n.type}">
+        <button class="fbtn" type="button" aria-expanded="false" aria-controls="${id}">
+          <span class="ftag">${TYPE_LABEL[n.type]}</span>
+          <span class="flabel">${esc(n.label)}</span>
+          <span class="fcaret" aria-hidden="true">+</span>
+        </button>${detail}${children}
+      </div>`;
+    }
+    function renderFlows(f){
+      if (!f) return '';
+      const legend = `<div class="legend" aria-label="Legend">
+        <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
+        <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
+        <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
+        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
+      </div>`;
+      return `<p class="flow-note">${esc(f.note)}</p>${legend}` +
+        f.lanes.map(l => `<div class="lane"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
+        `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
+    }
+
     const order = ['kitlab','matchup','commerce'];
     const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -583,38 +749,44 @@
       <div class="wrap case-layout">
         <aside class="case-nav" aria-label="Case study sections">
           <p class="label" style="margin-bottom:10px">Case study</p>
-          <a href="#overview">01 · Context</a>
-          <a href="#problem">02 · Problem</a>
-          <a href="#thinking">03 · Thinking</a>
-          <a href="#solution">04 · Solution</a>
-          <a href="#why">05 · Results</a>
+          <a href="#${p.slug}-overview">01 · Context</a>
+          <a href="#${p.slug}-problem">02 · Problem</a>
+          <a href="#${p.slug}-flow">03 · User flow</a>
+          <a href="#${p.slug}-thinking">04 · Thinking</a>
+          <a href="#${p.slug}-solution">05 · Solution</a>
+          <a href="#${p.slug}-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="overview">
+          <section class="block" id="${p.slug}-overview">
             <p class="label">01 / Context</p>
             <h2 class="serif">What I was trying to change</h2>
             <p>${esc(p.overview)}</p>
           </section>
-          <section class="block" id="problem">
+          <section class="block" id="${p.slug}-problem">
             <p class="label">02 / Problem</p>
             <h2 class="serif">The interface was only the symptom.</h2>
             <p>${esc(p.problem)}</p>
             <div class="question"><span>The question</span>${esc(p.question)}</div>
           </section>
-          <section class="block" id="thinking">
-            <p class="label">03 / My thinking</p>
+          <section class="block" id="${p.slug}-flow">
+            <p class="label">03 / User flow</p>
+            <h2 class="serif">Click through the flow</h2>
+            ${renderFlows(flows[p.slug])}
+          </section>
+          <section class="block" id="${p.slug}-thinking">
+            <p class="label">04 / My thinking</p>
             <h2 class="serif">The path from signal to decision</h2>
             <div class="steps">${p.steps.map((s,i)=>`<div class="step"><span class="num">0${i+1}</span><div><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div></div>`).join('')}</div>
           </section>
-          <section class="block" id="solution">
-            <p class="label">04 / Solution</p>
+          <section class="block" id="${p.slug}-solution">
+            <p class="label">05 / Solution</p>
             <h2 class="serif">The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
             ${p.video ? `<div class="case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
             <div class="gallery">${p.images.map((im,i)=>`<img class="${i===0 && p.images.length%2===1 ? 'wide' : ''}" src="${im.src}" loading="lazy" alt="${esc(im.alt)}">`).join('')}</div>
           </section>
-          <section class="block" id="why">
-            <p class="label">05 / Results</p>
+          <section class="block" id="${p.slug}-why">
+            <p class="label">06 / Results</p>
             <h2 class="serif">${isKitlab ? 'What changed.' : 'Why it works.'}</h2>
             ${isKitlab ? `<div class="results">${p.results.map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join('')}</div>` : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r=>`<div><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`}
           </section>
@@ -654,6 +826,23 @@
       let c = document.head.querySelector('link[rel="canonical"]');
       if (c) c.setAttribute('href', url);
     }
+
+    // Expand or collapse flow steps; "Expand all" / "Collapse all" controls
+    document.addEventListener('click', e => {
+      const ctrl = e.target.closest('[data-flow]');
+      if (ctrl) {
+        const open = ctrl.dataset.flow === 'expand';
+        const section = ctrl.closest('.block');
+        section.querySelectorAll('.fnode').forEach(n => n.classList.toggle('open', open));
+        section.querySelectorAll('.fbtn').forEach(b => b.setAttribute('aria-expanded', String(open)));
+        return;
+      }
+      const btn = e.target.closest('.fbtn');
+      if (!btn) return;
+      const node = btn.closest('.fnode');
+      const open = node.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
 
     // Routing (works with the Vercel rewrite to index.html)
     function route(path = location.pathname){
