@@ -387,6 +387,22 @@
     body{font-size:17px;font-weight:400}
     h1,h2,h3,.split-h1{letter-spacing:-.025em!important;font-weight:700!important}
     .em{font-style:italic;font-weight:600!important}
+    /* Mobile polish pass */
+    @media (max-width:860px){
+      .menu-btn{padding:11px 18px;font-size:14px;min-height:44px}
+      .links{background:var(--bg);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid var(--line);box-shadow:0 24px 60px rgba(13,16,32,.18);padding:10px}
+      .links a:not(.cta){font-size:18px!important;padding:14px 16px;min-height:48px;display:flex;align-items:center}
+      .links a.cta{font-size:16px!important;padding:14px 18px;min-height:48px;justify-content:center;display:flex;align-items:center}
+      .hero{min-height:auto;justify-content:flex-start;padding-top:130px}
+      .case-top{padding-top:140px}
+    }
+    @media (max-width:600px){
+      .glass > span{font-size:12px!important;letter-spacing:.12em}
+      .label{font-size:12.5px}
+      .willow{right:14px;bottom:14px}
+      .willow-orb .orb{width:50px;height:50px}
+      .willow-panel{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%)}
+    }
     .label,.ftag,.fcaret{font-weight:700}
     p,li,.what,.role,.facts span{line-height:1.6}
   </style>
