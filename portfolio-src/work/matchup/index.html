@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="MatchUp case study — Alejandro Hennessey">
   <meta name="twitter:image" content="https://www.alejandrohennessey.art/assets/figma/matchup-hero.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:arhennesseyco@gmail.com","telephone":"+1-226-582-4622","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
+  {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:arhennesseyco@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -41,7 +41,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100vh}
     body.menu-open{overflow:hidden}
     img,video{display:block;width:100%;height:auto}
     a{color:inherit;text-decoration:none}
@@ -220,20 +220,35 @@
     .hero-img{margin-top:56px;border-radius:40px;overflow:hidden;position:relative;padding:12px}
     .hero-img .frame{border-radius:30px;overflow:hidden;transform:translateY(calc(var(--p,0) * -40px)) scale(1.06);transition:transform .2s linear}
     .hero-img img{aspect-ratio:16/8;object-fit:cover}
-    .case-layout{display:grid;grid-template-columns:200px 1fr;gap:70px;padding:110px 0 40px}
-    .case-nav{position:sticky;top:110px;align-self:start;padding:18px 14px;border-radius:26px;display:grid;gap:2px}
-    .case-nav a{padding:9px 12px;font:500 14px var(--sans);color:var(--muted);border-radius:14px;transition:background .3s,color .3s}
-    .case-nav a:hover{color:var(--ink);background:var(--chip)}
-    .block{padding-bottom:120px;margin-bottom:120px;border-bottom:1px solid var(--line)}
+    .case-layout{display:grid;grid-template-columns:270px 1fr;gap:56px;padding:70px 0 40px}
+    .case-nav{position:sticky;top:96px;align-self:start;padding:16px 12px;border-radius:26px;max-height:calc(100vh - 120px);overflow-y:auto;scrollbar-width:thin}
+    .cg-head{display:flex;align-items:center;gap:12px;margin:2px 8px 12px}
+    .cg-head .label{margin:0}
+    .cg-bar{flex:1;height:4px;border-radius:4px;background:var(--chip);overflow:hidden}
+    .cg-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;transition:width .2s linear}
+    .cg-link{display:flex;gap:10px;align-items:baseline;padding:9px 10px;font:500 14.5px var(--sans);color:var(--muted);border-radius:14px;transition:background .3s,color .3s}
+    .cg-link:hover{color:var(--ink);background:var(--chip)}
+    .cg-n{font:600 11px var(--sans);letter-spacing:.08em;color:var(--muted)}
+    .cg-item.active > .cg-link{color:var(--ink);background:var(--chip);font-weight:600}
+    .cg-item.active .cg-n{color:var(--accent)}
+    .cg-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+    .cg-more > div{overflow:hidden;min-height:0}
+    .cg-item.active .cg-more{grid-template-rows:1fr}
+    .cg-key{margin:6px 10px 6px 34px;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+    .cg-jumps{display:grid;gap:1px;margin:2px 4px 8px 28px;padding-left:8px;border-left:2px solid var(--line)}
+    .cg-jumps a{padding:6px 10px;font:500 13px var(--sans);color:var(--muted);border-radius:10px;transition:background .25s,color .25s}
+    .cg-jumps a:hover{color:var(--ink);background:var(--chip)}
+    .cg-jumps a.on{color:var(--accent);background:var(--chip);font-weight:600}
+    .block{padding-bottom:64px;margin-bottom:64px;border-bottom:1px solid var(--line)}
     .block:last-child{border:0;margin:0;padding:0}
-    .block h2{font:400 clamp(48px,6vw,88px)/.95 var(--serif);letter-spacing:-.03em;margin:16px 0 24px}
+    .block h2{font:400 clamp(38px,4.6vw,64px)/1 var(--serif);letter-spacing:-.03em;margin:12px 0 20px}
     .block > p{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);max-width:720px}
     .question{margin:40px 0;padding:36px;border-radius:34px;font:400 clamp(30px,3.6vw,46px)/1.12 var(--serif);letter-spacing:-.01em}
     .question span{display:block;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-    .steps{margin-top:34px;display:grid;gap:12px}
-    .step{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:26px 28px;border-radius:26px}
-    .step .num{font:600 13px var(--sans);color:var(--accent);padding-top:8px}
-    .step h3{font:400 30px/1.1 var(--serif);margin-bottom:6px}
+    .steps{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .step{display:flex;flex-direction:column;gap:8px;padding:24px 26px;border-radius:26px;scroll-margin-top:110px}
+    .step .num{font:600 13px var(--sans);color:var(--accent)}
+    .step h3{font:400 26px/1.1 var(--serif);margin-bottom:4px}
     .step p{margin:0;color:var(--muted)}
     .bet{padding:clamp(34px,4vw,56px);border-radius:36px;background:linear-gradient(120deg,var(--accent),var(--accent2) 55%,var(--accent3));color:#fff;font:400 clamp(36px,4.6vw,62px)/1.05 var(--serif);letter-spacing:-.02em;box-shadow:0 40px 90px -30px rgba(120,80,255,.55)}
     .gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
@@ -410,8 +425,24 @@
     .cmp-points b{display:block;margin-bottom:4px;color:var(--ink)}
     .cmp-points p{margin:0;color:var(--ink-2);font-size:16px;line-height:1.55}
     @media (max-width:700px){.cmp-points{grid-template-columns:1fr}}
+    .viewer{margin-top:26px;scroll-margin-top:100px}
+    .vtabs{display:grid;gap:10px;margin-bottom:16px}
+    .vgroup{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .vgroup > .label{margin:0;min-width:130px}
+    .vlist{display:flex;gap:6px;flex-wrap:wrap}
+    .vlist button{padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink-2);font:500 14px var(--sans);cursor:pointer;transition:background .3s,color .3s,transform .3s}
+    .vlist button:hover{background:var(--chip);color:var(--ink)}
+    .vlist button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+    .vlist button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    [role=tabpanel][hidden]{display:none}
+    .vcap{margin:14px 6px 0}
+    .vcap b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+    .vcap p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+    .pview{display:grid;grid-template-columns:minmax(230px,300px) 1fr;gap:34px;align-items:start}
+    .pview .vcap{margin-top:12px}
+    .shot.phone{width:100%}
+    .pview .screen{max-height:min(600px,72vh)}
     .shots-label{margin:48px 0 0}
-    .fig{margin:20px 0 0}
     .shot{position:relative;padding:8px;border-radius:28px;overflow:hidden}
     .chrome{display:flex;gap:6px;padding:6px 10px 10px}
     .chrome i{width:9px;height:9px;border-radius:50%;background:var(--muted);opacity:.35}
@@ -419,26 +450,26 @@
     .screen.flat{max-height:none;overflow:visible}
     .screen img{display:block;width:100%;height:auto}
     .screen:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-    .fig figcaption,.phone figcaption{margin:12px 6px 0;font-size:14.5px;line-height:1.5;color:var(--muted)}
-    .fig figcaption b,.phone figcaption b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
-    .phones{display:flex;flex-wrap:wrap;gap:22px;margin-top:20px}
-    .phone{margin:0;width:clamp(230px,26vw,290px)}
-    .phone .screen{max-height:min(560px,72vh)}
     .shot.scrolls::after{content:"Scroll \2193";position:absolute;inset:auto auto 16px 50%;-webkit-mask:none;mask:none;transform:translateX(-50%);padding:6px 12px;border-radius:999px;background:rgba(13,16,32,.78);color:#fff;font:600 12px var(--sans);pointer-events:none;transition:opacity .4s}
     .shot.scrolled::after{opacity:0}
-    .case-nav a.active{color:var(--ink);background:var(--chip)}
     .results-note{margin-top:18px;font-size:14px;color:var(--muted)}
     @media (max-width:860px){
       .brief{grid-template-columns:1fr;margin-top:36px}
       .case-nav{display:flex;position:sticky;top:64px;z-index:30;overflow-x:auto;gap:4px;padding:6px;border-radius:999px;margin:-30px 0 30px;scrollbar-width:none}
       .case-nav::-webkit-scrollbar{display:none}
-      .case-nav .label{display:none}
-      .case-nav a{white-space:nowrap;padding:9px 14px;flex:0 0 auto}
+      .cg-head,.cg-more{display:none}
+      .cg-list,.cg-item{display:contents}
+      .cg-n{display:none}
+      .cg-item.active > .cg-link{background:var(--chip)}
+      .steps{grid-template-columns:1fr}
+      .pview{grid-template-columns:1fr;gap:6px}
+      .shot.phone{max-width:300px;margin:0 auto}
+      .vgroup > .label{min-width:100%}
+      .case-layout{padding:40px 0 20px}
+      .case-nav a.cg-link{white-space:nowrap;padding:9px 14px;flex:0 0 auto}
       .block{scroll-margin-top:130px}
     }
     @media (max-width:600px){
-      .phones{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px}
-      .phone{flex:0 0 auto;scroll-snap-align:start;width:min(260px,72vw)}
     }
     /* Section jumps land below the fixed nav */
     .block{scroll-margin-top:110px}
@@ -628,7 +659,6 @@
             <button class="btn glass glass-btn copy" type="button" data-copy="arhennesseyco@gmail.com" data-magnetic="">Copy email</button>
           </div>
           <div class="clinks">
-            <a class="glass" href="tel:+12265824622">226-582-4622 <span>↗</span></a>
             <a class="glass" href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">linkedin.com/in/arhennessey <span>↗</span></a>
             <a class="glass route-link" href="/work">View case studies <span>→</span></a>
           </div>
@@ -658,14 +688,45 @@
         <div class="glass"><span class="label">The result</span><b class="big">58%</b><p>Lift in average order value after the purchase redesign.</p></div>
       </section>
       <div class="wrap case-layout">
-        <aside class="glass case-nav" aria-label="Case study sections">
-          <p class="label" style="margin:4px 12px 10px">Case study</p>
-          <a href="#kitlab-fs-overview">01 · Context</a>
-          <a href="#kitlab-fs-problem">02 · Problem</a>
-          <a href="#kitlab-fs-flow">03 · User flow</a>
-          <a href="#kitlab-fs-thinking">04 · Thinking</a>
-          <a href="#kitlab-fs-solution">05 · Solution</a>
-          <a href="#kitlab-fs-why">06 · Results</a>
+        <aside class="glass case-nav" aria-label="Case study guide">
+          <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i></i></span></div>
+          <div class="cg-list"><div class="cg-item" data-sec="kitlab-fs-overview">
+            <a class="cg-link" href="#kitlab-fs-overview"><span class="cg-n">01</span>Context</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">KitLabFS is an online store for club, national-team and retro football jerseys, with 1,200+ products and 7,822 variants.</p>
+              
+            </div></div>
+          </div><div class="cg-item" data-sec="kitlab-fs-problem">
+            <a class="cg-link" href="#kitlab-fs-problem"><span class="cg-n">02</span>Problem</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Choices such as player versions, patches, sizing and name customization were hard to understand.</p>
+              <div class="cg-jumps"><a href="#kitlab-fs-question">The question</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="kitlab-fs-flow">
+            <a class="cg-link" href="#kitlab-fs-flow"><span class="cg-n">03</span>User flow</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Pick a path and step through what the shopper sees.</p>
+              <div class="cg-jumps"><a href="#kitlab-fs-lane-0">Shopper</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="kitlab-fs-thinking">
+            <a class="cg-link" href="#kitlab-fs-thinking"><span class="cg-n">04</span>Thinking</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">5 steps from signal to decision.</p>
+              <div class="cg-jumps"><a href="#kitlab-fs-step-1">Observe</a><a href="#kitlab-fs-step-2">Frame</a><a href="#kitlab-fs-step-3">Explore</a><a href="#kitlab-fs-step-4">Decide</a><a href="#kitlab-fs-step-5">Refine</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="kitlab-fs-solution">
+            <a class="cg-link" href="#kitlab-fs-solution"><span class="cg-n">05</span>Solution</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Sequence the journey instead of exposing every choice at once.</p>
+              <div class="cg-jumps"><a href="#kitlab-fs-screens" data-jump-tab="compare">Before and after</a><a href="#kitlab-fs-screens" data-jump-tab="s0">Shop all</a><a href="#kitlab-fs-screens" data-jump-tab="s1">Navigation</a><a href="#kitlab-fs-screens" data-jump-tab="s2">Cart</a><a href="#kitlab-fs-screens" data-jump-tab="s3">Order tracking</a><a href="#kitlab-fs-screens" data-jump-tab="s4">Shop all, mobile</a><a href="#kitlab-fs-screens" data-jump-tab="s5">Purchase panel</a><a href="#kitlab-fs-screens" data-jump-tab="s6">Mobile menu</a><a href="#kitlab-fs-screens" data-jump-tab="s7">Mobile menu, leagues</a><a href="#kitlab-fs-screens" data-jump-tab="s8">Order tracking, mobile</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="kitlab-fs-why">
+            <a class="cg-link" href="#kitlab-fs-why"><span class="cg-n">06</span>Results</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">58% Lift in average order value after the purchase redesign.</p>
+              
+            </div></div>
+          </div></div>
         </aside>
         <article>
           <section class="block reveal" id="kitlab-fs-overview">
@@ -677,7 +738,7 @@
             <p class="label">02 / Problem</p>
             <h2>The interface was only the symptom.</h2>
             <p>Choices such as player versions, patches, sizing and name customization were hard to understand. Shoppers also dropped off between the cart and the completed purchase.</p>
-            <div class="glass question"><span>The question</span>How might we help customers move from thousands of jerseys to a confident purchase, without making any step feel overloaded?</div>
+            <div class="glass question" id="kitlab-fs-question"><span>The question</span>How might we help customers move from thousands of jerseys to a confident purchase, without making any step feel overloaded?</div>
           </section>
           <section class="block reveal" id="kitlab-fs-flow">
             <p class="label">03 / User flow</p>
@@ -688,7 +749,7 @@
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
         <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
-      </div><div class="lane"><p class="label">Shopper</p><div class="fnode t-start">
+      </div><div class="lane" id="kitlab-fs-lane-0"><p class="label">Shopper</p><div class="fnode t-start">
         <button class="fbtn" type="button" aria-expanded="false" aria-controls="f1">
           <span class="ftag">Start</span>
           <span class="flabel">Shopper lands on the store</span>
@@ -807,23 +868,25 @@
           <section class="block reveal" id="kitlab-fs-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps"><div class="glass step tilt"><span class="num">01</span><div><h3>Observe</h3><p>Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.</p></div></div><div class="glass step tilt"><span class="num">02</span><div><h3>Frame</h3><p>Discovery and the purchase path mattered more than visual polish.</p></div></div><div class="glass step tilt"><span class="num">03</span><div><h3>Explore</h3><p>Organize the catalogue around how fans browse: club, country, competition, season and type.</p></div></div><div class="glass step tilt"><span class="num">04</span><div><h3>Decide</h3><p>Reveal customization in a guided sequence, and keep selections and price visible.</p></div></div><div class="glass step tilt"><span class="num">05</span><div><h3>Refine</h3><p>Review builds with developers and fix confusing interactions before and after release.</p></div></div></div>
+            <div class="steps"><div class="glass step tilt" id="kitlab-fs-step-1"><span class="num">01</span><div><h3>Observe</h3><p>Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.</p></div></div><div class="glass step tilt" id="kitlab-fs-step-2"><span class="num">02</span><div><h3>Frame</h3><p>Discovery and the purchase path mattered more than visual polish.</p></div></div><div class="glass step tilt" id="kitlab-fs-step-3"><span class="num">03</span><div><h3>Explore</h3><p>Organize the catalogue around how fans browse: club, country, competition, season and type.</p></div></div><div class="glass step tilt" id="kitlab-fs-step-4"><span class="num">04</span><div><h3>Decide</h3><p>Reveal customization in a guided sequence, and keep selections and price visible.</p></div></div><div class="glass step tilt" id="kitlab-fs-step-5"><span class="num">05</span><div><h3>Refine</h3><p>Review builds with developers and fix confusing interactions before and after release.</p></div></div></div>
           </section>
           <section class="block reveal" id="kitlab-fs-solution">
             <p class="label">05 / Solution</p>
             <h2>The design bet</h2>
             <div class="bet">Sequence the journey instead of exposing every choice at once.</div>
             <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/kitlab-transition-4k.mp4" aria-label="KitLab FS motion study"></video></div>
-            <div class="compare-wrap reveal"><p class="label shots-label">Product page: before and after</p><p class="flow-note">Drag the handle to compare the first product page with the redesign.</p>
-        <div class="glass compare" style="--pos:50%">
-          <img class="cmp-after" src="/assets/figma/kitlab-pdp-after.webp" loading="lazy" decoding="async" alt="KitLabFS product page after the redesign, with version, size, personalization, price breakdown and delivery date in one panel">
-          <img class="cmp-before" src="/assets/figma/kitlab-pdp-before.webp" loading="lazy" decoding="async" alt="KitLabFS product page before the redesign, with four toggles for name and number, player version, patches and long sleeve">
-          <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
-          <span class="cmp-bar" aria-hidden="true"><i></i></span>
-          <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
-        </div>
-        <div class="cmp-points"><div><b>What we saw</b><p>Shoppers treated the page as a toy. Every switch revealed a price and a box to type in, so people tried their own name, watched the price change and left. Those sessions inflated product views and checkout visits with no intent to buy.</p></div><div><b>What changed</b><p>We compacted the choices into one sequence: version, size, personalization and a visible price breakdown, with no switches to flip. The total is shown before the button.</p></div><div><b>Shipping up front</b><p>Delivery and free shipping now sit in the buy panel. Before, some customers reached checkout, found the shipping cost and left. Now they decide before they get there.</p></div><div><b>Why it matters</b><p>Less playing around means cleaner funnel data. Shoppers who reach checkout have already made the decision, so they finish faster and with fewer second thoughts.</p></div></div></div>
-            <p class="label shots-label">Desktop</p><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Shop all screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS desktop shop-all page with a filter sidebar and jersey grid"></div></div><figcaption><b>Shop all</b>The full catalogue with a filter sidebar, and the active filters shown above the results.</figcaption></figure><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Navigation screenshot, scrollable"><img src="/assets/figma/kitlab-nav-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS desktop navigation with the Clubs menu open on South American clubs"></div></div><figcaption><b>Navigation</b>The Clubs menu groups leagues by confederation, so a shopper can jump to a country or league in two clicks.</figcaption></figure><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Cart screenshot, scrollable"><img src="/assets/figma/kitlab-cart-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS cart drawer open over the shop-all page"></div></div><figcaption><b>Cart</b>The cart opens over the catalogue, with free-shipping status, a "3rd jersey free" progress bar and one clear checkout action.</figcaption></figure><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Order tracking screenshot, scrollable"><img src="/assets/figma/kitlab-tracker-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS order tracking page with live status, progress bar, tracking history, shipping details and order summary"></div></div><figcaption><b>Order tracking</b>An order number and email show the live status, a five-step progress bar, tracking history, shipping details and the order summary.</figcaption></figure><p class="label shots-label">Detail and mobile</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones"><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Shop all, mobile screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-mobile.webp" loading="lazy" decoding="async" alt="KitLabFS mobile shop-all page with category tabs, sort and applied filters"></div></div><figcaption><b>Shop all, mobile</b>Category tabs, sorting and removable filters on a small screen.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Purchase panel screenshot, scrollable"><img src="/assets/figma/kitlab-purchase-panel.webp" loading="lazy" decoding="async" alt="KitLabFS purchase panel with version, size, personalization and price breakdown"></div></div><figcaption><b>Purchase panel</b>Version, size and personalization in one sequence, with the price breakdown and total visible.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Mobile menu screenshot, scrollable"><img src="/assets/figma/kitlab-menu-mobile-7.webp" loading="lazy" decoding="async" alt="KitLabFS mobile menu listing confederations under Clubs"></div></div><figcaption><b>Mobile menu</b>Clubs open to a list of confederations, with account, wishlist and cart close by.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Mobile menu, leagues screenshot, scrollable"><img src="/assets/figma/kitlab-menu-mobile-8.webp" loading="lazy" decoding="async" alt="KitLabFS mobile menu with South America expanded to show leagues"></div></div><figcaption><b>Mobile menu, leagues</b>Each confederation expands in place to its leagues, with a breadcrumb back.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Order tracking, mobile screenshot, scrollable"><img src="/assets/figma/kitlab-tracker-mobile.webp" loading="lazy" decoding="async" alt="KitLabFS mobile order tracking with status, progress and tracking history"></div></div><figcaption><b>Order tracking, mobile</b>Order lookup, live status, a five-step progress bar and the tracking history on one screen.</figcaption></figure></div>
+            <div class="viewer" id="kitlab-fs-screens" data-viewer="">
+        <div class="vtabs"><div class="vgroup"><span class="label">Compare</span><div class="vlist" role="tablist" aria-label="Compare"><button type="button" role="tab" id="kitlab-fs-tab-compare" aria-controls="kitlab-fs-pan-compare" data-tab="compare" aria-selected="true" tabindex="0">Before and after</button></div></div><div class="vgroup"><span class="label">Desktop</span><div class="vlist" role="tablist" aria-label="Desktop"><button type="button" role="tab" id="kitlab-fs-tab-s0" aria-controls="kitlab-fs-pan-s0" data-tab="s0" aria-selected="false" tabindex="-1">Shop all</button><button type="button" role="tab" id="kitlab-fs-tab-s1" aria-controls="kitlab-fs-pan-s1" data-tab="s1" aria-selected="false" tabindex="-1">Navigation</button><button type="button" role="tab" id="kitlab-fs-tab-s2" aria-controls="kitlab-fs-pan-s2" data-tab="s2" aria-selected="false" tabindex="-1">Cart</button><button type="button" role="tab" id="kitlab-fs-tab-s3" aria-controls="kitlab-fs-pan-s3" data-tab="s3" aria-selected="false" tabindex="-1">Order tracking</button></div></div><div class="vgroup"><span class="label">Mobile and detail</span><div class="vlist" role="tablist" aria-label="Mobile and detail"><button type="button" role="tab" id="kitlab-fs-tab-s4" aria-controls="kitlab-fs-pan-s4" data-tab="s4" aria-selected="false" tabindex="-1">Shop all, mobile</button><button type="button" role="tab" id="kitlab-fs-tab-s5" aria-controls="kitlab-fs-pan-s5" data-tab="s5" aria-selected="false" tabindex="-1">Purchase panel</button><button type="button" role="tab" id="kitlab-fs-tab-s6" aria-controls="kitlab-fs-pan-s6" data-tab="s6" aria-selected="false" tabindex="-1">Mobile menu</button><button type="button" role="tab" id="kitlab-fs-tab-s7" aria-controls="kitlab-fs-pan-s7" data-tab="s7" aria-selected="false" tabindex="-1">Mobile menu, leagues</button><button type="button" role="tab" id="kitlab-fs-tab-s8" aria-controls="kitlab-fs-pan-s8" data-tab="s8" aria-selected="false" tabindex="-1">Order tracking, mobile</button></div></div></div>
+        <div class="vstage"><div role="tabpanel" id="kitlab-fs-pan-compare" aria-labelledby="kitlab-fs-tab-compare" data-tab="compare"><p class="flow-note">Drag the handle to compare the first product page with the redesign.</p>
+          <div class="glass compare" style="--pos:50%">
+            <img class="cmp-after" src="/assets/figma/kitlab-pdp-after.webp" loading="lazy" decoding="async" alt="KitLabFS product page after the redesign, with version, size, personalization, price breakdown and delivery date in one panel">
+            <img class="cmp-before" src="/assets/figma/kitlab-pdp-before.webp" loading="lazy" decoding="async" alt="KitLabFS product page before the redesign, with four toggles for name and number, player version, patches and long sleeve">
+            <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
+            <span class="cmp-bar" aria-hidden="true"><i></i></span>
+            <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
+          </div>
+          <div class="cmp-points"><div><b>What we saw</b><p>Shoppers treated the page as a toy. Every switch revealed a price and a box to type in, so people tried their own name, watched the price change and left. Those sessions inflated product views and checkout visits with no intent to buy.</p></div><div><b>What changed</b><p>We compacted the choices into one sequence: version, size, personalization and a visible price breakdown, with no switches to flip. The total is shown before the button.</p></div><div><b>Shipping up front</b><p>Delivery and free shipping now sit in the buy panel. Before, some customers reached checkout, found the shipping cost and left. Now they decide before they get there.</p></div><div><b>Why it matters</b><p>Less playing around means cleaner funnel data. Shoppers who reach checkout have already made the decision, so they finish faster and with fewer second thoughts.</p></div></div></div><div role="tabpanel" id="kitlab-fs-pan-s0" aria-labelledby="kitlab-fs-tab-s0" data-tab="s0" hidden=""><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Shop all screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS desktop shop-all page with a filter sidebar and jersey grid"></div></div><div class="vcap"><b>Shop all</b><p>The full catalogue with a filter sidebar, and the active filters shown above the results.</p></div></div><div role="tabpanel" id="kitlab-fs-pan-s1" aria-labelledby="kitlab-fs-tab-s1" data-tab="s1" hidden=""><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Navigation screenshot, scrollable"><img src="/assets/figma/kitlab-nav-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS desktop navigation with the Clubs menu open on South American clubs"></div></div><div class="vcap"><b>Navigation</b><p>The Clubs menu groups leagues by confederation, so a shopper can jump to a country or league in two clicks.</p></div></div><div role="tabpanel" id="kitlab-fs-pan-s2" aria-labelledby="kitlab-fs-tab-s2" data-tab="s2" hidden=""><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Cart screenshot, scrollable"><img src="/assets/figma/kitlab-cart-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS cart drawer open over the shop-all page"></div></div><div class="vcap"><b>Cart</b><p>The cart opens over the catalogue, with free-shipping status, a "3rd jersey free" progress bar and one clear checkout action.</p></div></div><div role="tabpanel" id="kitlab-fs-pan-s3" aria-labelledby="kitlab-fs-tab-s3" data-tab="s3" hidden=""><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Order tracking screenshot, scrollable"><img src="/assets/figma/kitlab-tracker-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS order tracking page with live status, progress bar, tracking history, shipping details and order summary"></div></div><div class="vcap"><b>Order tracking</b><p>An order number and email show the live status, a five-step progress bar, tracking history, shipping details and the order summary.</p></div></div><div role="tabpanel" id="kitlab-fs-pan-s4" aria-labelledby="kitlab-fs-tab-s4" data-tab="s4" hidden=""><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Shop all, mobile screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-mobile.webp" loading="lazy" decoding="async" alt="KitLabFS mobile shop-all page with category tabs, sort and applied filters"></div></div><div class="vcap"><b>Shop all, mobile</b><p>Category tabs, sorting and removable filters on a small screen.</p></div></div></div><div role="tabpanel" id="kitlab-fs-pan-s5" aria-labelledby="kitlab-fs-tab-s5" data-tab="s5" hidden=""><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Purchase panel screenshot, scrollable"><img src="/assets/figma/kitlab-purchase-panel.webp" loading="lazy" decoding="async" alt="KitLabFS purchase panel with version, size, personalization and price breakdown"></div></div><div class="vcap"><b>Purchase panel</b><p>Version, size and personalization in one sequence, with the price breakdown and total visible.</p></div></div></div><div role="tabpanel" id="kitlab-fs-pan-s6" aria-labelledby="kitlab-fs-tab-s6" data-tab="s6" hidden=""><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Mobile menu screenshot, scrollable"><img src="/assets/figma/kitlab-menu-mobile-7.webp" loading="lazy" decoding="async" alt="KitLabFS mobile menu listing confederations under Clubs"></div></div><div class="vcap"><b>Mobile menu</b><p>Clubs open to a list of confederations, with account, wishlist and cart close by.</p></div></div></div><div role="tabpanel" id="kitlab-fs-pan-s7" aria-labelledby="kitlab-fs-tab-s7" data-tab="s7" hidden=""><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Mobile menu, leagues screenshot, scrollable"><img src="/assets/figma/kitlab-menu-mobile-8.webp" loading="lazy" decoding="async" alt="KitLabFS mobile menu with South America expanded to show leagues"></div></div><div class="vcap"><b>Mobile menu, leagues</b><p>Each confederation expands in place to its leagues, with a breadcrumb back.</p></div></div></div><div role="tabpanel" id="kitlab-fs-pan-s8" aria-labelledby="kitlab-fs-tab-s8" data-tab="s8" hidden=""><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Order tracking, mobile screenshot, scrollable"><img src="/assets/figma/kitlab-tracker-mobile.webp" loading="lazy" decoding="async" alt="KitLabFS mobile order tracking with status, progress and tracking history"></div></div><div class="vcap"><b>Order tracking, mobile</b><p>Order lookup, live status, a five-step progress bar and the tracking history on one screen.</p></div></div></div></div>
+      </div>
           </section>
           <section class="block reveal" id="kitlab-fs-why">
             <p class="label">06 / Results</p>
@@ -858,14 +921,45 @@
         <div class="glass"><span class="label">The outcome</span><b>Open spots at a glance</b><p>Players see how many positions are left before they commit.</p></div>
       </section>
       <div class="wrap case-layout">
-        <aside class="glass case-nav" aria-label="Case study sections">
-          <p class="label" style="margin:4px 12px 10px">Case study</p>
-          <a href="#matchup-overview">01 · Context</a>
-          <a href="#matchup-problem">02 · Problem</a>
-          <a href="#matchup-flow">03 · User flow</a>
-          <a href="#matchup-thinking">04 · Thinking</a>
-          <a href="#matchup-solution">05 · Solution</a>
-          <a href="#matchup-why">06 · Results</a>
+        <aside class="glass case-nav" aria-label="Case study guide">
+          <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i style="width: 0%;"></i></span></div>
+          <div class="cg-list"><div class="cg-item" data-sec="matchup-overview">
+            <a class="cg-link" href="#matchup-overview"><span class="cg-n">01</span>Context</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">MatchUp is a mobile concept for creating local soccer matches, selecting available positions and sharing field-booking costs.</p>
+              
+            </div></div>
+          </div><div class="cg-item" data-sec="matchup-problem">
+            <a class="cg-link" href="#matchup-problem"><span class="cg-n">02</span>Problem</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Players rely on scattered group chats with incomplete information about cost, skill level and open positions.</p>
+              <div class="cg-jumps"><a href="#matchup-question">The question</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="matchup-flow">
+            <a class="cg-link" href="#matchup-flow"><span class="cg-n">03</span>User flow</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Pick a path and step through what the shopper sees.</p>
+              <div class="cg-jumps"><a href="#matchup-lane-0">Organizer</a><a href="#matchup-lane-1">Player</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="matchup-thinking">
+            <a class="cg-link" href="#matchup-thinking"><span class="cg-n">04</span>Thinking</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">5 steps from signal to decision.</p>
+              <div class="cg-jumps"><a href="#matchup-step-1">Observe</a><a href="#matchup-step-2">Frame</a><a href="#matchup-step-3">Explore</a><a href="#matchup-step-4">Decide</a><a href="#matchup-step-5">Refine</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="matchup-solution">
+            <a class="cg-link" href="#matchup-solution"><span class="cg-n">05</span>Solution</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Give organizers and players one shared match state.</p>
+              <div class="cg-jumps"><a href="#matchup-screens" data-jump-tab="s0">Discover</a><a href="#matchup-screens" data-jump-tab="s1">Match preview</a><a href="#matchup-screens" data-jump-tab="s2">Match summary</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="matchup-why">
+            <a class="cg-link" href="#matchup-why"><span class="cg-n">06</span>Results</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Open spots at a glance. Players see how many positions are left before they commit.</p>
+              
+            </div></div>
+          </div></div>
         </aside>
         <article>
           <section class="block reveal" id="matchup-overview">
@@ -877,7 +971,7 @@
             <p class="label">02 / Problem</p>
             <h2>The interface was only the symptom.</h2>
             <p>Players rely on scattered group chats with incomplete information about cost, skill level and open positions. Organizers manually build teams and repeatedly chase payments.</p>
-            <div class="glass question"><span>The question</span>How might we create one trusted experience for forming teams, selecting positions and sharing field costs, for two different users at once?</div>
+            <div class="glass question" id="matchup-question"><span>The question</span>How might we create one trusted experience for forming teams, selecting positions and sharing field costs, for two different users at once?</div>
           </section>
           <section class="block reveal" id="matchup-flow">
             <p class="label">03 / User flow</p>
@@ -888,7 +982,7 @@
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
         <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
-      </div><div class="lane"><p class="label">Organizer</p><div class="fnode t-start">
+      </div><div class="lane" id="matchup-lane-0"><p class="label">Organizer</p><div class="fnode t-start">
         <button class="fbtn" type="button" aria-expanded="false" aria-controls="f20">
           <span class="ftag">Start</span>
           <span class="flabel">Organizer has booked a field</span>
@@ -918,7 +1012,7 @@
       </div></div>
       </div></div>
       </div></div>
-      </div></div><div class="lane"><p class="label">Player</p><div class="fnode t-start">
+      </div></div><div class="lane" id="matchup-lane-1"><p class="label">Player</p><div class="fnode t-start">
         <button class="fbtn" type="button" aria-expanded="false" aria-controls="f25">
           <span class="ftag">Start</span>
           <span class="flabel">Player looks for a game nearby</span>
@@ -971,15 +1065,17 @@
           <section class="block reveal" id="matchup-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps"><div class="glass step tilt"><span class="num">01</span><div><h3>Observe</h3><p>Trust was fragmented across messages, people and payment requests.</p></div></div><div class="glass step tilt"><span class="num">02</span><div><h3>Frame</h3><p>Map organizer and player needs separately, then connect the moments that must stay in sync.</p></div></div><div class="glass step tilt"><span class="num">03</span><div><h3>Explore</h3><p>Make openings, skill level, location and cost visible before anyone commits.</p></div></div><div class="glass step tilt"><span class="num">04</span><div><h3>Decide</h3><p>Let players choose a position and pay in the context of the match.</p></div></div><div class="glass step tilt"><span class="num">05</span><div><h3>Refine</h3><p>Carry certainty from discovery through kickoff and post-match review.</p></div></div></div>
+            <div class="steps"><div class="glass step tilt" id="matchup-step-1"><span class="num">01</span><div><h3>Observe</h3><p>Trust was fragmented across messages, people and payment requests.</p></div></div><div class="glass step tilt" id="matchup-step-2"><span class="num">02</span><div><h3>Frame</h3><p>Map organizer and player needs separately, then connect the moments that must stay in sync.</p></div></div><div class="glass step tilt" id="matchup-step-3"><span class="num">03</span><div><h3>Explore</h3><p>Make openings, skill level, location and cost visible before anyone commits.</p></div></div><div class="glass step tilt" id="matchup-step-4"><span class="num">04</span><div><h3>Decide</h3><p>Let players choose a position and pay in the context of the match.</p></div></div><div class="glass step tilt" id="matchup-step-5"><span class="num">05</span><div><h3>Refine</h3><p>Carry certainty from discovery through kickoff and post-match review.</p></div></div></div>
           </section>
           <section class="block reveal" id="matchup-solution">
             <p class="label">05 / Solution</p>
             <h2>The design bet</h2>
             <div class="bet">Give organizers and players one shared match state.</div>
             <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/matchup-transition-4k.mp4" aria-label="MatchUp motion study"></video></div>
-            
-            <p class="label shots-label">Mobile screens</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones"><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Discover screenshot, scrollable"><img src="/assets/figma/matchup-home.png" loading="lazy" decoding="async" alt="MatchUp discover screen with upcoming matches"></div></div><figcaption><b>Discover</b>Upcoming matches, with price per spot, level and open spots on each card.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Match preview screenshot, scrollable"><img src="/assets/figma/matchup-preview.png" loading="lazy" decoding="async" alt="MatchUp map view with a match card, open spots and total cost"></div></div><figcaption><b>Match preview</b>Map view with the match card: open spots, total cost and one join action.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Match summary screenshot, scrollable"><img src="/assets/figma/matchup-results.png" loading="lazy" decoding="async" alt="MatchUp match summary with score, stats and player of the match"></div></div><figcaption><b>Match summary</b>The post-match summary with the score, team stats and player of the match.</figcaption></figure></div>
+            <div class="viewer" id="matchup-screens" data-viewer="">
+        <div class="vtabs"><div class="vgroup"><span class="label">Mobile and detail</span><div class="vlist" role="tablist" aria-label="Mobile and detail"><button type="button" role="tab" id="matchup-tab-s0" aria-controls="matchup-pan-s0" data-tab="s0" aria-selected="true" tabindex="0">Discover</button><button type="button" role="tab" id="matchup-tab-s1" aria-controls="matchup-pan-s1" data-tab="s1" aria-selected="false" tabindex="-1">Match preview</button><button type="button" role="tab" id="matchup-tab-s2" aria-controls="matchup-pan-s2" data-tab="s2" aria-selected="false" tabindex="-1">Match summary</button></div></div></div>
+        <div class="vstage"><div role="tabpanel" id="matchup-pan-s0" aria-labelledby="matchup-tab-s0" data-tab="s0"><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Discover screenshot, scrollable"><img src="/assets/figma/matchup-home.png" loading="lazy" decoding="async" alt="MatchUp discover screen with upcoming matches"></div></div><div class="vcap"><b>Discover</b><p>Upcoming matches, with price per spot, level and open spots on each card.</p></div></div></div><div role="tabpanel" id="matchup-pan-s1" aria-labelledby="matchup-tab-s1" data-tab="s1" hidden=""><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Match preview screenshot, scrollable"><img src="/assets/figma/matchup-preview.png" loading="lazy" decoding="async" alt="MatchUp map view with a match card, open spots and total cost"></div></div><div class="vcap"><b>Match preview</b><p>Map view with the match card: open spots, total cost and one join action.</p></div></div></div><div role="tabpanel" id="matchup-pan-s2" aria-labelledby="matchup-tab-s2" data-tab="s2" hidden=""><div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="Match summary screenshot, scrollable"><img src="/assets/figma/matchup-results.png" loading="lazy" decoding="async" alt="MatchUp match summary with score, stats and player of the match"></div></div><div class="vcap"><b>Match summary</b><p>The post-match summary with the score, team stats and player of the match.</p></div></div></div></div>
+      </div>
           </section>
           <section class="block reveal" id="matchup-why">
             <p class="label">06 / Results</p>
@@ -1014,14 +1110,45 @@
         <div class="glass"><span class="label">The outcome</span><b>Change-first</b><p>The dashboard leads with what moved, then offers the detail behind it.</p></div>
       </section>
       <div class="wrap case-layout">
-        <aside class="glass case-nav" aria-label="Case study sections">
-          <p class="label" style="margin:4px 12px 10px">Case study</p>
-          <a href="#commerceflow-overview">01 · Context</a>
-          <a href="#commerceflow-problem">02 · Problem</a>
-          <a href="#commerceflow-flow">03 · User flow</a>
-          <a href="#commerceflow-thinking">04 · Thinking</a>
-          <a href="#commerceflow-solution">05 · Solution</a>
-          <a href="#commerceflow-why">06 · Results</a>
+        <aside class="glass case-nav" aria-label="Case study guide">
+          <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i></i></span></div>
+          <div class="cg-list"><div class="cg-item" data-sec="commerceflow-overview">
+            <a class="cg-link" href="#commerceflow-overview"><span class="cg-n">01</span>Context</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">CommerceFlow is a concept for an operations dashboard that brings sales, orders, inventory, customers and advertising data together, so multi-store operators can spot urgent issues and act without switching between tools.</p>
+              
+            </div></div>
+          </div><div class="cg-item" data-sec="commerceflow-problem">
+            <a class="cg-link" href="#commerceflow-problem"><span class="cg-n">02</span>Problem</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Operators repeatedly switch between storefronts, advertising platforms, spreadsheets and supplier systems just to understand performance and manage daily operations.</p>
+              <div class="cg-jumps"><a href="#commerceflow-question">The question</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="commerceflow-flow">
+            <a class="cg-link" href="#commerceflow-flow"><span class="cg-n">03</span>User flow</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Pick a path and step through what the shopper sees.</p>
+              <div class="cg-jumps"><a href="#commerceflow-lane-0">Operator</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="commerceflow-thinking">
+            <a class="cg-link" href="#commerceflow-thinking"><span class="cg-n">04</span>Thinking</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">5 steps from signal to decision.</p>
+              <div class="cg-jumps"><a href="#commerceflow-step-1">Observe</a><a href="#commerceflow-step-2">Frame</a><a href="#commerceflow-step-3">Explore</a><a href="#commerceflow-step-4">Decide</a><a href="#commerceflow-step-5">Refine</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="commerceflow-solution">
+            <a class="cg-link" href="#commerceflow-solution"><span class="cg-n">05</span>Solution</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Organize around daily decisions, not the tools where the data originated.</p>
+              <div class="cg-jumps"><a href="#commerceflow-screens" data-jump-tab="s0">Operations overview</a></div>
+            </div></div>
+          </div><div class="cg-item" data-sec="commerceflow-why">
+            <a class="cg-link" href="#commerceflow-why"><span class="cg-n">06</span>Results</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">Change-first. The dashboard leads with what moved, then offers the detail behind it.</p>
+              
+            </div></div>
+          </div></div>
         </aside>
         <article>
           <section class="block reveal" id="commerceflow-overview">
@@ -1033,7 +1160,7 @@
             <p class="label">02 / Problem</p>
             <h2>The interface was only the symptom.</h2>
             <p>Operators repeatedly switch between storefronts, advertising platforms, spreadsheets and supplier systems just to understand performance and manage daily operations.</p>
-            <div class="glass question"><span>The question</span>How might we help operators see what changed, understand why, and move directly to the right action?</div>
+            <div class="glass question" id="commerceflow-question"><span>The question</span>How might we help operators see what changed, understand why, and move directly to the right action?</div>
           </section>
           <section class="block reveal" id="commerceflow-flow">
             <p class="label">03 / User flow</p>
@@ -1044,7 +1171,7 @@
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
         <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
-      </div><div class="lane"><p class="label">Operator</p><div class="fnode t-start">
+      </div><div class="lane" id="commerceflow-lane-0"><p class="label">Operator</p><div class="fnode t-start">
         <button class="fbtn" type="button" aria-expanded="false" aria-controls="f33">
           <span class="ftag">Start</span>
           <span class="flabel">Operator opens the overview</span>
@@ -1127,15 +1254,17 @@
           <section class="block reveal" id="commerceflow-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps"><div class="glass step tilt"><span class="num">01</span><div><h3>Observe</h3><p>Context was expensive because the story lived across tools and tabs.</p></div></div><div class="glass step tilt"><span class="num">02</span><div><h3>Frame</h3><p>The overview should answer “what changed?” before showing everything available.</p></div></div><div class="glass step tilt"><span class="num">03</span><div><h3>Explore</h3><p>Pair every important signal with the module that can explain it.</p></div></div><div class="glass step tilt"><span class="num">04</span><div><h3>Decide</h3><p>Make alerts lead toward resolution, not into yet another inbox.</p></div></div><div class="glass step tilt"><span class="num">05</span><div><h3>Refine</h3><p>Use a component system that can grow with teams, stores and roles.</p></div></div></div>
+            <div class="steps"><div class="glass step tilt" id="commerceflow-step-1"><span class="num">01</span><div><h3>Observe</h3><p>Context was expensive because the story lived across tools and tabs.</p></div></div><div class="glass step tilt" id="commerceflow-step-2"><span class="num">02</span><div><h3>Frame</h3><p>The overview should answer “what changed?” before showing everything available.</p></div></div><div class="glass step tilt" id="commerceflow-step-3"><span class="num">03</span><div><h3>Explore</h3><p>Pair every important signal with the module that can explain it.</p></div></div><div class="glass step tilt" id="commerceflow-step-4"><span class="num">04</span><div><h3>Decide</h3><p>Make alerts lead toward resolution, not into yet another inbox.</p></div></div><div class="glass step tilt" id="commerceflow-step-5"><span class="num">05</span><div><h3>Refine</h3><p>Use a component system that can grow with teams, stores and roles.</p></div></div></div>
           </section>
           <section class="block reveal" id="commerceflow-solution">
             <p class="label">05 / Solution</p>
             <h2>The design bet</h2>
             <div class="bet">Organize around daily decisions, not the tools where the data originated.</div>
             
-            
-            <p class="label shots-label">Screens</p><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen flat"><img src="/assets/figma/commerce-dashboard.jpg" loading="lazy" decoding="async" alt="CommerceFlow operations dashboard with revenue, orders, conversion and sales by channel"></div></div><figcaption><b>Operations overview</b>Revenue, orders and conversion on top, then the revenue trend, sales by channel and store comparison.</figcaption></figure>
+            <div class="viewer" id="commerceflow-screens" data-viewer="">
+        <div class="vtabs"><div class="vgroup"><span class="label">Screens</span><div class="vlist" role="tablist" aria-label="Screens"><button type="button" role="tab" id="commerceflow-tab-s0" aria-controls="commerceflow-pan-s0" data-tab="s0" aria-selected="true" tabindex="0">Operations overview</button></div></div></div>
+        <div class="vstage"><div role="tabpanel" id="commerceflow-pan-s0" aria-labelledby="commerceflow-tab-s0" data-tab="s0"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen flat"><img src="/assets/figma/commerce-dashboard.jpg" loading="lazy" decoding="async" alt="CommerceFlow operations dashboard with revenue, orders, conversion and sales by channel"></div></div><div class="vcap"><b>Operations overview</b><p>Revenue, orders and conversion on top, then the revenue trend, sales by channel and store comparison.</p></div></div></div>
+      </div>
           </section>
           <section class="block reveal" id="commerceflow-why">
             <p class="label">06 / Results</p>
@@ -1424,7 +1553,7 @@
         </button>${detail}${children}
       </div>`;
     }
-    function renderFlows(f){
+    function renderFlows(f, pre = 'flow'){
       if (!f) return '';
       const legend = `<div class="legend" aria-label="Legend">
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
@@ -1434,7 +1563,7 @@
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
       </div>`;
       return `<p class="flow-note">${esc(f.note)}</p>${legend}` +
-        f.lanes.map(l => `<div class="lane"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
+        f.lanes.map((l, i) => `<div class="lane" id="${pre}-lane-${i}"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
@@ -1502,19 +1631,50 @@
       const figHTML = im => `<figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div ${screenAttrs(im, im.kind === 'mockup')}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
       const phoneHTML = im => `<figure class="phone reveal"><div class="glass shot"><div ${screenAttrs(im, false)}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
       const c = p.compare;
-      const compareHTML = c ? `<div class="compare-wrap reveal"><p class="label shots-label">${esc(c.title)}</p><p class="flow-note">${esc(c.lead)}</p>
-        <div class="glass compare" style="--pos:50%">
-          <img class="cmp-after" src="${c.after}" loading="lazy" decoding="async" alt="${esc(c.afterAlt)}">
-          <img class="cmp-before" src="${c.before}" loading="lazy" decoding="async" alt="${esc(c.beforeAlt)}">
-          <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
-          <span class="cmp-bar" aria-hidden="true"><i></i></span>
-          <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
-        </div>
-        <div class="cmp-points">${c.points.map(pt => `<div><b>${esc(pt[0])}</b><p>${esc(pt[1])}</p></div>`).join('')}</div></div>` : '';
-      const wideShots = p.images.filter(i => i.kind !== 'portrait'), tallShots = p.images.filter(i => i.kind === 'portrait');
-      const screensHTML =
-        (wideShots.length ? `<p class="label shots-label">${tallShots.length ? 'Desktop' : 'Screens'}</p>${wideShots.map(figHTML).join('')}` : '') +
-        (tallShots.length ? `<p class="label shots-label">${wideShots.length ? 'Detail and mobile' : 'Mobile screens'}</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones">${tallShots.map(phoneHTML).join('')}</div>` : '');
+      const tabs = [];
+      if (c) tabs.push({k:'compare', group:'Compare', title:'Before and after'});
+      p.images.forEach((im, i) => tabs.push({k:'s' + i, group: im.kind === 'portrait' ? 'Mobile and detail' : (c ? 'Desktop' : 'Screens'), title: im.title, im}));
+      const panelHTML = t => {
+        if (t.k === 'compare') return `<p class="flow-note">${esc(c.lead)}</p>
+          <div class="glass compare" style="--pos:50%">
+            <img class="cmp-after" src="${c.after}" loading="lazy" decoding="async" alt="${esc(c.afterAlt)}">
+            <img class="cmp-before" src="${c.before}" loading="lazy" decoding="async" alt="${esc(c.beforeAlt)}">
+            <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
+            <span class="cmp-bar" aria-hidden="true"><i></i></span>
+            <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
+          </div>
+          <div class="cmp-points">${c.points.map(pt => `<div><b>${esc(pt[0])}</b><p>${esc(pt[1])}</p></div>`).join('')}</div>`;
+        const im = t.im, cap = `<div class="vcap"><b>${esc(im.title)}</b><p>${esc(im.caption)}</p></div>`;
+        const img = `<img src="${im.src}" loading="lazy" decoding="async" alt="${esc(im.alt)}">`;
+        if (im.kind === 'portrait') return `<div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="${esc(im.title)} screenshot, scrollable">${img}</div></div>${cap}</div>`;
+        const flat = im.kind === 'mockup';
+        return `<div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen${flat ? ' flat' : ''}"${flat ? '' : ` tabindex="0" role="group" aria-label="${esc(im.title)} screenshot, scrollable"`}>${img}</div></div>${cap}`;
+      };
+      const groups = [];
+      tabs.forEach(t => { let g = groups.find(x => x.name === t.group); if (!g) groups.push(g = {name: t.group, tabs: []}); g.tabs.push(t); });
+      const viewerHTML = `<div class="viewer" id="${s}-screens" data-viewer>
+        <div class="vtabs">${groups.map(g => `<div class="vgroup"><span class="label">${esc(g.name)}</span><div class="vlist" role="tablist" aria-label="${esc(g.name)}">${g.tabs.map(t => `<button type="button" role="tab" id="${s}-tab-${t.k}" aria-controls="${s}-pan-${t.k}" data-tab="${t.k}" aria-selected="${t === tabs[0]}" tabindex="${t === tabs[0] ? 0 : -1}">${esc(t.title)}</button>`).join('')}</div></div>`).join('')}</div>
+        <div class="vstage">${tabs.map((t, i) => `<div role="tabpanel" id="${s}-pan-${t.k}" aria-labelledby="${s}-tab-${t.k}" data-tab="${t.k}"${i ? ' hidden' : ''}>${panelHTML(t)}</div>`).join('')}</div>
+      </div>`;
+      const sentence = t => { const m = String(t).match(/^.*?[.!?](\s|$)/); return m ? m[0].trim() : String(t); };
+      const guide = [
+        {id:'overview', name:'Context', key: sentence(p.overview), jumps:[]},
+        {id:'problem', name:'Problem', key: sentence(p.problem), jumps:[{label:'The question', href:'#' + s + '-question'}]},
+        {id:'flow', name:'User flow', key:'Pick a path and step through what the shopper sees.', jumps:(flows[p.slug] ? flows[p.slug].lanes : []).map((l, i) => ({label:l.title, href:'#' + s + '-lane-' + i}))},
+        {id:'thinking', name:'Thinking', key: p.steps.length + ' steps from signal to decision.', jumps:p.steps.map((st, i) => ({label:st[0], href:'#' + s + '-step-' + (i + 1)}))},
+        {id:'solution', name:'Solution', key: p.bet, jumps:tabs.map(t => ({label:t.title, tab:t.k, kind:t.group}))},
+        {id:'why', name:'Results', key: isKitlab ? r0[0] + ' ' + r0[1] : r0[1] + '. ' + r0[2], jumps:[]}
+      ];
+      const guideHTML = `<aside class="glass case-nav" aria-label="Case study guide">
+          <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i></i></span></div>
+          <div class="cg-list">${guide.map((g, i) => `<div class="cg-item" data-sec="${s}-${g.id}">
+            <a class="cg-link" href="#${s}-${g.id}"><span class="cg-n">0${i + 1}</span>${esc(g.name)}</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">${esc(g.key)}</p>
+              ${g.jumps.length ? `<div class="cg-jumps">${g.jumps.map(j => j.tab ? `<a href="#${s}-screens" data-jump-tab="${j.tab}">${esc(j.label)}</a>` : `<a href="${j.href}">${esc(j.label)}</a>`).join('')}</div>` : ''}
+            </div></div>
+          </div>`).join('')}</div>
+        </aside>`;
       return `
       <header class="case-top"><div class="wrap">
         <p class="label reveal">${esc(p.label)}</p>
@@ -1532,15 +1692,7 @@
       </div></header>
       ${briefHTML}
       <div class="wrap case-layout">
-        <aside class="glass case-nav" aria-label="Case study sections">
-          <p class="label" style="margin:4px 12px 10px">Case study</p>
-          <a href="#${s}-overview">01 · Context</a>
-          <a href="#${s}-problem">02 · Problem</a>
-          <a href="#${s}-flow">03 · User flow</a>
-          <a href="#${s}-thinking">04 · Thinking</a>
-          <a href="#${s}-solution">05 · Solution</a>
-          <a href="#${s}-why">06 · Results</a>
-        </aside>
+        ${guideHTML}
         <article>
           <section class="block reveal" id="${s}-overview">
             <p class="label">01 / Context</p>
@@ -1551,25 +1703,24 @@
             <p class="label">02 / Problem</p>
             <h2>The interface was only the symptom.</h2>
             <p>${esc(p.problem)}</p>
-            <div class="glass question"><span>The question</span>${esc(p.question)}</div>
+            <div class="glass question" id="${s}-question"><span>The question</span>${esc(p.question)}</div>
           </section>
           <section class="block reveal" id="${s}-flow">
             <p class="label">03 / User flow</p>
             <h2>Click through the flow</h2>
-            ${renderFlows(flows[p.slug])}
+            ${renderFlows(flows[p.slug], s)}
           </section>
           <section class="block reveal" id="${s}-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps">${p.steps.map((st,i)=>`<div class="glass step tilt"><span class="num">0${i+1}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></div>`).join('')}</div>
+            <div class="steps">${p.steps.map((st,i)=>`<div class="glass step tilt" id="${s}-step-${i+1}"><span class="num">0${i+1}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></div>`).join('')}</div>
           </section>
           <section class="block reveal" id="${s}-solution">
             <p class="label">05 / Solution</p>
             <h2>The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
             ${p.video ? `<div class="glass case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
-            ${compareHTML}
-            ${screensHTML}
+            ${viewerHTML}
           </section>
           <section class="block reveal" id="${s}-why">
             <p class="label">06 / Results</p>
@@ -1608,15 +1759,51 @@
     });
     function updateCaseNav(){
       const page = document.querySelector('.page.active[data-case]'); if (!page) return;
+      const blocks = [...page.querySelectorAll('.block')];
       let cur = null;
-      page.querySelectorAll('.block').forEach(b => { if (b.getBoundingClientRect().top <= 180) cur = b; });
-      page.querySelectorAll('.case-nav a').forEach(a => {
-        const on = !!cur && a.getAttribute('href') === '#' + cur.id;
-        a.classList.toggle('active', on);
-        const n = a.parentElement;
-        if (on && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - n.clientWidth / 2 + a.offsetWidth / 2;
+      blocks.forEach(b => { if (b.getBoundingClientRect().top <= 180) cur = b; });
+      page.querySelectorAll('.cg-item').forEach(it => {
+        const on = !!cur && it.dataset.sec === cur.id;
+        it.classList.toggle('active', on);
+        if (on) {
+          const n = it.closest('.case-nav');
+          const link = it.querySelector('.cg-link');
+          if (n.scrollWidth > n.clientWidth + 2 && getComputedStyle(n).flexDirection !== 'column' && getComputedStyle(n).display === 'flex') n.scrollLeft = link.offsetLeft - n.clientWidth / 2 + link.offsetWidth / 2;
+          let hit = null;
+          it.querySelectorAll('.cg-jumps a[href^="#"]:not([data-jump-tab])').forEach(a => { const t = document.getElementById(a.getAttribute('href').slice(1)); if (t && t.getBoundingClientRect().top <= 200) hit = a; });
+          it.querySelectorAll('.cg-jumps a:not([data-jump-tab])').forEach(a => a.classList.toggle('on', a === hit));
+        }
       });
+      const first = blocks[0], last = blocks[blocks.length - 1], bar = page.querySelector('.cg-bar i');
+      if (first && last && bar) {
+        const top = first.getBoundingClientRect().top + scrollY, end = last.getBoundingClientRect().bottom + scrollY - innerHeight * .6;
+        bar.style.width = Math.max(0, Math.min(1, (scrollY - top + 200) / Math.max(1, end - top))) * 100 + '%';
+      }
     }
+    function selectTab(viewer, k, focus){
+      viewer.querySelectorAll('[role=tab]').forEach(t => { const on = t.dataset.tab === k; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+      viewer.querySelectorAll('[role=tabpanel]').forEach(p => { p.hidden = p.dataset.tab !== k; });
+      document.querySelectorAll('.page.active [data-jump-tab]').forEach(a => a.classList.toggle('on', a.dataset.jumpTab === k));
+      markScrollable();
+    }
+    document.addEventListener('click', e => {
+      const t = e.target.closest('.viewer [role=tab]');
+      if (t) { selectTab(t.closest('.viewer'), t.dataset.tab); return; }
+      const j = e.target.closest('[data-jump-tab]');
+      if (j) {
+        e.preventDefault();
+        const v = document.querySelector('.page.active .viewer'); if (!v) return;
+        selectTab(v, j.dataset.jumpTab);
+        v.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
+      }
+    });
+    document.addEventListener('keydown', e => {
+      const t = e.target.closest && e.target.closest('.viewer [role=tab]');
+      if (!t || !['ArrowRight','ArrowLeft','Home','End'].includes(e.key)) return;
+      const v = t.closest('.viewer'), all = [...v.querySelectorAll('[role=tab]')]; let i = all.indexOf(t);
+      i = e.key === 'Home' ? 0 : e.key === 'End' ? all.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length;
+      e.preventDefault(); selectTab(v, all[i].dataset.tab, true);
+    });
     addEventListener('scroll', updateCaseNav, {passive:true});
     addEventListener('resize', updateCaseNav);
 

@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="Alejandro Hennessey — Product Designer">
   <meta name="twitter:image" content="https://www.alejandrohennessey.art/assets/figma/kitlab-hero.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:arhennesseyco@gmail.com","telephone":"+1-226-582-4622","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
+  {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:arhennesseyco@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100vh}
     body.menu-open{overflow:hidden}
     img,video{display:block;width:100%;height:auto}
     a{color:inherit;text-decoration:none}
@@ -221,20 +221,35 @@
     .hero-img{margin-top:56px;border-radius:40px;overflow:hidden;position:relative;padding:12px}
     .hero-img .frame{border-radius:30px;overflow:hidden;transform:translateY(calc(var(--p,0) * -40px)) scale(1.06);transition:transform .2s linear}
     .hero-img img{aspect-ratio:16/8;object-fit:cover}
-    .case-layout{display:grid;grid-template-columns:200px 1fr;gap:70px;padding:110px 0 40px}
-    .case-nav{position:sticky;top:110px;align-self:start;padding:18px 14px;border-radius:26px;display:grid;gap:2px}
-    .case-nav a{padding:9px 12px;font:500 14px var(--sans);color:var(--muted);border-radius:14px;transition:background .3s,color .3s}
-    .case-nav a:hover{color:var(--ink);background:var(--chip)}
-    .block{padding-bottom:120px;margin-bottom:120px;border-bottom:1px solid var(--line)}
+    .case-layout{display:grid;grid-template-columns:270px 1fr;gap:56px;padding:70px 0 40px}
+    .case-nav{position:sticky;top:96px;align-self:start;padding:16px 12px;border-radius:26px;max-height:calc(100vh - 120px);overflow-y:auto;scrollbar-width:thin}
+    .cg-head{display:flex;align-items:center;gap:12px;margin:2px 8px 12px}
+    .cg-head .label{margin:0}
+    .cg-bar{flex:1;height:4px;border-radius:4px;background:var(--chip);overflow:hidden}
+    .cg-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;transition:width .2s linear}
+    .cg-link{display:flex;gap:10px;align-items:baseline;padding:9px 10px;font:500 14.5px var(--sans);color:var(--muted);border-radius:14px;transition:background .3s,color .3s}
+    .cg-link:hover{color:var(--ink);background:var(--chip)}
+    .cg-n{font:600 11px var(--sans);letter-spacing:.08em;color:var(--muted)}
+    .cg-item.active > .cg-link{color:var(--ink);background:var(--chip);font-weight:600}
+    .cg-item.active .cg-n{color:var(--accent)}
+    .cg-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+    .cg-more > div{overflow:hidden;min-height:0}
+    .cg-item.active .cg-more{grid-template-rows:1fr}
+    .cg-key{margin:6px 10px 6px 34px;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+    .cg-jumps{display:grid;gap:1px;margin:2px 4px 8px 28px;padding-left:8px;border-left:2px solid var(--line)}
+    .cg-jumps a{padding:6px 10px;font:500 13px var(--sans);color:var(--muted);border-radius:10px;transition:background .25s,color .25s}
+    .cg-jumps a:hover{color:var(--ink);background:var(--chip)}
+    .cg-jumps a.on{color:var(--accent);background:var(--chip);font-weight:600}
+    .block{padding-bottom:64px;margin-bottom:64px;border-bottom:1px solid var(--line)}
     .block:last-child{border:0;margin:0;padding:0}
-    .block h2{font:400 clamp(48px,6vw,88px)/.95 var(--serif);letter-spacing:-.03em;margin:16px 0 24px}
+    .block h2{font:400 clamp(38px,4.6vw,64px)/1 var(--serif);letter-spacing:-.03em;margin:12px 0 20px}
     .block > p{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);max-width:720px}
     .question{margin:40px 0;padding:36px;border-radius:34px;font:400 clamp(30px,3.6vw,46px)/1.12 var(--serif);letter-spacing:-.01em}
     .question span{display:block;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-    .steps{margin-top:34px;display:grid;gap:12px}
-    .step{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:26px 28px;border-radius:26px}
-    .step .num{font:600 13px var(--sans);color:var(--accent);padding-top:8px}
-    .step h3{font:400 30px/1.1 var(--serif);margin-bottom:6px}
+    .steps{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .step{display:flex;flex-direction:column;gap:8px;padding:24px 26px;border-radius:26px;scroll-margin-top:110px}
+    .step .num{font:600 13px var(--sans);color:var(--accent)}
+    .step h3{font:400 26px/1.1 var(--serif);margin-bottom:4px}
     .step p{margin:0;color:var(--muted)}
     .bet{padding:clamp(34px,4vw,56px);border-radius:36px;background:linear-gradient(120deg,var(--accent),var(--accent2) 55%,var(--accent3));color:#fff;font:400 clamp(36px,4.6vw,62px)/1.05 var(--serif);letter-spacing:-.02em;box-shadow:0 40px 90px -30px rgba(120,80,255,.55)}
     .gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
@@ -411,8 +426,24 @@
     .cmp-points b{display:block;margin-bottom:4px;color:var(--ink)}
     .cmp-points p{margin:0;color:var(--ink-2);font-size:16px;line-height:1.55}
     @media (max-width:700px){.cmp-points{grid-template-columns:1fr}}
+    .viewer{margin-top:26px;scroll-margin-top:100px}
+    .vtabs{display:grid;gap:10px;margin-bottom:16px}
+    .vgroup{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .vgroup > .label{margin:0;min-width:130px}
+    .vlist{display:flex;gap:6px;flex-wrap:wrap}
+    .vlist button{padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink-2);font:500 14px var(--sans);cursor:pointer;transition:background .3s,color .3s,transform .3s}
+    .vlist button:hover{background:var(--chip);color:var(--ink)}
+    .vlist button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+    .vlist button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    [role=tabpanel][hidden]{display:none}
+    .vcap{margin:14px 6px 0}
+    .vcap b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+    .vcap p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+    .pview{display:grid;grid-template-columns:minmax(230px,300px) 1fr;gap:34px;align-items:start}
+    .pview .vcap{margin-top:12px}
+    .shot.phone{width:100%}
+    .pview .screen{max-height:min(600px,72vh)}
     .shots-label{margin:48px 0 0}
-    .fig{margin:20px 0 0}
     .shot{position:relative;padding:8px;border-radius:28px;overflow:hidden}
     .chrome{display:flex;gap:6px;padding:6px 10px 10px}
     .chrome i{width:9px;height:9px;border-radius:50%;background:var(--muted);opacity:.35}
@@ -420,26 +451,26 @@
     .screen.flat{max-height:none;overflow:visible}
     .screen img{display:block;width:100%;height:auto}
     .screen:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-    .fig figcaption,.phone figcaption{margin:12px 6px 0;font-size:14.5px;line-height:1.5;color:var(--muted)}
-    .fig figcaption b,.phone figcaption b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
-    .phones{display:flex;flex-wrap:wrap;gap:22px;margin-top:20px}
-    .phone{margin:0;width:clamp(230px,26vw,290px)}
-    .phone .screen{max-height:min(560px,72vh)}
     .shot.scrolls::after{content:"Scroll \2193";position:absolute;inset:auto auto 16px 50%;-webkit-mask:none;mask:none;transform:translateX(-50%);padding:6px 12px;border-radius:999px;background:rgba(13,16,32,.78);color:#fff;font:600 12px var(--sans);pointer-events:none;transition:opacity .4s}
     .shot.scrolled::after{opacity:0}
-    .case-nav a.active{color:var(--ink);background:var(--chip)}
     .results-note{margin-top:18px;font-size:14px;color:var(--muted)}
     @media (max-width:860px){
       .brief{grid-template-columns:1fr;margin-top:36px}
       .case-nav{display:flex;position:sticky;top:64px;z-index:30;overflow-x:auto;gap:4px;padding:6px;border-radius:999px;margin:-30px 0 30px;scrollbar-width:none}
       .case-nav::-webkit-scrollbar{display:none}
-      .case-nav .label{display:none}
-      .case-nav a{white-space:nowrap;padding:9px 14px;flex:0 0 auto}
+      .cg-head,.cg-more{display:none}
+      .cg-list,.cg-item{display:contents}
+      .cg-n{display:none}
+      .cg-item.active > .cg-link{background:var(--chip)}
+      .steps{grid-template-columns:1fr}
+      .pview{grid-template-columns:1fr;gap:6px}
+      .shot.phone{max-width:300px;margin:0 auto}
+      .vgroup > .label{min-width:100%}
+      .case-layout{padding:40px 0 20px}
+      .case-nav a.cg-link{white-space:nowrap;padding:9px 14px;flex:0 0 auto}
       .block{scroll-margin-top:130px}
     }
     @media (max-width:600px){
-      .phones{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px}
-      .phone{flex:0 0 auto;scroll-snap-align:start;width:min(260px,72vw)}
     }
     /* Section jumps land below the fixed nav */
     .block{scroll-margin-top:110px}
@@ -596,7 +627,6 @@
             <button class="btn glass glass-btn copy" type="button" data-copy="arhennesseyco@gmail.com" data-magnetic>Copy email</button>
           </div>
           <div class="clinks">
-            <a class="glass" href="tel:+12265824622">226-582-4622 <span>↗</span></a>
             <a class="glass" href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">linkedin.com/in/arhennessey <span>↗</span></a>
             <a class="glass route-link" href="/work">View case studies <span>→</span></a>
           </div>
@@ -883,7 +913,7 @@
         </button>${detail}${children}
       </div>`;
     }
-    function renderFlows(f){
+    function renderFlows(f, pre = 'flow'){
       if (!f) return '';
       const legend = `<div class="legend" aria-label="Legend">
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
@@ -893,7 +923,7 @@
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
       </div>`;
       return `<p class="flow-note">${esc(f.note)}</p>${legend}` +
-        f.lanes.map(l => `<div class="lane"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
+        f.lanes.map((l, i) => `<div class="lane" id="${pre}-lane-${i}"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
@@ -961,19 +991,50 @@
       const figHTML = im => `<figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div ${screenAttrs(im, im.kind === 'mockup')}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
       const phoneHTML = im => `<figure class="phone reveal"><div class="glass shot"><div ${screenAttrs(im, false)}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
       const c = p.compare;
-      const compareHTML = c ? `<div class="compare-wrap reveal"><p class="label shots-label">${esc(c.title)}</p><p class="flow-note">${esc(c.lead)}</p>
-        <div class="glass compare" style="--pos:50%">
-          <img class="cmp-after" src="${c.after}" loading="lazy" decoding="async" alt="${esc(c.afterAlt)}">
-          <img class="cmp-before" src="${c.before}" loading="lazy" decoding="async" alt="${esc(c.beforeAlt)}">
-          <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
-          <span class="cmp-bar" aria-hidden="true"><i></i></span>
-          <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
-        </div>
-        <div class="cmp-points">${c.points.map(pt => `<div><b>${esc(pt[0])}</b><p>${esc(pt[1])}</p></div>`).join('')}</div></div>` : '';
-      const wideShots = p.images.filter(i => i.kind !== 'portrait'), tallShots = p.images.filter(i => i.kind === 'portrait');
-      const screensHTML =
-        (wideShots.length ? `<p class="label shots-label">${tallShots.length ? 'Desktop' : 'Screens'}</p>${wideShots.map(figHTML).join('')}` : '') +
-        (tallShots.length ? `<p class="label shots-label">${wideShots.length ? 'Detail and mobile' : 'Mobile screens'}</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones">${tallShots.map(phoneHTML).join('')}</div>` : '');
+      const tabs = [];
+      if (c) tabs.push({k:'compare', group:'Compare', title:'Before and after'});
+      p.images.forEach((im, i) => tabs.push({k:'s' + i, group: im.kind === 'portrait' ? 'Mobile and detail' : (c ? 'Desktop' : 'Screens'), title: im.title, im}));
+      const panelHTML = t => {
+        if (t.k === 'compare') return `<p class="flow-note">${esc(c.lead)}</p>
+          <div class="glass compare" style="--pos:50%">
+            <img class="cmp-after" src="${c.after}" loading="lazy" decoding="async" alt="${esc(c.afterAlt)}">
+            <img class="cmp-before" src="${c.before}" loading="lazy" decoding="async" alt="${esc(c.beforeAlt)}">
+            <span class="cmp-tag b">Before</span><span class="cmp-tag a">After</span>
+            <span class="cmp-bar" aria-hidden="true"><i></i></span>
+            <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after product page">
+          </div>
+          <div class="cmp-points">${c.points.map(pt => `<div><b>${esc(pt[0])}</b><p>${esc(pt[1])}</p></div>`).join('')}</div>`;
+        const im = t.im, cap = `<div class="vcap"><b>${esc(im.title)}</b><p>${esc(im.caption)}</p></div>`;
+        const img = `<img src="${im.src}" loading="lazy" decoding="async" alt="${esc(im.alt)}">`;
+        if (im.kind === 'portrait') return `<div class="pview"><div class="glass shot phone"><div class="screen" tabindex="0" role="group" aria-label="${esc(im.title)} screenshot, scrollable">${img}</div></div>${cap}</div>`;
+        const flat = im.kind === 'mockup';
+        return `<div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen${flat ? ' flat' : ''}"${flat ? '' : ` tabindex="0" role="group" aria-label="${esc(im.title)} screenshot, scrollable"`}>${img}</div></div>${cap}`;
+      };
+      const groups = [];
+      tabs.forEach(t => { let g = groups.find(x => x.name === t.group); if (!g) groups.push(g = {name: t.group, tabs: []}); g.tabs.push(t); });
+      const viewerHTML = `<div class="viewer" id="${s}-screens" data-viewer>
+        <div class="vtabs">${groups.map(g => `<div class="vgroup"><span class="label">${esc(g.name)}</span><div class="vlist" role="tablist" aria-label="${esc(g.name)}">${g.tabs.map(t => `<button type="button" role="tab" id="${s}-tab-${t.k}" aria-controls="${s}-pan-${t.k}" data-tab="${t.k}" aria-selected="${t === tabs[0]}" tabindex="${t === tabs[0] ? 0 : -1}">${esc(t.title)}</button>`).join('')}</div></div>`).join('')}</div>
+        <div class="vstage">${tabs.map((t, i) => `<div role="tabpanel" id="${s}-pan-${t.k}" aria-labelledby="${s}-tab-${t.k}" data-tab="${t.k}"${i ? ' hidden' : ''}>${panelHTML(t)}</div>`).join('')}</div>
+      </div>`;
+      const sentence = t => { const m = String(t).match(/^.*?[.!?](\s|$)/); return m ? m[0].trim() : String(t); };
+      const guide = [
+        {id:'overview', name:'Context', key: sentence(p.overview), jumps:[]},
+        {id:'problem', name:'Problem', key: sentence(p.problem), jumps:[{label:'The question', href:'#' + s + '-question'}]},
+        {id:'flow', name:'User flow', key:'Pick a path and step through what the shopper sees.', jumps:(flows[p.slug] ? flows[p.slug].lanes : []).map((l, i) => ({label:l.title, href:'#' + s + '-lane-' + i}))},
+        {id:'thinking', name:'Thinking', key: p.steps.length + ' steps from signal to decision.', jumps:p.steps.map((st, i) => ({label:st[0], href:'#' + s + '-step-' + (i + 1)}))},
+        {id:'solution', name:'Solution', key: p.bet, jumps:tabs.map(t => ({label:t.title, tab:t.k, kind:t.group}))},
+        {id:'why', name:'Results', key: isKitlab ? r0[0] + ' ' + r0[1] : r0[1] + '. ' + r0[2], jumps:[]}
+      ];
+      const guideHTML = `<aside class="glass case-nav" aria-label="Case study guide">
+          <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i></i></span></div>
+          <div class="cg-list">${guide.map((g, i) => `<div class="cg-item" data-sec="${s}-${g.id}">
+            <a class="cg-link" href="#${s}-${g.id}"><span class="cg-n">0${i + 1}</span>${esc(g.name)}</a>
+            <div class="cg-more"><div>
+              <p class="cg-key">${esc(g.key)}</p>
+              ${g.jumps.length ? `<div class="cg-jumps">${g.jumps.map(j => j.tab ? `<a href="#${s}-screens" data-jump-tab="${j.tab}">${esc(j.label)}</a>` : `<a href="${j.href}">${esc(j.label)}</a>`).join('')}</div>` : ''}
+            </div></div>
+          </div>`).join('')}</div>
+        </aside>`;
       return `
       <header class="case-top"><div class="wrap">
         <p class="label reveal">${esc(p.label)}</p>
@@ -991,15 +1052,7 @@
       </div></header>
       ${briefHTML}
       <div class="wrap case-layout">
-        <aside class="glass case-nav" aria-label="Case study sections">
-          <p class="label" style="margin:4px 12px 10px">Case study</p>
-          <a href="#${s}-overview">01 · Context</a>
-          <a href="#${s}-problem">02 · Problem</a>
-          <a href="#${s}-flow">03 · User flow</a>
-          <a href="#${s}-thinking">04 · Thinking</a>
-          <a href="#${s}-solution">05 · Solution</a>
-          <a href="#${s}-why">06 · Results</a>
-        </aside>
+        ${guideHTML}
         <article>
           <section class="block reveal" id="${s}-overview">
             <p class="label">01 / Context</p>
@@ -1010,25 +1063,24 @@
             <p class="label">02 / Problem</p>
             <h2>The interface was only the symptom.</h2>
             <p>${esc(p.problem)}</p>
-            <div class="glass question"><span>The question</span>${esc(p.question)}</div>
+            <div class="glass question" id="${s}-question"><span>The question</span>${esc(p.question)}</div>
           </section>
           <section class="block reveal" id="${s}-flow">
             <p class="label">03 / User flow</p>
             <h2>Click through the flow</h2>
-            ${renderFlows(flows[p.slug])}
+            ${renderFlows(flows[p.slug], s)}
           </section>
           <section class="block reveal" id="${s}-thinking">
             <p class="label">04 / My thinking</p>
             <h2>The path from signal to decision</h2>
-            <div class="steps">${p.steps.map((st,i)=>`<div class="glass step tilt"><span class="num">0${i+1}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></div>`).join('')}</div>
+            <div class="steps">${p.steps.map((st,i)=>`<div class="glass step tilt" id="${s}-step-${i+1}"><span class="num">0${i+1}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></div>`).join('')}</div>
           </section>
           <section class="block reveal" id="${s}-solution">
             <p class="label">05 / Solution</p>
             <h2>The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
             ${p.video ? `<div class="glass case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
-            ${compareHTML}
-            ${screensHTML}
+            ${viewerHTML}
           </section>
           <section class="block reveal" id="${s}-why">
             <p class="label">06 / Results</p>
@@ -1067,15 +1119,51 @@
     });
     function updateCaseNav(){
       const page = document.querySelector('.page.active[data-case]'); if (!page) return;
+      const blocks = [...page.querySelectorAll('.block')];
       let cur = null;
-      page.querySelectorAll('.block').forEach(b => { if (b.getBoundingClientRect().top <= 180) cur = b; });
-      page.querySelectorAll('.case-nav a').forEach(a => {
-        const on = !!cur && a.getAttribute('href') === '#' + cur.id;
-        a.classList.toggle('active', on);
-        const n = a.parentElement;
-        if (on && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - n.clientWidth / 2 + a.offsetWidth / 2;
+      blocks.forEach(b => { if (b.getBoundingClientRect().top <= 180) cur = b; });
+      page.querySelectorAll('.cg-item').forEach(it => {
+        const on = !!cur && it.dataset.sec === cur.id;
+        it.classList.toggle('active', on);
+        if (on) {
+          const n = it.closest('.case-nav');
+          const link = it.querySelector('.cg-link');
+          if (n.scrollWidth > n.clientWidth + 2 && getComputedStyle(n).flexDirection !== 'column' && getComputedStyle(n).display === 'flex') n.scrollLeft = link.offsetLeft - n.clientWidth / 2 + link.offsetWidth / 2;
+          let hit = null;
+          it.querySelectorAll('.cg-jumps a[href^="#"]:not([data-jump-tab])').forEach(a => { const t = document.getElementById(a.getAttribute('href').slice(1)); if (t && t.getBoundingClientRect().top <= 200) hit = a; });
+          it.querySelectorAll('.cg-jumps a:not([data-jump-tab])').forEach(a => a.classList.toggle('on', a === hit));
+        }
       });
+      const first = blocks[0], last = blocks[blocks.length - 1], bar = page.querySelector('.cg-bar i');
+      if (first && last && bar) {
+        const top = first.getBoundingClientRect().top + scrollY, end = last.getBoundingClientRect().bottom + scrollY - innerHeight * .6;
+        bar.style.width = Math.max(0, Math.min(1, (scrollY - top + 200) / Math.max(1, end - top))) * 100 + '%';
+      }
     }
+    function selectTab(viewer, k, focus){
+      viewer.querySelectorAll('[role=tab]').forEach(t => { const on = t.dataset.tab === k; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+      viewer.querySelectorAll('[role=tabpanel]').forEach(p => { p.hidden = p.dataset.tab !== k; });
+      document.querySelectorAll('.page.active [data-jump-tab]').forEach(a => a.classList.toggle('on', a.dataset.jumpTab === k));
+      markScrollable();
+    }
+    document.addEventListener('click', e => {
+      const t = e.target.closest('.viewer [role=tab]');
+      if (t) { selectTab(t.closest('.viewer'), t.dataset.tab); return; }
+      const j = e.target.closest('[data-jump-tab]');
+      if (j) {
+        e.preventDefault();
+        const v = document.querySelector('.page.active .viewer'); if (!v) return;
+        selectTab(v, j.dataset.jumpTab);
+        v.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block: 'start'});
+      }
+    });
+    document.addEventListener('keydown', e => {
+      const t = e.target.closest && e.target.closest('.viewer [role=tab]');
+      if (!t || !['ArrowRight','ArrowLeft','Home','End'].includes(e.key)) return;
+      const v = t.closest('.viewer'), all = [...v.querySelectorAll('[role=tab]')]; let i = all.indexOf(t);
+      i = e.key === 'Home' ? 0 : e.key === 'End' ? all.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length;
+      e.preventDefault(); selectTab(v, all[i].dataset.tab, true);
+    });
     addEventListener('scroll', updateCaseNav, {passive:true});
     addEventListener('resize', updateCaseNav);
 
