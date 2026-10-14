@@ -160,6 +160,8 @@
     .pcard.first{grid-column:span 2}
     .pcard .media{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:24px;background:var(--chip)}
     .pcard.first .media{aspect-ratio:16/8.5}
+    .pcard.film .media::after{content:"Watch film →"}
+    @media (min-width:861px){.pcard.film{grid-column:span 2}.pcard.film .media{aspect-ratio:16/8.5}}
     .pcard .media img{height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
     .pcard:hover .media img{transform:scale(1.06)}
     .pcard .media::after{content:"View case →";position:absolute;left:14px;bottom:14px;padding:10px 16px;border-radius:999px;background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font:600 13px var(--sans);transform:translateY(160%);transition:transform .6s var(--ease)}
@@ -258,6 +260,25 @@
     .gallery .g.wide{grid-column:1/-1}
     .gallery img{height:100%;object-fit:cover;border-radius:22px;transition:transform 1.2s var(--ease)}
     .gallery .g:hover img{transform:scale(1.04)}
+    /* Motion film page */
+    .film-wrap{margin-top:8px}
+    .film{padding:10px;border-radius:34px;overflow:hidden}
+    .film video{width:100%;aspect-ratio:16/9;border-radius:26px;background:#05070d}
+    .film-note{margin:14px 6px 0;color:var(--muted);font-size:14px}
+    .film-body{margin-top:56px;max-width:1100px}
+    .numbers{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+    .numbers > div{padding:24px 18px;border-radius:24px;text-align:left}
+    .numbers b{display:block;font:400 54px/1 var(--serif);color:var(--accent-ink,var(--accent));margin-bottom:8px}
+    .numbers span{font:600 12px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+    .chap{display:block;text-align:left;padding:10px 10px 18px;border-radius:26px;cursor:pointer;font:inherit;color:inherit}
+    .chap img{aspect-ratio:16/9;object-fit:cover;border-radius:18px;margin-bottom:14px}
+    .chap .ct{display:inline-block;font:600 12px var(--sans);letter-spacing:.1em;color:var(--accent-ink,var(--accent));margin:0 8px 0 8px}
+    .chap b{font:600 16px var(--sans)}
+    .chap p{margin:6px 8px 0;color:var(--muted);font-size:14px;line-height:1.45}
+    .chap:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    @media (max-width:860px){.numbers{grid-template-columns:repeat(2,1fr)}.chapters{grid-template-columns:1fr 1fr}.numbers b{font-size:44px}.numbers > div:last-child{grid-column:1/-1}}
+    @media (max-width:600px){.chapters{grid-template-columns:1fr}.film{padding:6px;border-radius:24px}.film video{border-radius:18px}.chap p{font-size:14px}}
     .case-video{margin-top:30px;border-radius:30px;overflow:hidden;padding:8px}
     .case-video video{border-radius:24px}
     .results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
@@ -623,7 +644,7 @@
       <header class="page-top"><div class="wrap">
         <p class="label reveal">Selected case studies</p>
         <h1 class="split-h1">Work built around <em>decisions.</em></h1>
-        <p class="reveal">Projects across e-commerce, B2B software and mobile. Each one shows the problem, my role, the choices I made and what changed.</p>
+        <p class="reveal">Projects across e-commerce, B2B software and mobile, plus a motion film. Each case study shows the problem, my role, the choices I made and what changed.</p>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
         <div class="pgrid" data-cards></div>
@@ -684,6 +705,7 @@
     <section class="page case" data-path="/work/kitlab-fs" data-case="kitlab"></section>
     <section class="page case" data-path="/work/matchup" data-case="matchup"></section>
     <section class="page case" data-path="/work/commerceflow" data-case="commerce"></section>
+    <section class="page case" data-path="/work/always-moving" data-case="motion"></section>
   </main>
 
   <footer><div class="wrap"><span>© 2026 Alejandro Hennessey</span><span>Product design · Toronto, Ontario · alejandrohennessey.art</span></div></footer>
@@ -810,7 +832,7 @@
         video:'/assets/video/matchup-transition-4k.mp4'
       },
       commerce: {
-        name:'CommerceFlow', slug:'commerceflow', next:'kitlab',
+        name:'CommerceFlow', slug:'commerceflow', next:'motion',
         label:'SaaS · Operations · Concept project',
         roleLine:'Product design',
         teamLine:'Concept project',
@@ -840,6 +862,40 @@
           {kind:'mockup', src:'/assets/figma/commerce-dashboard.jpg', title:'Operations overview', caption:'Revenue, orders and conversion on top, then the revenue trend, sales by channel and store comparison.', alt:'CommerceFlow operations dashboard with revenue, orders, conversion and sales by channel'}
         ],
         video:null
+      },
+      motion: {
+        kind:'motion',
+        name:'Always Moving', slug:'always-moving', next:'kitlab',
+        label:'Motion graphics · Personal film',
+        roleLine:'Motion design',
+        formatLine:'Kinetic type and illustrated scenes',
+        lengthLine:'1:25 · 1080p · with sound',
+        subjectLine:'My path from Colombia to Canada',
+        cover:'/assets/figma/always-moving-poster.webp',
+        poster:'/assets/figma/always-moving-poster.webp',
+        videoHi:'/assets/video/always-moving-1080.mp4',
+        videoLo:'/assets/video/always-moving-720.mp4',
+        videoWebm:'/assets/video/always-moving-720.webm',
+        summary:'An 85-second motion graphics film that tells my story in numbers, from a goalkeeper in Colombia to designing e-commerce in Canada.',
+        argument:'Tell a whole career in under ninety seconds, one idea per scene.',
+        overview:'Always Moving is an 85-second motion graphics film about my path: a goalkeeper from age nine in Colombia, a move to Canada, nine countries, four languages and a career that now runs through web and e-commerce. It is built from kinetic type, illustrated scenes and counters that climb as the story goes on.',
+        chapters:[
+          {t:0, title:'Cold open', note:'A few icons drift in: a plane, a bike, a boat, a laptop.', img:'/assets/film/c0.webp'},
+          {t:4, title:'Colombia, age 9', note:'The story starts with a map, an age and a first position in goal.', img:'/assets/film/c1.webp'},
+          {t:16, title:'Training, on repeat', note:'Early mornings and afternoon sessions, stacked until the day becomes a loop.', img:'/assets/film/c2.webp'},
+          {t:28, title:'Signed', note:'The first contract, then Colombia U17.', img:'/assets/film/c3.webp'},
+          {t:36, title:'New country', note:'A line travels from Colombia to Canada.', img:'/assets/film/c4.webp'},
+          {t:42, title:'Regionals', note:'The pitch becomes the stage for the title run.', img:'/assets/film/c5.webp'},
+          {t:48, title:'Nine countries', note:'A globe, a route map and four languages.', img:'/assets/film/c6.webp'},
+          {t:60, title:'Beyond football', note:'Mountain biking, then a web agency and design work.', img:'/assets/film/c7.webp'},
+          {t:79, title:'By the numbers', note:'The counters land: 9, 4, 3, 1 and 0.', img:'/assets/film/c8.webp'}
+        ],
+        numbers:[['9','Countries'],['4','Languages'],['3','E-commerce stores'],['1','Regional gold'],['0','Ability to sit still']],
+        points:[
+          ['One idea per scene','Each scene carries a single fact, so the film stays readable at speed.'],
+          ['Numbers as the spine','Counters give the story a clear rhythm and a place to land at the end.'],
+          ['A small, consistent palette','Cyan, yellow and red on near-black, reused across type, maps and illustration.']
+        ]
       }
     };
 
@@ -1048,7 +1104,7 @@
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
-    const order = ['kitlab','matchup','commerce'];
+    const order = ['kitlab','matchup','commerce','motion'];
 
     // Experience content (from résumé)
     const experience = [
@@ -1070,11 +1126,12 @@
     const cardInsight = {
       kitlab: 'Insight: the biggest win came from sequencing choices, not adding features. Average order value rose 58%.',
       matchup: 'Concept insight: one shared match state for organizers and players replaces the group chat.',
-      commerce: 'Concept insight: the overview answers “what changed?” before it shows everything else.'
+      commerce: 'Concept insight: the overview answers “what changed?” before it shows everything else.',
+      motion: 'Film: nine countries, four languages and one regional gold, told in 85 seconds.'
     };
     const cardHTML = (k, i) => {
       const p = projects[k];
-      return `<a class="glass pcard tilt reveal ${i===0?'first':''}" data-tilt href="/work/${p.slug}" style="--d:${i*90}ms">
+      return `<a class="glass pcard tilt reveal ${i===0?'first':''} ${p.kind==='motion'?'film':''}" data-tilt href="/work/${p.slug}" style="--d:${i*90}ms">
         <div class="media"><img src="${p.cover}" alt="${esc(p.name)} case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">${esc(p.label)}</span><h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p></div>
       </a>`;
@@ -1086,7 +1143,55 @@
       const m = String(display).match(/^(\d[\d,]*)(\D*)$/);
       return m ? {n: m[1].replace(/,/g,''), suffix: m[2]} : null;
     }
+    function fmtT(t){ return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); }
+    function motionMarkup(p){
+      const next = projects[p.next];
+      const lo = matchMedia('(max-width:700px)').matches;
+      return `
+      <header class="case-top"><div class="wrap">
+        <p class="label reveal">${esc(p.label)}</p>
+        <h1 class="split-h1">${esc(p.name)}</h1>
+        <div class="intro reveal">
+          <p>${esc(p.argument)}</p>
+          <div class="meta-grid">
+            <div class="glass"><span>Role</span><strong>${esc(p.roleLine)}</strong></div>
+            <div class="glass"><span>Format</span><strong>${esc(p.formatLine)}</strong></div>
+            <div class="glass"><span>Length</span><strong>${esc(p.lengthLine)}</strong></div>
+            <div class="glass"><span>Subject</span><strong>${esc(p.subjectLine)}</strong></div>
+          </div>
+        </div>
+      </div></header>
+      <div class="wrap film-wrap">
+        <div class="glass film reveal">
+          <video id="film-video" controls playsinline preload="none" poster="${p.poster}" aria-label="${esc(p.name)}, an 85-second motion graphics film"><source src="${lo ? p.videoLo : p.videoHi}" type="video/mp4"><source src="${p.videoWebm}" type="video/webm"></video>
+        </div>
+        <p class="film-note reveal">Sound on for the full film.</p>
+      </div>
+      <div class="wrap film-body">
+        <section class="block reveal">
+          <p class="label">01 / The film</p>
+          <h2>A story told in numbers</h2>
+          <p>${esc(p.overview)}</p>
+          <div class="numbers">${p.numbers.map(n => `<div class="glass"><b>${esc(n[0])}</b><span>${esc(n[1])}</span></div>`).join('')}</div>
+        </section>
+        <section class="block reveal">
+          <p class="label">02 / Scenes</p>
+          <h2>Jump to a scene</h2>
+          <div class="chapters">${p.chapters.map(c => `<button type="button" class="glass chap" data-seek="${c.t}"><img src="${c.img}" alt="" loading="lazy" decoding="async"><span class="ct">${fmtT(c.t)}</span><b>${esc(c.title)}</b><p>${esc(c.note)}</p></button>`).join('')}</div>
+        </section>
+        <section class="block reveal">
+          <p class="label">03 / Approach</p>
+          <h2>What holds it together</h2>
+          <div class="proof">${p.points.map(r => `<div class="glass tilt"><h3>${esc(r[0])}</h3><p>${esc(r[1])}</p></div>`).join('')}</div>
+        </section>
+      </div>
+      <section class="next"><div class="wrap"><a class="glass route-link" href="/work/${next.slug}" data-tilt>
+        <span class="label">Next case study</span>
+        <strong>${esc(next.name)} <em>→</em></strong>
+      </a></div></section>`;
+    }
     function caseMarkup(p){
+      if (p.kind === 'motion') return motionMarkup(p);
       const next = projects[p.next];
       const isKitlab = p.slug === 'kitlab-fs';
       const s = p.slug;
@@ -1268,6 +1373,20 @@
       markScrollable();
     }
     document.addEventListener('click', e => {
+      const sk = e.target.closest('[data-seek]');
+      if (sk) {
+        const v = document.getElementById('film-video'); if (!v) return;
+        const t = +sk.dataset.seek;
+        const go = () => {
+          const start = () => v.play().catch(()=>{});
+          if (Math.abs(v.currentTime - t) < .2) { start(); return; }
+          v.addEventListener('seeked', start, {once:true});
+          v.currentTime = t;
+        };
+        if (v.readyState < 1) { v.addEventListener('loadedmetadata', go, {once:true}); v.load(); } else go();
+        v.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth', block:'center'});
+        return;
+      }
       const t = e.target.closest('.viewer [role=tab]');
       if (t) { selectTab(t.closest('.viewer'), t.dataset.tab); return; }
       const j = e.target.closest('[data-jump-tab]');
@@ -1295,7 +1414,7 @@
       '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ballycorp and LCBO, and how I work with developers and stakeholders.', img:'/assets/figma/kitlab-hero.jpg'},
       '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/figma/kitlab-hero.jpg'}
     };
-    Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} case study — Alejandro Hennessey`, desc: p.summary, img: p.cover}; });
+    Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} ${p.kind === 'motion' ? 'film' : 'case study'} — Alejandro Hennessey`, desc: p.summary, img: p.cover}; });
     function setMeta(attr, key, value){
       let el = document.head.querySelector(`meta[${attr}="${key}"]`);
       if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }

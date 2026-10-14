@@ -366,6 +366,31 @@
       "label": "Open CommerceFlow"
     },
     {
+      "id": "always-moving",
+      "questions": [
+        "what is always moving",
+        "motion graphics",
+        "do you do motion design",
+        "animation",
+        "video project",
+        "show me a motion project"
+      ],
+      "keywords": [
+        "motion",
+        "animation",
+        "animated",
+        "film",
+        "video",
+        "always",
+        "moving",
+        "kinetic",
+        "graphics"
+      ],
+      "answer": "Always Moving is an 85-second motion graphics film Alejandro made about his path: a goalkeeper from age nine in Colombia, a move to Canada, nine countries, four languages and a career in web and e-commerce. It uses kinetic type, illustrated scenes and counters, with scene links so you can jump around.",
+      "link": "/work/always-moving",
+      "label": "Watch Always Moving"
+    },
+    {
       "id": "case_studies",
       "questions": [
         "what projects are there",
@@ -385,7 +410,7 @@
         "examples",
         "samples"
       ],
-      "answer": "There are three case studies. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are concept projects.",
+      "answer": "There are three case studies and one film. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are concept projects. Always Moving is an 85-second motion graphics film about his path from Colombia to Canada.",
       "link": "/work",
       "label": "See all work"
     },
