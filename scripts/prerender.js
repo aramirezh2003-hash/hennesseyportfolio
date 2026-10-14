@@ -19,6 +19,8 @@ const routes = ['/work', '/about', '/contact', '/work/kitlab-fs', '/work/matchup
   for (const route of routes) {
     await page.goto(base + route, { waitUntil: 'load' });
     await page.waitForTimeout(300);
+    // Remove scripts injected at runtime (analytics) so they are not baked into the static HTML
+    await page.evaluate(() => document.querySelectorAll('script[src*="googletagmanager.com"]').forEach(n => n.remove()));
     const html = await page.content();
     const dest = path.join(out, route.slice(1), 'index.html');
     fs.mkdirSync(path.dirname(dest), { recursive: true });
