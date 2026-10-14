@@ -2626,6 +2626,19 @@
     observeAll(document);
     onScroll();
   </script>
+  <!-- Analytics: Vercel Web Analytics (starts working once enabled in the Vercel dashboard) -->
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+  <script defer="" src="/_vercel/insights/script.js"></script>
+  <!-- Google Analytics 4 (session map, realtime, locations). Paste your Measurement ID below, e.g. G-ABC123XYZ9 -->
+  <script>
+    (function(){
+      var GA_ID = '';
+      if (!GA_ID || navigator.doNotTrack === '1') return;
+      var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID; document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+      gtag('js', new Date()); gtag('config', GA_ID, {anonymize_ip: true});
+    })();
+  </script>
 
 
 </body></html>
