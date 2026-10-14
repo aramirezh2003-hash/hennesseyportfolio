@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://www.alejandrohennessey.art/work/commerceflow">
   <link rel="icon" type="image/png" href="/assets/brand/ah-monogram.png">
   <link rel="apple-touch-icon" href="/assets/brand/ah-monogram.png">
-  <meta name="theme-color" content="#2f4bff">
+  <meta name="theme-color" content="#4d6bff">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Alejandro Hennessey">
   <meta property="og:title" content="CommerceFlow case study — Alejandro Hennessey">
@@ -27,269 +27,371 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f6f4ef;--surface:#ffffff;--ink:#14161c;--ink-2:#3b4150;--muted:#5f6576;
-      --line:#dcd9d0;--accent:#2f4bff;--accent-ink:#ffffff;--chip:#ebe8e0;--yellow:#ffdd1f;
+      --bg:#e9ecf4;--ink:#0d1020;--ink-2:#353a4f;--muted:#5d6480;--line:rgba(13,16,32,.12);
+      --accent:#4d6bff;--accent2:#c25cff;--accent3:#ff8a5c;--yellow:#ffd23f;
+      --glass:rgba(255,255,255,.42);--glass-strong:rgba(255,255,255,.7);--chip:rgba(13,16,32,.06);
+      --blob-o:.6;
       --serif:"Instrument Serif",Georgia,serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-      --max:1200px;--r:18px;
+      --max:1220px;--r:30px;--ease:cubic-bezier(.2,.7,.2,1);
     }
     @media (prefers-color-scheme:dark){
-      :root:not([data-theme="light"]){--bg:#0e1015;--surface:#161922;--ink:#f1efe9;--ink-2:#c9cdd8;--muted:#a3a9b8;--line:#2a2f3c;--accent:#8ea0ff;--accent-ink:#0e1015;--chip:#1d212c}
+      :root:not([data-theme="light"]){--bg:#06070c;--ink:#f3f4f9;--ink-2:#c9cde0;--muted:#8d93ab;--line:rgba(255,255,255,.12);--glass:rgba(30,34,56,.42);--glass-strong:rgba(44,49,78,.62);--chip:rgba(255,255,255,.08);--blob-o:.28}
     }
-    :root[data-theme="dark"]{--bg:#0e1015;--surface:#161922;--ink:#f1efe9;--ink-2:#c9cdd8;--muted:#a3a9b8;--line:#2a2f3c;--accent:#8ea0ff;--accent-ink:#0e1015;--chip:#1d212c}
+    :root[data-theme="dark"]{--bg:#06070c;--ink:#f3f4f9;--ink-2:#c9cde0;--muted:#8d93ab;--line:rgba(255,255,255,.12);--glass:rgba(30,34,56,.42);--glass-strong:rgba(44,49,78,.62);--chip:rgba(255,255,255,.08);--blob-o:.28}
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
     body.menu-open{overflow:hidden}
     img,video{display:block;width:100%;height:auto}
     a{color:inherit;text-decoration:none}
-    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-    h1,h2,h3{margin:0;font-weight:400;letter-spacing:-.02em;line-height:1.05}
+    button{font:inherit}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+    h1,h2,h3{margin:0;font-weight:400;letter-spacing:-.02em;line-height:1.02}
     p{margin:0 0 1em}
-    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-    .serif{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
-    .em{font-style:italic;color:var(--accent)}
-    .label{font:600 12px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto;position:relative}
+    .label{font:600 12px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
     .muted{color:var(--muted)}
+    .serif{font-family:var(--serif);font-weight:400}
+    em{font-style:italic;background:linear-gradient(100deg,var(--accent),var(--accent2) 45%,var(--accent3));-webkit-background-clip:text;background-clip:text;color:transparent}
     .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:10px;font:600 14px var(--sans)}
     .skip:focus{top:12px}
+    [hidden]{display:none!important}
 
-    /* Nav */
-    .nav{position:fixed;inset:0 0 auto;z-index:50;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .nav-in{height:68px;display:flex;align-items:center;justify-content:space-between}
+    /* Ambient background */
+    .bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:var(--bg)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:var(--blob-o);animation:float 18s ease-in-out infinite;will-change:transform}
+    .b1{width:48vw;height:48vw;left:-12vw;top:-14vw;background:#8fa6ff}
+    .b2{width:42vw;height:42vw;right:-14vw;top:18vh;background:#f5a8e6;animation-duration:23s}
+    .b3{width:36vw;height:36vw;left:28vw;bottom:-18vh;background:#9ff0cf;animation-duration:27s}
+    .grain{position:absolute;inset:0;opacity:.09;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+    @keyframes float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(40px,-50px,0) scale(1.08)}}
+    .cursor-glow{position:fixed;left:0;top:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;background:radial-gradient(closest-side,rgba(77,107,255,.16),transparent);pointer-events:none;z-index:-1;opacity:0;transition:opacity .4s}
+    .progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));z-index:200}
+
+    /* Liquid glass */
+    .glass{position:relative;isolation:isolate;background:linear-gradient(145deg,var(--glass-strong),var(--glass) 55%,rgba(255,255,255,.06));-webkit-backdrop-filter:blur(26px) saturate(190%) brightness(1.04);backdrop-filter:blur(26px) saturate(190%) brightness(1.04);border:1px solid rgba(255,255,255,.55);border-radius:var(--r);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),inset 0 -1px 0 rgba(255,255,255,.12),0 30px 70px -28px rgba(20,24,70,.35);transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .6s}
+    .glass::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.5),transparent 45%);opacity:0;transition:opacity .5s;pointer-events:none;z-index:-1}
+    .glass:hover::before{opacity:1}
+    .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,0) 28%,rgba(255,255,255,0) 72%,rgba(255,255,255,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+    .glass:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 40px 80px -30px rgba(20,24,70,.45)}
+    .tilt{transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d}
+
+    /* Insight badge + tooltip */
+    .ibadge{position:absolute;top:16px;right:16px;z-index:3;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;color:var(--accent);background:var(--glass-strong);border:1px solid rgba(255,255,255,.6);box-shadow:0 6px 18px rgba(20,24,70,.18);transition:transform .5s var(--ease)}
+    .has-insight:hover .ibadge,.has-insight:focus-visible .ibadge{transform:rotate(90deg) scale(1.1)}
+    .insight{position:fixed;left:0;top:0;z-index:150;max-width:310px;padding:16px 18px;border-radius:22px;pointer-events:none;opacity:0;transform:translateY(8px) scale(.97);transition:opacity .3s,transform .4s var(--ease)}
+    .insight.show{opacity:1;transform:none}
+    .ilabel{display:flex;align-items:center;gap:8px;font:600 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    #insight-text{margin:8px 0 0;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+
+    /* Floating nav */
+    .nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1040px,calc(100% - 24px));z-index:120;border-radius:999px;padding:8px 10px 8px 16px}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:10px;font:600 15px var(--sans);letter-spacing:-.01em}
-    .brand img{width:32px;height:32px;border-radius:9px}
-    .links{display:flex;gap:26px;align-items:center}
-    .links a{font:500 14px var(--sans);color:var(--ink-2)}
-    .links a:hover,.links a.active{color:var(--ink)}
-    .links a.cta{padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
-    .links a.cta:hover{color:var(--bg);opacity:.9}
-    .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 13px var(--sans);color:var(--ink);cursor:pointer}
+    .brand img{width:30px;height:30px;border-radius:9px;box-shadow:0 4px 12px rgba(20,24,70,.25)}
+    .links{display:flex;gap:6px;align-items:center}
+    .links a:not(.cta){font:500 14px var(--sans);color:var(--ink-2);padding:9px 14px;border-radius:999px;transition:background .3s,color .3s}
+    .links a:not(.cta):hover,.links a.active{color:var(--ink);background:var(--chip)}
+    .links a.cta{padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--bg);font:600 14px var(--sans);display:inline-block}
+    .menu-btn{display:none;background:var(--chip);border:0;border-radius:999px;padding:9px 16px;font:600 13px var(--sans);color:var(--ink);cursor:pointer}
 
-    main{padding-top:68px}
+    main{position:relative;z-index:1;padding-top:0}
     .page{display:none}.page.active{display:block}
+    .page.active{animation:pageIn .8s var(--ease)}
+    @keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    ::view-transition-old(root){animation:vtOut .25s var(--ease) both}
+    ::view-transition-new(root){animation:vtIn .5s var(--ease) both}
+    @keyframes vtOut{to{opacity:0;transform:scale(.99)}}
+    @keyframes vtIn{from{opacity:0;transform:scale(1.01)}}
+
+    /* Reveal + split text */
+    .reveal{opacity:0;translate:0 36px;filter:blur(12px);transition:opacity 1.1s var(--ease),translate 1.1s var(--ease),filter 1.1s var(--ease);transition-delay:var(--d,0ms)}
+    .reveal.glass{transition:opacity 1.1s var(--ease),translate 1.1s var(--ease),filter 1.1s var(--ease),transform .6s var(--ease),box-shadow .6s var(--ease),border-color .6s;transition-delay:var(--d,0ms)}
+    .reveal.in{opacity:1;translate:none;filter:none}
+    .w{display:inline-block;opacity:0;transform:translateY(.45em) rotateX(55deg);transform-origin:50% 100%;animation:wordIn 1.1s var(--ease) forwards;animation-delay:calc(var(--i,0) * 70ms + 180ms)}
+    @keyframes wordIn{to{opacity:1;transform:none}}
 
     /* Buttons */
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;background:var(--ink);color:var(--bg);font:600 14px var(--sans);border:1px solid var(--ink);transition:transform .2s,opacity .2s}
-    .btn:hover{transform:translateY(-2px)}
-    .btn.ghost{background:transparent;color:var(--ink)}
+    .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font:600 15px var(--sans);border:0;cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .4s;will-change:transform}
+    .btn:hover{box-shadow:0 18px 40px -14px rgba(20,24,70,.45)}
+    .btn.primary{background:var(--ink);color:var(--bg)}
+    .btn.primary::after,.btn.glass-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-120%);transition:transform 1s var(--ease);pointer-events:none;z-index:2}
+    .btn:hover::after{transform:translateX(120%)}
+    .btn.glass-btn{border-radius:999px;color:var(--ink)}
+    .btn span{transition:transform .5s var(--ease)}
+    .btn:hover span{transform:translateX(4px)}
 
     /* Hero */
-    .hero{padding:150px 0 80px}
-    .status{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;font:500 13px var(--sans);color:var(--ink-2);background:var(--surface)}
-    .status i{width:8px;height:8px;border-radius:50%;background:#2fb36b;box-shadow:0 0 0 4px rgba(47,179,107,.18)}
-    .hero h1{font-size:clamp(54px,9vw,132px);line-height:.96;margin:34px 0 36px;letter-spacing:-.035em;max-width:1000px}
-    .hero-row{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
-    .hero-row p{font-size:20px;color:var(--ink-2);max-width:500px;margin:0}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .hero-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font:500 14px var(--sans)}
-    .hero-links a{color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
-    .hero-links a:hover{color:var(--ink);border-color:var(--ink)}
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:150px 0 70px}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;font:500 13px var(--sans);color:var(--ink-2);align-self:flex-start;margin-bottom:34px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#2fc27a;box-shadow:0 0 0 0 rgba(47,194,122,.6);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,194,122,.55)}70%{box-shadow:0 0 0 12px rgba(47,194,122,0)}100%{box-shadow:0 0 0 0 rgba(47,194,122,0)}}
+    .hero h1{font:400 clamp(60px,10.5vw,168px)/.9 var(--serif);letter-spacing:-.03em;max-width:1100px}
+    .hero-row{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-top:44px}
+    .lede{font-size:clamp(18px,1.6vw,22px);color:var(--ink-2);max-width:520px;margin:0}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
 
-    /* Proof strip */
-    .proof-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
-    .stat{padding:30px 24px 30px 0}
-    .stat + .stat{padding-left:24px;border-left:1px solid var(--line)}
-    .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,68px);line-height:1;letter-spacing:-.02em;margin-bottom:10px}
-    .stat span{color:var(--muted);font-size:14px;line-height:1.45;display:block}
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:80px}
+    .stat{padding:26px 24px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;border-radius:26px}
+    .stat b{font:400 clamp(52px,6vw,92px)/.9 var(--serif);letter-spacing:-.02em}
+    .stat span{color:var(--muted);font-size:14px;line-height:1.45;padding-right:30px}
+
+    /* Marquee */
+    .marquee{overflow:hidden;margin:110px 0 0;border-block:1px solid var(--line);padding:20px 0;position:relative}
+    .track{display:flex;gap:56px;width:max-content;animation:marq 34s linear infinite;font:400 clamp(34px,4.5vw,64px)/1 var(--serif);white-space:nowrap;color:var(--ink-2)}
+    .track span:nth-child(3n+2){font-style:italic;color:var(--accent)}
+    .track span:nth-child(3n+3){color:var(--accent3)}
+    .marquee:hover .track{animation-play-state:paused}
+    @keyframes marq{to{transform:translateX(-50%)}}
 
     /* Sections */
-    .sec{padding:110px 0}
-    .sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:48px;flex-wrap:wrap}
-    .sec-head h2{font-size:clamp(44px,6vw,84px)}
-    .sec-head p{max-width:380px;color:var(--muted);margin:0}
+    .sec{padding:140px 0}
+    .sec-h{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+    .sec-h h2{font:400 clamp(52px,7.5vw,116px)/.9 var(--serif);letter-spacing:-.03em}
+    .sec-h p{max-width:360px;color:var(--muted);margin:0}
 
-    /* Work index rows */
-    .rows{border-top:1px solid var(--ink)}
-    .row{display:grid;grid-template-columns:70px 1.3fr 1fr 60px;gap:24px;align-items:center;padding:30px 0;border-bottom:1px solid var(--line);transition:padding .3s}
-    .row:hover{padding-left:12px}
-    .row .n{font:500 14px var(--sans);color:var(--muted)}
-    .row h3{font-family:var(--serif);font-size:clamp(38px,4.6vw,64px);letter-spacing:-.02em}
-    .row .meta p{margin:0;color:var(--muted);font-size:15px}
-    .row .meta .label{display:block;margin-bottom:8px;color:var(--accent)}
-    .row .go{justify-self:end;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:18px;transition:.3s}
-    .row:hover .go{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+    /* Project cards */
+    .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .pcard{display:flex;flex-direction:column;padding:12px;border-radius:34px;color:var(--ink);cursor:pointer;text-decoration:none}
+    .pcard.first{grid-column:span 2}
+    .pcard .media{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:24px;background:var(--chip)}
+    .pcard.first .media{aspect-ratio:16/8.5}
+    .pcard .media img{height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+    .pcard:hover .media img{transform:scale(1.06)}
+    .pcard .media::after{content:"View case →";position:absolute;left:14px;bottom:14px;padding:10px 16px;border-radius:999px;background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font:600 13px var(--sans);transform:translateY(160%);transition:transform .6s var(--ease)}
+    .pcard:hover .media::after{transform:none}
+    .pcard .txt{padding:22px 12px 12px}
+    .pcard h3{font:400 clamp(40px,4.4vw,60px)/1 var(--serif);margin:12px 0 10px}
+    .pcard p{margin:0;color:var(--muted);font-size:15px;max-width:520px}
+    .pcard .label{color:var(--accent)}
 
-    /* Experience list */
-    .exp{border-top:1px solid var(--ink)}
-    .exp-row{display:grid;grid-template-columns:260px 1fr 180px;gap:30px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
-    .exp-row h3{font-family:var(--serif);font-size:34px;letter-spacing:-.01em}
-    .exp-row .role{color:var(--ink-2);font-size:15px;margin:0}
-    .exp-row .when{color:var(--muted);font-size:14px;text-align:right}
-    .exp-row .what{color:var(--muted);font-size:15px;margin:0}
+    /* Experience rows */
+    .xlist{display:grid;gap:14px}
+    .xrow{display:grid;grid-template-columns:260px 1fr 180px;gap:30px;padding:30px 34px;border-radius:28px;align-items:center}
+    .xrow h3{font:400 clamp(34px,3.6vw,50px)/1 var(--serif)}
+    .xrow .role{font-weight:600;font-size:15px;margin:0 0 6px}
+    .xrow .what{color:var(--muted);font-size:15px;margin:0}
+    .xrow .when{color:var(--muted);font-size:14px;text-align:right}
 
-    /* Cards */
-    .cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-    .card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .3s,box-shadow .3s}
-    .card:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(20,22,28,.12)}
-    .card .img{aspect-ratio:4/3;overflow:hidden;background:var(--chip)}
-    .card img{height:100%;object-fit:cover}
-    .card .txt{padding:24px 26px 28px}
-    .card h3{font-family:var(--serif);font-size:38px;margin:10px 0 8px}
-    .card p{margin:0;color:var(--muted);font-size:15px}
-    .card .label{color:var(--accent)}
-    .card.wide{grid-column:1/-1}
-    .card.wide .img{aspect-ratio:21/9}
+    /* Principles */
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .principle{padding:34px;border-radius:30px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+    .principle .n{font:600 12px var(--sans);letter-spacing:.12em;color:var(--accent)}
+    .principle h3{font:400 clamp(34px,3.4vw,46px)/1.02 var(--serif);margin:40px 0 14px}
+    .principle p{margin:0;color:var(--muted);font-size:15px}
 
-    /* Motion band */
-    .band{overflow:hidden;background:var(--ink)}
-    .band-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-    .band-grid video{aspect-ratio:16/10;object-fit:cover;width:100%;height:100%}
+    /* CTA */
+    .cta-card{padding:clamp(40px,6vw,88px);border-radius:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;overflow:hidden}
+    .cta-card h2{font:400 clamp(52px,7vw,104px)/.92 var(--serif);letter-spacing:-.03em}
+    .cta-card .acts{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
 
     /* About + contact */
-    .split{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:start}
-    .split h2{font-size:clamp(40px,5vw,68px)}
+    .split{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+    .split h2{font:400 clamp(46px,6vw,92px)/.95 var(--serif);letter-spacing:-.03em}
     .split p{color:var(--ink-2);font-size:18px}
-    .facts{border-top:1px solid var(--line);margin-top:34px}
-    .facts div{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
-    .facts strong{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:4px}
-    .facts span{color:var(--ink-2)}
-    .panel{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:40px}
-    .panel h3{font-family:var(--serif);font-size:44px;margin-bottom:16px}
-    .contact-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
-    .contact-list{border-top:1px solid var(--line)}
-    .contact-list a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);font:500 16px var(--sans)}
-    .page-top{padding:160px 0 60px}
-    .page-top h1{font-size:clamp(56px,8.5vw,124px);line-height:.96;letter-spacing:-.035em;margin:18px 0 22px}
-    .page-top p{font-size:20px;color:var(--ink-2);max-width:640px;margin:0}
+    .facts{display:grid;gap:10px;margin-top:34px}
+    .facts div{padding:18px 22px;border-radius:22px;display:grid;grid-template-columns:150px 1fr;gap:16px}
+    .facts strong{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+    .facts span{color:var(--ink-2);font-size:15px}
+    .page-top{padding:200px 0 80px}
+    .page-top h1{font:400 clamp(70px,11vw,176px)/.88 var(--serif);letter-spacing:-.035em;margin:20px 0 26px}
+    .page-top p{font-size:clamp(18px,1.6vw,22px);color:var(--ink-2);max-width:640px;margin:0}
+    .contact-card{padding:clamp(34px,5vw,64px);border-radius:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+    .contact-card h2{font:400 clamp(44px,5.5vw,84px)/.95 var(--serif);letter-spacing:-.03em;margin-bottom:18px}
+    .clinks{display:grid;gap:10px}
+    .clinks a{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-radius:22px;font:500 16px var(--sans);transition:transform .5s var(--ease),background .4s}
+    .clinks a:hover{transform:translateX(8px);background:var(--chip)}
+    .clinks a span{transition:transform .5s var(--ease)}
+    .clinks a:hover span{transform:translate(3px,-3px)}
+    .copy{margin-top:18px}
+    .copy.done{background:#2fc27a;color:#fff}
 
     /* Case study */
-    .case-top{padding:150px 0 50px}
-    .case-top h1{font-size:clamp(60px,10vw,150px);line-height:.92;letter-spacing:-.04em;margin:18px 0 34px}
-    .case-top .intro{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:end}
-    .case-top .intro p{font-size:22px;color:var(--ink-2);margin:0}
-    .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .meta-grid div{border-top:1px solid var(--ink);padding-top:12px}
-    .meta-grid span{display:block;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-    .meta-grid strong{font:500 15px var(--sans)}
-    .hero-img{margin-top:50px;border-radius:24px;overflow:hidden;background:var(--chip);border:1px solid var(--line)}
+    .case-top{padding:190px 0 40px}
+    .case-top h1{font:400 clamp(84px,15vw,230px)/.85 var(--serif);letter-spacing:-.04em;margin:20px 0 40px}
+    .case-top .intro{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
+    .case-top .intro p{font-size:clamp(20px,2vw,28px);color:var(--ink-2);margin:0;line-height:1.3;font-family:var(--serif)}
+    .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .meta-grid div{padding:16px 18px;border-radius:20px}
+    .meta-grid span{display:block;font:600 10px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    .meta-grid strong{font:500 14.5px/1.35 var(--sans)}
+    .hero-img{margin-top:56px;border-radius:40px;overflow:hidden;position:relative;padding:12px}
+    .hero-img .frame{border-radius:30px;overflow:hidden;transform:translateY(calc(var(--p,0) * -40px)) scale(1.06);transition:transform .2s linear}
     .hero-img img{aspect-ratio:16/8;object-fit:cover}
-    .case-layout{display:grid;grid-template-columns:200px 1fr;gap:70px;padding:90px 0}
-    .case-nav{position:sticky;top:100px;align-self:start;display:grid;gap:4px}
-    .case-nav a{padding:8px 0;font:500 14px var(--sans);color:var(--muted)}
-    .case-nav a:hover{color:var(--ink)}
-    .block{padding-bottom:80px;margin-bottom:80px;border-bottom:1px solid var(--line)}
+    .case-layout{display:grid;grid-template-columns:200px 1fr;gap:70px;padding:110px 0 40px}
+    .case-nav{position:sticky;top:110px;align-self:start;padding:18px 14px;border-radius:26px;display:grid;gap:2px}
+    .case-nav a{padding:9px 12px;font:500 14px var(--sans);color:var(--muted);border-radius:14px;transition:background .3s,color .3s}
+    .case-nav a:hover{color:var(--ink);background:var(--chip)}
+    .block{padding-bottom:120px;margin-bottom:120px;border-bottom:1px solid var(--line)}
     .block:last-child{border:0;margin:0;padding:0}
-    .block h2{font-size:clamp(36px,4.6vw,60px);margin:14px 0 22px}
-    .block > p{font-size:18px;color:var(--ink-2);max-width:700px}
-    .question{margin:34px 0;padding:30px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);font-family:var(--serif);font-size:clamp(26px,3vw,36px);line-height:1.2}
-    .question span{display:block;font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-    .steps{margin-top:30px;border-top:1px solid var(--line)}
-    .step{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
-    .step .num{font:600 13px var(--sans);color:var(--accent);padding-top:6px}
-    .step h3{font-size:24px;font-family:var(--serif);margin-bottom:6px}
+    .block h2{font:400 clamp(48px,6vw,88px)/.95 var(--serif);letter-spacing:-.03em;margin:16px 0 24px}
+    .block > p{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);max-width:720px}
+    .question{margin:40px 0;padding:36px;border-radius:34px;font:400 clamp(30px,3.6vw,46px)/1.12 var(--serif);letter-spacing:-.01em}
+    .question span{display:block;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+    .steps{margin-top:34px;display:grid;gap:12px}
+    .step{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:26px 28px;border-radius:26px}
+    .step .num{font:600 13px var(--sans);color:var(--accent);padding-top:8px}
+    .step h3{font:400 30px/1.1 var(--serif);margin-bottom:6px}
     .step p{margin:0;color:var(--muted)}
-    .bet{padding:34px;border-radius:var(--r);background:var(--accent);color:var(--accent-ink);font-family:var(--serif);font-size:clamp(30px,3.6vw,46px);line-height:1.12;margin:6px 0 0}
-    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
-    .gallery img{height:100%;object-fit:cover;border-radius:16px;border:1px solid var(--line);background:var(--chip)}
-    .gallery .wide{grid-column:1/-1}
-    .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
-    .proof div{padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
-    .proof b{display:block;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-    .proof h3{font-size:20px;margin-bottom:8px;letter-spacing:-.01em}
-    .proof p{margin:0;color:var(--muted);font-size:14px}
-    .results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
-    .results div{padding:26px 24px;background:var(--ink);color:var(--bg);border-radius:var(--r)}
-    .results b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,58px);line-height:1;margin-bottom:12px;letter-spacing:-.02em;color:var(--yellow)}
-    .results span{display:block;font-size:14px;line-height:1.45;color:#d6dae3}
-    .case-video{margin-top:30px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-    .next{border-top:1px solid var(--ink);padding:70px 0 110px}
-    .next a{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .bet{padding:clamp(34px,4vw,56px);border-radius:36px;background:linear-gradient(120deg,var(--accent),var(--accent2) 55%,var(--accent3));color:#fff;font:400 clamp(36px,4.6vw,62px)/1.05 var(--serif);letter-spacing:-.02em;box-shadow:0 40px 90px -30px rgba(120,80,255,.55)}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+    .gallery .g{border-radius:28px;overflow:hidden;padding:8px}
+    .gallery .g.wide{grid-column:1/-1}
+    .gallery img{height:100%;object-fit:cover;border-radius:22px;transition:transform 1.2s var(--ease)}
+    .gallery .g:hover img{transform:scale(1.04)}
+    .case-video{margin-top:30px;border-radius:30px;overflow:hidden;padding:8px}
+    .case-video video{border-radius:24px}
+    .results{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+    .results > div{padding:30px 26px;border-radius:30px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+    .results b{font:400 clamp(54px,5.6vw,86px)/.9 var(--serif);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+    .results span{color:var(--ink-2);font-size:15px}
+    .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+    .proof > div{padding:30px;border-radius:30px;min-height:220px}
+    .proof b{display:block;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+    .proof h3{font:400 34px/1.05 var(--serif);margin-bottom:10px}
+    .proof p{margin:0;color:var(--muted);font-size:15px}
+    .next{padding:90px 0 130px}
+    .next a{display:block;padding:clamp(40px,5vw,70px);border-radius:40px;transition:transform .6s var(--ease)}
+    .next a:hover{transform:translateY(-6px) scale(1.005)}
     .next .label{color:var(--muted)}
-    .next strong{font-family:var(--serif);font-weight:400;font-size:clamp(48px,8vw,108px);letter-spacing:-.03em;line-height:1}
-    .next:hover strong{color:var(--accent)}
+    .next strong{display:block;margin-top:14px;font:400 clamp(60px,10vw,150px)/.9 var(--serif);letter-spacing:-.03em}
+    .next:hover strong em,.next a:hover strong{color:var(--accent)}
 
-
-    /* Interactive user flows */
-    .flow-note{color:var(--muted);font-size:15px;margin:0 0 26px}
+    /* Interactive flows */
+    .flow-note{color:var(--muted);font-size:15px;margin:0 0 22px}
     .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 26px;font:500 13px var(--sans);color:var(--ink-2)}
     .legend span{display:inline-flex;align-items:center;gap:8px}
-    .legend i{width:14px;height:14px;border-radius:4px;display:inline-block;border:2px solid}
-    .lane{margin-top:26px}
+    .legend i{width:14px;height:14px;border-radius:5px;display:inline-block;border:2px solid}
+    .lane{margin-top:28px}
     .lane > .label{margin-bottom:12px}
-    .fnode{margin:8px 0}
-    .fbtn{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:14px 16px;border-radius:14px;border:2px solid;background:var(--surface);color:var(--ink);font:500 16px/1.35 var(--sans);cursor:pointer;transition:transform .2s,box-shadow .2s}
-    .fbtn:hover{transform:translateX(3px);box-shadow:0 10px 24px rgba(20,22,28,.08)}
-    .ftag{flex:none;font:600 10px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;min-width:74px;color:var(--muted)}
+    .fnode{margin:10px 0}
+    .fbtn{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:16px 18px;border-radius:20px;border:1.5px solid;background:var(--glass-strong);color:var(--ink);font:500 16px/1.35 var(--sans);cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+    .fbtn:hover{transform:translateX(6px);box-shadow:0 14px 30px -14px rgba(20,24,70,.35)}
+    .ftag{flex:none;font:600 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;min-width:82px;color:var(--muted)}
     .flabel{flex:1}
-    .fcaret{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:600 16px/1 var(--sans);border:1px solid var(--line);transition:transform .2s}
+    .fcaret{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:500 18px/1 var(--sans);background:var(--chip);transition:transform .5s var(--ease)}
     .fnode.open > .fbtn .fcaret{transform:rotate(45deg)}
     .fnode.t-start > .fbtn,.fnode.t-end > .fbtn{background:var(--ink);color:var(--bg);border-color:var(--ink);border-radius:999px}
     .fnode.t-start > .fbtn .ftag,.fnode.t-end > .fbtn .ftag{color:var(--bg);opacity:.7}
-    .fnode.t-start > .fbtn .fcaret,.fnode.t-end > .fbtn .fcaret{border-color:var(--bg)}
-    .fnode.t-action > .fbtn{border-color:#b56cf5;background:color-mix(in srgb,#b56cf5 12%,var(--surface))}
+    .fnode.t-start > .fbtn .fcaret,.fnode.t-end > .fbtn .fcaret{background:rgba(255,255,255,.15)}
+    .fnode.t-action > .fbtn{border-color:#b56cf5}
     .fnode.t-action > .fbtn .ftag{color:#8a3fd6}
-    .fnode.t-decision > .fbtn{border-color:#22aef0;background:color-mix(in srgb,#22aef0 12%,var(--surface))}
+    .fnode.t-decision > .fbtn{border-color:#22aef0}
     .fnode.t-decision > .fbtn .ftag{color:#0b7fb8}
-    .fnode.t-choice > .fbtn{border-color:var(--line);border-style:dashed}
-    .fnode.t-system > .fbtn{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+    .fnode.t-choice > .fbtn{border-style:dashed;border-color:var(--line)}
+    .fnode.t-system > .fbtn{border-color:var(--accent)}
     .fnode.t-system > .fbtn .ftag{color:var(--accent)}
-    .fkids{margin:6px 0 0 20px;padding-left:22px;border-left:2px solid var(--line)}
-    .fdetail{margin:10px 0 4px 6px;padding:12px 14px;border-radius:12px;background:var(--chip);color:var(--ink-2);font-size:15px;line-height:1.5}
+    .fkids{margin:8px 0 0 18px;padding-left:22px;border-left:2px solid var(--line)}
+    .fdetail{margin:10px 0 4px 6px;padding:14px 16px;border-radius:18px;background:var(--chip);color:var(--ink-2);font-size:15px;line-height:1.5}
     .fnode:not(.open) > .fkids,.fnode:not(.open) > .fdetail{display:none}
-    .flow-controls{display:flex;gap:10px;margin-top:22px}
-    .flow-controls button{padding:9px 14px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 13px var(--sans);cursor:pointer}
-    .flow-controls button:hover{background:var(--ink);color:var(--bg)}
-    @media (max-width:560px){.ftag{min-width:0;display:none}.fkids{margin-left:10px;padding-left:14px}}
+    .flow-controls{display:flex;gap:10px;margin-top:24px}
+    .flow-controls button{padding:10px 16px;border-radius:999px;border:0;background:var(--chip);color:var(--ink);font:600 13px var(--sans);cursor:pointer;transition:background .3s,transform .3s}
+    .flow-controls button:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
 
-    footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}
+    /* Footer */
+    footer{position:relative;z-index:1;padding:50px 0 130px;color:var(--muted);font-size:14px}
     footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
-    /* Responsive */
+    /* Willow */
+    .willow{position:fixed;right:22px;bottom:22px;z-index:140;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+    .willow-orb{display:flex;align-items:center;gap:12px;padding:7px 20px 7px 7px;border-radius:999px;cursor:pointer;color:var(--ink);border:0;transition:transform .5s var(--ease)}
+    .willow-orb:hover{transform:translateY(-3px) scale(1.02)}
+    .willow-orb .label-txt{font:600 14px var(--sans)}
+    .orb{position:relative;width:44px;height:44px;border-radius:50%;background:conic-gradient(from 0deg,#8fa6ff,#f5a8e6,#9ff0cf,#ffd28f,#8fa6ff);animation:spin 7s linear infinite;box-shadow:0 0 26px rgba(143,166,255,.75)}
+    .orb::after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--glass-strong);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+    .orb::before{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--accent);z-index:1;animation:breathe 2.6s ease-in-out infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
+    .willow-panel{width:min(390px,calc(100vw - 28px));height:min(580px,72vh);display:flex;flex-direction:column;padding:16px;border-radius:34px;animation:pop .6s var(--ease)}
+    @keyframes pop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+    .wp-head{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 12px}
+    .wp-id{display:flex;align-items:center;gap:12px}
+    .wp-id .orb{width:34px;height:34px}
+    .wp-id .orb::before{width:8px;height:8px;margin:-4px 0 0 -4px}
+    .wp-id b{display:block;font:600 16px var(--sans)}
+    .wp-id small{color:var(--muted);font-size:12px}
+    .wp-close{width:34px;height:34px;border-radius:50%;border:0;background:var(--chip);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;transition:transform .4s var(--ease)}
+    .wp-close:hover{transform:rotate(90deg)}
+    .wp-log{flex:1;overflow-y:auto;padding:8px 4px;scroll-behavior:smooth}
+    .msg{max-width:86%;padding:11px 15px;border-radius:20px;margin:8px 0;font-size:14.5px;line-height:1.48;animation:msgIn .5s var(--ease)}
+    .msg.bot{background:var(--chip);border-bottom-left-radius:6px}
+    .msg.me{margin-left:auto;background:var(--accent);color:#fff;border-bottom-right-radius:6px}
+    .msg a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+    @keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    .typing{display:inline-flex;gap:5px;padding:14px 16px}
+    .typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:bounce 1.1s infinite}
+    .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+    @keyframes bounce{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-5px);opacity:1}}
+    .wp-chips{display:flex;flex-wrap:wrap;gap:6px;padding:8px 2px}
+    .chip{padding:8px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink-2);font-size:13px;cursor:pointer;transition:background .3s,transform .3s}
+    .chip:hover{background:var(--chip);transform:translateY(-2px)}
+    .wp-form{display:flex;gap:8px;padding-top:8px}
+    .wp-form input{flex:1;min-width:0;padding:14px 16px;border-radius:999px;border:1px solid var(--line);background:var(--glass-strong);color:var(--ink);font:15px var(--sans);outline:none;transition:border-color .3s,box-shadow .3s}
+    .wp-form input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(77,107,255,.18)}
+    .wp-form button{width:48px;height:48px;border-radius:50%;border:0;background:var(--ink);color:var(--bg);font-size:18px;cursor:pointer;transition:transform .4s var(--ease)}
+    .wp-form button:hover{transform:scale(1.08) rotate(-8deg)}
+
+    /* Menu + responsive */
     @media (max-width:980px){
-      .proof-strip{grid-template-columns:1fr 1fr}
-      .stat:nth-child(3){border-left:0;padding-left:0}
-      .stat:nth-child(n+3){border-top:1px solid var(--line)}
-      .exp-row{grid-template-columns:1fr;gap:8px}
-      .exp-row .when{text-align:left}
-    }
-    @media (max-width:900px){
-      .hero-row,.split,.case-top .intro,.case-layout,.contact-panel{grid-template-columns:1fr}
-      .case-layout{gap:40px;padding:60px 0}
+      .stats{grid-template-columns:1fr 1fr}
+      .pgrid{grid-template-columns:1fr}
+      .pcard.first{grid-column:auto}
+      .principles{grid-template-columns:1fr}
+      .xrow{grid-template-columns:1fr;gap:10px}
+      .xrow .when{text-align:left}
+      .cta-card,.contact-card,.split,.case-top .intro,.hero-row,.case-layout{grid-template-columns:1fr}
+      .cta-card .acts,.hero-cta{justify-content:flex-start}
+      .case-layout{gap:40px;padding:70px 0 20px}
       .case-nav{display:none}
-      .row{grid-template-columns:44px 1fr 40px}
-      .row .meta{grid-column:2/3}
-      .row .go{grid-row:1/3;grid-column:3}
-      .cards{grid-template-columns:1fr}
-      .band-grid{grid-template-columns:1fr}
       .proof,.results{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr}
-      .gallery .wide{grid-column:auto}
       .menu-btn{display:block}
-      .links{position:fixed;inset:68px 0 auto;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 20px 24px;display:none}
-      .links a{font-size:22px;padding:14px 0;border-bottom:1px solid var(--line);color:var(--ink)}
-      .links a.cta{margin-top:14px;text-align:center;border-radius:999px;border-bottom:0}
+      .links{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;padding:14px;border-radius:28px;display:none}
       .menu-open .links{display:flex}
-      .hero{padding:120px 0 60px}
-      .sec{padding:80px 0}
-      .panel{padding:28px}
+      .links a:not(.cta){font-size:20px;padding:14px 16px}
+      .nav{border-radius:30px}
     }
-    @media (max-width:560px){
+    @media (max-width:600px){
       .wrap{width:calc(100% - 32px)}
-      .proof-strip{grid-template-columns:1fr}
-      .stat,.stat + .stat{padding:22px 0;border-left:0}
-      .stat:nth-child(n+2){border-top:1px solid var(--line)}
-      .hero h1{font-size:54px}
-      .page-top h1{font-size:56px}
-      .case-top h1{font-size:60px}
-      .facts div,.meta-grid{grid-template-columns:1fr}
-      .row h3{font-size:36px}
-      .card h3{font-size:32px}
+      .stats{grid-template-columns:1fr}
+      .hero h1{font-size:clamp(58px,17vw,96px)}
+      .willow-orb .label-txt{display:none}
+      .willow-orb{padding:7px}
+      .ibadge{width:26px;height:26px;font-size:11px}
+      .ftag{display:none}
+      .fkids{margin-left:8px;padding-left:14px}
+      .facts div{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .meta-grid{grid-template-columns:1fr}
     }
-    @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+    @media (hover:hover) and (pointer:fine){.cursor-glow{opacity:1}}
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+      .reveal,.w{opacity:1!important;transform:none!important;translate:none!important;filter:none!important}
+    }
+    /* Keep the ambient background from widening the page */
+    .bg{contain:paint}
+    html{overflow-x:clip}
+    /* Long single-word case titles must fit phone widths */
+    @media (max-width:560px){ .case-top .split-h1{font-size:13.5vw!important} }
   </style>
 </head>
 <body>
+  <div class="bg" aria-hidden="true"><span class="blob b1" style="translate: 0px;"></span><span class="blob b2" style="translate: 0px;"></span><span class="blob b3" style="translate: 0px;"></span><span class="grain"></span></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true" style="transform: scaleX(0);"></div>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="nav">
-    <div class="wrap nav-in">
-      <a class="brand route-link" href="/"><img src="/assets/brand/ah-monogram.png" alt="" width="32" height="32">Alejandro Hennessey</a>
-      <button class="menu-btn" aria-expanded="false" aria-controls="site-links">Menu</button>
+
+  <header class="nav glass" id="nav">
+    <div class="nav-in">
+      <a class="brand route-link" href="/"><img src="/assets/brand/ah-monogram.png" alt="" width="30" height="30">Alejandro Hennessey</a>
       <nav class="links" id="site-links" aria-label="Main">
         <a href="/work" class="route-link active">Work</a>
         <a href="/about" class="route-link">About</a>
-        <a href="/contact" class="route-link cta">Let’s talk</a>
+        <a href="/contact" class="route-link cta" data-magnetic="">Let’s talk</a>
       </nav>
+      <button class="menu-btn" aria-expanded="false" aria-controls="site-links">Menu</button>
     </div>
   </header>
 
@@ -297,166 +399,130 @@
     <!-- HOME -->
     <section class="page" data-path="/">
       <div class="wrap hero">
-        <span class="status"><i></i> Open to product design roles · Toronto · Hybrid or remote</span>
-        <h1>I make complex software <span class="em">clear and usable.</span></h1>
+        <span class="pill glass reveal"><i class="dot"></i>Open to product design roles · Toronto · Hybrid or remote</span>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">I</span> <span class="w" style="--i: 1;">make</span> <span class="w" style="--i: 2;">complex</span> <span class="w" style="--i: 3;">software</span> <span class="w" style="--i: 4;"><em>clear and usable.</em></span></h1>
         <div class="hero-row">
-          <p>Product designer for complex web products. I take work from understanding the problem through engineering review and launch: e-commerce, B2B software and multi-role workflows.</p>
+          <p class="lede reveal">Product designer for complex web products. I take work from the problem through engineering review and launch: e-commerce, B2B software and multi-role workflows.</p>
+          <div class="hero-cta reveal" style="--d:200ms">
+            <a class="btn primary route-link" href="/work" data-magnetic="">See selected work <span>→</span></a>
+            <a class="btn glass glass-btn" href="/contact" data-magnetic="">Get in touch</a>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="reveal" style="--d:0ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Breakdown: the lift came from the purchase redesign, where choices were sequenced instead of shown all at once."><b data-count="58" data-suffix="%">58%</b><span>lift in average order value after the KitLabFS purchase redesign</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+          <div class="reveal" style="--d:90ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Insight: this is the traffic the purchase flows had to handle in the first three months, from launch."><b data-count="450" data-suffix="k+">450k+</b><span>visitors in the store’s first three months</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+          <div class="reveal" style="--d:180ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Breakdown: I owned product pages, funnels, checkout and inventory flows across the whole catalogue."><b data-count="1200" data-suffix="+">1,200+</b><span>products and 7,822 variants I designed flows for</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+          <div class="reveal" style="--d:270ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Breakdown: two developers, two designers and one marketer. I set priorities and reviewed builds before and after release."><b>5</b><span>people led: two developers, two designers, one marketer</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true"><div class="track">
+        <span>E-commerce</span><span>Funnel analysis</span><span>B2B software</span><span>Design systems</span><span>Developer handoff</span><span>Multi-role flows</span><span>Figma</span><span>Shopify</span>
+        <span>E-commerce</span><span>Funnel analysis</span><span>B2B software</span><span>Design systems</span><span>Developer handoff</span><span>Multi-role flows</span><span>Figma</span><span>Shopify</span>
+      </div></div>
+
+      <div class="wrap sec">
+        <div class="sec-h reveal"><h2>Selected <em>work</em></h2><p>Each case study covers the problem, my role, the decisions I made and what changed. Hover a card for a breakdown.</p></div>
+        <div class="pgrid" data-cards=""><a class="glass pcard tilt has-insight reveal first" data-tilt="" href="/work/kitlab-fs" data-insight="Insight: the biggest win came from sequencing choices, not adding features. Average order value rose 58%." style="--d:0ms" tabindex="0">
+        <div class="media"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover" loading="lazy"></div>
+        <div class="txt"><span class="label">E-commerce · Product discovery and purchase</span><h3>KitLab FS</h3><p>Designed and launched a 1,200-product football jersey store, then lifted average order value 58% with a purchase redesign.</p></div>
+      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/matchup" data-insight="Concept insight: one shared match state for organizers and players replaces the group chat." style="--d:90ms" tabindex="0">
+        <div class="media"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover" loading="lazy"></div>
+        <div class="txt"><span class="label">Mobile product · Community sports · Concept project</span><h3>MatchUp</h3><p>Turning scattered group-chat coordination into a trusted path from finding a game to joining one.</p></div>
+      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/commerceflow" data-insight="Concept insight: the overview answers “what changed?” before it shows everything else." style="--d:180ms" tabindex="0">
+        <div class="media"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover" loading="lazy"></div>
+        <div class="txt"><span class="label">SaaS · Operations · Concept project</span><h3>CommerceFlow</h3><p>Turning scattered operational data into a calm decision surface for multi-store teams.</p></div>
+      <span class="ibadge" aria-hidden="true">✦</span></a></div>
+      </div>
+
+      <div class="wrap sec" style="padding-top:0">
+        <div class="sec-h reveal"><h2>Experience</h2><p>Three product roles, from co-op to founder.</p></div>
+        <div class="xlist" data-exp=""><article class="glass xrow tilt has-insight reveal" data-tilt="" tabindex="0" data-insight="Breakdown: founder and product designer, leading a five-person team from launch onward.">
+      <h3>KitLabFS</h3>
+      <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div>
+      <span class="when">Mar 2026 – Present</span><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow tilt has-insight reveal" data-tilt="" tabindex="0" data-insight="Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.">
+      <h3>Ballycorp</h3>
+      <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div>
+      <span class="when">Dec 2024 – Sep 2026</span><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow tilt has-insight reveal" data-tilt="" tabindex="0" data-insight="Breakdown: two promotions in 14 months, from guided tasks to owning product work independently.">
+      <h3>LCBO</h3>
+      <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div>
+      <span class="when">Sep 2023 – Nov 2024</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+      </div>
+
+      <div class="wrap sec" style="padding-top:0">
+        <div class="sec-h reveal"><h2>How I <em>work</em></h2></div>
+        <div class="principles">
+          <article class="glass principle tilt reveal has-insight" data-tilt="" tabindex="0" data-insight="Frame: find the decision behind the symptom before drawing anything."><div><span class="n">01</span><h3>Frame the problem</h3></div><p>Separate the visible symptom from the decision people are struggling with.</p><span class="ibadge" aria-hidden="true">✦</span></article>
+          <article class="glass principle tilt reveal has-insight" data-tilt="" tabindex="0" data-insight="Map: flows and edge cases first, so the developer handoff is clear and nothing is left to guess."><div><span class="n">02</span><h3>Map the logic</h3></div><p>Each user role gets its own flow, with errors, empty states and permissions covered.</p><span class="ibadge" aria-hidden="true">✦</span></article>
+          <article class="glass principle tilt reveal has-insight" data-tilt="" tabindex="0" data-insight="Review: stay through build and launch, then fix what is confusing based on real use."><div><span class="n">03</span><h3>Stay with the build</h3></div><p>Review implementations, log fixes, and use funnel data to choose what changes next.</p><span class="ibadge" aria-hidden="true">✦</span></article>
+        </div>
+      </div>
+
+      <div class="wrap sec" style="padding-top:0">
+        <div class="glass cta-card reveal">
           <div>
-            <div class="hero-actions">
-              <a class="btn route-link" href="/work">See selected work →</a>
-              <a class="btn ghost route-link" href="/contact">Get in touch</a>
-            </div>
-            <div class="hero-links">
-              <a href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">LinkedIn ↗</a>
-              <a href="mailto:arhennesseyco@gmail.com">Email me</a>
-            </div>
+            <p class="label" style="margin-bottom:22px">Next step</p>
+            <h2>Let’s make the next <em>product clear.</em></h2>
+          </div>
+          <div class="acts">
+            <a class="btn primary route-link" href="/contact" data-magnetic="">Start a conversation <span>→</span></a>
+            <a class="btn glass glass-btn" href="/about" data-magnetic="">About me</a>
           </div>
         </div>
-      </div>
-
-      <div class="wrap">
-        <div class="proof-strip">
-          <div class="stat"><b>58%</b><span>lift in average order value after the KitLabFS purchase redesign</span></div>
-          <div class="stat"><b>450k+</b><span>visitors in the store’s first three months</span></div>
-          <div class="stat"><b>1,200+</b><span>products and 7,822 variants I designed flows for</span></div>
-          <div class="stat"><b>5</b><span>people led: two developers, two designers, one marketer</span></div>
-        </div>
-      </div>
-
-      <div class="wrap sec">
-        <div class="sec-head" style="padding-top:0">
-          <h2>Selected <span class="em">work</span></h2>
-          <p>Each case study covers the problem, my role, the decisions I made and what changed.</p>
-        </div>
-        <div class="rows" data-rows=""><a class="row route-link" href="/work/kitlab-fs">
-        <span class="n">01</span>
-        <h3>KitLab FS</h3>
-        <div class="meta"><span class="label">E-commerce · Product discovery and purchase</span><p>Designed and launched a 1,200-product football jersey store, then lifted average order value 58% with a purchase redesign.</p></div>
-        <span class="go" aria-hidden="true">→</span>
-      </a><a class="row route-link" href="/work/matchup">
-        <span class="n">02</span>
-        <h3>MatchUp</h3>
-        <div class="meta"><span class="label">Mobile product · Community sports · Concept project</span><p>Turning scattered group-chat coordination into a trusted path from finding a game to joining one.</p></div>
-        <span class="go" aria-hidden="true">→</span>
-      </a><a class="row route-link" href="/work/commerceflow">
-        <span class="n">03</span>
-        <h3>CommerceFlow</h3>
-        <div class="meta"><span class="label">SaaS · Operations · Concept project</span><p>Turning scattered operational data into a calm decision surface for multi-store teams.</p></div>
-        <span class="go" aria-hidden="true">→</span>
-      </a></div>
-      </div>
-
-      <div class="band home-only" style="margin-top:20px">
-        <div class="band-grid">
-          <video autoplay="" muted="" loop="" playsinline="" preload="metadata" poster="/assets/figma/kitlab-hero.jpg" src="/assets/video/kitlab-transition-mobile.mp4" aria-hidden="true"></video>
-          <video autoplay="" muted="" loop="" playsinline="" preload="metadata" poster="/assets/figma/matchup-hero.jpg" src="/assets/video/matchup-transition-mobile.mp4" aria-hidden="true"></video>
-        </div>
-      </div>
-
-      <div class="wrap sec">
-        <div class="sec-head" style="padding-top:0">
-          <h2>Experience</h2>
-          <p>Three product roles, from co-op to founder.</p>
-        </div>
-        <div class="exp">
-          <div class="exp-row">
-            <h3>KitLabFS</h3>
-            <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div>
-            <span class="when">Mar 2026 – Present</span>
-          </div>
-          <div class="exp-row">
-            <h3>Ballycorp</h3>
-            <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div>
-            <span class="when">Dec 2024 – Sep 2026</span>
-          </div>
-          <div class="exp-row">
-            <h3>LCBO</h3>
-            <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div>
-            <span class="when">Sep 2023 – Nov 2024</span>
-          </div>
-        </div>
-        <p style="margin-top:26px"><a class="btn ghost route-link" href="/about">Full experience and how I work →</a></p>
       </div>
     </section>
 
     <!-- WORK -->
     <section class="page" data-path="/work">
       <header class="page-top"><div class="wrap">
-        <p class="label">Selected case studies</p>
-        <h1>Work built around <span class="em">decisions.</span></h1>
-        <p>Projects across e-commerce, B2B software and mobile. Each one shows the problem, my role, the choices I made and what changed.</p>
+        <p class="label reveal">Selected case studies</p>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">Work</span> <span class="w" style="--i: 1;">built</span> <span class="w" style="--i: 2;">around</span> <span class="w" style="--i: 3;"><em>decisions.</em></span></h1>
+        <p class="reveal">Projects across e-commerce, B2B software and mobile. Each one shows the problem, my role, the choices I made and what changed.</p>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
-        <div class="cards" data-cards=""><a class="card route-link wide" href="/work/kitlab-fs">
-        <div class="img"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover" loading="lazy"></div>
+        <div class="pgrid" data-cards=""><a class="glass pcard tilt has-insight reveal first" data-tilt="" href="/work/kitlab-fs" data-insight="Insight: the biggest win came from sequencing choices, not adding features. Average order value rose 58%." style="--d:0ms" tabindex="0">
+        <div class="media"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">E-commerce · Product discovery and purchase</span><h3>KitLab FS</h3><p>Designed and launched a 1,200-product football jersey store, then lifted average order value 58% with a purchase redesign.</p></div>
-      </a><a class="card route-link " href="/work/matchup">
-        <div class="img"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover" loading="lazy"></div>
+      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/matchup" data-insight="Concept insight: one shared match state for organizers and players replaces the group chat." style="--d:90ms" tabindex="0">
+        <div class="media"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">Mobile product · Community sports · Concept project</span><h3>MatchUp</h3><p>Turning scattered group-chat coordination into a trusted path from finding a game to joining one.</p></div>
-      </a><a class="card route-link " href="/work/commerceflow">
-        <div class="img"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover" loading="lazy"></div>
+      <span class="ibadge" aria-hidden="true">✦</span></a><a class="glass pcard tilt has-insight reveal" data-tilt="" href="/work/commerceflow" data-insight="Concept insight: the overview answers “what changed?” before it shows everything else." style="--d:180ms" tabindex="0">
+        <div class="media"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">SaaS · Operations · Concept project</span><h3>CommerceFlow</h3><p>Turning scattered operational data into a calm decision surface for multi-store teams.</p></div>
-      </a></div>
+      <span class="ibadge" aria-hidden="true">✦</span></a></div>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section class="page" data-path="/about">
       <header class="page-top"><div class="wrap">
-        <p class="label">About</p>
-        <h1>Product designer for <span class="em">complex software.</span></h1>
+        <p class="label reveal">About</p>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">Product</span> <span class="w" style="--i: 1;">designer</span> <span class="w" style="--i: 2;">for</span> <span class="w" style="--i: 3;"><em>complex software.</em></span></h1>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
         <div class="split">
-          <div>
-            <h2 class="serif">Structure first. Polish with purpose.</h2>
+          <div class="reveal">
+            <h2>Structure first. Polish with purpose.</h2>
             <p>I’m Alejandro, a product designer in Toronto focused on complex web products: e-commerce, B2B software and workflows with several user roles. I’m drawn to mission-driven education technology.</p>
-            <p>My process moves from problem to flows to build. I map each user role, prototype in Figma, write down intended behaviour and edge cases, then stay involved through engineering review and launch. I use funnel data and stakeholder feedback to decide what to change next.</p>
+            <p>My process moves from problem to flows to build. I map each user role, prototype in Figma, write down intended behaviour and edge cases, then stay involved through engineering review and launch.</p>
             <div class="facts">
-              <div><strong>I focus on</strong><span>UX and interaction design, user flows, prototyping, design systems and components</span></div>
-              <div><strong>I measure</strong><span>Funnel and conversion data, analytics, and feedback from real users and stakeholders</span></div>
-              <div><strong>I work with</strong><span>Developers through handoff and implementation review, plus product and marketing partners</span></div>
-              <div><strong>Education</strong><span>Graphic Design Advanced Diploma, Fanshawe College (2022–2025)</span></div>
-              <div><strong>Tools</strong><span>Figma, Shopify, Adobe Photoshop, Illustrator, InDesign, After Effects, Premiere Pro</span></div>
-              <div><strong>Languages</strong><span>English and Spanish (native), French (basic)</span></div>
+              <div class="glass"><strong>I focus on</strong><span>UX and interaction design, user flows, prototyping, design systems and components</span></div>
+              <div class="glass"><strong>I measure</strong><span>Funnel and conversion data, analytics, and feedback from real users and stakeholders</span></div>
+              <div class="glass"><strong>I work with</strong><span>Developers through handoff and implementation review, plus product and marketing partners</span></div>
+              <div class="glass"><strong>Education</strong><span>Graphic Design Advanced Diploma, Fanshawe College (2022–2025)</span></div>
+              <div class="glass"><strong>Tools</strong><span>Figma, Shopify, Adobe Photoshop, Illustrator, InDesign, After Effects, Premiere Pro</span></div>
+              <div class="glass"><strong>Languages</strong><span>English and Spanish (native), French (basic)</span></div>
             </div>
           </div>
-          <aside class="panel">
-            <p class="label" style="margin-bottom:16px">How I work</p>
-            <h3>The interface should reveal the product’s logic.</h3>
-            <p class="muted" style="font-size:16px">A strong design helps people understand where they are, what changed and what they can do next, without needing a tutorial.</p>
-            <a class="btn route-link" href="/contact" style="margin-top:12px">Start a conversation →</a>
-          </aside>
-        </div>
-      </div>
-      <div class="wrap sec" style="padding-top:0">
-        <div class="sec-head">
-          <h2>Experience</h2>
-        </div>
-        <div class="exp">
-          <div class="exp-row">
-            <h3>KitLabFS</h3>
-            <div>
-              <p class="role">Founder / Product Designer · Remote · Mar 2026 – Present</p>
-              <p class="what">Designed and launched an online store with 1,200+ products and 7,822 variants, owning product pages, funnels, checkout and inventory flows for 450,000+ visitors in the first three months. Redesigned the purchase experience and raised average order value 58% while growing to 550+ orders. Tracked conversion at every funnel stage (23.7% cart, 10.4% checkout, 3.8% completed sale) to decide what to design next. Led a five-person team and reviewed builds before and after release.</p>
-            </div>
-            <span class="when"></span>
-          </div>
-          <div class="exp-row">
-            <h3>Ballycorp</h3>
-            <div>
-              <p class="role">Product Designer · Ontario · Dec 2024 – Sep 2026</p>
-              <p class="what">Designed the company website and a sales rep portal over 21 months, connecting clients and sales reps in one place. Mapped end-to-end workflows for each user role, covering permissions, empty states, errors and confirmations. Wrote up intended behaviour and edge cases so developers could build without a live walkthrough, then reviewed implementations. Kept components consistent across the website and portal.</p>
-            </div>
-            <span class="when"></span>
-          </div>
-          <div class="exp-row">
-            <h3>LCBO</h3>
-            <div>
-              <p class="role">Co-op, Junior Product Designer, Product Designer · Toronto · Sep 2023 – Nov 2024</p>
-              <p class="what">Designed digital product experiences in Figma, from wireframes to high-fidelity prototypes, within a larger cross-functional team. Earned two promotions in 14 months, taking on defined product work independently.</p>
-            </div>
-            <span class="when"></span>
+          <div class="reveal" style="--d:150ms">
+            <div class="xlist" data-exp-full=""><article class="glass xrow has-insight reveal" tabindex="0" data-insight="Breakdown: founder and product designer, leading a five-person team from launch onward." style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>KitLabFS</h3><span class="when">Mar 2026 – Present</span></div>
+      <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow has-insight reveal" tabindex="0" data-insight="Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling." style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>Ballycorp</h3><span class="when">Dec 2024 – Sep 2026</span></div>
+      <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div><span class="ibadge" aria-hidden="true">✦</span></article><article class="glass xrow has-insight reveal" tabindex="0" data-insight="Breakdown: two promotions in 14 months, from guided tasks to owning product work independently." style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>LCBO</h3><span class="when">Sep 2023 – Nov 2024</span></div>
+      <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div><span class="ibadge" aria-hidden="true">✦</span></article></div>
           </div>
         </div>
       </div>
@@ -465,21 +531,21 @@
     <!-- CONTACT -->
     <section class="page" data-path="/contact">
       <header class="page-top"><div class="wrap">
-        <p class="label">Contact</p>
-        <h1>Let’s make the next move <span class="em">clear.</span></h1>
+        <p class="label reveal">Contact</p>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">Let’s</span> <span class="w" style="--i: 1;">make</span> <span class="w" style="--i: 2;">the</span> <span class="w" style="--i: 3;">next</span> <span class="w" style="--i: 4;">move</span> <span class="w" style="--i: 5;"><em>clear.</em></span></h1>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
-        <div class="panel contact-panel">
+        <div class="glass contact-card reveal">
           <div>
-            <h3>Hiring for product design?</h3>
-            <p class="muted" style="font-size:18px">Tell me about the role, the team and the product. I’m based in Toronto and open to hybrid or remote work. I’ll reply within two business days.</p>
-            <a class="btn" href="mailto:arhennesseyco@gmail.com?subject=Product%20design%20role" style="margin-top:14px">Email Alejandro →</a>
+            <h2>Hiring for <em>product design?</em></h2>
+            <p class="muted" style="font-size:18px">Tell me about the role, the team and the product. I’m based in Toronto and open to hybrid or remote work. I reply within two business days.</p>
+            <a class="btn primary" href="mailto:arhennesseyco@gmail.com?subject=Product%20design%20role" data-magnetic="">Email Alejandro <span>→</span></a>
+            <button class="btn glass glass-btn copy" type="button" data-copy="arhennesseyco@gmail.com" data-magnetic="">Copy email</button>
           </div>
-          <div class="contact-list">
-            <a href="mailto:arhennesseyco@gmail.com">arhennesseyco@gmail.com <span>↗</span></a>
-            <a href="tel:+12265824622">226-582-4622 <span>↗</span></a>
-            <a href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">linkedin.com/in/arhennessey <span>↗</span></a>
-            <a href="/work" class="route-link">View case studies <span>→</span></a>
+          <div class="clinks">
+            <a class="glass" href="tel:+12265824622">226-582-4622 <span>↗</span></a>
+            <a class="glass" href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">linkedin.com/in/arhennessey <span>↗</span></a>
+            <a class="glass route-link" href="/work">View case studies <span>→</span></a>
           </div>
         </div>
       </div>
@@ -488,22 +554,22 @@
     <!-- CASE STUDIES (rendered from data) -->
     <section class="page case" data-path="/work/kitlab-fs" data-case="kitlab">
       <header class="case-top"><div class="wrap">
-        <p class="label">E-commerce · Product discovery and purchase</p>
-        <h1>KitLab FS</h1>
-        <div class="intro">
+        <p class="label reveal">E-commerce · Product discovery and purchase</p>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">KitLab</span> <span class="w" style="--i: 1;">FS</span></h1>
+        <div class="intro reveal">
           <p>Make a 1,200-product catalogue easy to trust, then make the purchase easier to finish.</p>
           <div class="meta-grid">
-            <div><span>Role</span><strong>Founder &amp; product designer</strong></div>
-            <div><span>Team</span><strong>Led a five-person team (2 developers, 2 designers, 1 marketer)</strong></div>
-            <div><span>Timeline</span><strong>Mar 2026 – present · Remote</strong></div>
-            <div><span>Scope</span><strong>Product pages, funnels, checkout and inventory flows</strong></div>
+            <div class="glass"><span>Role</span><strong>Founder &amp; product designer</strong></div>
+            <div class="glass"><span>Team</span><strong>Led a five-person team (2 developers, 2 designers, 1 marketer)</strong></div>
+            <div class="glass"><span>Timeline</span><strong>Mar 2026 – present · Remote</strong></div>
+            <div class="glass"><span>Scope</span><strong>Product pages, funnels, checkout and inventory flows</strong></div>
           </div>
         </div>
-        <div class="hero-img"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover"></div>
+        <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover"></div></div>
       </div></header>
       <div class="wrap case-layout">
-        <aside class="case-nav" aria-label="Case study sections">
-          <p class="label" style="margin-bottom:10px">Case study</p>
+        <aside class="glass case-nav" aria-label="Case study sections">
+          <p class="label" style="margin:4px 12px 10px">Case study</p>
           <a href="#kitlab-fs-overview">01 · Context</a>
           <a href="#kitlab-fs-problem">02 · Problem</a>
           <a href="#kitlab-fs-flow">03 · User flow</a>
@@ -512,20 +578,20 @@
           <a href="#kitlab-fs-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="kitlab-fs-overview">
+          <section class="block reveal" id="kitlab-fs-overview">
             <p class="label">01 / Context</p>
-            <h2 class="serif">What I was trying to change</h2>
+            <h2>What I was trying to change</h2>
             <p>KitLabFS is an online store for club, national-team and retro football jerseys, with 1,200+ products and 7,822 variants. I designed and launched it, owning product pages, funnels, checkout and inventory flows. The store drew 450,000+ visitors in its first three months and grew to 550+ orders.</p>
           </section>
-          <section class="block" id="kitlab-fs-problem">
+          <section class="block reveal" id="kitlab-fs-problem">
             <p class="label">02 / Problem</p>
-            <h2 class="serif">The interface was only the symptom.</h2>
+            <h2>The interface was only the symptom.</h2>
             <p>Choices such as player versions, patches, sizing and name customization were hard to understand. Shoppers also dropped off between the cart and the completed purchase.</p>
-            <div class="question"><span>The question</span>How might we help customers move from thousands of jerseys to a confident purchase, without making any step feel overloaded?</div>
+            <div class="glass question"><span>The question</span>How might we help customers move from thousands of jerseys to a confident purchase, without making any step feel overloaded?</div>
           </section>
-          <section class="block" id="kitlab-fs-flow">
+          <section class="block reveal" id="kitlab-fs-flow">
             <p class="label">03 / User flow</p>
-            <h2 class="serif">Click through the flow</h2>
+            <h2>Click through the flow</h2>
             <p class="flow-note">Shopper flow for the live store. Click a step to see what happens next.</p><div class="legend" aria-label="Legend">
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
@@ -648,44 +714,47 @@
       </div></div>
       </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
           </section>
-          <section class="block" id="kitlab-fs-thinking">
+          <section class="block reveal" id="kitlab-fs-thinking">
             <p class="label">04 / My thinking</p>
-            <h2 class="serif">The path from signal to decision</h2>
-            <div class="steps"><div class="step"><span class="num">01</span><div><h3>Observe</h3><p>Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.</p></div></div><div class="step"><span class="num">02</span><div><h3>Frame</h3><p>Discovery and the purchase path mattered more than visual polish.</p></div></div><div class="step"><span class="num">03</span><div><h3>Explore</h3><p>Organize the catalogue around how fans browse: club, country, competition, season and type.</p></div></div><div class="step"><span class="num">04</span><div><h3>Decide</h3><p>Reveal customization in a guided sequence, and keep selections and price visible.</p></div></div><div class="step"><span class="num">05</span><div><h3>Refine</h3><p>Review builds with developers and fix confusing interactions before and after release.</p></div></div></div>
+            <h2>The path from signal to decision</h2>
+            <div class="steps"><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale."><span class="num">01</span><div><h3>Observe</h3><p>Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Discovery and the purchase path mattered more than visual polish."><span class="num">02</span><div><h3>Frame</h3><p>Discovery and the purchase path mattered more than visual polish.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Organize the catalogue around how fans browse: club, country, competition, season and type."><span class="num">03</span><div><h3>Explore</h3><p>Organize the catalogue around how fans browse: club, country, competition, season and type.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Reveal customization in a guided sequence, and keep selections and price visible."><span class="num">04</span><div><h3>Decide</h3><p>Reveal customization in a guided sequence, and keep selections and price visible.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Review builds with developers and fix confusing interactions before and after release."><span class="num">05</span><div><h3>Refine</h3><p>Review builds with developers and fix confusing interactions before and after release.</p></div><span class="ibadge" aria-hidden="true">✦</span></div></div>
           </section>
-          <section class="block" id="kitlab-fs-solution">
+          <section class="block reveal" id="kitlab-fs-solution">
             <p class="label">05 / Solution</p>
-            <h2 class="serif">The design bet</h2>
+            <h2>The design bet</h2>
             <div class="bet">Sequence the journey instead of exposing every choice at once.</div>
-            <div class="case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/kitlab-transition-4k.mp4" aria-label="KitLab FS motion study"></video></div>
-            <div class="gallery"><img class="" src="/assets/kitlab/case-study/catalogue-hero.png" loading="lazy" alt="KitLabFS storefront with the shop-all jersey catalogue and filters"><img class="" src="/assets/figma/kitlab-product.png" loading="lazy" alt="KitLabFS product page with customization options"><img class="" src="/assets/figma/kitlab-mobile.png" loading="lazy" alt="KitLabFS mobile product page"><img class="" src="/assets/figma/kitlab-cart.png" loading="lazy" alt="KitLabFS cart and checkout"></div>
+            <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/kitlab-transition-4k.mp4" aria-label="KitLab FS motion study"></video></div>
+            <div class="gallery"><div class="glass g "><img src="/assets/kitlab/case-study/catalogue-hero.png" loading="lazy" alt="KitLabFS storefront with the shop-all jersey catalogue and filters"></div><div class="glass g "><img src="/assets/figma/kitlab-product.png" loading="lazy" alt="KitLabFS product page with customization options"></div><div class="glass g "><img src="/assets/figma/kitlab-mobile.png" loading="lazy" alt="KitLabFS mobile product page"></div><div class="glass g "><img src="/assets/figma/kitlab-cart.png" loading="lazy" alt="KitLabFS cart and checkout"></div></div>
           </section>
-          <section class="block" id="kitlab-fs-why">
+          <section class="block reveal" id="kitlab-fs-why">
             <p class="label">06 / Results</p>
-            <h2 class="serif">What changed.</h2>
-            <div class="results"><div><b>58%</b><span>Lift in average order value after the purchase redesign.</span></div><div><b>550+</b><span>Orders placed as the store grew.</span></div><div><b>23.7 → 10.4 → 3.8%</b><span>Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.</span></div></div>
+            <h2>What changed.</h2>
+            <div class="results"><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Lift in average order value after the purchase redesign."><b data-count="58" data-suffix="%">58%</b><span>Lift in average order value after the purchase redesign.</span><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Orders placed as the store grew."><b data-count="550" data-suffix="+">550+</b><span>Orders placed as the store grew.</span><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next."><b>23.7 → 10.4 → 3.8%</b><span>Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.</span><span class="ibadge" aria-hidden="true">✦</span></div></div>
           </section>
         </article>
       </div>
-      <section class="next"><div class="wrap"><a class="route-link" href="/work/matchup"><div><span class="label">Next case study</span><br><strong>MatchUp →</strong></div></a></div></section></section>
+      <section class="next"><div class="wrap"><a class="glass route-link" href="/work/matchup" data-tilt="">
+        <span class="label">Next case study</span>
+        <strong>MatchUp <em>→</em></strong>
+      </a></div></section></section>
     <section class="page case" data-path="/work/matchup" data-case="matchup">
       <header class="case-top"><div class="wrap">
-        <p class="label">Mobile product · Community sports · Concept project</p>
-        <h1>MatchUp</h1>
-        <div class="intro">
+        <p class="label reveal">Mobile product · Community sports · Concept project</p>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">MatchUp</span></h1>
+        <div class="intro reveal">
           <p>Turn finding a game into joining one.</p>
           <div class="meta-grid">
-            <div><span>Role</span><strong>Product design</strong></div>
-            <div><span>Team</span><strong>Concept project</strong></div>
-            <div><span>Timeline</span><strong>Concept project</strong></div>
-            <div><span>Scope</span><strong>Mobile flows for organizers and players</strong></div>
+            <div class="glass"><span>Role</span><strong>Product design</strong></div>
+            <div class="glass"><span>Team</span><strong>Concept project</strong></div>
+            <div class="glass"><span>Timeline</span><strong>Concept project</strong></div>
+            <div class="glass"><span>Scope</span><strong>Mobile flows for organizers and players</strong></div>
           </div>
         </div>
-        <div class="hero-img"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover"></div>
+        <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover"></div></div>
       </div></header>
       <div class="wrap case-layout">
-        <aside class="case-nav" aria-label="Case study sections">
-          <p class="label" style="margin-bottom:10px">Case study</p>
+        <aside class="glass case-nav" aria-label="Case study sections">
+          <p class="label" style="margin:4px 12px 10px">Case study</p>
           <a href="#matchup-overview">01 · Context</a>
           <a href="#matchup-problem">02 · Problem</a>
           <a href="#matchup-flow">03 · User flow</a>
@@ -694,20 +763,20 @@
           <a href="#matchup-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="matchup-overview">
+          <section class="block reveal" id="matchup-overview">
             <p class="label">01 / Context</p>
-            <h2 class="serif">What I was trying to change</h2>
+            <h2>What I was trying to change</h2>
             <p>MatchUp is a mobile concept for creating local soccer matches, selecting available positions and sharing field-booking costs. It connects organizers who have booked a field with players looking for a local game.</p>
           </section>
-          <section class="block" id="matchup-problem">
+          <section class="block reveal" id="matchup-problem">
             <p class="label">02 / Problem</p>
-            <h2 class="serif">The interface was only the symptom.</h2>
+            <h2>The interface was only the symptom.</h2>
             <p>Players rely on scattered group chats with incomplete information about cost, skill level and open positions. Organizers manually build teams and repeatedly chase payments.</p>
-            <div class="question"><span>The question</span>How might we create one trusted experience for forming teams, selecting positions and sharing field costs, for two different users at once?</div>
+            <div class="glass question"><span>The question</span>How might we create one trusted experience for forming teams, selecting positions and sharing field costs, for two different users at once?</div>
           </section>
-          <section class="block" id="matchup-flow">
+          <section class="block reveal" id="matchup-flow">
             <p class="label">03 / User flow</p>
-            <h2 class="serif">Click through the flow</h2>
+            <h2>Click through the flow</h2>
             <p class="flow-note">Concept flow. Organizers and players move through the same match, from different starting points.</p><div class="legend" aria-label="Legend">
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
@@ -794,44 +863,47 @@
       </div></div>
       </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
           </section>
-          <section class="block" id="matchup-thinking">
+          <section class="block reveal" id="matchup-thinking">
             <p class="label">04 / My thinking</p>
-            <h2 class="serif">The path from signal to decision</h2>
-            <div class="steps"><div class="step"><span class="num">01</span><div><h3>Observe</h3><p>Trust was fragmented across messages, people and payment requests.</p></div></div><div class="step"><span class="num">02</span><div><h3>Frame</h3><p>Map organizer and player needs separately, then connect the moments that must stay in sync.</p></div></div><div class="step"><span class="num">03</span><div><h3>Explore</h3><p>Make openings, skill level, location and cost visible before anyone commits.</p></div></div><div class="step"><span class="num">04</span><div><h3>Decide</h3><p>Let players choose a position and pay in the context of the match.</p></div></div><div class="step"><span class="num">05</span><div><h3>Refine</h3><p>Carry certainty from discovery through kickoff and post-match review.</p></div></div></div>
+            <h2>The path from signal to decision</h2>
+            <div class="steps"><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Trust was fragmented across messages, people and payment requests."><span class="num">01</span><div><h3>Observe</h3><p>Trust was fragmented across messages, people and payment requests.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Map organizer and player needs separately, then connect the moments that must stay in sync."><span class="num">02</span><div><h3>Frame</h3><p>Map organizer and player needs separately, then connect the moments that must stay in sync.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Make openings, skill level, location and cost visible before anyone commits."><span class="num">03</span><div><h3>Explore</h3><p>Make openings, skill level, location and cost visible before anyone commits.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Let players choose a position and pay in the context of the match."><span class="num">04</span><div><h3>Decide</h3><p>Let players choose a position and pay in the context of the match.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Carry certainty from discovery through kickoff and post-match review."><span class="num">05</span><div><h3>Refine</h3><p>Carry certainty from discovery through kickoff and post-match review.</p></div><span class="ibadge" aria-hidden="true">✦</span></div></div>
           </section>
-          <section class="block" id="matchup-solution">
+          <section class="block reveal" id="matchup-solution">
             <p class="label">05 / Solution</p>
-            <h2 class="serif">The design bet</h2>
+            <h2>The design bet</h2>
             <div class="bet">Give organizers and players one shared match state.</div>
-            <div class="case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/matchup-transition-4k.mp4" aria-label="MatchUp motion study"></video></div>
-            <div class="gallery"><img class="wide" src="/assets/figma/matchup-home.png" loading="lazy" alt="MatchUp home screen showing upcoming matches"><img class="" src="/assets/figma/matchup-preview.png" loading="lazy" alt="MatchUp match preview with open positions and cost"><img class="" src="/assets/figma/matchup-results.png" loading="lazy" alt="MatchUp results screen"></div>
+            <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/matchup-transition-4k.mp4" aria-label="MatchUp motion study"></video></div>
+            <div class="gallery"><div class="glass g wide"><img src="/assets/figma/matchup-home.png" loading="lazy" alt="MatchUp home screen showing upcoming matches"></div><div class="glass g "><img src="/assets/figma/matchup-preview.png" loading="lazy" alt="MatchUp match preview with open positions and cost"></div><div class="glass g "><img src="/assets/figma/matchup-results.png" loading="lazy" alt="MatchUp results screen"></div></div>
           </section>
-          <section class="block" id="matchup-why">
+          <section class="block reveal" id="matchup-why">
             <p class="label">06 / Results</p>
-            <h2 class="serif">Why it works.</h2>
-            <p>Turn finding a game into joining one.</p><div class="proof"><div><b>Availability</b><h3>Open spots at a glance</h3><p>Players see how many positions are left before they commit.</p></div><div><b>Position</b><h3>Choose in the match</h3><p>Position selection happens in the match, not in a group chat.</p></div><div><b>Payment</b><h3>Cost in context</h3><p>Field costs are split and shown with the match, so no one chases anyone.</p></div></div>
+            <h2>Why it works.</h2>
+            <p>Turn finding a game into joining one.</p><div class="proof"><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Players see how many positions are left before they commit."><b>Availability</b><h3>Open spots at a glance</h3><p>Players see how many positions are left before they commit.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Position selection happens in the match, not in a group chat."><b>Position</b><h3>Choose in the match</h3><p>Position selection happens in the match, not in a group chat.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Field costs are split and shown with the match, so no one chases anyone."><b>Payment</b><h3>Cost in context</h3><p>Field costs are split and shown with the match, so no one chases anyone.</p><span class="ibadge" aria-hidden="true">✦</span></div></div>
           </section>
         </article>
       </div>
-      <section class="next"><div class="wrap"><a class="route-link" href="/work/commerceflow"><div><span class="label">Next case study</span><br><strong>CommerceFlow →</strong></div></a></div></section></section>
+      <section class="next"><div class="wrap"><a class="glass route-link" href="/work/commerceflow" data-tilt="">
+        <span class="label">Next case study</span>
+        <strong>CommerceFlow <em>→</em></strong>
+      </a></div></section></section>
     <section class="page case active" data-path="/work/commerceflow" data-case="commerce">
       <header class="case-top"><div class="wrap">
-        <p class="label">SaaS · Operations · Concept project</p>
-        <h1>CommerceFlow</h1>
-        <div class="intro">
+        <p class="label reveal in">SaaS · Operations · Concept project</p>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">CommerceFlow</span></h1>
+        <div class="intro reveal in">
           <p>Make operational data support a decision.</p>
           <div class="meta-grid">
-            <div><span>Role</span><strong>Product design</strong></div>
-            <div><span>Team</span><strong>Concept project</strong></div>
-            <div><span>Timeline</span><strong>Concept project</strong></div>
-            <div><span>Scope</span><strong>Operations dashboard, alerts and component system</strong></div>
+            <div class="glass"><span>Role</span><strong>Product design</strong></div>
+            <div class="glass"><span>Team</span><strong>Concept project</strong></div>
+            <div class="glass"><span>Timeline</span><strong>Concept project</strong></div>
+            <div class="glass"><span>Scope</span><strong>Operations dashboard, alerts and component system</strong></div>
           </div>
         </div>
-        <div class="hero-img"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover"></div>
+        <div class="hero-img glass reveal" style="--p: 0.000;"><div class="frame"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover"></div></div>
       </div></header>
       <div class="wrap case-layout">
-        <aside class="case-nav" aria-label="Case study sections">
-          <p class="label" style="margin-bottom:10px">Case study</p>
+        <aside class="glass case-nav" aria-label="Case study sections">
+          <p class="label" style="margin:4px 12px 10px">Case study</p>
           <a href="#commerceflow-overview">01 · Context</a>
           <a href="#commerceflow-problem">02 · Problem</a>
           <a href="#commerceflow-flow">03 · User flow</a>
@@ -840,20 +912,20 @@
           <a href="#commerceflow-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="commerceflow-overview">
+          <section class="block reveal" id="commerceflow-overview">
             <p class="label">01 / Context</p>
-            <h2 class="serif">What I was trying to change</h2>
+            <h2>What I was trying to change</h2>
             <p>CommerceFlow is a concept for an operations dashboard that brings sales, orders, inventory, customers and advertising data together, so multi-store operators can spot urgent issues and act without switching between tools.</p>
           </section>
-          <section class="block" id="commerceflow-problem">
+          <section class="block reveal" id="commerceflow-problem">
             <p class="label">02 / Problem</p>
-            <h2 class="serif">The interface was only the symptom.</h2>
+            <h2>The interface was only the symptom.</h2>
             <p>Operators repeatedly switch between storefronts, advertising platforms, spreadsheets and supplier systems just to understand performance and manage daily operations.</p>
-            <div class="question"><span>The question</span>How might we help operators see what changed, understand why, and move directly to the right action?</div>
+            <div class="glass question"><span>The question</span>How might we help operators see what changed, understand why, and move directly to the right action?</div>
           </section>
-          <section class="block" id="commerceflow-flow">
+          <section class="block reveal" id="commerceflow-flow">
             <p class="label">03 / User flow</p>
-            <h2 class="serif">Click through the flow</h2>
+            <h2>Click through the flow</h2>
             <p class="flow-note">Concept flow for an operator checking the overview each day.</p><div class="legend" aria-label="Legend">
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
@@ -940,32 +1012,65 @@
       </div></div>
       </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
           </section>
-          <section class="block" id="commerceflow-thinking">
+          <section class="block reveal" id="commerceflow-thinking">
             <p class="label">04 / My thinking</p>
-            <h2 class="serif">The path from signal to decision</h2>
-            <div class="steps"><div class="step"><span class="num">01</span><div><h3>Observe</h3><p>Context was expensive because the story lived across tools and tabs.</p></div></div><div class="step"><span class="num">02</span><div><h3>Frame</h3><p>The overview should answer “what changed?” before showing everything available.</p></div></div><div class="step"><span class="num">03</span><div><h3>Explore</h3><p>Pair every important signal with the module that can explain it.</p></div></div><div class="step"><span class="num">04</span><div><h3>Decide</h3><p>Make alerts lead toward resolution, not into yet another inbox.</p></div></div><div class="step"><span class="num">05</span><div><h3>Refine</h3><p>Use a component system that can grow with teams, stores and roles.</p></div></div></div>
+            <h2>The path from signal to decision</h2>
+            <div class="steps"><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Context was expensive because the story lived across tools and tabs."><span class="num">01</span><div><h3>Observe</h3><p>Context was expensive because the story lived across tools and tabs.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="The overview should answer “what changed?” before showing everything available."><span class="num">02</span><div><h3>Frame</h3><p>The overview should answer “what changed?” before showing everything available.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Pair every important signal with the module that can explain it."><span class="num">03</span><div><h3>Explore</h3><p>Pair every important signal with the module that can explain it.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Make alerts lead toward resolution, not into yet another inbox."><span class="num">04</span><div><h3>Decide</h3><p>Make alerts lead toward resolution, not into yet another inbox.</p></div><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass step tilt has-insight" data-tilt="" tabindex="0" data-insight="Use a component system that can grow with teams, stores and roles."><span class="num">05</span><div><h3>Refine</h3><p>Use a component system that can grow with teams, stores and roles.</p></div><span class="ibadge" aria-hidden="true">✦</span></div></div>
           </section>
-          <section class="block" id="commerceflow-solution">
+          <section class="block reveal" id="commerceflow-solution">
             <p class="label">05 / Solution</p>
-            <h2 class="serif">The design bet</h2>
+            <h2>The design bet</h2>
             <div class="bet">Organize around daily decisions, not the tools where the data originated.</div>
             
-            <div class="gallery"><img class="wide" src="/assets/figma/commerce-dashboard.jpg" loading="lazy" alt="CommerceFlow operations dashboard with sales and inventory overview"></div>
+            <div class="gallery"><div class="glass g wide"><img src="/assets/figma/commerce-dashboard.jpg" loading="lazy" alt="CommerceFlow operations dashboard with sales and inventory overview"></div></div>
           </section>
-          <section class="block" id="commerceflow-why">
+          <section class="block reveal" id="commerceflow-why">
             <p class="label">06 / Results</p>
-            <h2 class="serif">Why it works.</h2>
-            <p>Make operational data support a decision.</p><div class="proof"><div><b>Overview</b><h3>Change-first</h3><p>The dashboard leads with what moved, then offers the detail behind it.</p></div><div><b>Alerts</b><h3>Actionable, not noisy</h3><p>Each alert points to the module that can resolve it.</p></div><div><b>Scale</b><h3>A system that grows</h3><p>Components work across stores, teams and roles.</p></div></div>
+            <h2>Why it works.</h2>
+            <p>Make operational data support a decision.</p><div class="proof"><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="The dashboard leads with what moved, then offers the detail behind it."><b>Overview</b><h3>Change-first</h3><p>The dashboard leads with what moved, then offers the detail behind it.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Each alert points to the module that can resolve it."><b>Alerts</b><h3>Actionable, not noisy</h3><p>Each alert points to the module that can resolve it.</p><span class="ibadge" aria-hidden="true">✦</span></div><div class="glass tilt has-insight" data-tilt="" tabindex="0" data-insight="Components work across stores, teams and roles."><b>Scale</b><h3>A system that grows</h3><p>Components work across stores, teams and roles.</p><span class="ibadge" aria-hidden="true">✦</span></div></div>
           </section>
         </article>
       </div>
-      <section class="next"><div class="wrap"><a class="route-link" href="/work/kitlab-fs"><div><span class="label">Next case study</span><br><strong>KitLab FS →</strong></div></a></div></section></section>
+      <section class="next"><div class="wrap"><a class="glass route-link" href="/work/kitlab-fs" data-tilt="">
+        <span class="label">Next case study</span>
+        <strong>KitLab FS <em>→</em></strong>
+      </a></div></section></section>
   </main>
 
   <footer><div class="wrap"><span>© 2026 Alejandro Hennessey</span><span>Product design · Toronto, Ontario · alejandrohennessey.art</span></div></footer>
 
+  <!-- Willow: portfolio assistant -->
+  <div class="willow" id="willow">
+    <section class="glass willow-panel" id="willow-panel" role="dialog" aria-label="Willow, portfolio assistant" hidden="">
+      <header class="wp-head">
+        <div class="wp-id"><span class="orb" aria-hidden="true"></span><div><b>Willow</b><small>Portfolio assistant · ask anything</small></div></div>
+        <button class="wp-close" type="button" aria-label="Close Willow">×</button>
+      </header>
+      <div class="wp-log" id="wp-log" aria-live="polite"></div>
+      <div class="wp-chips" id="wp-chips"><button class="chip" type="button">What did KitLabFS achieve?</button><button class="chip" type="button">Tell me about Ballycorp</button><button class="chip" type="button">How do you work?</button><button class="chip" type="button">Are you open to remote?</button><button class="chip" type="button">Show me a secret</button></div>
+      <form class="wp-form" id="wp-form" autocomplete="off">
+        <input id="wp-input" type="text" maxlength="200" placeholder="Ask about projects, experience…" aria-label="Message Willow">
+        <button type="submit" aria-label="Send">↑</button>
+      </form>
+    </section>
+    <button class="glass willow-orb" id="willow-btn" type="button" aria-expanded="false" aria-controls="willow-panel">
+      <span class="orb" aria-hidden="true"></span><span class="label-txt">Ask Willow</span>
+    </button>
+  </div>
+
+  <div class="glass insight" id="insight" role="tooltip" hidden="">
+    <span class="ilabel">✦ Willow insight</span>
+    <p id="insight-text"></p>
+  </div>
+
   <script>
     const SITE = 'https://www.alejandrohennessey.art';
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
     const projects = {
       kitlab: {
         name:'KitLab FS', slug:'kitlab-fs', next:'matchup',
@@ -1066,7 +1171,6 @@
         video:null
       }
     };
-
 
     // Flow data: each step expands into what happens next. Based on each case study.
     const N = (type,label,detail,next=[]) => ({type,label,detail,next});
@@ -1201,106 +1305,128 @@
     }
 
     const order = ['kitlab','matchup','commerce'];
-    const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-    // Home index rows, work cards
-    document.querySelector('[data-rows]').innerHTML = order.map((k,i) => {
-      const p = projects[k];
-      return `<a class="row route-link" href="/work/${p.slug}">
-        <span class="n">0${i+1}</span>
-        <h3>${esc(p.name)}</h3>
-        <div class="meta"><span class="label">${esc(p.label)}</span><p>${esc(p.summary)}</p></div>
-        <span class="go" aria-hidden="true">→</span>
-      </a>`;
-    }).join('');
+    // Experience content (from résumé)
+    const experience = [
+      {name:'KitLabFS', role:'Founder / Product Designer · Remote', when:'Mar 2026 – Present', what:'Designed and launched a store with 1,200+ products. Led a five-person team.', insight:'Breakdown: founder and product designer, leading a five-person team from launch onward.'},
+      {name:'Ballycorp', role:'Product Designer · Ontario', when:'Dec 2024 – Sep 2026', what:'Designed the company website and a B2B sales rep portal connecting clients and sales teams.', insight:'Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.'},
+      {name:'LCBO', role:'Co-op → Junior Product Designer → Product Designer · Toronto', when:'Sep 2023 – Nov 2024', what:'Two promotions in 14 months, moving from guided tasks to owning product work independently.', insight:'Breakdown: two promotions in 14 months, from guided tasks to owning product work independently.'}
+    ];
+    const expRow = e => `<article class="glass xrow tilt has-insight reveal" data-tilt tabindex="0" data-insight="${esc(e.insight)}">
+      <h3>${esc(e.name)}</h3>
+      <div><p class="role">${esc(e.role)}</p><p class="what">${esc(e.what)}</p></div>
+      <span class="when">${esc(e.when)}</span></article>`;
+    $$('[data-exp]').forEach(el => el.innerHTML = experience.map(expRow).join(''));
+    $$('[data-exp-full]').forEach(el => el.innerHTML = experience.map(e => `<article class="glass xrow has-insight reveal" tabindex="0" data-insight="${esc(e.insight)}" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>${esc(e.name)}</h3><span class="when">${esc(e.when)}</span></div>
+      <div><p class="role">${esc(e.role)}</p><p class="what">${esc(e.what)}</p></div></article>`).join(''));
 
-    document.querySelector('[data-cards]').innerHTML = order.map((k,i) => {
+    // Project cards (home + work), with per-card insight
+    const cardInsight = {
+      kitlab: 'Insight: the biggest win came from sequencing choices, not adding features. Average order value rose 58%.',
+      matchup: 'Concept insight: one shared match state for organizers and players replaces the group chat.',
+      commerce: 'Concept insight: the overview answers “what changed?” before it shows everything else.'
+    };
+    const cardHTML = (k, i) => {
       const p = projects[k];
-      return `<a class="card route-link ${i===0?'wide':''}" href="/work/${p.slug}">
-        <div class="img"><img src="${p.cover}" alt="${esc(p.name)} case study cover" loading="lazy"></div>
+      return `<a class="glass pcard tilt has-insight reveal ${i===0?'first':''}" data-tilt href="/work/${p.slug}" data-insight="${esc(cardInsight[k])}" style="--d:${i*90}ms">
+        <div class="media"><img src="${p.cover}" alt="${esc(p.name)} case study cover" loading="lazy"></div>
         <div class="txt"><span class="label">${esc(p.label)}</span><h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p></div>
       </a>`;
-    }).join('');
+    };
+    $$('[data-cards]').forEach(el => el.innerHTML = order.map(cardHTML).join(''));
 
+    // Case study pages
+    function countable(display){
+      const m = String(display).match(/^(\d[\d,]*)(\D*)$/);
+      return m ? {n: m[1].replace(/,/g,''), suffix: m[2]} : null;
+    }
     function caseMarkup(p){
       const next = projects[p.next];
       const isKitlab = p.slug === 'kitlab-fs';
+      const s = p.slug;
+      const resultsHTML = isKitlab
+        ? `<div class="results">${p.results.map(r => {
+            const c = countable(r[0]);
+            return `<div class="glass tilt has-insight" data-tilt tabindex="0" data-insight="${esc(r[1])}"><b ${c?`data-count="${c.n}" data-suffix="${esc(c.suffix)}"`:''}>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`;
+          }).join('')}</div>`
+        : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r => `<div class="glass tilt has-insight" data-tilt tabindex="0" data-insight="${esc(r[2])}"><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`;
       return `
       <header class="case-top"><div class="wrap">
-        <p class="label">${esc(p.label)}</p>
-        <h1>${esc(p.name)}</h1>
-        <div class="intro">
+        <p class="label reveal">${esc(p.label)}</p>
+        <h1 class="split-h1">${esc(p.name)}</h1>
+        <div class="intro reveal">
           <p>${esc(p.argument)}</p>
           <div class="meta-grid">
-            <div><span>Role</span><strong>${esc(p.roleLine)}</strong></div>
-            <div><span>Team</span><strong>${esc(p.teamLine)}</strong></div>
-            <div><span>Timeline</span><strong>${esc(p.timeLine)}</strong></div>
-            <div><span>Scope</span><strong>${esc(p.scopeLine)}</strong></div>
+            <div class="glass"><span>Role</span><strong>${esc(p.roleLine)}</strong></div>
+            <div class="glass"><span>Team</span><strong>${esc(p.teamLine)}</strong></div>
+            <div class="glass"><span>Timeline</span><strong>${esc(p.timeLine)}</strong></div>
+            <div class="glass"><span>Scope</span><strong>${esc(p.scopeLine)}</strong></div>
           </div>
         </div>
-        <div class="hero-img"><img src="${p.cover}" alt="${esc(p.name)} case study cover"></div>
+        <div class="hero-img glass reveal"><div class="frame"><img src="${p.cover}" alt="${esc(p.name)} case study cover"></div></div>
       </div></header>
       <div class="wrap case-layout">
-        <aside class="case-nav" aria-label="Case study sections">
-          <p class="label" style="margin-bottom:10px">Case study</p>
-          <a href="#${p.slug}-overview">01 · Context</a>
-          <a href="#${p.slug}-problem">02 · Problem</a>
-          <a href="#${p.slug}-flow">03 · User flow</a>
-          <a href="#${p.slug}-thinking">04 · Thinking</a>
-          <a href="#${p.slug}-solution">05 · Solution</a>
-          <a href="#${p.slug}-why">06 · Results</a>
+        <aside class="glass case-nav" aria-label="Case study sections">
+          <p class="label" style="margin:4px 12px 10px">Case study</p>
+          <a href="#${s}-overview">01 · Context</a>
+          <a href="#${s}-problem">02 · Problem</a>
+          <a href="#${s}-flow">03 · User flow</a>
+          <a href="#${s}-thinking">04 · Thinking</a>
+          <a href="#${s}-solution">05 · Solution</a>
+          <a href="#${s}-why">06 · Results</a>
         </aside>
         <article>
-          <section class="block" id="${p.slug}-overview">
+          <section class="block reveal" id="${s}-overview">
             <p class="label">01 / Context</p>
-            <h2 class="serif">What I was trying to change</h2>
+            <h2>What I was trying to change</h2>
             <p>${esc(p.overview)}</p>
           </section>
-          <section class="block" id="${p.slug}-problem">
+          <section class="block reveal" id="${s}-problem">
             <p class="label">02 / Problem</p>
-            <h2 class="serif">The interface was only the symptom.</h2>
+            <h2>The interface was only the symptom.</h2>
             <p>${esc(p.problem)}</p>
-            <div class="question"><span>The question</span>${esc(p.question)}</div>
+            <div class="glass question"><span>The question</span>${esc(p.question)}</div>
           </section>
-          <section class="block" id="${p.slug}-flow">
+          <section class="block reveal" id="${s}-flow">
             <p class="label">03 / User flow</p>
-            <h2 class="serif">Click through the flow</h2>
+            <h2>Click through the flow</h2>
             ${renderFlows(flows[p.slug])}
           </section>
-          <section class="block" id="${p.slug}-thinking">
+          <section class="block reveal" id="${s}-thinking">
             <p class="label">04 / My thinking</p>
-            <h2 class="serif">The path from signal to decision</h2>
-            <div class="steps">${p.steps.map((s,i)=>`<div class="step"><span class="num">0${i+1}</span><div><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div></div>`).join('')}</div>
+            <h2>The path from signal to decision</h2>
+            <div class="steps">${p.steps.map((st,i)=>`<div class="glass step tilt has-insight" data-tilt tabindex="0" data-insight="${esc(st[1])}"><span class="num">0${i+1}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></div>`).join('')}</div>
           </section>
-          <section class="block" id="${p.slug}-solution">
+          <section class="block reveal" id="${s}-solution">
             <p class="label">05 / Solution</p>
-            <h2 class="serif">The design bet</h2>
+            <h2>The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
-            ${p.video ? `<div class="case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
-            <div class="gallery">${p.images.map((im,i)=>`<img class="${i===0 && p.images.length%2===1 ? 'wide' : ''}" src="${im.src}" loading="lazy" alt="${esc(im.alt)}">`).join('')}</div>
+            ${p.video ? `<div class="glass case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
+            <div class="gallery">${p.images.map((im,i)=>`<div class="glass g ${i===0 && p.images.length%2===1 ? 'wide' : ''}"><img src="${im.src}" loading="lazy" alt="${esc(im.alt)}"></div>`).join('')}</div>
           </section>
-          <section class="block" id="${p.slug}-why">
+          <section class="block reveal" id="${s}-why">
             <p class="label">06 / Results</p>
-            <h2 class="serif">${isKitlab ? 'What changed.' : 'Why it works.'}</h2>
-            ${isKitlab ? `<div class="results">${p.results.map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join('')}</div>` : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r=>`<div><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`}
+            <h2>${isKitlab ? 'What changed.' : 'Why it works.'}</h2>
+            ${resultsHTML}
           </section>
         </article>
       </div>
-      <section class="next"><div class="wrap"><a class="route-link" href="/work/${next.slug}"><div><span class="label">Next case study</span><br><strong>${esc(next.name)} →</strong></div></a></div></section>`;
+      <section class="next"><div class="wrap"><a class="glass route-link" href="/work/${next.slug}" data-tilt>
+        <span class="label">Next case study</span>
+        <strong>${esc(next.name)} <em>→</em></strong>
+      </a></div></section>`;
     }
-    document.querySelectorAll('[data-case]').forEach(el => { el.innerHTML = caseMarkup(projects[el.dataset.case]); });
+    $$('[data-case]').forEach(el => el.innerHTML = caseMarkup(projects[el.dataset.case]));
 
-    // Per-page metadata, so each page has its own title, description and link preview
+    // Per-page metadata
     const pageMeta = {
       '/': {title:'Alejandro Hennessey — Product Designer, Toronto', desc:'Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.', img:'/assets/figma/kitlab-hero.jpg'},
       '/work': {title:'Selected work — Alejandro Hennessey', desc:'Case studies in e-commerce, B2B software and mobile product design.', img:'/assets/figma/kitlab-hero.jpg'},
       '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ballycorp and LCBO, and how I work with developers and stakeholders.', img:'/assets/figma/kitlab-hero.jpg'},
       '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/figma/kitlab-hero.jpg'}
     };
-    Object.values(projects).forEach(p => {
-      pageMeta['/work/' + p.slug] = {title: `${p.name} case study — Alejandro Hennessey`, desc: p.summary, img: p.cover};
-    });
-
+    Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} case study — Alejandro Hennessey`, desc: p.summary, img: p.cover}; });
     function setMeta(attr, key, value){
       let el = document.head.querySelector(`meta[${attr}="${key}"]`);
       if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
@@ -1308,7 +1434,7 @@
     }
     function applyMeta(path){
       const m = pageMeta[path] || pageMeta['/'];
-      const url = SITE + (path === '/' ? '/' : path);
+      const url = SITE + path;
       document.title = m.title;
       setMeta('name','description', m.desc);
       setMeta('property','og:title', m.title);
@@ -1321,7 +1447,152 @@
       if (c) c.setAttribute('href', url);
     }
 
-    // Expand or collapse flow steps; "Expand all" / "Collapse all" controls
+    // Split headings into words for a staggered reveal
+    function splitWords(el){
+      let i = 0;
+      const wrap = (node) => {
+        [...node.childNodes].forEach(c => {
+          if (c.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(t => {
+              if (!t) return;
+              if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
+              const s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', i++); s.textContent = t; frag.appendChild(s);
+            });
+            c.replaceWith(frag);
+          } else if (c.nodeType === 1 && c.tagName === 'EM') {
+            const s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', i++);
+            c.replaceWith(s); s.appendChild(c);
+          } else if (c.nodeType === 1) { wrap(c); }
+        });
+      };
+      wrap(el);
+    }
+    $$('.split-h1').forEach(splitWords);
+
+    // Insight badges + tooltip
+    $$('[data-insight]').forEach(el => {
+      el.classList.add('has-insight');
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+      const b = document.createElement('span'); b.className = 'ibadge'; b.setAttribute('aria-hidden','true'); b.textContent = '✦';
+      el.appendChild(b);
+    });
+    const tip = $('#insight'), tipText = $('#insight-text');
+    let tipEl = null;
+    function showTip(el, x, y){
+      tipEl = el;
+      tipText.textContent = el.dataset.insight;
+      tip.hidden = false;
+      requestAnimationFrame(() => {
+        const r = tip.getBoundingClientRect();
+        let left = x + 18, top = y + 18;
+        if (left + r.width > innerWidth - 12) left = x - r.width - 18;
+        if (top + r.height > innerHeight - 12) top = y - r.height - 18;
+        tip.style.left = Math.max(12, left) + 'px';
+        tip.style.top = Math.max(12, top) + 'px';
+        tip.classList.add('show');
+      });
+    }
+    function hideTip(){ tip.classList.remove('show'); tipEl = null; setTimeout(() => { if (!tipEl) tip.hidden = true; }, 300); }
+    document.addEventListener('pointerover', e => {
+      const el = e.target.closest('[data-insight]');
+      if (el && e.pointerType === 'mouse') showTip(el, e.clientX, e.clientY);
+    });
+    document.addEventListener('pointermove', e => {
+      if (tipEl && e.pointerType === 'mouse') {
+        const r = tip.getBoundingClientRect();
+        let left = e.clientX + 18, top = e.clientY + 18;
+        if (left + r.width > innerWidth - 12) left = e.clientX - r.width - 18;
+        if (top + r.height > innerHeight - 12) top = e.clientY - r.height - 18;
+        tip.style.left = Math.max(12, left) + 'px';
+        tip.style.top = Math.max(12, top) + 'px';
+      }
+    });
+    document.addEventListener('pointerout', e => {
+      const el = e.target.closest('[data-insight]');
+      if (el && !el.contains(e.relatedTarget)) hideTip();
+    });
+    document.addEventListener('focusin', e => { const el = e.target.closest('[data-insight]'); if (el) { const r = el.getBoundingClientRect(); showTip(el, r.right - 40, r.top + 20); } });
+    document.addEventListener('focusout', e => { if (e.target.closest('[data-insight]')) hideTip(); });
+    document.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'touch') return;
+      const el = e.target.closest('[data-insight]');
+      if (!el) return hideTip();
+      tipEl === el ? hideTip() : showTip(el, e.clientX, e.clientY);
+    });
+
+    // Reveal on scroll and count-up numbers
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        $$('[data-count]', en.target).concat(en.target.matches('[data-count]') ? [en.target] : []).forEach(countUp);
+        io.unobserve(en.target);
+      });
+    }, {threshold: 0.15, rootMargin: '0px 0px -6% 0px'});
+    function observeAll(root = document){ $$('.reveal:not(.in)', root).forEach(el => io.observe(el)); $$('[data-count]:not([data-done])', root).forEach(el => { if (!el.closest('.reveal')) countIO.observe(el); }); }
+    const countIO = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { countUp(en.target); countIO.unobserve(en.target); } }), {threshold: 0.6});
+    function countUp(el){
+      if (el.dataset.done || reduceMotion) return;
+      el.dataset.done = '1';
+      const end = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '', dur = 1400, start = performance.now();
+      const step = now => {
+        const t = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(end * eased).toLocaleString('en-US') + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    // Scroll: progress bar, hero parallax, nav state
+    let ticking = false;
+    function onScroll(){
+      const max = document.documentElement.scrollHeight - innerHeight;
+      $('.progress').style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+      const img = $('.page.active .hero-img');
+      if (img) img.style.setProperty('--p', Math.min(1, scrollY / 900).toFixed(3));
+      $$('.blob').forEach((b, i) => b.style.translate = `0 ${scrollY * (0.04 + i * 0.02)}px`);
+      ticking = false;
+    }
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, {passive: true});
+
+    // Pointer effects (desktop only)
+    if (finePointer && !reduceMotion) {
+      const glow = $('.cursor-glow');
+      addEventListener('pointermove', e => { glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`; }, {passive: true});
+      document.addEventListener('pointermove', e => {
+        const t = e.target.closest('[data-tilt]');
+        if (t) {
+          const r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          t.style.setProperty('--rx', ((y - 0.5) * -7).toFixed(2) + 'deg');
+          t.style.setProperty('--ry', ((x - 0.5) * 9).toFixed(2) + 'deg');
+          t.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+          t.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+        }
+        const m = e.target.closest('[data-magnetic]');
+        if (m) {
+          const r = m.getBoundingClientRect();
+          m.style.transform = `translate(${((e.clientX - r.left - r.width/2) * 0.22).toFixed(1)}px, ${((e.clientY - r.top - r.height/2) * 0.3).toFixed(1)}px)`;
+        }
+      });
+      document.addEventListener('pointerout', e => {
+        const t = e.target.closest('[data-tilt]');
+        if (t && !t.contains(e.relatedTarget)) { t.style.setProperty('--rx','0deg'); t.style.setProperty('--ry','0deg'); }
+        const m = e.target.closest('[data-magnetic]');
+        if (m && !m.contains(e.relatedTarget)) m.style.transform = '';
+      });
+    }
+
+    // Copy email
+    document.addEventListener('click', async e => {
+      const b = e.target.closest('[data-copy]');
+      if (!b) return;
+      try { await navigator.clipboard.writeText(b.dataset.copy); } catch (_) {}
+      const old = b.textContent; b.textContent = 'Copied ✓'; b.classList.add('done');
+      setTimeout(() => { b.textContent = old; b.classList.remove('done'); }, 1600);
+    });
+
+    // Flow expand / collapse
     document.addEventListener('click', e => {
       const ctrl = e.target.closest('[data-flow]');
       if (ctrl) {
@@ -1333,40 +1604,107 @@
       }
       const btn = e.target.closest('.fbtn');
       if (!btn) return;
-      const node = btn.closest('.fnode');
-      const open = node.classList.toggle('open');
+      const open = btn.closest('.fnode').classList.toggle('open');
       btn.setAttribute('aria-expanded', String(open));
     });
 
-    // Routing (works with the Vercel rewrite to index.html)
+    // Routing with view transitions
     function route(path = location.pathname){
       const clean = path.replace(/\/$/,'') || '/';
-      const page = document.querySelector(`[data-path="${clean}"]`) || document.querySelector('[data-path="/"]');
-      document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p === page));
-      document.querySelectorAll('.links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === clean || (clean.startsWith('/work') && a.getAttribute('href') === '/work')));
+      const page = $(`[data-path="${clean}"]`) || $('[data-path="/"]');
+      $$('.page').forEach(p => p.classList.toggle('active', p === page));
+      $$('.links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === clean || (clean.startsWith('/work') && a.getAttribute('href') === '/work')));
       applyMeta(page.dataset.path);
       document.body.classList.remove('menu-open');
-      const btn = document.querySelector('.menu-btn'); if (btn) btn.setAttribute('aria-expanded','false');
-      scrollTo(0,0);
+      $('.menu-btn').setAttribute('aria-expanded','false');
+      scrollTo({top: 0, behavior: 'instant'});
+      setTimeout(() => { observeAll(page); onScroll(); }, 30);
+    }
+    function go(path, push = true){
+      const run = () => route(path);
+      if (push) history.pushState({}, '', path);
+      if (document.startViewTransition && !reduceMotion) document.startViewTransition(run); else run();
     }
     document.addEventListener('click', e => {
       const a = e.target.closest('a.route-link');
-      if (!a) return;
+      if (!a || e.metaKey || e.ctrlKey) return;
       e.preventDefault();
-      history.pushState({}, '', a.getAttribute('href'));
-      route();
+      go(a.getAttribute('href'));
     });
-    addEventListener('popstate', () => route());
-    document.querySelector('.menu-btn').addEventListener('click', e => {
+    addEventListener('popstate', () => go(location.pathname, false));
+    $('.menu-btn').addEventListener('click', e => {
       const open = document.body.classList.toggle('menu-open');
       e.currentTarget.setAttribute('aria-expanded', String(open));
     });
 
-    // Respect reduced motion: keep decorative videos paused
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+    // Willow: portfolio assistant (answers from this site's content only)
+    const KB = [
+      {k:['kitlab','kit lab','store','58','order value','conversion','funnel','jersey','result','achiev','metric','impact','numbers','outcome','proof'], a:'KitLabFS: founder and product designer on an online jersey store with 1,200+ products and 7,822 variants. I redesigned the purchase path, which lifted average order value 58% and grew the store to 550+ orders. It drew 450,000+ visitors in its first three months.', link:'/work/kitlab-fs', label:'Open the KitLabFS case study'},
+      {k:['ballycorp','portal','b2b','sales rep','website'], a:'Ballycorp (Dec 2024 to Sep 2026): I designed the company website and a sales rep portal connecting clients and sales reps. I mapped workflows for each role, wrote notes on behaviour and edge cases for developers, and reviewed the builds.'},
+      {k:['lcbo','co-op','coop','promotion'], a:'LCBO (Sep 2023 to Nov 2024): co-op, then Junior Product Designer, then Product Designer. Two promotions in 14 months, moving from guided tasks to owning product work on my own.'},
+      {k:['matchup','match up','soccer'], a:'MatchUp is a concept: a mobile flow for organizing local soccer matches. Organizers set positions and cost, and players commit in the same place. The core idea is one shared match state.', link:'/work/matchup', label:'Open MatchUp'},
+      {k:['commerceflow','commerce','dashboard','operations'], a:'CommerceFlow is a concept: an operations overview that leads with what changed, then connects each alert to the module that can explain it.', link:'/work/commerceflow', label:'Open CommerceFlow'},
+      {k:['work','case study','case studies','project','portfolio'], a:'There are three case studies: KitLabFS (shipped, with metrics) and two concept projects, MatchUp and CommerceFlow. KitLabFS is the best place to start.', link:'/work', label:'See all work'},
+      {k:['process','how do you work','approach','method','framework'], a:'I frame the problem first, map each user role and flow, prototype in Figma, document edge cases so developers can build without a walkthrough, then review the build and fix what is confusing after launch.'},
+      {k:['tool','figma','shopify','photoshop','illustrator','skill','software'], a:'Figma for interaction and systems, Shopify for commerce builds, and the Adobe suite for brand and print. I also use AI tools for exploration and prototyping.'},
+      {k:['education','school','fanshawe','diploma','study'], a:'Graphic Design Advanced Diploma, Fanshawe College (2022 to 2025).'},
+      {k:['language','spanish','french'], a:'English and Spanish, both native. French at a basic level.'},
+      {k:['available','availability','hire','hiring','job','open to','remote','hybrid','location','toronto','salary','rate'], a:'I am open to product design roles. I am based in Toronto and open to hybrid or remote work.', link:'/contact', label:'Contact me'},
+      {k:['contact','email','phone','linkedin','reach'], a:'Email arhennesseyco@gmail.com, call 226-582-4622, or find me on LinkedIn at linkedin.com/in/arhennessey.', link:'/contact', label:'Contact page'},
+      {k:['resume','résumé','cv'], a:'The résumé is not posted on the site. Email arhennesseyco@gmail.com or message me on LinkedIn and I will send it.'},
+      {k:['secret','easter','surprise','hidden'], a:'Secret: the motion on this site follows one rule I use on products. Animation should explain a change in state, never just decorate. Hover any card with a ✦ for a breakdown.'},
+      {k:['hello','hi','hey','who are you','willow','help'], a:'I’m Willow, the assistant for this portfolio. I know the case studies, experience and how Alejandro works. Hover any ✦ card for a quick breakdown.'}
+    ];
+    const FALLBACK = {a:'I can answer about projects, experience, metrics, process, tools, availability and contact. Try one of the quick questions below.'};
+    function answer(q){
+      const t = ' ' + q.toLowerCase() + ' ';
+      let best = null, score = 0;
+      KB.forEach(entry => {
+        const s = entry.k.reduce((n, k) => {
+          const hit = k.length <= 3 ? new RegExp('\\b' + k + '\\b').test(t) : t.includes(k);
+          return n + (hit ? k.length : 0);
+        }, 0);
+        if (s > score) { score = s; best = entry; }
+      });
+      return best || FALLBACK;
     }
+    const log = $('#wp-log'), chips = $('#wp-chips'), form = $('#wp-form'), input = $('#wp-input'), panel = $('#willow-panel'), wbtn = $('#willow-btn');
+    const QUICK = ['What did KitLabFS achieve?', 'Tell me about Ballycorp', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
+    chips.innerHTML = QUICK.map(q => `<button class="chip" type="button">${esc(q)}</button>`).join('');
+    function addMsg(role, html){
+      const d = document.createElement('div'); d.className = 'msg ' + role; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
+    }
+    function botSay(entry){
+      const typing = addMsg('bot', '<span class="typing"><i></i><i></i><i></i></span>');
+      setTimeout(() => {
+        typing.innerHTML = esc(entry.a) + (entry.link ? ` <br><a href="${entry.link}" class="route-link">${esc(entry.label)} →</a>` : '');
+        log.scrollTop = log.scrollHeight;
+      }, reduceMotion ? 0 : 650);
+    }
+    function ask(q){
+      q = q.trim(); if (!q) return;
+      addMsg('me', esc(q));
+      botSay(answer(q));
+    }
+    let greeted = false;
+    function openWillow(open){
+      panel.hidden = !open;
+      wbtn.setAttribute('aria-expanded', String(open));
+      if (open) {
+        if (!greeted) { greeted = true; addMsg('bot', 'Hi, I’m Willow. Ask about projects, experience, metrics, how I work or availability. Hover any ✦ card for a breakdown.'); }
+        setTimeout(() => input.focus(), 60);
+      } else { wbtn.focus(); }
+    }
+    wbtn.addEventListener('click', () => openWillow(panel.hidden));
+    $('.wp-close').addEventListener('click', () => openWillow(false));
+    chips.addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) ask(c.textContent); });
+    form.addEventListener('submit', e => { e.preventDefault(); ask(input.value); input.value = ''; });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) openWillow(false); });
+
+    // Init
     route();
+    observeAll(document);
+    onScroll();
   </script>
 
 
