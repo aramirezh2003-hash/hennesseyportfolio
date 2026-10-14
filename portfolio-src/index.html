@@ -835,41 +835,114 @@
     const N = (type,label,detail,next=[]) => ({type,label,detail,next});
     const flows = {
       'kitlab-fs': {
-        note:'Shopper flow for the live store. Click a step to see what happens next.',
-        lanes:[{title:'Shopper', roots:[
-          N('start','Shopper lands on the store',null,[
-            N('action','Browses 1,200+ products',"Thousands of jerseys across clubs, nations, competitions and retro. Discovery is the bottleneck, so the catalogue is organized the way fans shop.",[
-              N('decision','Knows the club or nation?',null,[
-                N('choice','Yes: filters by club, season and type',null,[
-                  N('action','Opens a product page',"Each product page shows the choices that matter for that shirt, in order.")
+        note:'The shopper journey for the live store, in four stages. Click a step to open what happens next, or use Expand all.',
+        lanes:[
+          {title:'1 · Find a shirt', roots:[
+            N('start','Shopper arrives: search, ad, World Cup hub or homepage',"Visitors arrive from ads, search or the homepage, so every entry point should land on something shoppable.",[
+              N('decision','How do they look for a shirt?',null,[
+                N('choice','Navigation: Clubs or Nations menu',null,[
+                  N('action','Picks a confederation, then a country or league',"The menu groups clubs by confederation (UEFA, CONMEBOL, CONCACAF, AFC, CAF, OFC), so a shopper reaches a league in two clicks. On mobile the same menu opens in place, level by level.",[
+                    N('system','Lands on a filtered Shop all page',"The page opens with the choice already applied as a removable chip, so the shopper never starts from zero.")
+                  ])
                 ]),
-                N('choice','No: browses by competition or retro',null,[
-                  N('action','Picks a shirt from a clear category',"Categories follow how fans browse, not how the inventory is stored.")
+                N('choice','Search: types a team or player',null,[
+                  N('system','Search results open in the catalogue',"Results sit in the same grid, with the same filters, so refining feels familiar.")
+                ]),
+                N('choice','Browse: opens Shop all',null,[
+                  N('action','Scans the grid',"Badges such as Trending, Bestseller, New and Retro help a shopper decide what to open first.")
                 ])
-              ])
-            ]),
-            N('action','Chooses a version: fan or player',"Player versions, patches and sizing are revealed in a guided sequence, so no step feels overloaded.",[
-              N('decision','Wants a custom shirt?',null,[
-                N('choice','Yes: adds a name, number or patch',null,[
-                  N('system','Preview and price update live',"Every customization updates the preview and the price immediately, so the shopper always knows what they are buying.")
-                ]),
-                N('choice','No: keeps the standard shirt',null,[])
-              ])
-            ]),
-            N('action','Adds to cart',null,[
-              N('system','Cart keeps selections and price visible',"Selections stay on screen so nothing is lost between the product page and checkout.",[
-                N('decision','Ready to check out?',null,[
-                  N('choice','Yes: guided checkout',null,[
-                    N('end','Completed sale',"Cart, checkout and completed-sale rates are tracked at each stage to decide what to design next. Result: 3.8% completed sale rate.")
+              ]),
+              N('action','Narrows with filters',"Category, confederation, country, kit version, season, size, price range and in-stock only. Active filters sit above the results and clear with one tap.",[
+                N('decision','Too many results?',"The catalogue holds about 1,200 products and 7,822 variants.",[
+                  N('choice','Yes: adds another filter or sorts',null,[
+                    N('system','Result count updates instantly',"A running count tells the shopper how close they are. Load more shows progress, for example 24 of the total.")
                   ]),
-                  N('choice','Not yet: keeps browsing',null,[
-                    N('end','Returns to the catalogue',null)
+                  N('choice','No: opens a shirt',null,[
+                    N('end','Product page opens',"The shopper moves to the stage where most decisions are made.")
                   ])
                 ])
               ])
             ])
-          ])
-        ]}]
+          ]},
+          {title:'2 · Choose and customize', roots:[
+            N('start','Shopper is on a product page',"This page was redesigned after the first version let people play with every option and leave.",[
+              N('action','Sees the shirt, price and delivery date together',"Free shipping and an estimated delivery date sit in the buy panel, so shipping is never a surprise at checkout.",[
+                N('action','Chooses a version: player or fan',null,[
+                  N('action','Chooses a size',"The size guide is one tap away, so doubts about fit are solved on the page.",[
+                    N('decision','Wants a name and number?',null,[
+                      N('choice','Yes: types a name and number, picks a patch',null,[
+                        N('system','Price breakdown updates',"Jersey, personalization and total are listed in the panel. There are no toggles to flip, so there is nothing to play with and no phantom price changes.")
+                      ]),
+                      N('choice','No: keeps the standard shirt',null,[
+                        N('system','Total stays as shown',null)
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              N('decision','Ready to commit?',"This is the decision point the redesign was built around.",[
+                N('choice','Yes: Add to Kitbag',null,[
+                  N('end','Cart drawer opens',"Selections, price and shipping were already decided on the page, so the cart confirms rather than surprises.")
+                ]),
+                N('choice','Not sure: reads specifications, sizing, care or reviews',null,[
+                  N('action','Checks tabs and recommended shirts',"Specifications, sizing guide, care and fit, and reviews are one tab away.",[
+                    N('end','Returns to the decision',null)
+                  ])
+                ])
+              ])
+            ])
+          ]},
+          {title:'3 · Cart and checkout', roots:[
+            N('start','Cart drawer opens over the page',"It opens as a drawer, so the shopper keeps their place in the catalogue.",[
+              N('system','Shows free shipping status and a "3rd jersey free" progress bar',"Progress toward free shipping and the third-shirt offer sits at the top of the cart, where it nudges larger orders.",[
+                N('action','Reviews the item: version, size, quantity, personalization',null,[
+                  N('decision','Wants to add more?',null,[
+                    N('choice','Yes: adds the Mystery Jersey Box or another shirt',null,[
+                      N('system','Total and progress update',"The offer text changes as the order grows, for example how many more shirts unlock the free one.")
+                    ]),
+                    N('choice','No: continues',null,[])
+                  ])
+                ])
+              ]),
+              N('decision','Checks out or keeps shopping?',null,[
+                N('choice','Checkout',null,[
+                  N('action','Completes the guided checkout',"Shipping and the total were visible on the product page and in the cart, so the shopper arrives having already decided.",[
+                    N('end','Completed sale',"Result: 550+ orders, average order value up from US$43 to US$68 after the purchase redesign, and a 3.8% completed-sale rate.")
+                  ])
+                ]),
+                N('choice','Continue shopping',null,[
+                  N('end','Back to the catalogue, cart saved',null)
+                ])
+              ])
+            ])
+          ]},
+          {title:'4 · After the sale', roots:[
+            N('start','Order is placed',"Support questions cost time, so the post-purchase experience answers them before they are asked.",[
+              N('system','Order number is issued',"The order number is the key to everything after the sale.",[
+                N('action','Opens Track Order',"Reachable from the navigation and the footer.",[
+                  N('action','Enters the order number and email',null,[
+                    N('system','Status page shows the order at a glance',"Order number, placed date and estimated delivery appear in a dark header. A five-step bar shows Processing, Packed, Shipped, Out for delivery and Delivered.",[
+                      N('action','Reads the live update and tracking history',"The latest scan, for example in transit at a facility, and a timeline of every earlier scan.",[
+                        N('decision','Is the order on track?',null,[
+                          N('choice','Yes',null,[
+                            N('end','Delivered',"The shopper never needed support.")
+                          ]),
+                          N('choice','No: late, missing or wrong item',null,[
+                            N('action','Picks a quick help topic',"Where is my order? How do I return an item? Package says delivered but I did not receive it. Wrong item received.",[
+                              N('system','Support form collects the order number and issue type',"Asking for the order number and issue type up front means the support team starts with the facts, not a back-and-forth.",[
+                                N('end','Issue resolved',null)
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]}
+        ]
       },
       'matchup': {
         note:'Concept flow. Organizers and players move through the same match, from different starting points.',
