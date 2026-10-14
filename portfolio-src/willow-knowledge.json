@@ -339,7 +339,7 @@
         "field",
         "positions"
       ],
-      "answer": "MatchUp is a concept project: a mobile flow for organizing local soccer matches. Organizers choose open positions and share field costs, and players commit in the same place. The core idea is one shared match state for both.",
+      "answer": "MatchUp is a mobile product design project: a flow for organizing local soccer matches. Organizers choose open positions and share field costs, and players commit in the same place. The core idea is one shared match state for both.",
       "link": "/work/matchup",
       "label": "Open MatchUp"
     },
@@ -361,7 +361,7 @@
         "overview",
         "alerts"
       ],
-      "answer": "CommerceFlow is a concept project: an operations overview that leads with what changed, then connects each alert to the module that can explain it. It is aimed at multi-store operators.",
+      "answer": "CommerceFlow is a product design project: an operations overview that leads with what changed, then connects each alert to the module that can explain it. It is aimed at multi-store operators.",
       "link": "/work/commerceflow",
       "label": "Open CommerceFlow"
     },
@@ -410,7 +410,7 @@
         "examples",
         "samples"
       ],
-      "answer": "There are three case studies and one film. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are concept projects. Always Moving is an 85-second motion graphics film about his path from Colombia to Canada.",
+      "answer": "There are three case studies and one film. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are mobile and B2B design projects. Always Moving is an 85-second motion graphics film about his path from Colombia to Canada.",
       "link": "/work",
       "label": "See all work"
     },
