@@ -386,6 +386,8 @@
     body{font-size:17px;font-weight:400}
     h1,h2,h3,.split-h1{letter-spacing:-.025em!important;font-weight:700!important}
     .em{font-style:italic;font-weight:600!important}
+    /* Section jumps land below the fixed nav */
+    .block{scroll-margin-top:110px}
     /* Mobile polish pass */
     @media (max-width:860px){
       .menu-btn{padding:11px 18px;font-size:14px;min-height:44px}
@@ -1642,8 +1644,10 @@
     });
 
     // Routing with view transitions
+    let currentPath = null;
     function route(path = location.pathname){
       const clean = path.replace(/\/$/,'') || '/';
+      currentPath = clean;
       const page = $(`[data-path="${clean}"]`) || $('[data-path="/"]');
       $$('.page').forEach(p => p.classList.toggle('active', p === page));
       $$('.links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === clean || (clean.startsWith('/work') && a.getAttribute('href') === '/work')));
@@ -1664,7 +1668,12 @@
       e.preventDefault();
       go(a.getAttribute('href'));
     });
-    addEventListener('popstate', () => go(location.pathname, false));
+    addEventListener('popstate', () => {
+      // Same-page hash jumps (case study sections) fire popstate too; let the browser scroll them.
+      const here = location.pathname.replace(/\/$/,'') || '/';
+      if (location.hash && here === currentPath) return;
+      go(location.pathname, false);
+    });
     $('.menu-btn').addEventListener('click', e => {
       const open = document.body.classList.toggle('menu-open');
       e.currentTarget.setAttribute('aria-expanded', String(open));
