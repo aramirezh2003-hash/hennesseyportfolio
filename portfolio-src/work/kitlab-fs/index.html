@@ -386,6 +386,45 @@
     body{font-size:17px;font-weight:400}
     h1,h2,h3,.split-h1{letter-spacing:-.025em!important;font-weight:700!important}
     .em{font-style:italic;font-weight:600!important}
+    /* Case study story layout */
+    .brief{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+    .brief > div{padding:26px 26px 28px;border-radius:28px;display:flex;flex-direction:column;gap:10px}
+    .brief .label{color:var(--accent)}
+    .brief p{margin:0;color:var(--ink-2);font-size:16px;line-height:1.5}
+    .brief b{font:700 clamp(24px,2.4vw,32px)/1.08 var(--serif);letter-spacing:-.02em}
+    .brief b.big{font-size:clamp(54px,5.4vw,76px);line-height:.9}
+    .case-layout > *{min-width:0}
+    .case-layout .block,.fig,.phones{min-width:0;max-width:100%}
+    .shots-label{margin:48px 0 0}
+    .fig{margin:20px 0 0}
+    .shot{position:relative;padding:8px;border-radius:28px;overflow:hidden}
+    .chrome{display:flex;gap:6px;padding:6px 10px 10px}
+    .chrome i{width:9px;height:9px;border-radius:50%;background:var(--muted);opacity:.35}
+    .screen{max-height:min(640px,78vh);overflow-y:auto;border-radius:20px;background:var(--bg);overscroll-behavior:contain;scrollbar-width:thin}
+    .screen.flat{max-height:none;overflow:visible}
+    .screen img{display:block;width:100%;height:auto}
+    .screen:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    .fig figcaption,.phone figcaption{margin:12px 6px 0;font-size:14.5px;line-height:1.5;color:var(--muted)}
+    .fig figcaption b,.phone figcaption b{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+    .phones{display:flex;flex-wrap:wrap;gap:22px;margin-top:20px}
+    .phone{margin:0;width:clamp(230px,26vw,290px)}
+    .phone .screen{max-height:min(560px,72vh)}
+    .shot.scrolls::after{content:"Scroll \2193";position:absolute;inset:auto auto 16px 50%;-webkit-mask:none;mask:none;transform:translateX(-50%);padding:6px 12px;border-radius:999px;background:rgba(13,16,32,.78);color:#fff;font:600 12px var(--sans);pointer-events:none;transition:opacity .4s}
+    .shot.scrolled::after{opacity:0}
+    .case-nav a.active{color:var(--ink);background:var(--chip)}
+    .results-note{margin-top:18px;font-size:14px;color:var(--muted)}
+    @media (max-width:860px){
+      .brief{grid-template-columns:1fr;margin-top:36px}
+      .case-nav{display:flex;position:sticky;top:64px;z-index:30;overflow-x:auto;gap:4px;padding:6px;border-radius:999px;margin:-30px 0 30px;scrollbar-width:none}
+      .case-nav::-webkit-scrollbar{display:none}
+      .case-nav .label{display:none}
+      .case-nav a{white-space:nowrap;padding:9px 14px;flex:0 0 auto}
+      .block{scroll-margin-top:130px}
+    }
+    @media (max-width:600px){
+      .phones{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px}
+      .phone{flex:0 0 auto;scroll-snap-align:start;width:min(260px,72vw)}
+    }
     /* Section jumps land below the fixed nav */
     .block{scroll-margin-top:110px}
     /* Mobile polish pass */
@@ -598,6 +637,11 @@
         </div>
         <div class="hero-img glass reveal" style="--p: 0.000;"><div class="frame"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover"></div></div>
       </div></header>
+      <section class="wrap brief reveal" aria-label="In brief">
+        <div class="glass"><span class="label">The problem</span><p>Choices such as player versions, patches, sizing and name customization were hard to understand.</p></div>
+        <div class="glass"><span class="label">The design bet</span><p>Sequence the journey instead of exposing every choice at once.</p></div>
+        <div class="glass"><span class="label">The result</span><b class="big">58%</b><p>Lift in average order value after the purchase redesign.</p></div>
+      </section>
       <div class="wrap case-layout">
         <aside class="glass case-nav" aria-label="Case study sections">
           <p class="label" style="margin:4px 12px 10px">Case study</p>
@@ -755,12 +799,13 @@
             <h2>The design bet</h2>
             <div class="bet">Sequence the journey instead of exposing every choice at once.</div>
             <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/kitlab-transition-4k.mp4" aria-label="KitLab FS motion study"></video></div>
-            <div class="gallery"><div class="glass g "><img src="/assets/kitlab/case-study/catalogue-hero.png" loading="lazy" alt="KitLabFS storefront with the shop-all jersey catalogue and filters"></div><div class="glass g "><img src="/assets/figma/kitlab-shop-all-desktop.jpg" loading="lazy" alt="KitLabFS desktop shop-all page organized by club, national team and competition"></div><div class="glass g "><img src="/assets/figma/kitlab-shop-all-mobile.png" loading="lazy" alt="KitLabFS mobile shop-all page with the catalogue and filters"></div><div class="glass g "><img src="/assets/figma/kitlab-product.png" loading="lazy" alt="KitLabFS product page with customization options"></div><div class="glass g "><img src="/assets/figma/kitlab-mobile.png" loading="lazy" alt="KitLabFS mobile product page"></div><div class="glass g "><img src="/assets/figma/kitlab-cart.png" loading="lazy" alt="KitLabFS cart and checkout"></div></div>
+            <p class="label shots-label">Desktop</p><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Shop all screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-desktop.webp" loading="lazy" decoding="async" alt="KitLabFS desktop shop-all page with a filter sidebar and jersey grid"></div></div><figcaption><b>Shop all</b>The full catalogue with a filter sidebar, and the active filters shown above the results.</figcaption></figure><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen" tabindex="0" role="group" aria-label="Cart screenshot, scrollable"><img src="/assets/figma/kitlab-cart.png" loading="lazy" decoding="async" alt="KitLabFS cart drawer with free shipping status and order total"></div></div><figcaption><b>Cart</b>The cart drawer, with free-shipping progress and the total in view.</figcaption></figure><p class="label shots-label">Detail and mobile</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones"><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Purchase panel screenshot, scrollable"><img src="/assets/figma/kitlab-purchase-panel.webp" loading="lazy" decoding="async" alt="KitLabFS purchase panel with version, size, personalization and price breakdown"></div></div><figcaption><b>Purchase panel</b>Version, size and personalization in one sequence, with the price breakdown and total visible.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Shop all, mobile screenshot, scrollable"><img src="/assets/figma/kitlab-shop-all-mobile.webp" loading="lazy" decoding="async" alt="KitLabFS mobile shop-all page with category tabs, sort and applied filters"></div></div><figcaption><b>Shop all, mobile</b>Category tabs, sorting and removable filters on a small screen.</figcaption></figure></div>
           </section>
           <section class="block reveal" id="kitlab-fs-why">
             <p class="label">06 / Results</p>
             <h2>What changed.</h2>
             <div class="results"><div class="glass tilt" data-tilt=""><b data-count="58" data-suffix="%">58%</b><span>Lift in average order value after the purchase redesign.</span></div><div class="glass tilt" data-tilt=""><b data-count="550" data-suffix="+">550+</b><span>Orders placed as the store grew.</span></div><div class="glass tilt has-insight" tabindex="0" data-insight="Checkout to completed sale is the steepest drop: 3.8 of every 10.4 shoppers who reached checkout finished, about 37%. Based on the funnel figures as reported." data-tilt=""><b>23.7 → 10.4 → 3.8%</b><span>Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.</span><span class="ibadge" aria-hidden="true">✦</span></div></div>
+            
           </section>
         </article>
       </div>
@@ -783,6 +828,11 @@
         </div>
         <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover"></div></div>
       </div></header>
+      <section class="wrap brief reveal" aria-label="In brief">
+        <div class="glass"><span class="label">The problem</span><p>Players rely on scattered group chats with incomplete information about cost, skill level and open positions.</p></div>
+        <div class="glass"><span class="label">The design bet</span><p>Give organizers and players one shared match state.</p></div>
+        <div class="glass"><span class="label">The outcome</span><b>Open spots at a glance</b><p>Players see how many positions are left before they commit.</p></div>
+      </section>
       <div class="wrap case-layout">
         <aside class="glass case-nav" aria-label="Case study sections">
           <p class="label" style="margin:4px 12px 10px">Case study</p>
@@ -904,12 +954,13 @@
             <h2>The design bet</h2>
             <div class="bet">Give organizers and players one shared match state.</div>
             <div class="glass case-video"><video autoplay="" muted="" loop="" playsinline="" preload="none" src="/assets/video/matchup-transition-4k.mp4" aria-label="MatchUp motion study"></video></div>
-            <div class="gallery"><div class="glass g wide"><img src="/assets/figma/matchup-home.png" loading="lazy" alt="MatchUp home screen showing upcoming matches"></div><div class="glass g "><img src="/assets/figma/matchup-preview.png" loading="lazy" alt="MatchUp match preview with open positions and cost"></div><div class="glass g "><img src="/assets/figma/matchup-results.png" loading="lazy" alt="MatchUp results screen"></div></div>
+            <p class="label shots-label">Mobile screens</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones"><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Discover screenshot, scrollable"><img src="/assets/figma/matchup-home.png" loading="lazy" decoding="async" alt="MatchUp discover screen with upcoming matches"></div></div><figcaption><b>Discover</b>Upcoming matches, with price per spot, level and open spots on each card.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Match preview screenshot, scrollable"><img src="/assets/figma/matchup-preview.png" loading="lazy" decoding="async" alt="MatchUp map view with a match card, open spots and total cost"></div></div><figcaption><b>Match preview</b>Map view with the match card: open spots, total cost and one join action.</figcaption></figure><figure class="phone reveal"><div class="glass shot"><div class="screen" tabindex="0" role="group" aria-label="Match summary screenshot, scrollable"><img src="/assets/figma/matchup-results.png" loading="lazy" decoding="async" alt="MatchUp match summary with score, stats and player of the match"></div></div><figcaption><b>Match summary</b>The post-match summary with the score, team stats and player of the match.</figcaption></figure></div>
           </section>
           <section class="block reveal" id="matchup-why">
             <p class="label">06 / Results</p>
             <h2>Why it works.</h2>
             <p>Turn finding a game into joining one.</p><div class="proof"><div class="glass tilt"><b>Availability</b><h3>Open spots at a glance</h3><p>Players see how many positions are left before they commit.</p></div><div class="glass tilt"><b>Position</b><h3>Choose in the match</h3><p>Position selection happens in the match, not in a group chat.</p></div><div class="glass tilt"><b>Payment</b><h3>Cost in context</h3><p>Field costs are split and shown with the match, so no one chases anyone.</p></div></div>
+            <p class="results-note">Concept project: these are design outcomes, not measured results.</p>
           </section>
         </article>
       </div>
@@ -932,6 +983,11 @@
         </div>
         <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover"></div></div>
       </div></header>
+      <section class="wrap brief reveal" aria-label="In brief">
+        <div class="glass"><span class="label">The problem</span><p>Operators repeatedly switch between storefronts, advertising platforms, spreadsheets and supplier systems just to understand performance and manage daily operations.</p></div>
+        <div class="glass"><span class="label">The design bet</span><p>Organize around daily decisions, not the tools where the data originated.</p></div>
+        <div class="glass"><span class="label">The outcome</span><b>Change-first</b><p>The dashboard leads with what moved, then offers the detail behind it.</p></div>
+      </section>
       <div class="wrap case-layout">
         <aside class="glass case-nav" aria-label="Case study sections">
           <p class="label" style="margin:4px 12px 10px">Case study</p>
@@ -1053,12 +1109,13 @@
             <h2>The design bet</h2>
             <div class="bet">Organize around daily decisions, not the tools where the data originated.</div>
             
-            <div class="gallery"><div class="glass g wide"><img src="/assets/figma/commerce-dashboard.jpg" loading="lazy" alt="CommerceFlow operations dashboard with sales and inventory overview"></div></div>
+            <p class="label shots-label">Screens</p><figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div class="screen flat"><img src="/assets/figma/commerce-dashboard.jpg" loading="lazy" decoding="async" alt="CommerceFlow operations dashboard with revenue, orders, conversion and sales by channel"></div></div><figcaption><b>Operations overview</b>Revenue, orders and conversion on top, then the revenue trend, sales by channel and store comparison.</figcaption></figure>
           </section>
           <section class="block reveal" id="commerceflow-why">
             <p class="label">06 / Results</p>
             <h2>Why it works.</h2>
             <p>Make operational data support a decision.</p><div class="proof"><div class="glass tilt"><b>Overview</b><h3>Change-first</h3><p>The dashboard leads with what moved, then offers the detail behind it.</p></div><div class="glass tilt"><b>Alerts</b><h3>Actionable, not noisy</h3><p>Each alert points to the module that can resolve it.</p></div><div class="glass tilt"><b>Scale</b><h3>A system that grows</h3><p>Components work across stores, teams and roles.</p></div></div>
+            <p class="results-note">Concept project: these are design outcomes, not measured results.</p>
           </section>
         </article>
       </div>
@@ -1130,12 +1187,10 @@
           ['23.7 → 10.4 → 3.8%','Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.']
         ],
         images:[
-          {src:'/assets/kitlab/case-study/catalogue-hero.png', alt:'KitLabFS storefront with the shop-all jersey catalogue and filters'},
-          {src:'/assets/figma/kitlab-shop-all-desktop.jpg', alt:'KitLabFS desktop shop-all page organized by club, national team and competition'},
-          {src:'/assets/figma/kitlab-shop-all-mobile.png', alt:'KitLabFS mobile shop-all page with the catalogue and filters'},
-          {src:'/assets/figma/kitlab-product.png', alt:'KitLabFS product page with customization options'},
-          {src:'/assets/figma/kitlab-mobile.png', alt:'KitLabFS mobile product page'},
-          {src:'/assets/figma/kitlab-cart.png', alt:'KitLabFS cart and checkout'}
+          {kind:'desktop', src:'/assets/figma/kitlab-shop-all-desktop.webp', title:'Shop all', caption:'The full catalogue with a filter sidebar, and the active filters shown above the results.', alt:'KitLabFS desktop shop-all page with a filter sidebar and jersey grid'},
+          {kind:'desktop', src:'/assets/figma/kitlab-cart.png', title:'Cart', caption:'The cart drawer, with free-shipping progress and the total in view.', alt:'KitLabFS cart drawer with free shipping status and order total'},
+          {kind:'portrait', src:'/assets/figma/kitlab-purchase-panel.webp', title:'Purchase panel', caption:'Version, size and personalization in one sequence, with the price breakdown and total visible.', alt:'KitLabFS purchase panel with version, size, personalization and price breakdown'},
+          {kind:'portrait', src:'/assets/figma/kitlab-shop-all-mobile.webp', title:'Shop all, mobile', caption:'Category tabs, sorting and removable filters on a small screen.', alt:'KitLabFS mobile shop-all page with category tabs, sort and applied filters'}
         ],
         video:'/assets/video/kitlab-transition-4k.mp4'
       },
@@ -1160,15 +1215,16 @@
           ['Refine','Carry certainty from discovery through kickoff and post-match review.']
         ],
         bet:'Give organizers and players one shared match state.',
+        resultsNote:'Concept project: these are design outcomes, not measured results.',
         results:[
           ['Availability','Open spots at a glance','Players see how many positions are left before they commit.'],
           ['Position','Choose in the match','Position selection happens in the match, not in a group chat.'],
           ['Payment','Cost in context','Field costs are split and shown with the match, so no one chases anyone.']
         ],
         images:[
-          {src:'/assets/figma/matchup-home.png', alt:'MatchUp home screen showing upcoming matches'},
-          {src:'/assets/figma/matchup-preview.png', alt:'MatchUp match preview with open positions and cost'},
-          {src:'/assets/figma/matchup-results.png', alt:'MatchUp results screen'}
+          {kind:'portrait', src:'/assets/figma/matchup-home.png', title:'Discover', caption:'Upcoming matches, with price per spot, level and open spots on each card.', alt:'MatchUp discover screen with upcoming matches'},
+          {kind:'portrait', src:'/assets/figma/matchup-preview.png', title:'Match preview', caption:'Map view with the match card: open spots, total cost and one join action.', alt:'MatchUp map view with a match card, open spots and total cost'},
+          {kind:'portrait', src:'/assets/figma/matchup-results.png', title:'Match summary', caption:'The post-match summary with the score, team stats and player of the match.', alt:'MatchUp match summary with score, stats and player of the match'}
         ],
         video:'/assets/video/matchup-transition-4k.mp4'
       },
@@ -1193,13 +1249,14 @@
           ['Refine','Use a component system that can grow with teams, stores and roles.']
         ],
         bet:'Organize around daily decisions, not the tools where the data originated.',
+        resultsNote:'Concept project: these are design outcomes, not measured results.',
         results:[
           ['Overview','Change-first','The dashboard leads with what moved, then offers the detail behind it.'],
           ['Alerts','Actionable, not noisy','Each alert points to the module that can resolve it.'],
           ['Scale','A system that grows','Components work across stores, teams and roles.']
         ],
         images:[
-          {src:'/assets/figma/commerce-dashboard.jpg', alt:'CommerceFlow operations dashboard with sales and inventory overview'}
+          {kind:'mockup', src:'/assets/figma/commerce-dashboard.jpg', title:'Operations overview', caption:'Revenue, orders and conversion on top, then the revenue trend, sales by channel and store comparison.', alt:'CommerceFlow operations dashboard with revenue, orders, conversion and sales by channel'}
         ],
         video:null
       }
@@ -1386,6 +1443,24 @@
             return `<div class="glass tilt${attrs} data-tilt><b ${c?`data-count="${c.n}" data-suffix="${esc(c.suffix)}"`:''}>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`;
           }).join('')}</div>`
         : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r => `<div class="glass tilt"><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`;
+      const firstSentence = t => { const m = String(t).match(/^.*?[.!?](\s|$)/); return m ? m[0].trim() : String(t); };
+      const r0 = p.results[0];
+      const briefResult = isKitlab
+        ? `<b class="big">${esc(r0[0])}</b><p>${esc(r0[1])}</p>`
+        : `<b>${esc(r0[1])}</b><p>${esc(r0[2])}</p>`;
+      const briefHTML = `<section class="wrap brief reveal" aria-label="In brief">
+        <div class="glass"><span class="label">The problem</span><p>${esc(firstSentence(p.problem))}</p></div>
+        <div class="glass"><span class="label">The design bet</span><p>${esc(p.bet)}</p></div>
+        <div class="glass"><span class="label">${isKitlab ? 'The result' : 'The outcome'}</span>${briefResult}</div>
+      </section>`;
+      const shotImg = im => `<img src="${im.src}" loading="lazy" decoding="async" alt="${esc(im.alt)}">`;
+      const screenAttrs = (im, flat) => flat ? 'class="screen flat"' : `class="screen" tabindex="0" role="group" aria-label="${esc(im.title)} screenshot, scrollable"`;
+      const figHTML = im => `<figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div ${screenAttrs(im, im.kind === 'mockup')}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
+      const phoneHTML = im => `<figure class="phone reveal"><div class="glass shot"><div ${screenAttrs(im, false)}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
+      const wideShots = p.images.filter(i => i.kind !== 'portrait'), tallShots = p.images.filter(i => i.kind === 'portrait');
+      const screensHTML =
+        (wideShots.length ? `<p class="label shots-label">${tallShots.length ? 'Desktop' : 'Screens'}</p>${wideShots.map(figHTML).join('')}` : '') +
+        (tallShots.length ? `<p class="label shots-label">${wideShots.length ? 'Detail and mobile' : 'Mobile screens'}</p><p class="flow-note">Scroll inside a screen to see the whole page.</p><div class="phones">${tallShots.map(phoneHTML).join('')}</div>` : '');
       return `
       <header class="case-top"><div class="wrap">
         <p class="label reveal">${esc(p.label)}</p>
@@ -1401,6 +1476,7 @@
         </div>
         <div class="hero-img glass reveal"><div class="frame"><img src="${p.cover}" alt="${esc(p.name)} case study cover"></div></div>
       </div></header>
+      ${briefHTML}
       <div class="wrap case-layout">
         <aside class="glass case-nav" aria-label="Case study sections">
           <p class="label" style="margin:4px 12px 10px">Case study</p>
@@ -1438,12 +1514,13 @@
             <h2>The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
             ${p.video ? `<div class="glass case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
-            <div class="gallery">${p.images.map((im,i)=>`<div class="glass g ${i===0 && p.images.length%2===1 ? 'wide' : ''}"><img src="${im.src}" loading="lazy" alt="${esc(im.alt)}"></div>`).join('')}</div>
+            ${screensHTML}
           </section>
           <section class="block reveal" id="${s}-why">
             <p class="label">06 / Results</p>
             <h2>${isKitlab ? 'What changed.' : 'Why it works.'}</h2>
             ${resultsHTML}
+            ${p.resultsNote ? `<p class="results-note">${esc(p.resultsNote)}</p>` : ''}
           </section>
         </article>
       </div>
@@ -1453,6 +1530,35 @@
       </a></div></section>`;
     }
     $$('[data-case]').forEach(el => el.innerHTML = caseMarkup(projects[el.dataset.case]));
+
+
+    // Case study: highlight the current section and hint at scrollable screens
+    function markScrollable(){
+      document.querySelectorAll('.shot').forEach(sh => {
+        const sc = sh.querySelector('.screen');
+        if (!sc || sc.classList.contains('flat')) return;
+        sh.classList.toggle('scrolls', sc.scrollHeight > sc.clientHeight + 4);
+      });
+    }
+    document.querySelectorAll('.shot .screen').forEach(sc => {
+      sc.addEventListener('scroll', () => sc.parentElement.classList.add('scrolled'), {passive:true});
+      const img = sc.querySelector('img');
+      if (img) { if (img.complete) markScrollable(); else img.addEventListener('load', markScrollable); }
+    });
+    addEventListener('resize', markScrollable);
+    function updateCaseNav(){
+      const page = document.querySelector('.page.active[data-case]'); if (!page) return;
+      let cur = null;
+      page.querySelectorAll('.block').forEach(b => { if (b.getBoundingClientRect().top <= 180) cur = b; });
+      page.querySelectorAll('.case-nav a').forEach(a => {
+        const on = !!cur && a.getAttribute('href') === '#' + cur.id;
+        a.classList.toggle('active', on);
+        const n = a.parentElement;
+        if (on && n.scrollWidth > n.clientWidth) n.scrollLeft = a.offsetLeft - n.clientWidth / 2 + a.offsetWidth / 2;
+      });
+    }
+    addEventListener('scroll', updateCaseNav, {passive:true});
+    addEventListener('resize', updateCaseNav);
 
     // Per-page metadata
     const pageMeta = {
@@ -1655,7 +1761,7 @@
       document.body.classList.remove('menu-open');
       $('.menu-btn').setAttribute('aria-expanded','false');
       scrollTo({top: 0, behavior: 'instant'});
-      setTimeout(() => { observeAll(page); onScroll(); }, 30);
+      setTimeout(() => { observeAll(page); onScroll(); markScrollable(); updateCaseNav(); }, 30);
     }
     function go(path, push = true){
       const run = () => route(path);
