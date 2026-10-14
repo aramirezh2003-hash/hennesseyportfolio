@@ -263,7 +263,8 @@
     .film-wrap{margin-top:8px}
     .film{padding:10px;border-radius:34px;overflow:hidden}
     .film video{width:100%;aspect-ratio:16/9;border-radius:26px;background:#05070d}
-    .film-note{margin:14px 6px 0;color:var(--muted);font-size:14px}
+    .film-note{margin:14px 6px 0;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .film-tag{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--chip);border:1px solid var(--line);font:600 12px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
     .film-body{margin-top:56px;max-width:1100px}
     .numbers{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
     .numbers > div{padding:24px 18px;border-radius:24px;text-align:left}
@@ -618,7 +619,7 @@
         <div class="txt"><span class="label">SaaS · Operations</span><h3>CommerceFlow</h3><p>Turning scattered operational data into a calm decision surface for multi-store teams.</p></div>
       </a><a class="glass pcard tilt reveal  film" data-tilt="" href="/work/always-moving" style="--d:270ms">
         <div class="media"><img src="/assets/figma/always-moving-poster.webp" alt="Always Moving case study cover" loading="lazy"></div>
-        <div class="txt"><span class="label">Motion graphics · Personal film</span><h3>Always Moving</h3><p>An 85-second motion graphics film that tells my story in numbers, from a goalkeeper in Colombia to designing e-commerce in Canada.</p></div>
+        <div class="txt"><span class="label">Motion graphics · Early school project</span><h3>Always Moving</h3><p>An 85-second motion graphics film that tells my story in numbers, from a goalkeeper in Colombia to designing e-commerce in Canada.</p></div>
       </a></div>
       </div>
 
@@ -678,7 +679,7 @@
         <div class="txt"><span class="label">SaaS · Operations</span><h3>CommerceFlow</h3><p>Turning scattered operational data into a calm decision surface for multi-store teams.</p></div>
       </a><a class="glass pcard tilt reveal  film" data-tilt="" href="/work/always-moving" style="--d:270ms">
         <div class="media"><img src="/assets/figma/always-moving-poster.webp" alt="Always Moving case study cover" loading="lazy"></div>
-        <div class="txt"><span class="label">Motion graphics · Personal film</span><h3>Always Moving</h3><p>An 85-second motion graphics film that tells my story in numbers, from a goalkeeper in Colombia to designing e-commerce in Canada.</p></div>
+        <div class="txt"><span class="label">Motion graphics · Early school project</span><h3>Always Moving</h3><p>An 85-second motion graphics film that tells my story in numbers, from a goalkeeper in Colombia to designing e-commerce in Canada.</p></div>
       </a></div>
       </div>
     </section>
@@ -1575,7 +1576,7 @@
       </a></div></section></section>
     <section class="page case" data-path="/work/always-moving" data-case="motion">
       <header class="case-top"><div class="wrap">
-        <p class="label reveal">Motion graphics · Personal film</p>
+        <p class="label reveal">Motion graphics · Early school project</p>
         <h1 class="split-h1"><span class="w" style="--i: 0;">Always</span> <span class="w" style="--i: 1;">Moving</span></h1>
         <div class="intro reveal">
           <p>Tell a whole career in under ninety seconds, one idea per scene.</p>
@@ -1591,7 +1592,7 @@
         <div class="glass film reveal">
           <video id="film-video" controls="" playsinline="" preload="none" poster="/assets/figma/always-moving-poster.webp" aria-label="Always Moving, an 85-second motion graphics film"><source src="/assets/video/always-moving-1080.mp4" type="video/mp4"><source src="/assets/video/always-moving-720.webm" type="video/webm"></video>
         </div>
-        <p class="film-note reveal">Sound on for the full film.</p>
+        <p class="film-note reveal"><span class="film-tag">Early school project</span> Sound on for the full film.</p>
       </div>
       <div class="wrap film-body">
         <section class="block reveal">
@@ -1773,11 +1774,12 @@
       motion: {
         kind:'motion',
         name:'Always Moving', slug:'always-moving', next:'kitlab',
-        label:'Motion graphics · Personal film',
+        label:'Motion graphics · Early school project',
         roleLine:'Motion design',
         formatLine:'Kinetic type and illustrated scenes',
         lengthLine:'1:25 · 1080p · with sound',
         subjectLine:'My path from Colombia to Canada',
+        tag:'Early school project',
         cover:'/assets/figma/always-moving-poster.webp',
         poster:'/assets/figma/always-moving-poster.webp',
         videoHi:'/assets/video/always-moving-1080.mp4',
@@ -2072,7 +2074,7 @@
         <div class="glass film reveal">
           <video id="film-video" controls playsinline preload="none" poster="${p.poster}" aria-label="${esc(p.name)}, an 85-second motion graphics film"><source src="${lo ? p.videoLo : p.videoHi}" type="video/mp4"><source src="${p.videoWebm}" type="video/webm"></video>
         </div>
-        <p class="film-note reveal">Sound on for the full film.</p>
+        <p class="film-note reveal"><span class="film-tag">Early school project</span> Sound on for the full film.</p>
       </div>
       <div class="wrap film-body">
         <section class="block reveal">
