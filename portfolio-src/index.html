@@ -3,22 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Alejandro Hennessey is a product designer turning complex systems into clear, useful digital products.">
-  <title>Alejandro Hennessey — Product Designer</title>
+  <title>Alejandro Hennessey — Product Designer, Toronto</title>
+  <meta name="description" content="Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.">
+  <meta name="author" content="Alejandro Hennessey">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.alejandrohennessey.art/">
+  <link rel="icon" type="image/png" href="/assets/brand/ah-monogram.png">
+  <link rel="apple-touch-icon" href="/assets/brand/ah-monogram.png">
+  <meta name="theme-color" content="#2f4bff">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Alejandro Hennessey">
+  <meta property="og:title" content="Alejandro Hennessey — Product Designer, Toronto">
+  <meta property="og:description" content="Product designer for complex web products: e-commerce, B2B software and multi-role workflows.">
+  <meta property="og:url" content="https://www.alejandrohennessey.art/">
+  <meta property="og:image" content="https://www.alejandrohennessey.art/assets/figma/kitlab-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alejandro Hennessey — Product Designer">
+  <meta name="twitter:image" content="https://www.alejandrohennessey.art/assets/figma/kitlab-hero.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:arhennesseyco@gmail.com","telephone":"+1-226-582-4622","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f6f4ef;--surface:#ffffff;--ink:#14161c;--ink-2:#3b4150;--muted:#6b7180;
-      --line:#dcd9d0;--accent:#2f4bff;--accent-ink:#ffffff;--chip:#ebe8e0;
+      --bg:#f6f4ef;--surface:#ffffff;--ink:#14161c;--ink-2:#3b4150;--muted:#5f6576;
+      --line:#dcd9d0;--accent:#2f4bff;--accent-ink:#ffffff;--chip:#ebe8e0;--yellow:#ffdd1f;
       --serif:"Instrument Serif",Georgia,serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
       --max:1200px;--r:18px;
     }
     @media (prefers-color-scheme:dark){
-      :root:not([data-theme="light"]){--bg:#0e1015;--surface:#161922;--ink:#f1efe9;--ink-2:#c9cdd8;--muted:#8d93a3;--line:#2a2f3c;--accent:#7f95ff;--accent-ink:#0e1015;--chip:#1d212c}
+      :root:not([data-theme="light"]){--bg:#0e1015;--surface:#161922;--ink:#f1efe9;--ink-2:#c9cdd8;--muted:#a3a9b8;--line:#2a2f3c;--accent:#8ea0ff;--accent-ink:#0e1015;--chip:#1d212c}
     }
-    :root[data-theme="dark"]{--bg:#0e1015;--surface:#161922;--ink:#f1efe9;--ink-2:#c9cdd8;--muted:#8d93a3;--line:#2a2f3c;--accent:#7f95ff;--accent-ink:#0e1015;--chip:#1d212c}
+    :root[data-theme="dark"]{--bg:#0e1015;--surface:#161922;--ink:#f1efe9;--ink-2:#c9cdd8;--muted:#a3a9b8;--line:#2a2f3c;--accent:#8ea0ff;--accent-ink:#0e1015;--chip:#1d212c}
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -26,27 +44,31 @@
     body.menu-open{overflow:hidden}
     img,video{display:block;width:100%;height:auto}
     a{color:inherit;text-decoration:none}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
     h1,h2,h3{margin:0;font-weight:400;letter-spacing:-.02em;line-height:1.05}
     p{margin:0 0 1em}
     .wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
     .serif{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
     .em{font-style:italic;color:var(--accent)}
-    .label{font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .label{font:600 12px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
     .muted{color:var(--muted)}
+    .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:10px;font:600 14px var(--sans)}
+    .skip:focus{top:12px}
 
     /* Nav */
-    .nav{position:fixed;inset:0 0 auto;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{position:fixed;inset:0 0 auto;z-index:50;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
     .nav-in{height:68px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font:600 15px var(--sans);letter-spacing:-.01em}
-    .links{display:flex;gap:28px;align-items:center}
+    .brand{display:flex;align-items:center;gap:10px;font:600 15px var(--sans);letter-spacing:-.01em}
+    .brand img{width:32px;height:32px;border-radius:9px}
+    .links{display:flex;gap:26px;align-items:center}
     .links a{font:500 14px var(--sans);color:var(--ink-2)}
     .links a:hover,.links a.active{color:var(--ink)}
     .links a.cta{padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--bg)}
+    .links a.cta:hover{color:var(--bg);opacity:.9}
     .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 13px var(--sans);color:var(--ink);cursor:pointer}
 
     main{padding-top:68px}
     .page{display:none}.page.active{display:block}
-    section{position:relative}
 
     /* Buttons */
     .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;background:var(--ink);color:var(--bg);font:600 14px var(--sans);border:1px solid var(--ink);transition:transform .2s,opacity .2s}
@@ -54,19 +76,31 @@
     .btn.ghost{background:transparent;color:var(--ink)}
 
     /* Hero */
-    .hero{padding:150px 0 90px}
+    .hero{padding:150px 0 80px}
     .status{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;font:500 13px var(--sans);color:var(--ink-2);background:var(--surface)}
     .status i{width:8px;height:8px;border-radius:50%;background:#2fb36b;box-shadow:0 0 0 4px rgba(47,179,107,.18)}
-    .hero h1{font-size:clamp(56px,9.5vw,140px);line-height:.95;margin:34px 0 36px;letter-spacing:-.035em}
+    .hero h1{font-size:clamp(54px,9vw,132px);line-height:.96;margin:34px 0 36px;letter-spacing:-.035em;max-width:1000px}
     .hero-row{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
-    .hero-row p{font-size:20px;color:var(--ink-2);max-width:440px}
+    .hero-row p{font-size:20px;color:var(--ink-2);max-width:500px;margin:0}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font:500 14px var(--sans)}
+    .hero-links a{color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px}
+    .hero-links a:hover{color:var(--ink);border-color:var(--ink)}
 
-    /* Work index rows */
+    /* Proof strip */
+    .proof-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+    .stat{padding:30px 24px 30px 0}
+    .stat + .stat{padding-left:24px;border-left:1px solid var(--line)}
+    .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,68px);line-height:1;letter-spacing:-.02em;margin-bottom:10px}
+    .stat span{color:var(--muted);font-size:14px;line-height:1.45;display:block}
+
+    /* Sections */
     .sec{padding:110px 0}
     .sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:48px;flex-wrap:wrap}
     .sec-head h2{font-size:clamp(44px,6vw,84px)}
     .sec-head p{max-width:380px;color:var(--muted);margin:0}
+
+    /* Work index rows */
     .rows{border-top:1px solid var(--ink)}
     .row{display:grid;grid-template-columns:70px 1.3fr 1fr 60px;gap:24px;align-items:center;padding:30px 0;border-bottom:1px solid var(--line);transition:padding .3s}
     .row:hover{padding-left:12px}
@@ -76,6 +110,14 @@
     .row .meta .label{display:block;margin-bottom:8px;color:var(--accent)}
     .row .go{justify-self:end;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:18px;transition:.3s}
     .row:hover .go{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+    /* Experience list */
+    .exp{border-top:1px solid var(--ink)}
+    .exp-row{display:grid;grid-template-columns:260px 1fr 180px;gap:30px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+    .exp-row h3{font-family:var(--serif);font-size:34px;letter-spacing:-.01em}
+    .exp-row .role{color:var(--ink-2);font-size:15px;margin:0}
+    .exp-row .when{color:var(--muted);font-size:14px;text-align:right}
+    .exp-row .what{color:var(--muted);font-size:15px;margin:0}
 
     /* Cards */
     .cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
@@ -91,7 +133,7 @@
     .card.wide .img{aspect-ratio:21/9}
 
     /* Motion band */
-    .band{overflow:hidden;background:var(--ink);color:var(--bg)}
+    .band{overflow:hidden;background:var(--ink)}
     .band-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
     .band-grid video{aspect-ratio:16/10;object-fit:cover;width:100%;height:100%}
 
@@ -100,21 +142,21 @@
     .split h2{font-size:clamp(40px,5vw,68px)}
     .split p{color:var(--ink-2);font-size:18px}
     .facts{border-top:1px solid var(--line);margin-top:34px}
-    .facts div{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .facts div{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
     .facts strong{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:4px}
     .facts span{color:var(--ink-2)}
     .panel{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:40px}
     .panel h3{font-family:var(--serif);font-size:44px;margin-bottom:16px}
-    .panel .contact-list{margin-top:30px;border-top:1px solid var(--line)}
-    .panel .contact-list a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);font:500 16px var(--sans)}
     .contact-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+    .contact-list{border-top:1px solid var(--line)}
+    .contact-list a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);font:500 16px var(--sans)}
     .page-top{padding:160px 0 60px}
-    .page-top h1{font-size:clamp(60px,9vw,128px);line-height:.95;letter-spacing:-.035em;margin:18px 0 22px}
-    .page-top p{font-size:20px;color:var(--ink-2);max-width:620px;margin:0}
+    .page-top h1{font-size:clamp(56px,8.5vw,124px);line-height:.96;letter-spacing:-.035em;margin:18px 0 22px}
+    .page-top p{font-size:20px;color:var(--ink-2);max-width:640px;margin:0}
 
     /* Case study */
     .case-top{padding:150px 0 50px}
-    .case-top h1{font-size:clamp(64px,11vw,156px);line-height:.92;letter-spacing:-.04em;margin:18px 0 34px}
+    .case-top h1{font-size:clamp(60px,10vw,150px);line-height:.92;letter-spacing:-.04em;margin:18px 0 34px}
     .case-top .intro{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:end}
     .case-top .intro p{font-size:22px;color:var(--ink-2);margin:0}
     .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -147,6 +189,10 @@
     .proof b{display:block;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
     .proof h3{font-size:20px;margin-bottom:8px;letter-spacing:-.01em}
     .proof p{margin:0;color:var(--muted);font-size:14px}
+    .results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+    .results div{padding:26px 24px;background:var(--ink);color:var(--bg);border-radius:var(--r)}
+    .results b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,58px);line-height:1;margin-bottom:12px;letter-spacing:-.02em;color:var(--yellow)}
+    .results span{display:block;font-size:14px;line-height:1.45;color:#d6dae3}
     .case-video{margin-top:30px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
     .next{border-top:1px solid var(--ink);padding:70px 0 110px}
     .next a{display:flex;justify-content:space-between;align-items:center;gap:20px}
@@ -158,8 +204,15 @@
     footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
     /* Responsive */
+    @media (max-width:980px){
+      .proof-strip{grid-template-columns:1fr 1fr}
+      .stat:nth-child(3){border-left:0;padding-left:0}
+      .stat:nth-child(n+3){border-top:1px solid var(--line)}
+      .exp-row{grid-template-columns:1fr;gap:8px}
+      .exp-row .when{text-align:left}
+    }
     @media (max-width:900px){
-      .hero-row,.split,.case-top .intro,.case-layout{grid-template-columns:1fr}
+      .hero-row,.split,.case-top .intro,.case-layout,.contact-panel{grid-template-columns:1fr}
       .case-layout{gap:40px;padding:60px 0}
       .case-nav{display:none}
       .row{grid-template-columns:44px 1fr 40px}
@@ -167,7 +220,7 @@
       .row .go{grid-row:1/3;grid-column:3}
       .cards{grid-template-columns:1fr}
       .band-grid{grid-template-columns:1fr}
-      .proof{grid-template-columns:1fr}
+      .proof,.results{grid-template-columns:1fr}
       .gallery{grid-template-columns:1fr}
       .gallery .wide{grid-column:auto}
       .menu-btn{display:block}
@@ -178,12 +231,14 @@
       .hero{padding:120px 0 60px}
       .sec{padding:80px 0}
       .panel{padding:28px}
-      .contact-panel{grid-template-columns:1fr;gap:30px}
     }
-    @media (max-width:520px){
+    @media (max-width:560px){
       .wrap{width:calc(100% - 32px)}
-      .hero h1{font-size:56px}
-      .page-top h1{font-size:60px}
+      .proof-strip{grid-template-columns:1fr}
+      .stat,.stat + .stat{padding:22px 0;border-left:0}
+      .stat:nth-child(n+2){border-top:1px solid var(--line)}
+      .hero h1{font-size:54px}
+      .page-top h1{font-size:56px}
       .case-top h1{font-size:60px}
       .facts div,.meta-grid{grid-template-columns:1fr}
       .row h3{font-size:36px}
@@ -193,56 +248,88 @@
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="nav">
     <div class="wrap nav-in">
-      <a class="brand route-link" href="/">Alejandro Hennessey</a>
-      <button class="menu-btn" aria-expanded="false" aria-label="Open navigation">Menu</button>
-      <nav class="links">
+      <a class="brand route-link" href="/"><img src="/assets/brand/ah-monogram.png" alt="" width="32" height="32">Alejandro Hennessey</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="site-links">Menu</button>
+      <nav class="links" id="site-links" aria-label="Main">
         <a href="/work" class="route-link">Work</a>
         <a href="/about" class="route-link">About</a>
+        <a href="/assets/AlejandroHennessey_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
         <a href="/contact" class="route-link cta">Let’s talk</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HOME -->
     <section class="page" data-path="/">
       <div class="wrap hero">
-        <span class="status"><i></i> Available for product design roles</span>
-        <h1>I make hard products feel <span class="em">obvious.</span></h1>
+        <span class="status"><i></i> Open to product design roles · Toronto · Hybrid or remote</span>
+        <h1>I make complex software <span class="em">clear and usable.</span></h1>
         <div class="hero-row">
-          <p>Product designer working across e-commerce, operations and brand systems. I turn messy, multi-step products into clear decisions people can act on.</p>
-          <div class="hero-actions">
-            <a class="btn route-link" href="/work">See selected work →</a>
-            <a class="btn ghost route-link" href="/contact">Get in touch</a>
+          <p>Product designer for complex web products. I take work from understanding the problem through engineering review and launch: e-commerce, B2B software and multi-role workflows.</p>
+          <div>
+            <div class="hero-actions">
+              <a class="btn route-link" href="/work">See selected work →</a>
+              <a class="btn ghost" href="/assets/AlejandroHennessey_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+            </div>
+            <div class="hero-links">
+              <a href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">LinkedIn ↗</a>
+              <a href="mailto:arhennesseyco@gmail.com">Email me</a>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="wrap">
+        <div class="proof-strip">
+          <div class="stat"><b>58%</b><span>lift in average order value after the KitLabFS purchase redesign</span></div>
+          <div class="stat"><b>450k+</b><span>visitors in the store’s first three months</span></div>
+          <div class="stat"><b>1,200+</b><span>products and 7,822 variants I designed flows for</span></div>
+          <div class="stat"><b>5</b><span>people led: two developers, two designers, one marketer</span></div>
+        </div>
+      </div>
+
+      <div class="wrap sec">
         <div class="sec-head" style="padding-top:0">
           <h2>Selected <span class="em">work</span></h2>
-          <p>Four case studies. Each one starts with the decision that was hard, not the screens.</p>
+          <p>Each case study covers the problem, my role, the decisions I made and what changed.</p>
         </div>
         <div class="rows" data-rows></div>
       </div>
-      <div class="band home-only" style="margin-top:110px">
+
+      <div class="band home-only" style="margin-top:20px">
         <div class="band-grid">
-          <video autoplay muted loop playsinline src="/assets/video/kitlab-transition-4k.mp4"></video>
-          <video autoplay muted loop playsinline src="/assets/video/matchup-transition-4k.mp4"></video>
+          <video autoplay muted loop playsinline preload="none" src="/assets/video/kitlab-transition-mobile.mp4" aria-hidden="true"></video>
+          <video autoplay muted loop playsinline preload="none" src="/assets/video/matchup-transition-mobile.mp4" aria-hidden="true"></video>
         </div>
       </div>
+
       <div class="wrap sec">
-        <div class="split">
-          <div>
-            <p class="label" style="margin-bottom:18px">How I work</p>
-            <h2 class="serif" style="font-size:clamp(40px,5vw,68px);line-height:1.02">Frame it. Design the logic. <span class="em">Leave a system behind.</span></h2>
+        <div class="sec-head" style="padding-top:0">
+          <h2>Experience</h2>
+          <p>Three product roles, from co-op to founder.</p>
+        </div>
+        <div class="exp">
+          <div class="exp-row">
+            <h3>KitLabFS</h3>
+            <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div>
+            <span class="when">Mar 2026 – Present</span>
           </div>
-          <div>
-            <p>Most product problems are decision problems in disguise. I find the friction behind the symptom, map the logic before polishing the surface, and build components and patterns that keep working after launch.</p>
-            <a class="btn ghost route-link" href="/about">More about me →</a>
+          <div class="exp-row">
+            <h3>Ballycorp</h3>
+            <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div>
+            <span class="when">Dec 2024 – Sep 2026</span>
+          </div>
+          <div class="exp-row">
+            <h3>LCBO</h3>
+            <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div>
+            <span class="when">Sep 2023 – Nov 2024</span>
           </div>
         </div>
+        <p style="margin-top:26px"><a class="btn ghost route-link" href="/about">Full experience and how I work →</a></p>
       </div>
     </section>
 
@@ -251,7 +338,7 @@
       <header class="page-top"><div class="wrap">
         <p class="label">Selected case studies</p>
         <h1>Work built around <span class="em">decisions.</span></h1>
-        <p>Across product, commerce, operations and identity: what was unclear, how I framed it, which choices shaped the system, and why it works.</p>
+        <p>Projects across e-commerce, B2B software and mobile. Each one shows the problem, my role, the choices I made and what changed.</p>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
         <div class="cards" data-cards></div>
@@ -262,26 +349,60 @@
     <section class="page" data-path="/about">
       <header class="page-top"><div class="wrap">
         <p class="label">About</p>
-        <h1>I make complexity feel <span class="em">manageable.</span></h1>
+        <h1>Product designer for <span class="em">complex software.</span></h1>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
         <div class="split">
           <div>
             <h2 class="serif">Structure first. Polish with purpose.</h2>
-            <p>I’m Alejandro, a product designer focused on digital products, e-commerce and connected systems. I like projects where the interface carries real complexity: many choices, different users, or information spread across too many places.</p>
-            <p>My process moves from evidence to framing, from framing to flows, and from flows to a visual system that helps the product explain itself.</p>
+            <p>I’m Alejandro, a product designer in Toronto focused on complex web products: e-commerce, B2B software and workflows with several user roles. I’m drawn to mission-driven education technology.</p>
+            <p>My process moves from problem to flows to build. I map each user role, prototype in Figma, write down intended behaviour and edge cases, then stay involved through engineering review and launch. I use funnel data and stakeholder feedback to decide what to change next.</p>
             <div class="facts">
-              <div><strong>I focus on</strong><span>Product strategy, UX, interface design, design systems</span></div>
-              <div><strong>I bring</strong><span>Systems thinking, clear communication, distinctive visual direction</span></div>
-              <div><strong>I care about</strong><span>Trust, usefulness, accessibility and buildable decisions</span></div>
+              <div><strong>I focus on</strong><span>UX and interaction design, user flows, prototyping, design systems and components</span></div>
+              <div><strong>I measure</strong><span>Funnel and conversion data, analytics, and feedback from real users and stakeholders</span></div>
+              <div><strong>I work with</strong><span>Developers through handoff and implementation review, plus product and marketing partners</span></div>
+              <div><strong>Education</strong><span>Graphic Design Advanced Diploma, Fanshawe College (2022–2025)</span></div>
+              <div><strong>Tools</strong><span>Figma, Shopify, Adobe Photoshop, Illustrator, InDesign, After Effects, Premiere Pro</span></div>
+              <div><strong>Languages</strong><span>English and Spanish (native), French (basic)</span></div>
             </div>
           </div>
           <aside class="panel">
-            <p class="label" style="margin-bottom:16px">Working principle</p>
+            <p class="label" style="margin-bottom:16px">How I work</p>
             <h3>The interface should reveal the product’s logic.</h3>
             <p class="muted" style="font-size:16px">A strong design helps people understand where they are, what changed and what they can do next, without needing a tutorial.</p>
             <a class="btn route-link" href="/contact" style="margin-top:12px">Start a conversation →</a>
           </aside>
+        </div>
+      </div>
+      <div class="wrap sec" style="padding-top:0">
+        <div class="sec-head">
+          <h2>Experience</h2>
+        </div>
+        <div class="exp">
+          <div class="exp-row">
+            <h3>KitLabFS</h3>
+            <div>
+              <p class="role">Founder / Product Designer · Remote · Mar 2026 – Present</p>
+              <p class="what">Designed and launched an online store with 1,200+ products and 7,822 variants, owning product pages, funnels, checkout and inventory flows for 450,000+ visitors in the first three months. Redesigned the purchase experience and raised average order value 58% while growing to 550+ orders. Tracked conversion at every funnel stage (23.7% cart, 10.4% checkout, 3.8% completed sale) to decide what to design next. Led a five-person team and reviewed builds before and after release.</p>
+            </div>
+            <span class="when"></span>
+          </div>
+          <div class="exp-row">
+            <h3>Ballycorp</h3>
+            <div>
+              <p class="role">Product Designer · Ontario · Dec 2024 – Sep 2026</p>
+              <p class="what">Designed the company website and a sales rep portal over 21 months, connecting clients and sales reps in one place. Mapped end-to-end workflows for each user role, covering permissions, empty states, errors and confirmations. Wrote up intended behaviour and edge cases so developers could build without a live walkthrough, then reviewed implementations. Kept components consistent across the website and portal.</p>
+            </div>
+            <span class="when"></span>
+          </div>
+          <div class="exp-row">
+            <h3>LCBO</h3>
+            <div>
+              <p class="role">Co-op, Junior Product Designer, Product Designer · Toronto · Sep 2023 – Nov 2024</p>
+              <p class="what">Designed digital product experiences in Figma, from wireframes to high-fidelity prototypes, within a larger cross-functional team. Earned two promotions in 14 months, taking on defined product work independently.</p>
+            </div>
+            <span class="when"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -295,14 +416,16 @@
       <div class="wrap sec" style="padding-top:20px">
         <div class="panel contact-panel">
           <div>
-            <h3>Have a product problem worth untangling?</h3>
-            <p class="muted" style="font-size:18px">Tell me what you’re building, who it’s for and where it feels stuck. I’ll reply with a thoughtful next step.</p>
-            <a class="btn" href="mailto:arhennesseyco@gmail.com?subject=Project%20inquiry" style="margin-top:14px">Email Alejandro →</a>
+            <h3>Hiring for product design?</h3>
+            <p class="muted" style="font-size:18px">Tell me about the role, the team and the product. I’m based in Toronto and open to hybrid or remote work. I’ll reply within two business days.</p>
+            <a class="btn" href="mailto:arhennesseyco@gmail.com?subject=Product%20design%20role" style="margin-top:14px">Email Alejandro →</a>
           </div>
           <div class="contact-list">
             <a href="mailto:arhennesseyco@gmail.com">arhennesseyco@gmail.com <span>↗</span></a>
+            <a href="tel:+12265824622">226-582-4622 <span>↗</span></a>
+            <a href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">linkedin.com/in/arhennessey <span>↗</span></a>
+            <a href="/assets/AlejandroHennessey_Resume.pdf" target="_blank" rel="noopener">Download résumé (PDF) <span>↓</span></a>
             <a href="/work" class="route-link">View case studies <span>→</span></a>
-            <a href="/about" class="route-link">Read about my process <span>→</span></a>
           </div>
         </div>
       </div>
@@ -312,45 +435,58 @@
     <section class="page case" data-path="/work/kitlab-fs" data-case="kitlab"></section>
     <section class="page case" data-path="/work/matchup" data-case="matchup"></section>
     <section class="page case" data-path="/work/commerceflow" data-case="commerce"></section>
-    <section class="page case" data-path="/work/inoxa" data-case="inoxa"></section>
   </main>
 
-  <footer><div class="wrap"><span>© 2026 Alejandro Hennessey</span><span>Product design · Toronto, Ontario</span></div></footer>
+  <footer><div class="wrap"><span>© 2026 Alejandro Hennessey</span><span>Product design · Toronto, Ontario · alejandrohennessey.art</span></div></footer>
 
   <script>
+    const SITE = 'https://www.alejandrohennessey.art';
     const projects = {
       kitlab: {
         name:'KitLab FS', slug:'kitlab-fs', next:'matchup',
-        label:'E-commerce · Product discovery', year:'2025–2026',
+        label:'E-commerce · Product discovery and purchase',
+        roleLine:'Founder & product designer',
+        teamLine:'Led a five-person team (2 developers, 2 designers, 1 marketer)',
+        timeLine:'Mar 2026 – present · Remote',
+        scopeLine:'Product pages, funnels, checkout and inventory flows',
         cover:'/assets/figma/kitlab-hero.jpg',
-        summary:'Making a catalogue of thousands of football jerseys easy to navigate, configure and trust.',
-        argument:'Make a large catalogue feel easy to trust.',
-        overview:'KitLab FS offers thousands of club, national-team and retro football jerseys. I redesigned the storefront to simplify product discovery, clarify customization options and create a smoother shopping experience across desktop and mobile.',
-        problem:'The original experience made it difficult to navigate a large catalogue and understand choices such as player versions, patches, sizing and name customization.',
+        summary:'Designed and launched a 1,200-product football jersey store, then lifted average order value 58% with a purchase redesign.',
+        argument:'Make a 1,200-product catalogue easy to trust, then make the purchase easier to finish.',
+        overview:'KitLabFS is an online store for club, national-team and retro football jerseys, with 1,200+ products and 7,822 variants. I designed and launched it, owning product pages, funnels, checkout and inventory flows. The store drew 450,000+ visitors in its first three months and grew to 550+ orders.',
+        problem:'Choices such as player versions, patches, sizing and name customization were hard to understand. Shoppers also dropped off between the cart and the completed purchase.',
         question:'How might we help customers move from thousands of jerseys to a confident purchase, without making any step feel overloaded?',
         steps:[
-          ['Observe','The catalogue was useful, but the paths through it competed for attention.'],
-          ['Frame','Discovery, not visual appeal, was the bottleneck.'],
-          ['Explore','Organize around how fans browse: club, country, competition, season and type.'],
-          ['Decide','Reveal customization in a guided sequence and keep selections and price visible.'],
-          ['Refine','Turn the winning patterns into reusable cards and components.']
+          ['Observe','Funnel data showed where shoppers left: 23.7% reached the cart, 10.4% reached checkout and 3.8% completed a sale.'],
+          ['Frame','Discovery and the purchase path mattered more than visual polish.'],
+          ['Explore','Organize the catalogue around how fans browse: club, country, competition, season and type.'],
+          ['Decide','Reveal customization in a guided sequence, and keep selections and price visible.'],
+          ['Refine','Review builds with developers and fix confusing interactions before and after release.']
         ],
         bet:'Sequence the journey instead of exposing every choice at once.',
-        proof:[
-          ['Clarity','Progressive filters','Category context and filters appear as the shopper narrows down.'],
-          ['Feedback','Live configuration','Every customization updates the preview and the price immediately.'],
-          ['Confidence','Visible selections','Choices stay on screen so the shopper always knows what they are buying.']
+        results:[
+          ['58%','Lift in average order value after the purchase redesign.'],
+          ['550+','Orders placed as the store grew.'],
+          ['23.7 → 10.4 → 3.8%','Cart, checkout and completed-sale rates, tracked at each stage to decide what to design next.']
         ],
-        images:['/assets/kitlab/case-study/catalogue-hero.png','/assets/figma/kitlab-product.png','/assets/figma/kitlab-mobile.png','/assets/figma/kitlab-cart.png'],
+        images:[
+          {src:'/assets/kitlab/case-study/catalogue-hero.png', alt:'KitLabFS storefront with the shop-all jersey catalogue and filters'},
+          {src:'/assets/figma/kitlab-product.png', alt:'KitLabFS product page with customization options'},
+          {src:'/assets/figma/kitlab-mobile.png', alt:'KitLabFS mobile product page'},
+          {src:'/assets/figma/kitlab-cart.png', alt:'KitLabFS cart and checkout'}
+        ],
         video:'/assets/video/kitlab-transition-4k.mp4'
       },
       matchup: {
         name:'MatchUp', slug:'matchup', next:'commerce',
-        label:'Mobile product · Community sports', year:'Product concept',
+        label:'Mobile product · Community sports · Concept project',
+        roleLine:'Product design',
+        teamLine:'Concept project',
+        timeLine:'Concept project',
+        scopeLine:'Mobile flows for organizers and players',
         cover:'/assets/figma/matchup-hero.jpg',
         summary:'Turning scattered group-chat coordination into a trusted path from finding a game to joining one.',
         argument:'Turn finding a game into joining one.',
-        overview:'MatchUp is a mobile platform for creating local soccer matches, selecting available positions and sharing field-booking costs. It connects organizers who have booked a field with players looking for a local game.',
+        overview:'MatchUp is a mobile concept for creating local soccer matches, selecting available positions and sharing field-booking costs. It connects organizers who have booked a field with players looking for a local game.',
         problem:'Players rely on scattered group chats with incomplete information about cost, skill level and open positions. Organizers manually build teams and repeatedly chase payments.',
         question:'How might we create one trusted experience for forming teams, selecting positions and sharing field costs, for two different users at once?',
         steps:[
@@ -361,21 +497,29 @@
           ['Refine','Carry certainty from discovery through kickoff and post-match review.']
         ],
         bet:'Give organizers and players one shared match state.',
-        proof:[
+        results:[
           ['Availability','Open spots at a glance','Players see how many positions are left before they commit.'],
-          ['Position','Choose, don’t negotiate','Position selection happens in the match, not in a group chat.'],
+          ['Position','Choose in the match','Position selection happens in the match, not in a group chat.'],
           ['Payment','Cost in context','Field costs are split and shown with the match, so no one chases anyone.']
         ],
-        images:['/assets/figma/matchup-home.png','/assets/figma/matchup-preview.png','/assets/figma/matchup-results.png'],
+        images:[
+          {src:'/assets/figma/matchup-home.png', alt:'MatchUp home screen showing upcoming matches'},
+          {src:'/assets/figma/matchup-preview.png', alt:'MatchUp match preview with open positions and cost'},
+          {src:'/assets/figma/matchup-results.png', alt:'MatchUp results screen'}
+        ],
         video:'/assets/video/matchup-transition-4k.mp4'
       },
       commerce: {
-        name:'CommerceFlow', slug:'commerceflow', next:'inoxa',
-        label:'SaaS · Operations', year:'Product concept',
+        name:'CommerceFlow', slug:'commerceflow', next:'kitlab',
+        label:'SaaS · Operations · Concept project',
+        roleLine:'Product design',
+        teamLine:'Concept project',
+        timeLine:'Concept project',
+        scopeLine:'Operations dashboard, alerts and component system',
         cover:'/assets/figma/commerce-dashboard.jpg',
         summary:'Turning scattered operational data into a calm decision surface for multi-store teams.',
         argument:'Make operational data support a decision.',
-        overview:'CommerceFlow centralizes sales, orders, inventory, customers and advertising data so multi-store operators can spot urgent issues and act without switching between dashboards and spreadsheets.',
+        overview:'CommerceFlow is a concept for an operations dashboard that brings sales, orders, inventory, customers and advertising data together, so multi-store operators can spot urgent issues and act without switching between tools.',
         problem:'Operators repeatedly switch between storefronts, advertising platforms, spreadsheets and supplier systems just to understand performance and manage daily operations.',
         question:'How might we help operators see what changed, understand why, and move directly to the right action?',
         steps:[
@@ -386,52 +530,29 @@
           ['Refine','Use a component system that can grow with teams, stores and roles.']
         ],
         bet:'Organize around daily decisions, not the tools where the data originated.',
-        proof:[
+        results:[
           ['Overview','Change-first','The dashboard leads with what moved, then offers the detail behind it.'],
           ['Alerts','Actionable, not noisy','Each alert points to the module that can resolve it.'],
           ['Scale','A system that grows','Components work across stores, teams and roles.']
         ],
-        images:['/assets/figma/commerce-dashboard.jpg'],
-        video:null
-      },
-      inoxa: {
-        name:'INOXA', slug:'inoxa', next:'kitlab',
-        label:'Brand system · Identity', year:'Identity',
-        cover:'/assets/inoxa/inoxa-cover.png',
-        summary:'Building a distinctive identity system that gives a technical brand a human, usable presence.',
-        argument:'Make technical confidence feel tangible.',
-        overview:'INOXA is a brand identity project built around a clear mark, a flexible wordmark and a practical set of applications. The system needed to work from invoices and office touchpoints to small digital surfaces.',
-        problem:'The identity had to stay recognizable across very different scales and materials without losing its character or depending on one perfect presentation.',
-        question:'How might we turn one strong symbol into a flexible identity that stays clear in everyday use?',
-        steps:[
-          ['Observe','A technical identity needs to be trusted before it can be expressive.'],
-          ['Frame','The system should be recognizable in one glance and useful in many formats.'],
-          ['Explore','Test the emblem, wordmark, positive and negative versions and real mockups together.'],
-          ['Decide','Use contrast and proportion as the consistent brand signature.'],
-          ['Refine','Document the identity so the work survives beyond the presentation board.']
+        images:[
+          {src:'/assets/figma/commerce-dashboard.jpg', alt:'CommerceFlow operations dashboard with sales and inventory overview'}
         ],
-        bet:'Design a small system of marks, contrast rules and applications, not one isolated logo.',
-        proof:[
-          ['Utility','Legible at small sizes','The mark holds up on invoices and small surfaces.'],
-          ['Presence','Memorable in presentation','The emblem carries the brand in larger, expressive contexts.'],
-          ['Flexibility','Built to extend','Positive, negative and white versions cover every background.']
-        ],
-        images:['/assets/inoxa/inoxa-emblem.png','/assets/inoxa/inoxa-office.png','/assets/inoxa/inoxa-emblem-alt.png'],
         video:null
       }
     };
 
-    const order = ['kitlab','matchup','commerce','inoxa'];
+    const order = ['kitlab','matchup','commerce'];
     const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-    // Home index rows and work cards
+    // Home index rows, work cards
     document.querySelector('[data-rows]').innerHTML = order.map((k,i) => {
       const p = projects[k];
       return `<a class="row route-link" href="/work/${p.slug}">
         <span class="n">0${i+1}</span>
         <h3>${esc(p.name)}</h3>
         <div class="meta"><span class="label">${esc(p.label)}</span><p>${esc(p.summary)}</p></div>
-        <span class="go">→</span>
+        <span class="go" aria-hidden="true">→</span>
       </a>`;
     }).join('');
 
@@ -445,6 +566,7 @@
 
     function caseMarkup(p){
       const next = projects[p.next];
+      const isKitlab = p.slug === 'kitlab-fs';
       return `
       <header class="case-top"><div class="wrap">
         <p class="label">${esc(p.label)}</p>
@@ -452,20 +574,22 @@
         <div class="intro">
           <p>${esc(p.argument)}</p>
           <div class="meta-grid">
-            <div><span>Role</span><strong>Product design</strong></div>
-            <div><span>Focus</span><strong>UX · UI · Systems</strong></div>
+            <div><span>Role</span><strong>${esc(p.roleLine)}</strong></div>
+            <div><span>Team</span><strong>${esc(p.teamLine)}</strong></div>
+            <div><span>Timeline</span><strong>${esc(p.timeLine)}</strong></div>
+            <div><span>Scope</span><strong>${esc(p.scopeLine)}</strong></div>
           </div>
         </div>
         <div class="hero-img"><img src="${p.cover}" alt="${esc(p.name)} case study cover"></div>
       </div></header>
       <div class="wrap case-layout">
-        <aside class="case-nav">
+        <aside class="case-nav" aria-label="Case study sections">
           <p class="label" style="margin-bottom:10px">Case study</p>
           <a href="#overview">01 · Context</a>
           <a href="#problem">02 · Problem</a>
           <a href="#thinking">03 · Thinking</a>
           <a href="#solution">04 · Solution</a>
-          <a href="#why">05 · Why it works</a>
+          <a href="#why">05 · Results</a>
         </aside>
         <article>
           <section class="block" id="overview">
@@ -482,21 +606,19 @@
           <section class="block" id="thinking">
             <p class="label">03 / My thinking</p>
             <h2 class="serif">The path from signal to decision</h2>
-            <p>Each step reduced uncertainty before I committed to a direction.</p>
             <div class="steps">${p.steps.map((s,i)=>`<div class="step"><span class="num">0${i+1}</span><div><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div></div>`).join('')}</div>
           </section>
           <section class="block" id="solution">
             <p class="label">04 / Solution</p>
             <h2 class="serif">The design bet</h2>
             <div class="bet">${esc(p.bet)}</div>
-            ${p.video ? `<div class="case-video"><video autoplay muted loop playsinline src="${p.video}"></video></div>` : ''}
-            <div class="gallery">${p.images.map((im,i)=>`<img class="${i===0 && p.images.length%2===1 ? 'wide' : ''}" src="${im}" loading="lazy" alt="${esc(p.name)} interface screen ${i+1}">`).join('')}</div>
+            ${p.video ? `<div class="case-video"><video autoplay muted loop playsinline preload="none" src="${p.video}" aria-label="${esc(p.name)} motion study"></video></div>` : ''}
+            <div class="gallery">${p.images.map((im,i)=>`<img class="${i===0 && p.images.length%2===1 ? 'wide' : ''}" src="${im.src}" loading="lazy" alt="${esc(im.alt)}">`).join('')}</div>
           </section>
           <section class="block" id="why">
-            <p class="label">05 / Why it works</p>
-            <h2 class="serif">Clarity compounds.</h2>
-            <p>${esc(p.argument)}</p>
-            <div class="proof">${p.proof.map(r=>`<div><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>
+            <p class="label">05 / Results</p>
+            <h2 class="serif">${isKitlab ? 'What changed.' : 'Why it works.'}</h2>
+            ${isKitlab ? `<div class="results">${p.results.map(r=>`<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join('')}</div>` : `<p>${esc(p.argument)}</p><div class="proof">${p.results.map(r=>`<div><b>${esc(r[0])}</b><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join('')}</div>`}
           </section>
         </article>
       </div>
@@ -504,13 +626,44 @@
     }
     document.querySelectorAll('[data-case]').forEach(el => { el.innerHTML = caseMarkup(projects[el.dataset.case]); });
 
+    // Per-page metadata, so each page has its own title, description and link preview
+    const pageMeta = {
+      '/': {title:'Alejandro Hennessey — Product Designer, Toronto', desc:'Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.', img:'/assets/figma/kitlab-hero.jpg'},
+      '/work': {title:'Selected work — Alejandro Hennessey', desc:'Case studies in e-commerce, B2B software and mobile product design.', img:'/assets/figma/kitlab-hero.jpg'},
+      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ballycorp and LCBO, and how I work with developers and stakeholders.', img:'/assets/figma/kitlab-hero.jpg'},
+      '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/figma/kitlab-hero.jpg'}
+    };
+    Object.values(projects).forEach(p => {
+      pageMeta['/work/' + p.slug] = {title: `${p.name} case study — Alejandro Hennessey`, desc: p.summary, img: p.cover};
+    });
+
+    function setMeta(attr, key, value){
+      let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+      el.setAttribute('content', value);
+    }
+    function applyMeta(path){
+      const m = pageMeta[path] || pageMeta['/'];
+      const url = SITE + (path === '/' ? '/' : path);
+      document.title = m.title;
+      setMeta('name','description', m.desc);
+      setMeta('property','og:title', m.title);
+      setMeta('property','og:description', m.desc);
+      setMeta('property','og:url', url);
+      setMeta('property','og:image', SITE + m.img);
+      setMeta('name','twitter:title', m.title);
+      setMeta('name','twitter:image', SITE + m.img);
+      let c = document.head.querySelector('link[rel="canonical"]');
+      if (c) c.setAttribute('href', url);
+    }
+
     // Routing (works with the Vercel rewrite to index.html)
     function route(path = location.pathname){
       const clean = path.replace(/\/$/,'') || '/';
       const page = document.querySelector(`[data-path="${clean}"]`) || document.querySelector('[data-path="/"]');
       document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p === page));
-      document.querySelectorAll('.home-only').forEach(el => el.classList.toggle('home-only-on', clean === '/'));
       document.querySelectorAll('.links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === clean || (clean.startsWith('/work') && a.getAttribute('href') === '/work')));
+      applyMeta(page.dataset.path);
       document.body.classList.remove('menu-open');
       const btn = document.querySelector('.menu-btn'); if (btn) btn.setAttribute('aria-expanded','false');
       scrollTo(0,0);
@@ -527,6 +680,11 @@
       const open = document.body.classList.toggle('menu-open');
       e.currentTarget.setAttribute('aria-expanded', String(open));
     });
+
+    // Respect reduced motion: keep decorative videos paused
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+    }
     route();
   </script>
 </body>
