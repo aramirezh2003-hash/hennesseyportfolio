@@ -28,7 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#e9ecf4;--ink:#0d1020;--ink-2:#353a4f;--muted:#5d6480;--line:rgba(13,16,32,.12);
+      --accent-ink:#2f45d6;--bg:#e9ecf4;--ink:#0d1020;--ink-2:#353a4f;--muted:#5d6480;--line:rgba(13,16,32,.12);
       --accent:#4d6bff;--accent2:#c25cff;--accent3:#ff8a5c;--yellow:#ffd23f;
       --glass:rgba(255,255,255,.42);--glass-strong:rgba(255,255,255,.7);--chip:rgba(13,16,32,.06);
       --blob-o:.6;
@@ -36,9 +36,9 @@
       --max:1220px;--r:30px;--ease:cubic-bezier(.2,.7,.2,1);
     }
     @media (prefers-color-scheme:dark){
-      :root:not([data-theme="light"]){--bg:#06070c;--ink:#f3f4f9;--ink-2:#c9cde0;--muted:#8d93ab;--line:rgba(255,255,255,.12);--glass:rgba(30,34,56,.42);--glass-strong:rgba(44,49,78,.62);--chip:rgba(255,255,255,.08);--blob-o:.28}
+      :root:not([data-theme="light"]){--accent-ink:#9aabff;--bg:#06070c;--ink:#f3f4f9;--ink-2:#c9cde0;--muted:#8d93ab;--line:rgba(255,255,255,.12);--glass:rgba(30,34,56,.42);--glass-strong:rgba(44,49,78,.62);--chip:rgba(255,255,255,.08);--blob-o:.28}
     }
-    :root[data-theme="dark"]{--bg:#06070c;--ink:#f3f4f9;--ink-2:#c9cde0;--muted:#8d93ab;--line:rgba(255,255,255,.12);--glass:rgba(30,34,56,.42);--glass-strong:rgba(44,49,78,.62);--chip:rgba(255,255,255,.08);--blob-o:.28}
+    :root[data-theme="dark"]{--accent-ink:#9aabff;--bg:#06070c;--ink:#f3f4f9;--ink-2:#c9cde0;--muted:#8d93ab;--line:rgba(255,255,255,.12);--glass:rgba(30,34,56,.42);--glass-strong:rgba(44,49,78,.62);--chip:rgba(255,255,255,.08);--blob-o:.28}
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -491,7 +491,7 @@
       .case-top{padding-top:140px}
     }
     @media (max-width:600px){
-      .glass > span{font-size:12px!important;letter-spacing:.12em}
+      .meta-grid .glass > span{font-size:13px!important;letter-spacing:.12em}
       .label{font-size:12.5px}
       .willow{right:14px;bottom:14px}
       .willow-orb .orb{width:50px;height:50px}
@@ -499,6 +499,35 @@
     }
     .label,.ftag,.fcaret{font-weight:700}
     p,li,.what,.role,.facts span{line-height:1.6}
+    /* Mobile legibility and touch targets (desktop untouched) */
+    @media (max-width:860px){
+      body{font-size:17px}
+      .label,.ilabel,.principle .n,.facts strong,.question span,.proof b,.cg-n,.cmp-tag,.shot.scrolls::after{font-size:13px}
+      .brief .label,.question span,.proof b,.principle .n,.ilabel{color:var(--accent-ink)}
+      .brief p,.cmp-points p,.vcap p,.stat span,.when,.principle p,.step p,.facts span{font-size:16px}
+      .meta-grid .glass > span{font-size:13px!important}
+      .brand{min-height:44px}
+      .cg-link{min-height:44px;padding:12px 16px!important;align-items:center}
+      .vlist button{min-height:44px;padding:11px 16px;font-size:15px}
+      .flow-controls button{min-height:44px;padding:12px 18px;font-size:14px}
+      .chip{padding:11px 15px;font-size:14px}
+      .links a:not(.cta),.links a.cta{min-height:48px}
+      .flow-note,.results span,.proof p{font-size:16px}
+      .muted,.fkids,.fnode .sub{font-size:15px}
+      .cmp-range{height:100%}
+      .vgroup{gap:8px}
+      .case-nav{background:color-mix(in srgb,var(--bg) 93%,transparent);backdrop-filter:blur(24px) saturate(160%)}
+    }
+    @media (max-width:600px){
+      .block h2{font-size:clamp(34px,10vw,44px)}
+      .block > p,.lede{font-size:18px;line-height:1.6}
+      .brief > div{padding:22px}
+      .viewer .vlist{gap:8px}
+      .pview .vcap b{font-size:17px}
+      .step{padding:20px}
+      .results > div,.proof > div{min-height:0;padding:24px 22px}
+      .results b{font-size:clamp(56px,18vw,72px)}
+    }
   </style>
 </head>
 <body>
