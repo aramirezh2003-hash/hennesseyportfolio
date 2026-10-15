@@ -298,13 +298,13 @@
     html[data-hi] .w,html[data-hi] .hs{animation-play-state:paused}
     #hi-intro.done{opacity:0;visibility:hidden;pointer-events:none}
     .hi-svg{position:relative;width:min(88vw,900px);height:auto;overflow:visible}
-    .hi-svg path{fill:url(#hiGrad);fill-opacity:0;stroke:url(#hiGrad);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0;stroke-dasharray:1;stroke-dashoffset:1;animation:hiShow .01s linear var(--delay) forwards,hiDraw var(--dur) cubic-bezier(.45,.05,.35,1) var(--delay) forwards,hiFill .6s ease calc(var(--delay) + var(--dur) * .7) forwards}
+    .hi-svg path{fill:url(#hiGrad);fill-opacity:0;stroke:url(#hiGrad);stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0;stroke-dasharray:1;stroke-dashoffset:1;animation:hiShow .01s linear var(--delay) forwards,hiDraw var(--dur) cubic-bezier(.45,.05,.35,1) var(--delay) forwards,hiFill .6s ease calc(var(--delay) + var(--dur) * .7) forwards}
     @keyframes hiShow{to{stroke-opacity:1}}
     @keyframes hiDraw{to{stroke-dashoffset:0}}
-    @keyframes hiFill{to{fill-opacity:1;stroke-width:3.4}}
+    @keyframes hiFill{to{fill-opacity:1;stroke-width:7}}
     .hi-sub{position:relative;margin:0;font:500 clamp(13px,1.6vw,16px) var(--sans);letter-spacing:.02em;color:var(--muted);opacity:0;animation:hiSub .9s ease var(--sub,2.4s) forwards}
     @keyframes hiSub{to{opacity:1}}
-    @media (prefers-reduced-motion:reduce){.hi-svg path{animation:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1;stroke-width:3.4}.hi-sub{animation:none;opacity:1}}
+    @media (prefers-reduced-motion:reduce){.hi-svg path{animation:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1;stroke-width:7}.hi-sub{animation:none;opacity:1}}
 
     /* Motion film page */
     .film-wrap{margin-top:8px}
