@@ -318,7 +318,7 @@
     .hi-load{display:flex;flex-direction:column;align-items:center;gap:10px;width:min(300px,64vw);margin-top:8px}
     .hi-load-top{display:flex;justify-content:space-between;width:100%;font:600 12px var(--sans);letter-spacing:.03em;color:var(--muted)}
     .hi-bar{position:relative;width:100%;height:12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 1px 2px rgba(0,0,0,.18),inset 0 -1px 0 rgba(255,255,255,.25);overflow:hidden}
-    .hi-fill{position:absolute;inset:0;width:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));box-shadow:inset 0 1.5px 0 rgba(255,255,255,.7),0 0 14px rgba(150,110,255,.5);transform-origin:left center;transform:scaleX(0);animation:hiLoad var(--load,3.9s) cubic-bezier(.4,.15,.6,.85) forwards}
+    .hi-fill{position:absolute;inset:0;width:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));box-shadow:inset 0 1.5px 0 rgba(255,255,255,.7),0 0 14px rgba(150,110,255,.5);transform-origin:left center;transform:scaleX(0);animation:hiLoad var(--load,4.1s) cubic-bezier(.4,.15,.6,.85) forwards}
     @keyframes hiLoad{to{transform:scaleX(1)}}
     @media (prefers-reduced-motion:reduce){.hi-orb,.hi-glass::after{animation:none}.hi-card{animation:none;opacity:1;transform:none}.hi-svg path{animation:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1;stroke-width:3.2}.hi-sub{animation:none;opacity:1}.hi-fill{animation:none;transform:none}}
 
@@ -629,7 +629,7 @@
 </head>
 <body data-hi="">
 
-<div id="hi-intro" class="" style="--load: 3.9000000000000004s;"></div>
+<div id="hi-intro" class="" style="--load: 4.1s;"></div>
 
   <div class="bg" aria-hidden="true"><span class="blob b1" style="translate: 0px;"></span><span class="blob b2" style="translate: 0px;"></span><span class="blob b3" style="translate: 0px;"></span><span class="grain"></span></div>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -2725,7 +2725,7 @@
         const dur = Math.max(0.4, (g.a / total) * T * 1.8).toFixed(2);
         return `<path d="${g.d}" pathLength="1" style="--delay:${delay}s;--dur:${dur}s"/>`;
       }).join('');
-      const total_s = reduceMotion ? 1.6 : T + 2.2;
+      const total_s = reduceMotion ? 1.6 : T + 2.4;
       el.style.setProperty('--load', total_s + 's');
       el.innerHTML = `<i class="hi-orb o1"></i><i class="hi-orb o2"></i><i class="hi-orb o3"></i><i class="hi-orb o4"></i>
         <div class="hi-card"><svg class="hi-svg" viewBox="${vx} ${vy} ${vw} ${vh}" role="img" aria-label="Hi, ${esc(c.name)} team">
