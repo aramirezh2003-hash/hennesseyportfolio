@@ -124,17 +124,34 @@
     .btn:hover span{transform:translateX(4px)}
 
     /* Hero */
-    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:150px 0 70px}
+    .hero{min-height:auto;display:flex;flex-direction:column;justify-content:flex-start;padding:128px 0 40px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(32px,5vw,76px);align-items:center;min-height:min(640px,calc(100vh - 190px))}
+    .hero-copy{display:flex;flex-direction:column;align-items:flex-start}
+    .hero .pill{margin-bottom:28px}
+    .hero .hero-h1{font-size:clamp(42px,5.6vw,84px);line-height:1;max-width:10.5em}
+    .hero .lede{margin:26px 0 0;max-width:31em}
+    .hero .hero-cta{justify-content:flex-start;margin-top:32px}
+    .lede{font-size:clamp(18px,1.6vw,22px);color:var(--ink-2)}
+    .hero-stage{position:relative;width:100%;aspect-ratio:1/.95}
+    .hs{position:absolute;display:block;padding:8px;border-radius:28px;animation:hsIn 1.1s var(--ease) backwards;animation-delay:calc(var(--i,0) * 160ms + 420ms);transition:translate .6s var(--ease),box-shadow .6s var(--ease)}
+    .hs img{width:100%;height:auto;border-radius:20px}
+    a.hs:hover{translate:0 -8px}
+    .hs-main{left:0;top:7%;width:96%}
+    .hs-phone{left:6%;bottom:0;width:34%;rotate:-3deg;padding:6px;border-radius:30px;box-shadow:0 36px 70px -24px rgba(13,16,32,.5)}
+    .hs-phone img{border-radius:24px}
+    .hs-chip{right:0;bottom:8%;width:min(44%,250px);padding:18px 20px;border-radius:24px;display:flex;flex-direction:column;gap:6px}
+    .hs-chip b{font:700 clamp(34px,3.6vw,52px)/.95 var(--sans);letter-spacing:-.03em}
+    .hs-chip span{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+    @keyframes hsIn{from{opacity:0;translate:0 40px;filter:blur(10px)}}
     .pill{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;font:500 13px var(--sans);color:var(--ink-2);align-self:flex-start;margin-bottom:34px}
     .dot{width:8px;height:8px;border-radius:50%;background:#2fc27a;box-shadow:0 0 0 0 rgba(47,194,122,.6);animation:pulse 2.4s infinite}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,194,122,.55)}70%{box-shadow:0 0 0 12px rgba(47,194,122,0)}100%{box-shadow:0 0 0 0 rgba(47,194,122,0)}}
     .hero h1{font:400 clamp(60px,10.5vw,168px)/.9 var(--serif);letter-spacing:-.03em;max-width:1100px}
-    .hero-row{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-top:44px}
     .lede{font-size:clamp(18px,1.6vw,22px);color:var(--ink-2);max-width:520px;margin:0}
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
 
     /* Stats */
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:80px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
     .stat{padding:26px 24px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;border-radius:26px}
     .stat b{font:400 clamp(52px,6vw,92px)/.9 var(--serif);letter-spacing:-.02em}
     .stat span{color:var(--muted);font-size:14px;line-height:1.45;padding-right:30px}
@@ -379,7 +396,7 @@
       .principles{grid-template-columns:1fr}
       .xrow{grid-template-columns:1fr;gap:10px}
       .xrow .when{text-align:left}
-      .cta-card,.contact-card,.split,.case-top .intro,.hero-row,.case-layout{grid-template-columns:1fr}
+      .cta-card,.contact-card,.split,.case-top .intro,.case-layout{grid-template-columns:1fr}
       .cta-card .acts,.hero-cta{justify-content:flex-start}
       .case-layout{gap:40px;padding:70px 0 20px}
       .case-nav{display:none}
@@ -393,7 +410,10 @@
     @media (max-width:600px){
       .wrap{width:calc(100% - 32px)}
       .stats{grid-template-columns:1fr}
-      .hero h1{font-size:clamp(58px,17vw,96px)}
+      .hero .hero-h1{font-size:clamp(40px,12.4vw,64px)}
+      .hero .btn{padding:15px 20px}
+      .hs-chip{width:50%;padding:14px 16px}
+      .hs-chip span{font-size:12.5px}
       .willow-orb .label-txt{display:none}
       .willow-orb{padding:7px}
       .ibadge{width:26px;height:26px;font-size:11px}
@@ -406,7 +426,7 @@
     @media (hover:hover) and (pointer:fine){.cursor-glow{opacity:1}}
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-      .reveal,.w{opacity:1!important;transform:none!important;translate:none!important;filter:none!important}
+      .reveal,.w,.hs{opacity:1!important;animation:none!important;transform:none!important;translate:none!important;filter:none!important}
     }
     /* Keep the ambient background from widening the page */
     .bg{contain:paint}
@@ -509,7 +529,9 @@
       .links{background:var(--bg);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid var(--line);box-shadow:0 24px 60px rgba(13,16,32,.18);padding:10px}
       .links a:not(.cta){font-size:18px!important;padding:14px 16px;min-height:48px;display:flex;align-items:center}
       .links a.cta{font-size:16px!important;padding:14px 18px;min-height:48px;justify-content:center;display:flex;align-items:center}
-      .hero{min-height:auto;justify-content:flex-start;padding-top:130px}
+      .hero{padding-top:112px}
+      .hero-grid{grid-template-columns:1fr;min-height:0;gap:40px}
+      .hero-stage{aspect-ratio:1/.98;max-width:640px}
       .case-top{padding-top:140px}
     }
     @media (max-width:600px){
@@ -583,18 +605,25 @@
     <!-- HOME -->
     <section class="page" data-path="/">
       <div class="wrap hero">
-        <span class="pill glass reveal"><i class="dot"></i>Open to product design roles · Toronto · Hybrid or remote</span>
-        <h1 class="split-h1"><span class="w" style="--i: 0;">I</span> <span class="w" style="--i: 1;">make</span> <span class="w" style="--i: 2;">complex</span> <span class="w" style="--i: 3;">software</span> <span class="w" style="--i: 4;"><em>clear and usable.</em></span></h1>
-        <div class="hero-row">
-          <p class="lede reveal">Product designer for complex web products. I take work from the problem through engineering review and launch: e-commerce, B2B software and multi-role workflows.</p>
-          <div class="hero-cta reveal" style="--d:200ms">
-            <a class="btn primary route-link" href="/work" data-magnetic="">See selected work <span>→</span></a>
-            <a class="btn glass glass-btn" href="/contact" data-magnetic="">Get in touch</a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="pill glass reveal"><i class="dot"></i>Open to product design roles · Toronto · Hybrid or remote</span>
+            <h1 class="split-h1 hero-h1"><span class="w" style="--i: 0;">I</span> <span class="w" style="--i: 1;">make</span> <span class="w" style="--i: 2;">complex</span> <span class="w" style="--i: 3;">software</span> <span class="w" style="--i: 4;">clear</span> <span class="w" style="--i: 5;">and</span> <span class="w" style="--i: 6;">usable.</span></h1>
+            <p class="lede reveal">Product designer for complex web products. I take work from the problem through engineering review and launch: e-commerce, B2B software and multi-role workflows.</p>
+            <div class="hero-cta reveal" style="--d:200ms">
+              <a class="btn primary route-link" href="/work" data-magnetic="">See selected work <span>→</span></a>
+              <a class="btn glass glass-btn" href="/contact" data-magnetic="">Get in touch</a>
+            </div>
+          </div>
+          <div class="hero-stage" role="group" aria-label="Preview of selected work">
+            <a class="hs hs-main glass route-link" href="/work/kitlab-fs" style="--i:0" aria-label="KitLabFS case study"><img src="/assets/figma/kitlab-hero.jpg" width="1400" height="659" alt="KitLabFS store on desktop, tablet and phone" fetchpriority="high"></a>
+            <a class="hs hs-phone glass route-link" href="/work/matchup" style="--i:1" aria-label="MatchUp case study"><img src="/assets/figma/matchup-map.webp" width="390" height="640" alt="MatchUp map view with a match card" loading="eager"></a>
+            <div class="hs hs-chip glass" style="--i:2"><b>+58%</b><span>average order value after the KitLabFS purchase redesign</span></div>
           </div>
         </div>
 
         <div class="stats">
-          <div class="reveal" style="--d:0ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="Average order value went from roughly US$43 to US$68 after the purchase redesign. That is the change behind the 58% lift."><b data-count="58" data-suffix="%">58%</b><span>lift in average order value after the KitLabFS purchase redesign</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
+          <div class="reveal" style="--d:0ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="550 orders at about US$68 each comes to roughly US$37,400 in sales since launch."><b data-count="550" data-suffix="+">550+</b><span>orders on the store I designed and launched</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
           <div class="reveal" style="--d:90ms"><article class="glass stat tilt" data-tilt=""><b data-count="450" data-suffix="k+">450k+</b><span>visitors in the store’s first three months</span></article></div>
           <div class="reveal" style="--d:180ms"><article class="glass stat tilt has-insight" data-tilt="" tabindex="0" data-insight="7,822 variants across 1,200+ products works out to about 6.5 variants per product, so every shirt has several versions to configure."><b data-count="1200" data-suffix="+">1,200+</b><span>products and 7,822 variants I designed flows for</span><span class="ibadge" aria-hidden="true">✦</span></article></div>
           <div class="reveal" style="--d:270ms"><article class="glass stat tilt" data-tilt=""><b>5</b><span>people led: two developers, two designers, one marketer</span></article></div>
