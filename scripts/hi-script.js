@@ -34,7 +34,7 @@ function build(text) {
     x += g.advanceWidth * scale;
     prev = g;
   }
-  const pad = 6;
+  const pad = 8; // room for the heavier stroke
   return {
     vb: [minX - pad, minY - pad, maxX - minX + pad * 2, maxY - minY + pad * 2].map(n => +n.toFixed(1)),
     g: glyphs
