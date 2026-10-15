@@ -674,7 +674,7 @@
       <header class="page-top"><div class="wrap">
         <p class="label reveal">Selected case studies</p>
         <h1 class="split-h1">Work built around <em>decisions.</em></h1>
-        <p class="reveal">Projects across e-commerce, B2B software and mobile, plus a motion film. Each case study shows the problem, my role, the choices I made and what changed.</p>
+        <p class="reveal">Projects across e-commerce, B2B software and mobile. Each case study shows the problem, my role, the choices I made and what changed.</p>
       </div></header>
       <div class="wrap sec" style="padding-top:20px">
         <div class="pgrid" data-cards></div>
@@ -735,7 +735,8 @@
     <section class="page case" data-path="/work/kitlab-fs" data-case="kitlab"></section>
     <section class="page case" data-path="/work/matchup" data-case="matchup"></section>
     <section class="page case" data-path="/work/commerceflow" data-case="commerce"></section>
-    <section class="page case" data-path="/work/always-moving" data-case="motion"></section>
+    <!-- Hidden for now. To show Always Moving again, uncomment this, add 'motion' to `order`, and restore the sitemap and prerender entries.
+    <section class="page case" data-path="/work/always-moving" data-case="motion"></section> -->
   </main>
 
   <footer><div class="wrap"><span>© 2026 Alejandro Hennessey</span><span>Product design · Toronto, Ontario · alejandrohennessey.art</span></div></footer>
@@ -861,7 +862,7 @@
         video:'/assets/video/matchup-transition-4k.mp4'
       },
       commerce: {
-        name:'CommerceFlow', slug:'commerceflow', next:'motion',
+        name:'CommerceFlow', slug:'commerceflow', next:'kitlab',
         label:'SaaS · Operations',
         roleLine:'Product design',
         teamLine:'',
@@ -1133,7 +1134,7 @@
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
-    const order = ['kitlab','matchup','commerce','motion'];
+    const order = ['kitlab','matchup','commerce']; // 'motion' (Always Moving) is hidden; re-add here to show it
 
     // Experience content (from résumé)
     const experience = [
