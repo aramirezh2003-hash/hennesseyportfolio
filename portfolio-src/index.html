@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="Alejandro Hennessey — Product Designer">
   <meta name="twitter:image" content="https://www.alejandrohennessey.art/assets/og/home.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:arhennesseyco@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
+  {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:hello@alejandrohennessey.art","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -754,8 +754,8 @@
           <div>
             <h2>Hiring for <em>product design?</em></h2>
             <p class="muted" style="font-size:18px">Tell me about the role, the team and the product. I’m based in Toronto and open to hybrid or remote work.</p>
-            <a class="btn primary" href="mailto:arhennesseyco@gmail.com?subject=Product%20design%20role" data-magnetic>Email Alejandro <span>→</span></a>
-            <button class="btn glass glass-btn copy" type="button" data-copy="arhennesseyco@gmail.com" data-magnetic>Copy email</button>
+            <a class="btn primary" href="mailto:hello@alejandrohennessey.art?subject=Product%20design%20role" data-magnetic>Email Alejandro <span>→</span></a>
+            <button class="btn glass glass-btn copy" type="button" data-copy="hello@alejandrohennessey.art" data-magnetic>Copy email</button>
           </div>
           <div class="clinks">
             <a class="glass" href="https://www.linkedin.com/in/arhennessey" target="_blank" rel="noopener">linkedin.com/in/arhennessey <span>↗</span></a>
@@ -1762,7 +1762,7 @@
       });
     }
     function localAnswer(q){
-      if (!WILLOW_INDEX.length) return {a:'I am still loading my notes. Try again in a moment, or email arhennesseyco@gmail.com.'};
+      if (!WILLOW_INDEX.length) return {a:'I am still loading my notes. Try again in a moment, or email hello@alejandrohennessey.art.'};
       const qText = ' ' + q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'') + ' ';
       const qTerms = termsOf(q);
       const ranked = WILLOW_INDEX.map(it => {
@@ -1774,7 +1774,7 @@
       const top = ranked[0], second = ranked[1];
       if (!top || top.s < 0.35) {
         console.info('[Willow] not in notes yet:', q);
-        return {a:'I don’t have that in my notes yet. Ask about experience, the three case studies, results, skills, how he works, availability or contact. Or email arhennesseyco@gmail.com and Alejandro can answer directly.', link:'/contact', label:'Contact Alejandro'};
+        return {a:'I don’t have that in my notes yet. Ask about experience, the three case studies, results, skills, how he works, availability or contact. Or email hello@alejandrohennessey.art and Alejandro can answer directly.', link:'/contact', label:'Contact Alejandro'};
       }
       let a = top.it.e.answer;
       if (second && second.it.e.id !== top.it.e.id && second.s >= 0.5 && second.s >= top.s * 0.6) a += ' ' + second.it.e.answer;

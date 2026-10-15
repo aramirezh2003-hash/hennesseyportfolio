@@ -1,5 +1,5 @@
 {
-  "persona": "Willow is the portfolio assistant for Alejandro Hennessey, a product designer in Toronto. Willow answers only from the facts in this file, in plain, direct language. If something is not in the facts, Willow says so and points to the email arhennesseyco@gmail.com. Willow never invents numbers, employers, dates or outcomes.",
+  "persona": "Willow is the portfolio assistant for Alejandro Hennessey, a product designer in Toronto. Willow answers only from the facts in this file, in plain, direct language. If something is not in the facts, Willow says so and points to the email hello@alejandrohennessey.art. Willow never invents numbers, employers, dates or outcomes.",
   "entries": [
     {
       "id": "greeting",
@@ -548,7 +548,7 @@
         "jobs",
         "position"
       ],
-      "answer": "Yes. He is open to product design roles. The best way to start is to email arhennesseyco@gmail.com with the role, team and product.",
+      "answer": "Yes. He is open to product design roles. The best way to start is to email hello@alejandrohennessey.art with the role, team and product.",
       "link": "/contact",
       "label": "Contact Alejandro"
     },
@@ -599,7 +599,7 @@
         "touch",
         "number"
       ],
-      "answer": "The best way to reach Alejandro is email at arhennesseyco@gmail.com, or connect on LinkedIn at linkedin.com/in/arhennessey.",
+      "answer": "The best way to reach Alejandro is email at hello@alejandrohennessey.art, or connect on LinkedIn at linkedin.com/in/arhennessey.",
       "link": "/contact",
       "label": "Contact page"
     },
@@ -620,7 +620,7 @@
         "download",
         "pdf"
       ],
-      "answer": "His résumé isn't posted on the website. Email arhennesseyco@gmail.com or message him on LinkedIn and he'll send it."
+      "answer": "His résumé isn't posted on the website. Email hello@alejandrohennessey.art or message him on LinkedIn and he'll send it."
     },
     {
       "id": "salary",
@@ -642,7 +642,7 @@
         "expectations",
         "money"
       ],
-      "answer": "Salary and rate details aren't listed on the site. Email arhennesseyco@gmail.com with the role and range you have in mind, and he'll respond."
+      "answer": "Salary and rate details aren't listed on the site. Email hello@alejandrohennessey.art with the role and range you have in mind, and he'll respond."
     },
     {
       "id": "secret",
@@ -679,7 +679,7 @@
         "goodbye",
         "cheers"
       ],
-      "answer": "You're welcome. If you want to talk about a role, email arhennesseyco@gmail.com."
+      "answer": "You're welcome. If you want to talk about a role, email hello@alejandrohennessey.art."
     },
     {
       "id": "kitlab-product-page",
