@@ -10,11 +10,23 @@ const opentype = require('opentype.js');
 const file = path.join(__dirname, '..', 'portfolio-src', 'index.html');
 let html = fs.readFileSync(file, 'utf8');
 
-const fontPath = require.resolve('@fontsource/allura/files/allura-latin-400-normal.woff');
+const fontPath = require.resolve('@fontsource/' + (process.env.HI_FONT||'courgette') + '/files/' + (process.env.HI_FONT||'courgette') + '-latin-400-normal.woff');
 const buf = fs.readFileSync(fontPath);
 const font = opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
 const SIZE = 100;
 const scale = SIZE / font.unitsPerEm;
+
+// opentype's toPathData can glue numbers together ("745.9" + "0" -> "745.90"), which corrupts glyphs.
+// Write the path ourselves with explicit separators.
+function pathData(p) {
+  const f = n => +n.toFixed(1);
+  return p.commands.map(c => {
+    if (c.type === 'Z') return 'Z';
+    if (c.type === 'M' || c.type === 'L') return `${c.type}${f(c.x)},${f(c.y)}`;
+    if (c.type === 'Q') return `Q${f(c.x1)},${f(c.y1)},${f(c.x)},${f(c.y)}`;
+    return `C${f(c.x1)},${f(c.y1)},${f(c.x2)},${f(c.y2)},${f(c.x)},${f(c.y)}`;
+  }).join('');
+}
 
 // Manual layout: opentype's own text shaping throws on some script fonts.
 function build(text) {
@@ -29,7 +41,7 @@ function build(text) {
       const b = p.getBoundingBox();
       minX = Math.min(minX, b.x1); minY = Math.min(minY, b.y1);
       maxX = Math.max(maxX, b.x2); maxY = Math.max(maxY, b.y2);
-      glyphs.push({ d: p.toPathData(1), x: +x.toFixed(1), a: +(g.advanceWidth * scale).toFixed(1) });
+      glyphs.push({ d: pathData(p), x: +x.toFixed(1), a: +(g.advanceWidth * scale).toFixed(1) });
     }
     x += g.advanceWidth * scale;
     prev = g;
