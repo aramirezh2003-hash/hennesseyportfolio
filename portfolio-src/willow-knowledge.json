@@ -700,6 +700,31 @@
         "personalization"
       ],
       "answer": "On KitLabFS the first product page had switches for name and number, player version, patches and long sleeve, each revealing a price and a box to type in. Shoppers played with the customizer and left, which added false views and checkout visits to the data. Alejandro compacted the choices into one sequence with a visible price breakdown and added shipping to the product page so people decide before checkout. The result is cleaner data and shoppers who reach checkout finish faster. There is no measured figure for this change yet."
+    },
+    {
+      "id": "teardowns",
+      "questions": [
+        "do you have teardowns",
+        "product critique",
+        "what product do you admire",
+        "uber",
+        "design critique",
+        "what would you fix"
+      ],
+      "keywords": [
+        "teardown",
+        "teardowns",
+        "critique",
+        "uber",
+        "admire",
+        "fix",
+        "ride",
+        "booking",
+        "product"
+      ],
+      "answer": "Yes. The teardowns page critiques products Alejandro admires. The first is Uber's ride booking: the live map with a running arrival time makes the wait visible progress, and the ride-option list needs one clear recommended choice, with the alternatives below it.",
+      "link": "/teardowns",
+      "label": "Read the teardown"
     }
   ]
 }

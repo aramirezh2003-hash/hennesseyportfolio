@@ -16,10 +16,10 @@
   <meta property="og:title" content="CommerceFlow case study — Alejandro Hennessey">
   <meta property="og:description" content="Turning scattered operational data into a calm decision surface for multi-store teams.">
   <meta property="og:url" content="https://www.alejandrohennessey.art/work/commerceflow">
-  <meta property="og:image" content="https://www.alejandrohennessey.art/assets/figma/commerce-dashboard.jpg">
+  <meta property="og:image" content="https://www.alejandrohennessey.art/assets/og/commerceflow.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CommerceFlow case study — Alejandro Hennessey">
-  <meta name="twitter:image" content="https://www.alejandrohennessey.art/assets/figma/commerce-dashboard.jpg">
+  <meta name="twitter:image" content="https://www.alejandrohennessey.art/assets/og/commerceflow.jpg">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Alejandro Hennessey","jobTitle":"Product Designer","url":"https://www.alejandrohennessey.art/","email":"mailto:arhennesseyco@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"sameAs":["https://www.linkedin.com/in/arhennessey"],"alumniOf":"Fanshawe College","knowsLanguage":["English","Spanish","French"]}
   </script>
@@ -276,6 +276,48 @@
     .gallery .g.wide{grid-column:1/-1}
     .gallery img{height:100%;object-fit:cover;border-radius:22px;transition:transform 1.2s var(--ease)}
     .gallery .g:hover img{transform:scale(1.04)}
+    /* Personalized link banner */
+    .hi-banner{display:flex;align-items:center;justify-content:space-between;gap:20px 28px;flex-wrap:wrap;padding:22px 26px;border-radius:28px;margin-bottom:34px}
+    .hi-banner p{margin:0}
+    .hi-title{font:700 clamp(22px,2.4vw,30px)/1.1 var(--sans);letter-spacing:-.02em}
+    body[data-hi] .hero-grid{min-height:0}
+    .hi-line{color:var(--ink-2);max-width:44em;margin-top:6px!important}
+    /* Teardowns */
+    .tdcard{display:block;padding:clamp(28px,4vw,48px);border-radius:36px;transition:translate .6s var(--ease)}
+    .tdcard:hover{translate:0 -6px}
+    .tdcard h3{font:700 clamp(26px,3.4vw,46px)/1.08 var(--sans);letter-spacing:-.025em;max-width:22em;margin:14px 0 22px}
+    .tdgo{font:600 15px var(--sans);color:var(--accent-ink)}
+    .td h2{font:700 clamp(30px,4vw,52px)/1.05 var(--sans);letter-spacing:-.025em;margin-bottom:26px}
+    .td-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .td-card{padding:30px;border-radius:30px;display:flex;flex-direction:column;gap:12px}
+    .td-card .label{color:var(--accent-ink)}
+    .td-card h3{font:700 clamp(22px,2.2vw,28px)/1.15 var(--sans);letter-spacing:-.02em}
+    .td-card p,.td-test p{margin:0;color:var(--ink-2);font-size:17px;line-height:1.6;max-width:42em}
+    .wf{margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .wf-col{padding:26px;border-radius:30px;display:flex;flex-direction:column;gap:18px}
+    .wf-col .label{color:var(--muted)}
+    .wf-list{display:flex;flex-direction:column;gap:10px;position:relative}
+    .wf-row{position:relative;display:grid;grid-template-columns:44px 1fr 56px;gap:12px;align-items:center;padding:14px;border-radius:18px;background:var(--chip)}
+    .wf-row i{height:30px;border-radius:9px;background:var(--line)}
+    .wf-row b{height:10px;border-radius:6px;background:var(--line)}
+    .wf-row em{height:10px;border-radius:6px;background:var(--line)}
+    .wf-row.top{padding:26px 14px 22px;background:var(--ink);box-shadow:0 20px 40px -20px rgba(13,16,32,.55)}
+    .wf-row.top i{height:42px;background:rgba(255,255,255,.28)}
+    .wf-row.top b,.wf-row.top em{background:rgba(255,255,255,.55);height:12px}
+    .wf-row.sm{opacity:.8;padding:10px 14px}
+    .wf-row.sm i{height:22px}
+    .wf-tag{position:absolute;left:14px;top:8px;font:600 11px/1 var(--sans);color:var(--bg);opacity:.85}
+    .wf figcaption{grid-column:1/-1;font-size:14px;color:var(--muted)}
+    .td-test{padding:28px 30px;border-radius:28px;display:flex;flex-direction:column;gap:10px;margin-top:16px}
+    .td-test .label{color:var(--accent-ink)}
+    .td-note{margin-top:22px;font-size:14px;color:var(--muted)}
+    @media (max-width:860px){.td-grid,.wf{grid-template-columns:1fr}.td-card,.wf-col{padding:24px}}
+    .case-top .brief{margin-top:40px}
+    .brief-h{margin:44px 0 -28px}
+    .next-all{margin:22px 0 0;text-align:center}
+    .next-all a{font:600 15px var(--sans);color:var(--ink-2);padding:10px 16px;border-radius:999px}
+    .next-all a:hover{background:var(--chip);color:var(--ink)}
+
     /* Motion film page */
     .film-wrap{margin-top:8px}
     .film{padding:10px;border-radius:34px;overflow:hidden}
@@ -594,6 +636,7 @@
       <a class="brand route-link" href="/"><img src="/assets/brand/ah-monogram.png" alt="" width="30" height="30">Alejandro Hennessey</a>
       <nav class="links" id="site-links" aria-label="Main">
         <a href="/work" class="route-link active">Work</a>
+        <a href="/teardowns" class="route-link">Teardowns</a>
         <a href="/about" class="route-link">About</a>
         <a href="/contact" class="route-link cta" data-magnetic="">Let’s talk</a>
       </nav>
@@ -605,9 +648,13 @@
     <!-- HOME -->
     <section class="page" data-path="/">
       <div class="wrap hero">
+        <div class="hi-banner glass" data-hi-banner="" hidden="">
+          <div><p class="hi-title" data-hi-title=""></p><p class="hi-line" data-hi-line=""></p></div>
+          <a class="btn primary route-link" data-hi-cta="" href="/work/kitlab-fs">See KitLab FS first <span>→</span></a>
+        </div>
         <div class="hero-grid">
           <div class="hero-copy">
-            <span class="pill glass reveal"><i class="dot"></i>Open to product design roles · Toronto · Hybrid or remote</span>
+            <span class="pill glass reveal"><i class="dot"></i><span data-pill="">Open to product design roles · Toronto · Hybrid or remote</span></span>
             <h1 class="split-h1 hero-h1"><span class="w" style="--i: 0;">I</span> <span class="w" style="--i: 1;">make</span> <span class="w" style="--i: 2;">complex</span> <span class="w" style="--i: 3;">software</span> <span class="w" style="--i: 4;">clear</span> <span class="w" style="--i: 5;">and</span> <span class="w" style="--i: 6;">usable.</span></h1>
             <p class="lede reveal">Product designer for complex web products. I take work from the problem through engineering review and launch: e-commerce, B2B software and multi-role workflows.</p>
             <div class="hero-cta reveal" style="--d:200ms">
@@ -670,6 +717,15 @@
           <article class="glass principle tilt reveal" data-tilt=""><div><span class="n">02</span><h3>Map the logic</h3></div><p>Each user role gets its own flow, with errors, empty states and permissions covered.</p></article>
           <article class="glass principle tilt reveal" data-tilt=""><div><span class="n">03</span><h3>Stay with the build</h3></div><p>Review implementations, log fixes, and use funnel data to choose what changes next.</p></article>
         </div>
+      </div>
+
+      <div class="wrap sec" style="padding-top:0">
+        <div class="sec-h reveal"><h2>Product <em>teardowns</em></h2><p>How I read products I admire: one thing they get right, one thing I would fix.</p></div>
+        <a class="glass tdcard route-link reveal" href="/teardowns">
+          <span class="label">Uber · Ride booking</span>
+          <h3>The wait becomes visible progress. The option list needs a clear first choice.</h3>
+          <span class="tdgo">Read the teardown <span aria-hidden="true">→</span></span>
+        </a>
       </div>
 
       <div class="wrap sec" style="padding-top:0">
@@ -764,6 +820,44 @@
     </section>
 
     <!-- CASE STUDIES (rendered from data) -->
+    <!-- TEARDOWNS -->
+    <section class="page" data-path="/teardowns">
+      <header class="page-top"><div class="wrap">
+        <p class="label reveal">Teardowns</p>
+        <h1 class="split-h1"><span class="w" style="--i: 0;">Product</span> <span class="w" style="--i: 1;"><em>teardowns.</em></span></h1>
+        <p class="reveal">Short critiques from my own use of each product. Every one names one thing it gets right and one thing I would fix, with the reason.</p>
+      </div></header>
+      <div class="wrap sec" style="padding-top:20px">
+        <article class="td">
+          <h2 class="reveal">Uber: ride booking</h2>
+          <div class="td-grid">
+            <div class="glass td-card reveal"><span class="label">What it gets right</span><h3>The wait becomes visible progress</h3>
+              <p>Uber gets visibility of system status right. After you book, the car moves on the live map with a running arrival time, so the wait becomes visible progress and not uncertainty. That one screen answers the question every rider has in that moment, which is “where is my ride?”</p></div>
+            <div class="glass td-card reveal"><span class="label">What I would fix</span><h3>The ride-option list has no clear first choice</h3>
+              <p>Every option has the same weight, so nothing says which one most people should choose, and the small differences in price and wait time force comparison. I would give one recommended option a stronger visual treatment and put the others below it, so the first choice is clear and the alternatives stay available.</p></div>
+          </div>
+          <figure class="wf reveal" role="img" aria-label="Sketch comparing the current list, where three options have equal weight, with a proposed list that gives one recommended option more weight and places two others below it">
+            <div class="glass wf-col" aria-hidden="true"><span class="label">Now: equal weight</span>
+              <div class="wf-list">
+                <div class="wf-row"><i></i><b></b><em></em></div>
+                <div class="wf-row"><i></i><b></b><em></em></div>
+                <div class="wf-row"><i></i><b></b><em></em></div>
+              </div></div>
+            <div class="glass wf-col" aria-hidden="true"><span class="label">Proposed: one clear first choice</span>
+              <div class="wf-list">
+                <div class="wf-row top"><span class="wf-tag">Recommended</span><i></i><b></b><em></em></div>
+                <div class="wf-row sm"><i></i><b></b><em></em></div>
+                <div class="wf-row sm"><i></i><b></b><em></em></div>
+              </div></div>
+            <figcaption>A simplified sketch of the idea, not an Uber screen.</figcaption>
+          </figure>
+          <div class="glass td-test reveal"><span class="label">How I would test it</span>
+            <p>Compare the current list with a version that has one recommended option. I would measure how long riders take to choose and how often they pick the recommended option, and check that riders who want a different option still find it quickly.</p></div>
+          <p class="td-note">An independent critique based on my own use of the app. I am not affiliated with Uber.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="page case" data-path="/work/kitlab-fs" data-case="kitlab">
       <header class="case-top"><div class="wrap">
         <p class="label reveal">E-commerce · Product discovery and purchase</p>
@@ -777,13 +871,13 @@
             <div class="glass"><span>Scope</span><strong>Product pages, funnels, checkout and inventory flows</strong></div>
           </div>
         </div>
-        <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover"></div></div>
-      </div></header>
-      <section class="wrap brief reveal" aria-label="In brief">
+        <p class="label brief-h reveal">The 30-second version</p><div class="brief reveal" aria-label="In brief">
         <div class="glass"><span class="label">The problem</span><p>Choices such as player versions, patches, sizing and name customization were hard to understand.</p></div>
         <div class="glass"><span class="label">The design bet</span><p>Sequence the journey instead of exposing every choice at once.</p></div>
         <div class="glass"><span class="label">The result</span><b class="big">58%</b><p>Lift in average order value after the purchase redesign.</p></div>
-      </section>
+      </div>
+        <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/kitlab-hero.jpg" alt="KitLab FS case study cover"></div></div>
+      </div></header>
       <div class="wrap case-layout">
         <aside class="glass case-nav" aria-label="Case study guide">
           <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i></i></span></div>
@@ -1218,7 +1312,7 @@
       <section class="next"><div class="wrap"><a class="glass route-link" href="/work/matchup" data-tilt="">
         <span class="label">Next case study</span>
         <strong>MatchUp <em>→</em></strong>
-      </a></div></section></section>
+      </a><p class="next-all"><a class="route-link" href="/work">Back to all work</a></p></div></section></section>
     <section class="page case" data-path="/work/matchup" data-case="matchup">
       <header class="case-top"><div class="wrap">
         <p class="label reveal">Mobile product · Community sports</p>
@@ -1232,13 +1326,13 @@
             <div class="glass"><span>Scope</span><strong>Mobile flows for organizers and players</strong></div>
           </div>
         </div>
-        <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover"></div></div>
-      </div></header>
-      <section class="wrap brief reveal" aria-label="In brief">
+        <p class="label brief-h reveal">The 30-second version</p><div class="brief reveal" aria-label="In brief">
         <div class="glass"><span class="label">The problem</span><p>Players rely on scattered group chats with incomplete information about cost, skill level and open positions.</p></div>
         <div class="glass"><span class="label">The design bet</span><p>Give organizers and players one shared match state.</p></div>
         <div class="glass"><span class="label">The outcome</span><b>Open spots at a glance</b><p>Players see how many positions are left before they commit.</p></div>
-      </section>
+      </div>
+        <div class="hero-img glass reveal"><div class="frame"><img src="/assets/figma/matchup-hero.jpg" alt="MatchUp case study cover"></div></div>
+      </div></header>
       <div class="wrap case-layout">
         <aside class="glass case-nav" aria-label="Case study guide">
           <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i></i></span></div>
@@ -1407,12 +1501,12 @@
       <section class="next"><div class="wrap"><a class="glass route-link" href="/work/commerceflow" data-tilt="">
         <span class="label">Next case study</span>
         <strong>CommerceFlow <em>→</em></strong>
-      </a></div></section></section>
+      </a><p class="next-all"><a class="route-link" href="/work">Back to all work</a></p></div></section></section>
     <section class="page case active" data-path="/work/commerceflow" data-case="commerce">
       <header class="case-top"><div class="wrap">
-        <p class="label reveal">SaaS · Operations</p>
+        <p class="label reveal in">SaaS · Operations</p>
         <h1 class="split-h1"><span class="w" style="--i: 0;">CommerceFlow</span></h1>
-        <div class="intro reveal">
+        <div class="intro reveal in">
           <p>Make operational data support a decision.</p>
           <div class="meta-grid">
             <div class="glass"><span>Role</span><strong>Product design</strong></div>
@@ -1421,13 +1515,13 @@
             <div class="glass"><span>Scope</span><strong>Operations dashboard, alerts and component system</strong></div>
           </div>
         </div>
-        <div class="hero-img glass reveal" style="--p: 0.000;"><div class="frame"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover"></div></div>
-      </div></header>
-      <section class="wrap brief reveal" aria-label="In brief">
+        <p class="label brief-h reveal in">The 30-second version</p><div class="brief reveal" aria-label="In brief">
         <div class="glass"><span class="label">The problem</span><p>Operators repeatedly switch between storefronts, advertising platforms, spreadsheets and supplier systems just to understand performance and manage daily operations.</p></div>
         <div class="glass"><span class="label">The design bet</span><p>Organize around daily decisions, not the tools where the data originated.</p></div>
         <div class="glass"><span class="label">The outcome</span><b>Change-first</b><p>The dashboard leads with what moved, then offers the detail behind it.</p></div>
-      </section>
+      </div>
+        <div class="hero-img glass reveal" style="--p: 0.000;"><div class="frame"><img src="/assets/figma/commerce-dashboard.jpg" alt="CommerceFlow case study cover"></div></div>
+      </div></header>
       <div class="wrap case-layout">
         <aside class="glass case-nav" aria-label="Case study guide">
           <div class="cg-head"><p class="label">Case study</p><span class="cg-bar" aria-hidden="true"><i style="width: 0%;"></i></span></div>
@@ -1596,7 +1690,7 @@
       <section class="next"><div class="wrap"><a class="glass route-link" href="/work/kitlab-fs" data-tilt="">
         <span class="label">Next case study</span>
         <strong>KitLab FS <em>→</em></strong>
-      </a></div></section></section>
+      </a><p class="next-all"><a class="route-link" href="/work">Back to all work</a></p></div></section></section>
     <!-- Hidden for now. To show Always Moving again, uncomment this, add 'motion' to `order`, and restore the sitemap and prerender entries.
     <section class="page case" data-path="/work/always-moving" data-case="motion"></section> -->
   </main>
@@ -1996,6 +2090,13 @@
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
+    // Personalized links: /hi/<slug>. Add a company here, then re-run the prerender.
+    const companies = {
+      smile: {name:'Smile.io', role:'Junior Product Designer', lead:['kitlab','commerce','matchup'],
+        line:'I built this page for your Junior Product Designer role. I use Smile on my own stores, so I put the e-commerce work first.'},
+      minerva: {name:'Minerva Project', role:'Product Designer', lead:['kitlab','commerce','matchup'],
+        line:'I built this page for your Product Designer role. I put the work that shows how I design complex products end to end first.'}
+    };
     const order = ['kitlab','matchup','commerce']; // 'motion' (Always Moving) is hidden; re-add here to show it
 
     // Experience content (from résumé)
@@ -2099,11 +2200,11 @@
       const briefResult = isKitlab
         ? `<b class="big">${esc(r0[0])}</b><p>${esc(r0[1])}</p>`
         : `<b>${esc(r0[1])}</b><p>${esc(r0[2])}</p>`;
-      const briefHTML = `<section class="wrap brief reveal" aria-label="In brief">
+      const briefHTML = `<p class="label brief-h reveal">The 30-second version</p><div class="brief reveal" aria-label="In brief">
         <div class="glass"><span class="label">The problem</span><p>${esc(firstSentence(p.problem))}</p></div>
         <div class="glass"><span class="label">The design bet</span><p>${esc(p.bet)}</p></div>
         <div class="glass"><span class="label">${isKitlab ? 'The result' : 'The outcome'}</span>${briefResult}</div>
-      </section>`;
+      </div>`;
       const shotImg = im => `<img src="${im.src}" loading="lazy" decoding="async" alt="${esc(im.alt)}">`;
       const screenAttrs = (im, flat) => flat ? 'class="screen flat"' : `class="screen" tabindex="0" role="group" aria-label="${esc(im.title)} screenshot, scrollable"`;
       const figHTML = im => `<figure class="fig reveal"><div class="glass shot"><div class="chrome"><i></i><i></i><i></i></div><div ${screenAttrs(im, im.kind === 'mockup')}>${shotImg(im)}</div></div><figcaption><b>${esc(im.title)}</b>${esc(im.caption)}</figcaption></figure>`;
@@ -2166,9 +2267,9 @@
             <div class="glass"><span>Scope</span><strong>${esc(p.scopeLine)}</strong></div>
           </div>
         </div>
+        ${briefHTML}
         <div class="hero-img glass reveal"><div class="frame"><img src="${p.cover}" alt="${esc(p.name)} case study cover"></div></div>
       </div></header>
-      ${briefHTML}
       <div class="wrap case-layout">
         ${guideHTML}
         <article>
@@ -2211,7 +2312,7 @@
       <section class="next"><div class="wrap"><a class="glass route-link" href="/work/${next.slug}" data-tilt>
         <span class="label">Next case study</span>
         <strong>${esc(next.name)} <em>→</em></strong>
-      </a></div></section>`;
+      </a><p class="next-all"><a class="route-link" href="/work">Back to all work</a></p></div></section>`;
     }
     $$('[data-case]').forEach(el => el.innerHTML = caseMarkup(projects[el.dataset.case]));
 
@@ -2301,12 +2402,14 @@
 
     // Per-page metadata
     const pageMeta = {
-      '/': {title:'Alejandro Hennessey — Product Designer, Toronto', desc:'Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.', img:'/assets/figma/kitlab-hero.jpg'},
-      '/work': {title:'Selected work — Alejandro Hennessey', desc:'Case studies in e-commerce, B2B software and mobile product design.', img:'/assets/figma/kitlab-hero.jpg'},
-      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ballycorp and LCBO, and how I work with developers and stakeholders.', img:'/assets/figma/kitlab-hero.jpg'},
-      '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/figma/kitlab-hero.jpg'}
+      '/': {title:'Alejandro Hennessey — Product Designer, Toronto', desc:'Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.', img:'/assets/og/home.jpg'},
+      '/work': {title:'Selected work — Alejandro Hennessey', desc:'Case studies in e-commerce, B2B software and mobile product design.', img:'/assets/og/work.jpg'},
+      '/teardowns': {title:'Product teardowns — Alejandro Hennessey', desc:'Short critiques of products I admire: one thing each gets right and one thing I would fix.', img:'/assets/og/teardowns.jpg'},
+      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ballycorp and LCBO, and how I work with developers and stakeholders.', img:'/assets/og/about.jpg'},
+      '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/og/contact.jpg'}
     };
-    Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} ${p.kind === 'motion' ? 'film' : 'case study'} — Alejandro Hennessey`, desc: p.summary, img: p.cover}; });
+    Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} ${p.kind === 'motion' ? 'film' : 'case study'} — Alejandro Hennessey`, desc: p.summary, img: '/assets/og/' + p.slug + '.jpg'}; });
+    Object.entries(companies).forEach(([k, c]) => { pageMeta['/hi/' + k] = {title: `Alejandro Hennessey for ${c.name} — Product Designer`, desc: `A portfolio page made for the ${c.role} role at ${c.name}.`, img: '/assets/og/hi-' + k + '.jpg'}; });
     function setMeta(attr, key, value){
       let el = document.head.querySelector(`meta[${attr}="${key}"]`);
       if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
@@ -2315,7 +2418,9 @@
     function applyMeta(path){
       const m = pageMeta[path] || pageMeta['/'];
       const url = SITE + path;
+      const isHi = path.startsWith('/hi/');
       document.title = m.title;
+      setMeta('name','robots', isHi ? 'noindex, nofollow' : 'index, follow');
       setMeta('name','description', m.desc);
       setMeta('property','og:title', m.title);
       setMeta('property','og:description', m.desc);
@@ -2324,7 +2429,7 @@
       setMeta('name','twitter:title', m.title);
       setMeta('name','twitter:image', SITE + m.img);
       let c = document.head.querySelector('link[rel="canonical"]');
-      if (c) c.setAttribute('href', url);
+      if (c) c.setAttribute('href', isHi ? SITE + '/' : url);
     }
 
     // Split headings into words for a staggered reveal
@@ -2488,15 +2593,43 @@
       btn.setAttribute('aria-expanded', String(open));
     });
 
+    // Personalized pages: /hi/<company> shows the home page with a greeting and the work reordered
+    const defaultPill = $('[data-pill]').textContent;
+    function applyHi(slug){
+      const c = slug && companies[slug];
+      const banner = $('[data-hi-banner]'), home = $('[data-path="/"]');
+      window.__hi = c ? slug : null;
+      document.body.toggleAttribute('data-hi', !!c);
+      banner.hidden = !c;
+      $('[data-pill]').textContent = c ? `Applying for ${c.role} at ${c.name}` : defaultPill;
+      const lead = c ? c.lead : order;
+      $$('.pcard', home).forEach(card => {
+        const k = Object.keys(projects).find(key => card.getAttribute('href') === '/work/' + projects[key].slug);
+        const idx = lead.indexOf(k);
+        card.style.order = c ? (idx < 0 ? 99 : idx) : '';
+        card.classList.toggle('first', idx === 0);
+      });
+      if (!c) return;
+      const top = projects[lead[0]];
+      $('[data-hi-title]').textContent = `Hi ${c.name} team,`;
+      $('[data-hi-line]').textContent = c.line;
+      const cta = $('[data-hi-cta]');
+      cta.setAttribute('href', '/work/' + top.slug);
+      cta.firstChild.textContent = `See ${top.name} first `;
+    }
+
     // Routing with view transitions
     let currentPath = null;
     function route(path = location.pathname){
       const clean = path.replace(/\/$/,'') || '/';
       currentPath = clean;
-      const page = $(`[data-path="${clean}"]`) || $('[data-path="/"]');
+      const hiMatch = clean.match(/^\/hi\/([a-z0-9-]+)$/);
+      const hiSlug = hiMatch && companies[hiMatch[1]] ? hiMatch[1] : null;
+      const page = hiSlug ? $('[data-path="/"]') : ($(`[data-path="${clean}"]`) || $('[data-path="/"]'));
+      applyHi(hiSlug);
       $$('.page').forEach(p => p.classList.toggle('active', p === page));
       $$('.links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === clean || (clean.startsWith('/work') && a.getAttribute('href') === '/work')));
-      applyMeta(page.dataset.path);
+      applyMeta(hiSlug ? '/hi/' + hiSlug : page.dataset.path);
       document.body.classList.remove('menu-open');
       $('.menu-btn').setAttribute('aria-expanded','false');
       scrollTo({top: 0, behavior: 'instant'});
@@ -2622,6 +2755,7 @@
       var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID; document.head.appendChild(s);
       window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
       gtag('js', new Date()); gtag('config', GA_ID, {anonymize_ip: true});
+      if (window.__hi) gtag('event', 'personal_link_visit', {company: window.__hi});
     })();
   </script>
 
