@@ -750,11 +750,6 @@
       </div>
 
       <div class="wrap sec" style="padding-top:0">
-        <div class="sec-h reveal"><h2>Experience</h2><p>Three product roles, from co-op to founder.</p></div>
-        <div class="xlist" data-exp></div>
-      </div>
-
-      <div class="wrap sec" style="padding-top:0">
         <div class="sec-h reveal"><h2>How I <em>work</em></h2></div>
         <div class="principles">
           <article class="glass principle tilt reveal" data-tilt><div><span class="n">01</span><h3>Frame the problem</h3></div><p>Separate the visible symptom from the decision people are struggling with.</p></article>
@@ -808,9 +803,6 @@
               <div class="glass"><strong>Tools</strong><span>Figma, Shopify, Adobe Photoshop, Illustrator, InDesign, After Effects, Premiere Pro</span></div>
               <div class="glass"><strong>Languages</strong><span>English and Spanish (native), French (basic)</span></div>
             </div>
-          </div>
-          <div class="reveal" style="--d:150ms">
-            <div class="xlist" data-exp-full></div>
           </div>
         </div>
       </div>
@@ -1334,20 +1326,7 @@
     /* HI-SCRIPTS:END */
     const order = ['kitlab','matchup','commerce','inoxar']; // 'motion' (Always Moving) is hidden; re-add here to show it
 
-    // Experience content (from résumé)
-    const experience = [
-      {name:'KitLabFS', role:'Founder / Product Designer · Remote', when:'Mar 2026 – Present', what:'Designed and launched a store with 1,200+ products. Led a five-person team.', insight:'Breakdown: founder and product designer, leading a five-person team from launch onward.'},
-      {name:'Ecofoot', role:'Product Designer · Ontario', when:'Dec 2024 – Sep 2026', what:'Designed the company website and a B2B sales rep portal connecting clients and sales teams.', insight:'Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.'},
-      {name:'LCBO', role:'Co-op → Junior Product Designer → Product Designer · Toronto', when:'Sep 2023 – Nov 2024', what:'Two promotions in 14 months, moving from guided tasks to owning product work independently.', insight:'Breakdown: two promotions in 14 months, from guided tasks to owning product work independently.'}
-    ];
-    const expRow = e => `<article class="glass xrow tilt reveal" data-tilt>
-      <h3>${esc(e.name)}</h3>
-      <div><p class="role">${esc(e.role)}</p><p class="what">${esc(e.what)}</p></div>
-      <span class="when">${esc(e.when)}</span></article>`;
-    $$('[data-exp]').forEach(el => el.innerHTML = experience.map(expRow).join(''));
-    $$('[data-exp-full]').forEach(el => el.innerHTML = experience.map(e => `<article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
-      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>${esc(e.name)}</h3><span class="when">${esc(e.when)}</span></div>
-      <div><p class="role">${esc(e.role)}</p><p class="what">${esc(e.what)}</p></div></article>`).join(''));
+
 
     // Project cards (home + work), with per-card insight
     const FUNNEL_INSIGHT = 'Checkout to completed sale is the steepest drop: 3.8 of every 10.4 shoppers who reached checkout finished, about 37%. Based on the funnel figures as reported.';
