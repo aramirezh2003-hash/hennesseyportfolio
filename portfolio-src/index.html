@@ -1291,7 +1291,7 @@
     // Experience content (from résumé)
     const experience = [
       {name:'KitLabFS', role:'Founder / Product Designer · Remote', when:'Mar 2026 – Present', what:'Designed and launched a store with 1,200+ products. Led a five-person team.', insight:'Breakdown: founder and product designer, leading a five-person team from launch onward.'},
-      {name:'Ballycorp', role:'Product Designer · Ontario', when:'Dec 2024 – Sep 2026', what:'Designed the company website and a B2B sales rep portal connecting clients and sales teams.', insight:'Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.'},
+      {name:'Ecofoot', role:'Product Designer · Ontario', when:'Dec 2024 – Sep 2026', what:'Designed the company website and a B2B sales rep portal connecting clients and sales teams.', insight:'Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.'},
       {name:'LCBO', role:'Co-op → Junior Product Designer → Product Designer · Toronto', when:'Sep 2023 – Nov 2024', what:'Two promotions in 14 months, moving from guided tasks to owning product work independently.', insight:'Breakdown: two promotions in 14 months, from guided tasks to owning product work independently.'}
     ];
     const expRow = e => `<article class="glass xrow tilt reveal" data-tilt>
@@ -1667,7 +1667,7 @@
     const pageMeta = {
       '/': {title:'Alejandro Hennessey — Product Designer, Toronto', desc:'Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.', img:'/assets/og/home.jpg'},
       '/work': {title:'Selected work — Alejandro Hennessey', desc:'Case studies in e-commerce, B2B software and mobile product design.', img:'/assets/og/work.jpg'},
-      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ballycorp and LCBO, and how I work with developers and stakeholders.', img:'/assets/og/about.jpg'},
+      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ecofoot and LCBO, and how I work with developers and stakeholders.', img:'/assets/og/about.jpg'},
       '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/og/contact.jpg'}
     };
     Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} ${p.kind === 'motion' ? 'film' : 'case study'} — Alejandro Hennessey`, desc: p.summary, img: '/assets/og/' + p.slug + '.jpg'}; });
@@ -1975,7 +1975,7 @@
     fetch('/willow-knowledge.json').then(r => r.json()).then(buildWillowIndex).catch(() => {});
 
     const log = $('#wp-log'), chips = $('#wp-chips'), form = $('#wp-form'), input = $('#wp-input'), panel = $('#willow-panel'), wbtn = $('#willow-btn');
-    const QUICK = ['What did KitLabFS achieve?', 'Tell me about Ballycorp', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
+    const QUICK = ['What did KitLabFS achieve?', 'Tell me about Ecofoot', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
     chips.innerHTML = QUICK.map(q => `<button class="chip" type="button">${esc(q)}</button>`).join('');
     function addMsg(role, html){
       const d = document.createElement('div'); d.className = 'msg ' + role; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d;

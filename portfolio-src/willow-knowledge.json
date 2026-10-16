@@ -82,7 +82,7 @@
         "jobs",
         "career"
       ],
-      "answer": "Three product roles: Founder and Product Designer at KitLabFS (Mar 2026 to present, remote), Product Designer at Ballycorp (Dec 2024 to Sep 2026, Ontario), and Co-op to Product Designer at LCBO (Sep 2023 to Nov 2024, Toronto).",
+      "answer": "Three product roles: Founder and Product Designer at KitLabFS (Mar 2026 to present, remote), Product Designer at Ecofoot (Dec 2024 to Sep 2026, Ontario), and Co-op to Product Designer at LCBO (Sep 2023 to Nov 2024, Toronto).",
       "link": "/about",
       "label": "Full experience"
     },
@@ -219,23 +219,25 @@
       "answer": "He was the founder and product designer. He owned product pages, funnels, checkout and inventory flows, and was responsible for the redesign of the purchase experience."
     },
     {
-      "id": "ballycorp",
+      "id": "ecofoot",
+        "ballycorp",
       "questions": [
-        "tell me about ballycorp",
-        "what did he do at ballycorp",
-        "ballycorp role",
-        "what is ballycorp"
+        "tell me about ecofoot",
+        "what did he do at ecofoot",
+        "ecofoot role",
+        "what is ecofoot"
       ],
       "keywords": [
+        "ecofoot",
         "ballycorp",
         "eco",
         "foot",
         "website"
       ],
-      "answer": "At Ballycorp, from Dec 2024 to Sep 2026, he was a Product Designer. He designed the company website and a sales rep portal, connecting clients and sales reps in one place."
+      "answer": "At Ecofoot, from Dec 2024 to Sep 2026, he was a Product Designer. He designed the company website and a sales rep portal, connecting clients and sales reps in one place."
     },
     {
-      "id": "ballycorp_portal",
+      "id": "ecofoot_portal",
       "questions": [
         "what is the sales rep portal",
         "b2b work",
@@ -258,7 +260,7 @@
         "confirmation",
         "role"
       ],
-      "answer": "For the Ballycorp portal, he mapped end-to-end workflows for each user role, covering permissions, empty states, errors and confirmations. He turned them into Figma flows and interactive prototypes. Over 21 months he gathered feedback from sales and operations stakeholders and used it to simplify screens and labels."
+      "answer": "For the Ecofoot portal, he mapped end-to-end workflows for each user role, covering permissions, empty states, errors and confirmations. He turned them into Figma flows and interactive prototypes. Over 21 months he gathered feedback from sales and operations stakeholders and used it to simplify screens and labels."
     },
     {
       "id": "developers",

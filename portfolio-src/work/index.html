@@ -733,7 +733,7 @@
       <h3>KitLabFS</h3>
       <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div>
       <span class="when">Mar 2026 – Present</span></article><article class="glass xrow tilt reveal" data-tilt="">
-      <h3>Ballycorp</h3>
+      <h3>Ecofoot</h3>
       <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div>
       <span class="when">Dec 2024 – Sep 2026</span></article><article class="glass xrow tilt reveal" data-tilt="">
       <h3>LCBO</h3>
@@ -813,7 +813,7 @@
             <div class="xlist" data-exp-full=""><article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
       <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>KitLabFS</h3><span class="when">Mar 2026 – Present</span></div>
       <div><p class="role">Founder / Product Designer · Remote</p><p class="what">Designed and launched a store with 1,200+ products. Led a five-person team.</p></div></article><article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
-      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>Ballycorp</h3><span class="when">Dec 2024 – Sep 2026</span></div>
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>Ecofoot</h3><span class="when">Dec 2024 – Sep 2026</span></div>
       <div><p class="role">Product Designer · Ontario</p><p class="what">Designed the company website and a B2B sales rep portal connecting clients and sales teams.</p></div></article><article class="glass xrow reveal" style="grid-template-columns:1fr;gap:10px;padding:26px 28px">
       <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline"><h3>LCBO</h3><span class="when">Sep 2023 – Nov 2024</span></div>
       <div><p class="role">Co-op → Junior Product Designer → Product Designer · Toronto</p><p class="what">Two promotions in 14 months, moving from guided tasks to owning product work independently.</p></div></article></div>
@@ -1759,7 +1759,7 @@
         <button class="wp-close" type="button" aria-label="Close Willow">×</button>
       </header>
       <div class="wp-log" id="wp-log" aria-live="polite"></div>
-      <div class="wp-chips" id="wp-chips"><button class="chip" type="button">What did KitLabFS achieve?</button><button class="chip" type="button">Tell me about Ballycorp</button><button class="chip" type="button">How do you work?</button><button class="chip" type="button">Are you open to remote?</button><button class="chip" type="button">Show me a secret</button></div>
+      <div class="wp-chips" id="wp-chips"><button class="chip" type="button">What did KitLabFS achieve?</button><button class="chip" type="button">Tell me about Ecofoot</button><button class="chip" type="button">How do you work?</button><button class="chip" type="button">Are you open to remote?</button><button class="chip" type="button">Show me a secret</button></div>
       <form class="wp-form" id="wp-form" autocomplete="off">
         <input id="wp-input" type="text" maxlength="200" placeholder="Ask about projects, experience…" aria-label="Message Willow">
         <button type="submit" aria-label="Send">↑</button>
@@ -2225,7 +2225,7 @@
     // Experience content (from résumé)
     const experience = [
       {name:'KitLabFS', role:'Founder / Product Designer · Remote', when:'Mar 2026 – Present', what:'Designed and launched a store with 1,200+ products. Led a five-person team.', insight:'Breakdown: founder and product designer, leading a five-person team from launch onward.'},
-      {name:'Ballycorp', role:'Product Designer · Ontario', when:'Dec 2024 – Sep 2026', what:'Designed the company website and a B2B sales rep portal connecting clients and sales teams.', insight:'Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.'},
+      {name:'Ecofoot', role:'Product Designer · Ontario', when:'Dec 2024 – Sep 2026', what:'Designed the company website and a B2B sales rep portal connecting clients and sales teams.', insight:'Breakdown: each user role got its own mapped flow, with permissions, errors and empty states covered before styling.'},
       {name:'LCBO', role:'Co-op → Junior Product Designer → Product Designer · Toronto', when:'Sep 2023 – Nov 2024', what:'Two promotions in 14 months, moving from guided tasks to owning product work independently.', insight:'Breakdown: two promotions in 14 months, from guided tasks to owning product work independently.'}
     ];
     const expRow = e => `<article class="glass xrow tilt reveal" data-tilt>
@@ -2601,7 +2601,7 @@
     const pageMeta = {
       '/': {title:'Alejandro Hennessey — Product Designer, Toronto', desc:'Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.', img:'/assets/og/home.jpg'},
       '/work': {title:'Selected work — Alejandro Hennessey', desc:'Case studies in e-commerce, B2B software and mobile product design.', img:'/assets/og/work.jpg'},
-      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ballycorp and LCBO, and how I work with developers and stakeholders.', img:'/assets/og/about.jpg'},
+      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ecofoot and LCBO, and how I work with developers and stakeholders.', img:'/assets/og/about.jpg'},
       '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/og/contact.jpg'}
     };
     Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} ${p.kind === 'motion' ? 'film' : 'case study'} — Alejandro Hennessey`, desc: p.summary, img: '/assets/og/' + p.slug + '.jpg'}; });
@@ -2909,7 +2909,7 @@
     fetch('/willow-knowledge.json').then(r => r.json()).then(buildWillowIndex).catch(() => {});
 
     const log = $('#wp-log'), chips = $('#wp-chips'), form = $('#wp-form'), input = $('#wp-input'), panel = $('#willow-panel'), wbtn = $('#willow-btn');
-    const QUICK = ['What did KitLabFS achieve?', 'Tell me about Ballycorp', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
+    const QUICK = ['What did KitLabFS achieve?', 'Tell me about Ecofoot', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
     chips.innerHTML = QUICK.map(q => `<button class="chip" type="button">${esc(q)}</button>`).join('');
     function addMsg(role, html){
       const d = document.createElement('div'); d.className = 'msg ' + role; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
