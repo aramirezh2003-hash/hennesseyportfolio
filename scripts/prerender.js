@@ -9,7 +9,7 @@ const path = require('path');
 
 const base = process.env.BASE || 'http://127.0.0.1:8766';
 const out = path.join(__dirname, '..', 'portfolio-src');
-const routes = ['/work', '/about', '/contact', '/hi/smile', '/hi/minerva', '/hi/compuvision', '/hi/clutch', '/work/kitlab-fs', '/work/matchup', '/work/commerceflow'];
+const routes = ['/work', '/about', '/contact', '/hi/smile', '/hi/minerva', '/hi/compuvision', '/hi/clutch', '/work/inoxar', '/work/kitlab-fs', '/work/matchup', '/work/commerceflow'];
 
 (async () => {
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM || '/opt/pw-browsers/chromium' });

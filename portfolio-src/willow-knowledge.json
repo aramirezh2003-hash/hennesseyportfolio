@@ -366,6 +366,29 @@
       "label": "Open CommerceFlow"
     },
     {
+      "id": "inoxar",
+      "questions": [
+        "inoxar",
+        "do you do branding",
+        "graphic design work",
+        "logo design",
+        "brand identity",
+        "any branding projects"
+      ],
+      "keywords": [
+        "inoxar",
+        "logo",
+        "brand",
+        "branding",
+        "identity",
+        "graphic",
+        "steel"
+      ],
+      "answer": "INOXAR is a brand identity case study: a modular logo system for a stainless-steel kitchen and architecture company, built from four steel pieces, with versions, a palette and usage rules.",
+      "link": "/work/inoxar",
+      "label": "Open INOXAR"
+    },
+    {
       "id": "case_studies",
       "questions": [
         "what projects are there",
@@ -385,7 +408,7 @@
         "examples",
         "samples"
       ],
-      "answer": "There are three case studies. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are mobile and B2B design projects.",
+      "answer": "There are four case studies. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are mobile and B2B design projects, and INOXAR is a brand identity project.",
       "link": "/work",
       "label": "See all work"
     },
