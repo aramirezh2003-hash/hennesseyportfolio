@@ -425,26 +425,32 @@
     .legend i{width:14px;height:14px;border-radius:5px;display:inline-block;border:2px solid}
     .lane{margin-top:28px}
     .lane > .label{margin-bottom:12px}
-    .fnode{margin:10px 0}
-    .fbtn{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:16px 18px;border-radius:20px;border:1.5px solid;background:var(--glass-strong);color:var(--ink);font:500 16px/1.35 var(--sans);cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-    .fbtn:hover{transform:translateX(6px);box-shadow:0 14px 30px -14px rgba(20,24,70,.35)}
-    .ftag{flex:none;font:600 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;min-width:82px;color:var(--muted)}
-    .flabel{flex:1}
-    .fcaret{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:500 18px/1 var(--sans);background:var(--chip);transition:transform .5s var(--ease)}
-    .fnode.open > .fbtn .fcaret{transform:rotate(45deg)}
-    .fnode.t-start > .fbtn,.fnode.t-end > .fbtn{background:var(--ink);color:var(--bg);border-color:var(--ink);border-radius:999px}
-    .fnode.t-start > .fbtn .ftag,.fnode.t-end > .fbtn .ftag{color:var(--bg);opacity:.7}
-    .fnode.t-start > .fbtn .fcaret,.fnode.t-end > .fbtn .fcaret{background:rgba(255,255,255,.15)}
-    .fnode.t-action > .fbtn{border-color:#b56cf5}
-    .fnode.t-action > .fbtn .ftag{color:#8a3fd6}
-    .fnode.t-decision > .fbtn{border-color:#22aef0}
-    .fnode.t-decision > .fbtn .ftag{color:#0b7fb8}
-    .fnode.t-choice > .fbtn{border-style:dashed;border-color:var(--line)}
-    .fnode.t-system > .fbtn{border-color:var(--accent)}
-    .fnode.t-system > .fbtn .ftag{color:var(--accent)}
-    .fkids{margin:8px 0 0 18px;padding-left:22px;border-left:2px solid var(--line)}
-    .fdetail{margin:10px 0 4px 6px;padding:14px 16px;border-radius:18px;background:var(--chip);color:var(--ink-2);font-size:15px;line-height:1.5}
-    .fnode:not(.open) > .fkids,.fnode:not(.open) > .fdetail{display:none}
+    .fmap{border-radius:26px;border:1px solid var(--line);background:var(--glass-strong);padding:26px 22px 20px;position:relative}
+    .fscroll{overflow-x:auto;overflow-y:hidden;padding:6px 4px 16px;scrollbar-width:thin;overscroll-behavior-x:contain}
+    .ftrack{display:flex;flex-direction:column;gap:18px;width:max-content;min-width:100%}
+    .fhint{margin:6px 2px 0;font-size:14px;color:var(--muted)}
+    .fsel{margin:14px 2px 0;font-size:15px;line-height:1.5;color:var(--ink-2);padding:12px 16px;border-radius:16px;background:var(--chip)}
+    .fchain{position:relative;display:flex;align-items:flex-start}
+    .fnode{position:relative;flex:none}
+    .fpill{position:relative;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #86c2ea;background:#e8f5fd;color:var(--ink);font:600 14px/1 var(--sans);white-space:nowrap;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
+    .fpill:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(20,24,70,.35)}
+    .fpill:focus-visible{outline:2px solid #2f45d6;outline-offset:3px}
+    .fcount{font:600 12px/1 var(--sans);color:#3b6f96;opacity:.85;min-width:10px;text-align:center}
+    .fchain.has-kids > .fnode > .fpill::after{content:'';position:absolute;left:100%;top:50%;width:28px;border-top:1.5px solid #9cc9e8}
+    .fbranch{position:relative;display:flex;flex-direction:column;gap:14px;margin-left:28px;padding-left:28px}
+    .fbranch > .fchain{position:relative}
+    .fbranch > .fchain::before{content:'';position:absolute;left:-28px;top:22px;width:28px;border-top:1.5px solid #9cc9e8}
+    .fbranch > .fchain::after{content:'';position:absolute;left:-28px;top:0;bottom:0;border-left:1.5px solid #9cc9e8}
+    .fbranch > .fchain:first-child::after{top:22px}
+    .fbranch > .fchain:last-child::after{bottom:auto;height:22px}
+    .fbranch > .fchain:only-child::after{display:none}
+    .fchain.collapsed > .fbranch{display:none}
+    .fchain.t-start > .fnode > .fpill,.fchain.t-end > .fnode > .fpill{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+    .fchain.t-start > .fnode > .fpill .fcount,.fchain.t-end > .fnode > .fpill .fcount{color:var(--bg);opacity:.7}
+    .fchain.t-action > .fnode > .fpill{border-color:#b56cf5;background:#f4ebff}
+    .fchain.t-decision > .fnode > .fpill{border-color:#22aef0}
+    .fchain.t-choice > .fnode > .fpill{border-style:dashed;border-color:#9aa3b8;background:var(--glass-strong)}
+    .fchain.t-system > .fnode > .fpill{border-color:var(--accent);background:rgba(47,75,255,.08)}
     .flow-controls{display:flex;gap:10px;margin-top:24px}
     .flow-controls button{padding:10px 16px;border-radius:999px;border:0;background:var(--chip);color:var(--ink);font:600 13px var(--sans);cursor:pointer;transition:background .3s,transform .3s}
     .flow-controls button:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
@@ -934,345 +940,85 @@
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
-        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:#9aa3b8;border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
-      </div><div class="lane" id="kitlab-fs-lane-0"><p class="label">1 · Find a shirt</p><div class="fnode t-start">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f1">
-          <span class="ftag">Start</span>
-          <span class="flabel">Shopper arrives: search, ad, World Cup hub or homepage</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Visitors arrive from ads, search or the homepage, so every entry point should land on something shoppable.</p><div class="fkids" id="f1"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f2">
-          <span class="ftag">Decision</span>
-          <span class="flabel">How do they look for a shirt?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f2"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f3">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Navigation: Clubs or Nations menu</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f3"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f4">
-          <span class="ftag">User action</span>
-          <span class="flabel">Picks a confederation, then a country or league</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The menu groups clubs by confederation (UEFA, CONMEBOL, CONCACAF, AFC, CAF, OFC), so a shopper reaches a league in two clicks. On mobile the same menu opens in place, level by level.</p><div class="fkids" id="f4"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f5">
-          <span class="ftag">System</span>
-          <span class="flabel">Lands on a filtered Shop all page</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The page opens with the choice already applied as a removable chip, so the shopper never starts from zero.</p>
-      </div></div>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f6">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Search: types a team or player</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f6"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f7">
-          <span class="ftag">System</span>
-          <span class="flabel">Search results open in the catalogue</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Results sit in the same grid, with the same filters, so refining feels familiar.</p>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f8">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Browse: opens Shop all</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f8"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f9">
-          <span class="ftag">User action</span>
-          <span class="flabel">Scans the grid</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Badges such as Trending, Bestseller, New and Retro help a shopper decide what to open first.</p>
-      </div></div>
-      </div></div>
-      </div><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f10">
-          <span class="ftag">User action</span>
-          <span class="flabel">Narrows with filters</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Category, confederation, country, kit version, season, size, price range and in-stock only. Active filters sit above the results and clear with one tap.</p><div class="fkids" id="f10"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f11">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Too many results?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The catalogue holds about 1,200 products and 7,822 variants.</p><div class="fkids" id="f11"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f12">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes: adds another filter or sorts</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f12"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f13">
-          <span class="ftag">System</span>
-          <span class="flabel">Result count updates instantly</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">A running count tells the shopper how close they are. Load more shows progress, for example 24 of the total.</p>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f14">
-          <span class="ftag">Choice</span>
-          <span class="flabel">No: opens a shirt</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f14"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f15">
-          <span class="ftag">End</span>
-          <span class="flabel">Product page opens</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The shopper moves to the stage where most decisions are made.</p>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div><div class="lane" id="kitlab-fs-lane-1"><p class="label">2 · Choose and customize</p><div class="fnode t-start">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f16">
-          <span class="ftag">Start</span>
-          <span class="flabel">Shopper is on a product page</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">This page was redesigned after the first version let people play with every option and leave.</p><div class="fkids" id="f16"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f17">
-          <span class="ftag">User action</span>
-          <span class="flabel">Sees the shirt, price and delivery date together</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Free shipping and an estimated delivery date sit in the buy panel, so shipping is never a surprise at checkout.</p><div class="fkids" id="f17"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f18">
-          <span class="ftag">User action</span>
-          <span class="flabel">Chooses a version: player or fan</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f18"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f19">
-          <span class="ftag">User action</span>
-          <span class="flabel">Chooses a size</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The size guide is one tap away, so doubts about fit are solved on the page.</p><div class="fkids" id="f19"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f20">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Wants a name and number?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f20"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f21">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes: types a name and number, picks a patch</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f21"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f22">
-          <span class="ftag">System</span>
-          <span class="flabel">Price breakdown updates</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Jersey, personalization and total are listed in the panel. There are no toggles to flip, so there is nothing to play with and no phantom price changes.</p>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f23">
-          <span class="ftag">Choice</span>
-          <span class="flabel">No: keeps the standard shirt</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f23"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f24">
-          <span class="ftag">System</span>
-          <span class="flabel">Total stays as shown</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f25">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Ready to commit?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">This is the decision point the redesign was built around.</p><div class="fkids" id="f25"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f26">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes: Add to Kitbag</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f26"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f27">
-          <span class="ftag">End</span>
-          <span class="flabel">Cart drawer opens</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Selections, price and shipping were already decided on the page, so the cart confirms rather than surprises.</p>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f28">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Not sure: reads specifications, sizing, care or reviews</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f28"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f29">
-          <span class="ftag">User action</span>
-          <span class="flabel">Checks tabs and recommended shirts</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Specifications, sizing guide, care and fit, and reviews are one tab away.</p><div class="fkids" id="f29"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f30">
-          <span class="ftag">End</span>
-          <span class="flabel">Returns to the decision</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div><div class="lane" id="kitlab-fs-lane-2"><p class="label">3 · Cart and checkout</p><div class="fnode t-start">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f31">
-          <span class="ftag">Start</span>
-          <span class="flabel">Cart drawer opens over the page</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">It opens as a drawer, so the shopper keeps their place in the catalogue.</p><div class="fkids" id="f31"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f32">
-          <span class="ftag">System</span>
-          <span class="flabel">Shows free shipping status and a "3rd jersey free" progress bar</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Progress toward free shipping and the third-shirt offer sits at the top of the cart, where it nudges larger orders.</p><div class="fkids" id="f32"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f33">
-          <span class="ftag">User action</span>
-          <span class="flabel">Reviews the item: version, size, quantity, personalization</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f33"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f34">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Wants to add more?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f34"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f35">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes: adds the Mystery Jersey Box or another shirt</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f35"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f36">
-          <span class="ftag">System</span>
-          <span class="flabel">Total and progress update</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The offer text changes as the order grows, for example how many more shirts unlock the free one.</p>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f37">
-          <span class="ftag">Choice</span>
-          <span class="flabel">No: continues</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f38">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Checks out or keeps shopping?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f38"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f39">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Checkout</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f39"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f40">
-          <span class="ftag">User action</span>
-          <span class="flabel">Completes the guided checkout</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Shipping and the total were visible on the product page and in the cart, so the shopper arrives having already decided.</p><div class="fkids" id="f40"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f41">
-          <span class="ftag">End</span>
-          <span class="flabel">Completed sale</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Result: 550+ orders, average order value up from US$43 to US$68 after the purchase redesign, and a 3.8% completed-sale rate.</p>
-      </div></div>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f42">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Continue shopping</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f42"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f43">
-          <span class="ftag">End</span>
-          <span class="flabel">Back to the catalogue, cart saved</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div><div class="lane" id="kitlab-fs-lane-3"><p class="label">4 · After the sale</p><div class="fnode t-start">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f44">
-          <span class="ftag">Start</span>
-          <span class="flabel">Order is placed</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Support questions cost time, so the post-purchase experience answers them before they are asked.</p><div class="fkids" id="f44"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f45">
-          <span class="ftag">System</span>
-          <span class="flabel">Order number is issued</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The order number is the key to everything after the sale.</p><div class="fkids" id="f45"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f46">
-          <span class="ftag">User action</span>
-          <span class="flabel">Opens Track Order</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Reachable from the navigation and the footer.</p><div class="fkids" id="f46"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f47">
-          <span class="ftag">User action</span>
-          <span class="flabel">Enters the order number and email</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f47"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f48">
-          <span class="ftag">System</span>
-          <span class="flabel">Status page shows the order at a glance</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Order number, placed date and estimated delivery appear in a dark header. A five-step bar shows Processing, Packed, Shipped, Out for delivery and Delivered.</p><div class="fkids" id="f48"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f49">
-          <span class="ftag">User action</span>
-          <span class="flabel">Reads the live update and tracking history</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The latest scan, for example in transit at a facility, and a timeline of every earlier scan.</p><div class="fkids" id="f49"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f50">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Is the order on track?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f50"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f51">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f51"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f52">
-          <span class="ftag">End</span>
-          <span class="flabel">Delivered</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The shopper never needed support.</p>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f53">
-          <span class="ftag">Choice</span>
-          <span class="flabel">No: late, missing or wrong item</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f53"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f54">
-          <span class="ftag">User action</span>
-          <span class="flabel">Picks a quick help topic</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Where is my order? How do I return an item? Package says delivered but I did not receive it. Wrong item received.</p><div class="fkids" id="f54"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f55">
-          <span class="ftag">System</span>
-          <span class="flabel">Support form collects the order number and issue type</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Asking for the order number and issue type up front means the support team starts with the facts, not a back-and-forth.</p><div class="fkids" id="f55"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f56">
-          <span class="ftag">End</span>
-          <span class="flabel">Issue resolved</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
+      </div><div class="lane" id="kitlab-fs-lane-0"><p class="label">1 · Find a shirt</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="1 · Find a shirt"><div class="ftrack"><div class="fchain has-kids t-start"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f1" data-kids="2" data-detail="Visitors arrive from ads, search or the homepage, so every entry point should land on something shoppable.">
+          <span class="flabel">Shopper arrives: search, ad, World Cup hub or homepage</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f1"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f2" data-kids="3">
+          <span class="flabel">How do they look for a shirt?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f2"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f3" data-kids="1">
+          <span class="flabel">Navigation: Clubs or Nations menu</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f3"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f4" data-kids="1" data-detail="The menu groups clubs by confederation (UEFA, CONMEBOL, CONCACAF, AFC, CAF, OFC), so a shopper reaches a league in two clicks. On mobile the same menu opens in place, level by level.">
+          <span class="flabel">Picks a confederation, then a country or league</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f4"><div class="fchain t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f5" data-kids="0" data-detail="The page opens with the choice already applied as a removable chip, so the shopper never starts from zero.">
+          <span class="flabel">Lands on a filtered Shop all page</span></button></div></div></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f6" data-kids="1">
+          <span class="flabel">Search: types a team or player</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f6"><div class="fchain t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f7" data-kids="0" data-detail="Results sit in the same grid, with the same filters, so refining feels familiar.">
+          <span class="flabel">Search results open in the catalogue</span></button></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f8" data-kids="1">
+          <span class="flabel">Browse: opens Shop all</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f8"><div class="fchain t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f9" data-kids="0" data-detail="Badges such as Trending, Bestseller, New and Retro help a shopper decide what to open first.">
+          <span class="flabel">Scans the grid</span></button></div></div></div></div></div></div><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f10" data-kids="1" data-detail="Category, confederation, country, kit version, season, size, price range and in-stock only. Active filters sit above the results and clear with one tap.">
+          <span class="flabel">Narrows with filters</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f10"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f11" data-kids="2" data-detail="The catalogue holds about 1,200 products and 7,822 variants.">
+          <span class="flabel">Too many results?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f11"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f12" data-kids="1">
+          <span class="flabel">Yes: adds another filter or sorts</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f12"><div class="fchain t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f13" data-kids="0" data-detail="A running count tells the shopper how close they are. Load more shows progress, for example 24 of the total.">
+          <span class="flabel">Result count updates instantly</span></button></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f14" data-kids="1">
+          <span class="flabel">No: opens a shirt</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f14"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f15" data-kids="0" data-detail="The shopper moves to the stage where most decisions are made.">
+          <span class="flabel">Product page opens</span></button></div></div></div></div></div></div></div></div></div></div></div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden=""></p>
+          </div></div><div class="lane" id="kitlab-fs-lane-1"><p class="label">2 · Choose and customize</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="2 · Choose and customize"><div class="ftrack"><div class="fchain has-kids t-start"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f16" data-kids="2" data-detail="This page was redesigned after the first version let people play with every option and leave.">
+          <span class="flabel">Shopper is on a product page</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f16"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f17" data-kids="1" data-detail="Free shipping and an estimated delivery date sit in the buy panel, so shipping is never a surprise at checkout.">
+          <span class="flabel">Sees the shirt, price and delivery date together</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f17"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f18" data-kids="1">
+          <span class="flabel">Chooses a version: player or fan</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f18"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f19" data-kids="1" data-detail="The size guide is one tap away, so doubts about fit are solved on the page.">
+          <span class="flabel">Chooses a size</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f19"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f20" data-kids="2">
+          <span class="flabel">Wants a name and number?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f20"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f21" data-kids="1">
+          <span class="flabel">Yes: types a name and number, picks a patch</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f21"><div class="fchain t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f22" data-kids="0" data-detail="Jersey, personalization and total are listed in the panel. There are no toggles to flip, so there is nothing to play with and no phantom price changes.">
+          <span class="flabel">Price breakdown updates</span></button></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f23" data-kids="1">
+          <span class="flabel">No: keeps the standard shirt</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f23"><div class="fchain t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f24" data-kids="0">
+          <span class="flabel">Total stays as shown</span></button></div></div></div></div></div></div></div></div></div></div></div></div><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f25" data-kids="2" data-detail="This is the decision point the redesign was built around.">
+          <span class="flabel">Ready to commit?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f25"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f26" data-kids="1">
+          <span class="flabel">Yes: Add to Kitbag</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f26"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f27" data-kids="0" data-detail="Selections, price and shipping were already decided on the page, so the cart confirms rather than surprises.">
+          <span class="flabel">Cart drawer opens</span></button></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f28" data-kids="1">
+          <span class="flabel">Not sure: reads specifications, sizing, care or reviews</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f28"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f29" data-kids="1" data-detail="Specifications, sizing guide, care and fit, and reviews are one tab away.">
+          <span class="flabel">Checks tabs and recommended shirts</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f29"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f30" data-kids="0">
+          <span class="flabel">Returns to the decision</span></button></div></div></div></div></div></div></div></div></div></div></div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden=""></p>
+          </div></div><div class="lane" id="kitlab-fs-lane-2"><p class="label">3 · Cart and checkout</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="3 · Cart and checkout"><div class="ftrack"><div class="fchain has-kids t-start"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f31" data-kids="2" data-detail="It opens as a drawer, so the shopper keeps their place in the catalogue.">
+          <span class="flabel">Cart drawer opens over the page</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f31"><div class="fchain has-kids t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f32" data-kids="1" data-detail="Progress toward free shipping and the third-shirt offer sits at the top of the cart, where it nudges larger orders.">
+          <span class="flabel">Shows free shipping status and a "3rd jersey free" progress bar</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f32"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f33" data-kids="1">
+          <span class="flabel">Reviews the item: version, size, quantity, personalization</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f33"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f34" data-kids="2">
+          <span class="flabel">Wants to add more?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f34"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f35" data-kids="1">
+          <span class="flabel">Yes: adds the Mystery Jersey Box or another shirt</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f35"><div class="fchain t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f36" data-kids="0" data-detail="The offer text changes as the order grows, for example how many more shirts unlock the free one.">
+          <span class="flabel">Total and progress update</span></button></div></div></div></div><div class="fchain t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f37" data-kids="0">
+          <span class="flabel">No: continues</span></button></div></div></div></div></div></div></div></div><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f38" data-kids="2">
+          <span class="flabel">Checks out or keeps shopping?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f38"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f39" data-kids="1">
+          <span class="flabel">Checkout</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f39"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f40" data-kids="1" data-detail="Shipping and the total were visible on the product page and in the cart, so the shopper arrives having already decided.">
+          <span class="flabel">Completes the guided checkout</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f40"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f41" data-kids="0" data-detail="Result: 550+ orders, average order value up from US$43 to US$68 after the purchase redesign, and a 3.8% completed-sale rate.">
+          <span class="flabel">Completed sale</span></button></div></div></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f42" data-kids="1">
+          <span class="flabel">Continue shopping</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f42"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f43" data-kids="0">
+          <span class="flabel">Back to the catalogue, cart saved</span></button></div></div></div></div></div></div></div></div></div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden=""></p>
+          </div></div><div class="lane" id="kitlab-fs-lane-3"><p class="label">4 · After the sale</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="4 · After the sale"><div class="ftrack"><div class="fchain has-kids t-start"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f44" data-kids="1" data-detail="Support questions cost time, so the post-purchase experience answers them before they are asked.">
+          <span class="flabel">Order is placed</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f44"><div class="fchain has-kids t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f45" data-kids="1" data-detail="The order number is the key to everything after the sale.">
+          <span class="flabel">Order number is issued</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f45"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f46" data-kids="1" data-detail="Reachable from the navigation and the footer.">
+          <span class="flabel">Opens Track Order</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f46"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f47" data-kids="1">
+          <span class="flabel">Enters the order number and email</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f47"><div class="fchain has-kids t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f48" data-kids="1" data-detail="Order number, placed date and estimated delivery appear in a dark header. A five-step bar shows Processing, Packed, Shipped, Out for delivery and Delivered.">
+          <span class="flabel">Status page shows the order at a glance</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f48"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f49" data-kids="1" data-detail="The latest scan, for example in transit at a facility, and a timeline of every earlier scan.">
+          <span class="flabel">Reads the live update and tracking history</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f49"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f50" data-kids="2">
+          <span class="flabel">Is the order on track?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f50"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f51" data-kids="1">
+          <span class="flabel">Yes</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f51"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f52" data-kids="0" data-detail="The shopper never needed support.">
+          <span class="flabel">Delivered</span></button></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f53" data-kids="1">
+          <span class="flabel">No: late, missing or wrong item</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f53"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f54" data-kids="1" data-detail="Where is my order? How do I return an item? Package says delivered but I did not receive it. Wrong item received.">
+          <span class="flabel">Picks a quick help topic</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f54"><div class="fchain has-kids t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f55" data-kids="1" data-detail="Asking for the order number and issue type up front means the support team starts with the facts, not a back-and-forth.">
+          <span class="flabel">Support form collects the order number and issue type</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f55"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f56" data-kids="0">
+          <span class="flabel">Issue resolved</span></button></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden=""></p>
+          </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
           </section>
           <section class="block reveal" id="kitlab-fs-thinking">
             <p class="label">04 / My thinking</p>
@@ -1389,87 +1135,32 @@
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
-        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:#9aa3b8;border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
-      </div><div class="lane" id="matchup-lane-0"><p class="label">Organizer</p><div class="fnode t-start">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f57">
-          <span class="ftag">Start</span>
-          <span class="flabel">Organizer has booked a field</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f57"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f58">
-          <span class="ftag">User action</span>
-          <span class="flabel">Creates a match</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f58"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f59">
-          <span class="ftag">User action</span>
-          <span class="flabel">Sets openings, skill level, location and cost</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Organizers no longer rebuild teams or chase payments by hand.</p><div class="fkids" id="f59"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f60">
-          <span class="ftag">System</span>
-          <span class="flabel">Match appears with open positions</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Players see availability and cost before they commit.</p><div class="fkids" id="f60"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f61">
-          <span class="ftag">End</span>
-          <span class="flabel">Team fills as players join</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div><div class="lane" id="matchup-lane-1"><p class="label">Player</p><div class="fnode t-start">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f62">
-          <span class="ftag">Start</span>
-          <span class="flabel">Player looks for a game nearby</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f62"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f63">
-          <span class="ftag">User action</span>
-          <span class="flabel">Finds a local match</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f63"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f64">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Does the match fit?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Skill level, location and cost are visible before anyone commits.</p><div class="fkids" id="f64"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f65">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes: picks an open position</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f65"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f66">
-          <span class="ftag">User action</span>
-          <span class="flabel">Pays their share in the match</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Payment is shown with the match, so no one chases anyone.</p><div class="fkids" id="f66"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f67">
-          <span class="ftag">End</span>
-          <span class="flabel">Kickoff is confirmed</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">One shared match state from discovery to kickoff.</p>
-      </div></div>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f68">
-          <span class="ftag">Choice</span>
-          <span class="flabel">No: keeps looking</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f68"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f69">
-          <span class="ftag">End</span>
-          <span class="flabel">Back to other matches</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
+      </div><div class="lane" id="matchup-lane-0"><p class="label">Organizer</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="Organizer"><div class="ftrack"><div class="fchain has-kids t-start"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f57" data-kids="1">
+          <span class="flabel">Organizer has booked a field</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f57"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f58" data-kids="1">
+          <span class="flabel">Creates a match</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f58"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f59" data-kids="1" data-detail="Organizers no longer rebuild teams or chase payments by hand.">
+          <span class="flabel">Sets openings, skill level, location and cost</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f59"><div class="fchain has-kids t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f60" data-kids="1" data-detail="Players see availability and cost before they commit.">
+          <span class="flabel">Match appears with open positions</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f60"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f61" data-kids="0">
+          <span class="flabel">Team fills as players join</span></button></div></div></div></div></div></div></div></div></div></div></div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden=""></p>
+          </div></div><div class="lane" id="matchup-lane-1"><p class="label">Player</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="Player"><div class="ftrack"><div class="fchain has-kids t-start"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f62" data-kids="1">
+          <span class="flabel">Player looks for a game nearby</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f62"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f63" data-kids="1">
+          <span class="flabel">Finds a local match</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f63"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f64" data-kids="2" data-detail="Skill level, location and cost are visible before anyone commits.">
+          <span class="flabel">Does the match fit?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f64"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f65" data-kids="1">
+          <span class="flabel">Yes: picks an open position</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f65"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f66" data-kids="1" data-detail="Payment is shown with the match, so no one chases anyone.">
+          <span class="flabel">Pays their share in the match</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f66"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f67" data-kids="0" data-detail="One shared match state from discovery to kickoff.">
+          <span class="flabel">Kickoff is confirmed</span></button></div></div></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f68" data-kids="1">
+          <span class="flabel">No: keeps looking</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f68"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f69" data-kids="0">
+          <span class="flabel">Back to other matches</span></button></div></div></div></div></div></div></div></div></div></div></div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden=""></p>
+          </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
           </section>
           <section class="block reveal" id="matchup-thinking">
             <p class="label">04 / My thinking</p>
@@ -1578,87 +1269,27 @@
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
-        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:#9aa3b8;border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
-      </div><div class="lane" id="commerceflow-lane-0"><p class="label">Operator</p><div class="fnode t-start">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f70">
-          <span class="ftag">Start</span>
-          <span class="flabel">Operator opens the overview</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f70"><div class="fnode t-system">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f71">
-          <span class="ftag">System</span>
-          <span class="flabel">Overview leads with what moved</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">The overview answers 'what changed?' before showing everything available.</p><div class="fkids" id="f71"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f72">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Does anything need attention?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f72"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f73">
-          <span class="ftag">Choice</span>
-          <span class="flabel">No: scans and moves on</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f73"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f74">
-          <span class="ftag">End</span>
-          <span class="flabel">Back to daily work</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f75">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes: an alert appears</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f75"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f76">
-          <span class="ftag">User action</span>
-          <span class="flabel">Opens the alert</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f76"><div class="fnode t-action">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f77">
-          <span class="ftag">User action</span>
-          <span class="flabel">Sees the module that can explain it</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><p class="fdetail">Each alert points to sales, inventory or advertising, the place where the answer lives.</p><div class="fkids" id="f77"><div class="fnode t-decision">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f78">
-          <span class="ftag">Decision</span>
-          <span class="flabel">Is action needed now?</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f78"><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f79">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Yes: resolves it from the module</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f79"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f80">
-          <span class="ftag">End</span>
-          <span class="flabel">Issue resolved</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div><div class="fnode t-choice">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f81">
-          <span class="ftag">Choice</span>
-          <span class="flabel">Not yet: tracks it</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button><div class="fkids" id="f81"><div class="fnode t-end">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="f82">
-          <span class="ftag">End</span>
-          <span class="flabel">Alert stays visible in the overview</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div>
-      </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
+      </div><div class="lane" id="commerceflow-lane-0"><p class="label">Operator</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="Operator"><div class="ftrack"><div class="fchain has-kids t-start"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f70" data-kids="1">
+          <span class="flabel">Operator opens the overview</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f70"><div class="fchain has-kids t-system"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f71" data-kids="1" data-detail="The overview answers 'what changed?' before showing everything available.">
+          <span class="flabel">Overview leads with what moved</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f71"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f72" data-kids="2">
+          <span class="flabel">Does anything need attention?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f72"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f73" data-kids="1">
+          <span class="flabel">No: scans and moves on</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f73"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f74" data-kids="0">
+          <span class="flabel">Back to daily work</span></button></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f75" data-kids="1">
+          <span class="flabel">Yes: an alert appears</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f75"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f76" data-kids="1">
+          <span class="flabel">Opens the alert</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f76"><div class="fchain has-kids t-action"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f77" data-kids="1" data-detail="Each alert points to sales, inventory or advertising, the place where the answer lives.">
+          <span class="flabel">Sees the module that can explain it</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f77"><div class="fchain has-kids t-decision"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f78" data-kids="2">
+          <span class="flabel">Is action needed now?</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f78"><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f79" data-kids="1">
+          <span class="flabel">Yes: resolves it from the module</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f79"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f80" data-kids="0">
+          <span class="flabel">Issue resolved</span></button></div></div></div></div><div class="fchain has-kids t-choice"><div class="fnode"><button class="fpill" type="button" aria-expanded="true" aria-controls="f81" data-kids="1">
+          <span class="flabel">Not yet: tracks it</span><span class="fcount" aria-hidden="true">−</span></button></div><div class="fbranch" id="f81"><div class="fchain t-end"><div class="fnode"><button class="fpill" type="button" aria-expanded="false" aria-controls="f82" data-kids="0">
+          <span class="flabel">Alert stays visible in the overview</span></button></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden=""></p>
+          </div></div><div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>
           </section>
           <section class="block reveal" id="commerceflow-thinking">
             <p class="label">04 / My thinking</p>
@@ -2242,19 +1873,21 @@
 
     const TYPE_LABEL = {start:'Start', end:'End', action:'User action', decision:'Decision', choice:'Choice', system:'System'};
     let flowUid = 0;
-    function flowNode(n){
+    const setCollapsed = (chain, collapsed) => {
+      chain.classList.toggle('collapsed', collapsed);
+      const pill = chain.querySelector(':scope > .fnode > .fpill');
+      if (!pill) return;
+      pill.setAttribute('aria-expanded', String(!collapsed));
+      const c = pill.querySelector('.fcount');
+      if (c) c.textContent = collapsed ? '+' + pill.dataset.count : '−';
+    };
+    function flowChain(n){
       const kids = n.next || [];
-      const hasKids = kids.length > 0;
       const id = 'f' + (++flowUid);
-      const detail = n.detail ? `<p class="fdetail">${esc(n.detail)}</p>` : '';
-      const children = hasKids ? `<div class="fkids" id="${id}">${kids.map(flowNode).join('')}</div>` : '';
-      return `<div class="fnode t-${n.type}">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="${id}">
-          <span class="ftag">${TYPE_LABEL[n.type]}</span>
-          <span class="flabel">${esc(n.label)}</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>${detail}${children}
-      </div>`;
+      const pill = `<button class="fpill" type="button" aria-expanded="${kids.length ? 'true' : 'false'}" aria-controls="${id}" data-kids="${kids.length}" ${n.detail ? `data-detail="${esc(n.detail)}"` : ''}>
+          <span class="flabel">${esc(n.label)}</span>${kids.length ? `<span class="fcount" aria-hidden="true">−</span>` : ''}</button>`;
+      const branch = kids.length ? `<div class="fbranch" id="${id}">${kids.map(flowChain).join('')}</div>` : '';
+      return `<div class="fchain${kids.length ? ' has-kids' : ''} t-${n.type}"><div class="fnode">${pill}</div>${branch}</div>`;
     }
     function renderFlows(f, pre = 'flow'){
       if (!f) return '';
@@ -2262,11 +1895,16 @@
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
-        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:#9aa3b8;border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
       </div>`;
       return `<p class="flow-note">${esc(f.note)}</p>${legend}` +
-        f.lanes.map((l, i) => `<div class="lane" id="${pre}-lane-${i}"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
+        f.lanes.map((l, i) => `<div class="lane" id="${pre}-lane-${i}"><p class="label">${esc(l.title)}</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="${esc(l.title)}"><div class="ftrack">${l.roots.map(flowChain).join('')}</div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden></p>
+          </div></div>`).join('') +
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
@@ -2947,16 +2585,15 @@
     document.addEventListener('click', e => {
       const ctrl = e.target.closest('[data-flow]');
       if (ctrl) {
-        const open = ctrl.dataset.flow === 'expand';
-        const section = ctrl.closest('.block');
-        section.querySelectorAll('.fnode').forEach(n => n.classList.toggle('open', open));
-        section.querySelectorAll('.fbtn').forEach(b => b.setAttribute('aria-expanded', String(open)));
+        const collapsed = ctrl.dataset.flow === 'collapse';
+        ctrl.closest('.block').querySelectorAll('.fchain.has-kids').forEach(ch => setCollapsed(ch, collapsed));
         return;
       }
-      const btn = e.target.closest('.fbtn');
-      if (!btn) return;
-      const open = btn.closest('.fnode').classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(open));
+      const pill = e.target.closest('.fpill');
+      if (!pill) return;
+      setCollapsed(pill.closest('.fchain'), !pill.closest('.fchain').classList.contains('collapsed'));
+      const sel = pill.closest('.fmap').querySelector('.fsel');
+      if (sel && pill.dataset.detail) { sel.textContent = pill.dataset.detail; sel.hidden = false; }
     });
 
     // Personalized pages: /hi/<company> shows the home page with a greeting and the work reordered

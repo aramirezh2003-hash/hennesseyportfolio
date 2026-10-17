@@ -426,26 +426,32 @@
     .legend i{width:14px;height:14px;border-radius:5px;display:inline-block;border:2px solid}
     .lane{margin-top:28px}
     .lane > .label{margin-bottom:12px}
-    .fnode{margin:10px 0}
-    .fbtn{width:100%;display:flex;align-items:center;gap:14px;text-align:left;padding:16px 18px;border-radius:20px;border:1.5px solid;background:var(--glass-strong);color:var(--ink);font:500 16px/1.35 var(--sans);cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-    .fbtn:hover{transform:translateX(6px);box-shadow:0 14px 30px -14px rgba(20,24,70,.35)}
-    .ftag{flex:none;font:600 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;min-width:82px;color:var(--muted)}
-    .flabel{flex:1}
-    .fcaret{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:500 18px/1 var(--sans);background:var(--chip);transition:transform .5s var(--ease)}
-    .fnode.open > .fbtn .fcaret{transform:rotate(45deg)}
-    .fnode.t-start > .fbtn,.fnode.t-end > .fbtn{background:var(--ink);color:var(--bg);border-color:var(--ink);border-radius:999px}
-    .fnode.t-start > .fbtn .ftag,.fnode.t-end > .fbtn .ftag{color:var(--bg);opacity:.7}
-    .fnode.t-start > .fbtn .fcaret,.fnode.t-end > .fbtn .fcaret{background:rgba(255,255,255,.15)}
-    .fnode.t-action > .fbtn{border-color:#b56cf5}
-    .fnode.t-action > .fbtn .ftag{color:#8a3fd6}
-    .fnode.t-decision > .fbtn{border-color:#22aef0}
-    .fnode.t-decision > .fbtn .ftag{color:#0b7fb8}
-    .fnode.t-choice > .fbtn{border-style:dashed;border-color:var(--line)}
-    .fnode.t-system > .fbtn{border-color:var(--accent)}
-    .fnode.t-system > .fbtn .ftag{color:var(--accent)}
-    .fkids{margin:8px 0 0 18px;padding-left:22px;border-left:2px solid var(--line)}
-    .fdetail{margin:10px 0 4px 6px;padding:14px 16px;border-radius:18px;background:var(--chip);color:var(--ink-2);font-size:15px;line-height:1.5}
-    .fnode:not(.open) > .fkids,.fnode:not(.open) > .fdetail{display:none}
+    .fmap{border-radius:26px;border:1px solid var(--line);background:var(--glass-strong);padding:26px 22px 20px;position:relative}
+    .fscroll{overflow-x:auto;overflow-y:hidden;padding:6px 4px 16px;scrollbar-width:thin;overscroll-behavior-x:contain}
+    .ftrack{display:flex;flex-direction:column;gap:18px;width:max-content;min-width:100%}
+    .fhint{margin:6px 2px 0;font-size:14px;color:var(--muted)}
+    .fsel{margin:14px 2px 0;font-size:15px;line-height:1.5;color:var(--ink-2);padding:12px 16px;border-radius:16px;background:var(--chip)}
+    .fchain{position:relative;display:flex;align-items:flex-start}
+    .fnode{position:relative;flex:none}
+    .fpill{position:relative;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #86c2ea;background:#e8f5fd;color:var(--ink);font:600 14px/1 var(--sans);white-space:nowrap;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
+    .fpill:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(20,24,70,.35)}
+    .fpill:focus-visible{outline:2px solid #2f45d6;outline-offset:3px}
+    .fcount{font:600 12px/1 var(--sans);color:#3b6f96;opacity:.85;min-width:10px;text-align:center}
+    .fchain.has-kids > .fnode > .fpill::after{content:'';position:absolute;left:100%;top:50%;width:28px;border-top:1.5px solid #9cc9e8}
+    .fbranch{position:relative;display:flex;flex-direction:column;gap:14px;margin-left:28px;padding-left:28px}
+    .fbranch > .fchain{position:relative}
+    .fbranch > .fchain::before{content:'';position:absolute;left:-28px;top:22px;width:28px;border-top:1.5px solid #9cc9e8}
+    .fbranch > .fchain::after{content:'';position:absolute;left:-28px;top:0;bottom:0;border-left:1.5px solid #9cc9e8}
+    .fbranch > .fchain:first-child::after{top:22px}
+    .fbranch > .fchain:last-child::after{bottom:auto;height:22px}
+    .fbranch > .fchain:only-child::after{display:none}
+    .fchain.collapsed > .fbranch{display:none}
+    .fchain.t-start > .fnode > .fpill,.fchain.t-end > .fnode > .fpill{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+    .fchain.t-start > .fnode > .fpill .fcount,.fchain.t-end > .fnode > .fpill .fcount{color:var(--bg);opacity:.7}
+    .fchain.t-action > .fnode > .fpill{border-color:#b56cf5;background:#f4ebff}
+    .fchain.t-decision > .fnode > .fpill{border-color:#22aef0}
+    .fchain.t-choice > .fnode > .fpill{border-style:dashed;border-color:#9aa3b8;background:var(--glass-strong)}
+    .fchain.t-system > .fnode > .fpill{border-color:var(--accent);background:rgba(47,75,255,.08)}
     .flow-controls{display:flex;gap:10px;margin-top:24px}
     .flow-controls button{padding:10px 16px;border-radius:999px;border:0;background:var(--chip);color:var(--ink);font:600 13px var(--sans);cursor:pointer;transition:background .3s,transform .3s}
     .flow-controls button:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
@@ -1282,19 +1288,21 @@
 
     const TYPE_LABEL = {start:'Start', end:'End', action:'User action', decision:'Decision', choice:'Choice', system:'System'};
     let flowUid = 0;
-    function flowNode(n){
+    const setCollapsed = (chain, collapsed) => {
+      chain.classList.toggle('collapsed', collapsed);
+      const pill = chain.querySelector(':scope > .fnode > .fpill');
+      if (!pill) return;
+      pill.setAttribute('aria-expanded', String(!collapsed));
+      const c = pill.querySelector('.fcount');
+      if (c) c.textContent = collapsed ? '+' + pill.dataset.count : '−';
+    };
+    function flowChain(n){
       const kids = n.next || [];
-      const hasKids = kids.length > 0;
       const id = 'f' + (++flowUid);
-      const detail = n.detail ? `<p class="fdetail">${esc(n.detail)}</p>` : '';
-      const children = hasKids ? `<div class="fkids" id="${id}">${kids.map(flowNode).join('')}</div>` : '';
-      return `<div class="fnode t-${n.type}">
-        <button class="fbtn" type="button" aria-expanded="false" aria-controls="${id}">
-          <span class="ftag">${TYPE_LABEL[n.type]}</span>
-          <span class="flabel">${esc(n.label)}</span>
-          <span class="fcaret" aria-hidden="true">+</span>
-        </button>${detail}${children}
-      </div>`;
+      const pill = `<button class="fpill" type="button" aria-expanded="${kids.length ? 'true' : 'false'}" aria-controls="${id}" data-kids="${kids.length}" ${n.detail ? `data-detail="${esc(n.detail)}"` : ''}>
+          <span class="flabel">${esc(n.label)}</span>${kids.length ? `<span class="fcount" aria-hidden="true">−</span>` : ''}</button>`;
+      const branch = kids.length ? `<div class="fbranch" id="${id}">${kids.map(flowChain).join('')}</div>` : '';
+      return `<div class="fchain${kids.length ? ' has-kids' : ''} t-${n.type}"><div class="fnode">${pill}</div>${branch}</div>`;
     }
     function renderFlows(f, pre = 'flow'){
       if (!f) return '';
@@ -1302,11 +1310,16 @@
         <span><i style="background:#14161c;border-color:#14161c"></i>Start or end</span>
         <span><i style="border-color:#b56cf5;background:rgba(181,108,245,.15)"></i>User action</span>
         <span><i style="border-color:#22aef0;background:rgba(34,174,240,.15)"></i>Decision</span>
-        <span><i style="border-color:var(--line);border-style:dashed"></i>Choice</span>
+        <span><i style="border-color:#9aa3b8;border-style:dashed"></i>Choice</span>
         <span><i style="border-color:var(--accent);background:rgba(47,75,255,.12)"></i>System</span>
       </div>`;
       return `<p class="flow-note">${esc(f.note)}</p>${legend}` +
-        f.lanes.map((l, i) => `<div class="lane" id="${pre}-lane-${i}"><p class="label">${esc(l.title)}</p>${l.roots.map(flowNode).join('')}</div>`).join('') +
+        f.lanes.map((l, i) => `<div class="lane" id="${pre}-lane-${i}"><p class="label">${esc(l.title)}</p>
+          <div class="fmap">
+            <div class="fscroll" tabindex="0" role="group" aria-label="${esc(l.title)}"><div class="ftrack">${l.roots.map(flowChain).join('')}</div></div>
+            <p class="fhint">Scroll sideways to follow the full path. Click a node to expand or collapse its branch.</p>
+            <p class="fsel" aria-live="polite" hidden></p>
+          </div></div>`).join('') +
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
@@ -1987,16 +2000,15 @@
     document.addEventListener('click', e => {
       const ctrl = e.target.closest('[data-flow]');
       if (ctrl) {
-        const open = ctrl.dataset.flow === 'expand';
-        const section = ctrl.closest('.block');
-        section.querySelectorAll('.fnode').forEach(n => n.classList.toggle('open', open));
-        section.querySelectorAll('.fbtn').forEach(b => b.setAttribute('aria-expanded', String(open)));
+        const collapsed = ctrl.dataset.flow === 'collapse';
+        ctrl.closest('.block').querySelectorAll('.fchain.has-kids').forEach(ch => setCollapsed(ch, collapsed));
         return;
       }
-      const btn = e.target.closest('.fbtn');
-      if (!btn) return;
-      const open = btn.closest('.fnode').classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(open));
+      const pill = e.target.closest('.fpill');
+      if (!pill) return;
+      setCollapsed(pill.closest('.fchain'), !pill.closest('.fchain').classList.contains('collapsed'));
+      const sel = pill.closest('.fmap').querySelector('.fsel');
+      if (sel && pill.dataset.detail) { sel.textContent = pill.dataset.detail; sel.hidden = false; }
     });
 
     // Personalized pages: /hi/<company> shows the home page with a greeting and the work reordered
