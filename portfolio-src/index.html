@@ -435,6 +435,11 @@
       --fade-l:0px;--fade-r:0px;
       -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-l),#000 calc(100% - var(--fade-r)),transparent 100%);
       mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-l),#000 calc(100% - var(--fade-r)),transparent 100%)}
+    .fscroll{scrollbar-color:color-mix(in srgb,var(--ink) 28%,transparent) transparent}
+    .fscroll::-webkit-scrollbar{height:6px}
+    .fscroll::-webkit-scrollbar-track{background:transparent}
+    .fscroll::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--ink) 26%,transparent);border-radius:99px}
+    .fscroll::-webkit-scrollbar-thumb:hover{background:color-mix(in srgb,var(--ink) 45%,transparent)}
     .fscroll.can-l{--fade-l:44px}
     .fscroll.can-r{--fade-r:56px}
     .fscroll:focus-visible{box-shadow:0 0 0 2px var(--accent);border-radius:14px}
@@ -1365,7 +1370,7 @@
           <div class="fmap">
             <div class="fscroll" tabindex="0" role="group" aria-label="${esc(l.title)}"><div class="ftrack">${l.roots.map(r => flowChain(r)).join('')}</div></div>
             <div class="fsel empty" aria-live="polite"><span>Tap a step to see why it is there. Use the round buttons to fold a branch, and scroll sideways for the full path.</span></div>
-          </div></div></div>`).join('') +
+          </div></div>`).join('') +
         `<div class="flow-controls"><button type="button" data-flow="expand">Expand all</button><button type="button" data-flow="collapse">Collapse all</button></div>`;
     }
 
