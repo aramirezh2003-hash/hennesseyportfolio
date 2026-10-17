@@ -1809,7 +1809,7 @@
         <button class="wp-close" type="button" aria-label="Close Willow">×</button>
       </header>
       <div class="wp-log" id="wp-log" aria-live="polite"></div>
-      <div class="wp-chips" id="wp-chips"><button class="chip" type="button">What did KitLabFS achieve?</button><button class="chip" type="button">Tell me about Ecofoot</button><button class="chip" type="button">How do you work?</button><button class="chip" type="button">Are you open to remote?</button><button class="chip" type="button">Show me a secret</button></div>
+      <div class="wp-chips" id="wp-chips"><button class="chip" type="button">What are the case studies?</button><button class="chip" type="button">What are your results?</button><button class="chip" type="button">How do you work?</button><button class="chip" type="button">Are you open to remote?</button><button class="chip" type="button">Show me a secret</button></div>
       <form class="wp-form" id="wp-form" autocomplete="off">
         <input id="wp-input" type="text" maxlength="200" placeholder="Ask about projects, experience…" aria-label="Message Willow">
         <button type="submit" aria-label="Send">↑</button>
@@ -2771,7 +2771,7 @@
     const pageMeta = {
       '/': {title:'Alejandro Hennessey — Product Designer, Toronto', desc:'Product designer for complex web products: e-commerce, B2B software and multi-role workflows. Toronto, hybrid or remote.', img:'/assets/og/home.jpg'},
       '/work': {title:'Selected work — Alejandro Hennessey', desc:'Case studies in e-commerce, B2B software and mobile product design.', img:'/assets/og/work.jpg'},
-      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design experience at KitLabFS, Ecofoot and LCBO, and how I work with developers and stakeholders.', img:'/assets/og/about.jpg'},
+      '/about': {title:'About and experience — Alejandro Hennessey', desc:'Product design background, and how I work with developers and stakeholders.', img:'/assets/og/about.jpg'},
       '/contact': {title:'Contact — Alejandro Hennessey', desc:'Get in touch about product design roles or a complex product problem.', img:'/assets/og/contact.jpg'}
     };
     Object.values(projects).forEach(p => { pageMeta['/work/' + p.slug] = {title: `${p.name} ${p.kind === 'motion' ? 'film' : 'case study'} — Alejandro Hennessey`, desc: p.summary, img: '/assets/og/' + p.slug + '.jpg'}; });
@@ -3079,7 +3079,7 @@
     fetch('/willow-knowledge.json').then(r => r.json()).then(buildWillowIndex).catch(() => {});
 
     const log = $('#wp-log'), chips = $('#wp-chips'), form = $('#wp-form'), input = $('#wp-input'), panel = $('#willow-panel'), wbtn = $('#willow-btn');
-    const QUICK = ['What did KitLabFS achieve?', 'Tell me about Ecofoot', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
+    const QUICK = ['What are the case studies?', 'What are your results?', 'How do you work?', 'Are you open to remote?', 'Show me a secret'];
     chips.innerHTML = QUICK.map(q => `<button class="chip" type="button">${esc(q)}</button>`).join('');
     function addMsg(role, html){
       const d = document.createElement('div'); d.className = 'msg ' + role; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d;

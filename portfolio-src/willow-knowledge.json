@@ -82,7 +82,7 @@
         "jobs",
         "career"
       ],
-      "answer": "Two product roles: Product Designer at Ecofoot (Dec 2024 to Sep 2026, Ontario), and Co-op to Product Designer at LCBO (Sep 2023 to Nov 2024, Toronto)."
+      "answer": "Alejandro is a product designer based in Toronto. He designs complex web and mobile products, with a graphic design background behind the brand work. Ask about a specific project, results, skills or availability."
     },
     {
       "id": "kitlab_overview",
@@ -217,49 +217,6 @@
       "answer": "He was the founder and product designer. He owned product pages, funnels, checkout and inventory flows, and was responsible for the redesign of the purchase experience."
     },
     {
-      "id": "ecofoot",
-      "questions": [
-        "tell me about ecofoot",
-        "what did he do at ecofoot",
-        "ecofoot role",
-        "what is ecofoot"
-      ],
-      "keywords": [
-        "ecofoot",
-        "ballycorp",
-        "eco",
-        "foot",
-        "website"
-      ],
-      "answer": "At Ecofoot, from Dec 2024 to Sep 2026, he was a Product Designer. He designed the company website and a sales rep portal, connecting clients and sales reps in one place."
-    },
-    {
-      "id": "ecofoot_portal",
-      "questions": [
-        "what is the sales rep portal",
-        "b2b work",
-        "how did he design the portal",
-        "what workflows did he map",
-        "edge cases",
-        "permissions",
-        "empty states",
-        "error states"
-      ],
-      "keywords": [
-        "portal",
-        "rep",
-        "b2b",
-        "workflow",
-        "permissions",
-        "empty state",
-        "edge",
-        "error",
-        "confirmation",
-        "role"
-      ],
-      "answer": "For the Ecofoot portal, he mapped end-to-end workflows for each user role, covering permissions, empty states, errors and confirmations. He turned them into Figma flows and interactive prototypes. Over 21 months he gathered feedback from sales and operations stakeholders and used it to simplify screens and labels."
-    },
-    {
       "id": "developers",
       "questions": [
         "how does he work with developers",
@@ -281,45 +238,6 @@
         "dev"
       ],
       "answer": "He documents intended behaviour, edge cases and decision notes so developers can build without a live walkthrough. He then reviews the implementation and logs fixes."
-    },
-    {
-      "id": "lcbo",
-      "questions": [
-        "tell me about lcbo",
-        "what did he do at lcbo",
-        "lcbo role",
-        "was he a co-op",
-        "where did he start"
-      ],
-      "keywords": [
-        "lcbo",
-        "co-op",
-        "coop",
-        "retail",
-        "start",
-        "began",
-        "first"
-      ],
-      "answer": "At LCBO, from Sep 2023 to Nov 2024, he started as a co-op, became Junior Product Designer, and then Product Designer. He designed digital product experiences in Figma, from wireframes to high-fidelity prototypes, inside a larger cross-functional team."
-    },
-    {
-      "id": "promotions",
-      "questions": [
-        "did he get promoted",
-        "promotions",
-        "how fast did he grow",
-        "career growth",
-        "how long at lcbo"
-      ],
-      "keywords": [
-        "promotion",
-        "promoted",
-        "growth",
-        "grow",
-        "progress",
-        "advance"
-      ],
-      "answer": "He earned two promotions in 14 months at LCBO, moving from co-op to Junior Product Designer (Jan 2024) and then to Product Designer (Aug 2024). Each step meant taking on more scope, from guided tasks to owning defined product work independently."
     },
     {
       "id": "matchup",
@@ -407,7 +325,7 @@
         "examples",
         "samples"
       ],
-      "answer": "There are four case studies. KitLabFS is the shipped project, with metrics, and the best place to start. MatchUp and CommerceFlow are mobile and B2B design projects, and INOXAR is a brand identity project.",
+      "answer": "There are four case studies: a shipped e-commerce project with metrics, a mobile community sports app, a B2B commerce flow, and a graphic design brand identity. Ask about any one of them.",
       "link": "/work",
       "label": "See all work"
     },
